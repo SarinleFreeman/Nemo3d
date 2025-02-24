@@ -2895,7 +2895,7 @@ void E_const_prep( rvectr par_in, rvectr mb_strain, rvectr par_out,
 
 /*********************************************************************/
 
-/* function provides the parameters for the on-site matrix element
+/* function provides the parameters for the off-site matrix element
    corrections due to strain.  */
 void strain_corr_prep( rvectr par_in, rvectr mb_strain, rvectr par_scal_out, 
                        real unstrnd_cubic_cell_length, 
