@@ -1,0 +1,37 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(etc/notice.m)
+
+dnl Checks for programs.
+AC_PROG_AWK
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_CC
+
+dnl Checks for libraries.
+dnl Replace `main' with a function in -lblas:
+AC_CHECK_LIB(blas, main)
+dnl Replace `main' with a function in -leigen:
+AC_CHECK_LIB(eigen, main)
+dnl Replace `main' with a function in -lf77math:
+AC_CHECK_LIB(f77math, main)
+dnl Replace `main' with a function in -lf90math:
+AC_CHECK_LIB(f90math, main)
+dnl Replace `main' with a function in -lfio:
+AC_CHECK_LIB(fio, main)
+dnl Replace `main' with a function in -llapack:
+AC_CHECK_LIB(lapack, main)
+dnl Replace `main' with a function in -lm:
+AC_CHECK_LIB(m, main)
+dnl Replace `main' with a function in -lnml:
+AC_CHECK_LIB(nml, main)
+
+dnl Checks for header files.
+AC_HEADER_STDC
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+dnl Checks for library functions.
+AC_FUNC_VPRINTF
+
+AC_OUTPUT(examples/Makefile Makefile)

@@ -1,0 +1,7 @@
+<HDR>
+record format        =  {real kx, real ky, real kz, real E}
+record dimension 1   = 2          # number of eigenvalues
+user data 1          =  # not used
+<\HDR>
+   0.000000000000e+00   0.000000000000e+00   0.000000000000e+00   1.161046830054e-01
+   0.000000000000e+00   0.000000000000e+00   0.000000000000e+00   1.571123223764e+00

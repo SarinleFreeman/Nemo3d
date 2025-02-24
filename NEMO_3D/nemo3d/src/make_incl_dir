@@ -1,0 +1,5 @@
+#!/bin/csh
+mkdir incl
+cd incl
+/bin/rm -f *.h
+ln -s ../*/*.h .

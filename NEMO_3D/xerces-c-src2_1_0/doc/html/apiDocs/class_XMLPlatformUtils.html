@@ -1,0 +1,1491 @@
+<HTML><HEAD><SCRIPT language="JavaScript" src="../resources/script.js" type="text/javascript"></SCRIPT><TITLE>XMLPlatformUtils Class Reference</TITLE><link href="XercesApi.css" rel="stylesheet" type="text/css"></HEAD><BODY alink="#ff0000" bgcolor="#ffffff" leftmargin="4" link="#0000ff" marginheight="4" marginwidth="4" text="#000000" topmargin="4" vlink="#0000aa"><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" height="60" rowspan="3" valign="top" width="135"><IMG border="0" height="60" hspace="0" src="../resources/logo.gif" vspace="0" width="135"></TD><TD align="left" colspan="4" height="5" valign="top" width="456"><IMG border="0" height="5" hspace="0" src="../resources/line.gif" vspace="0" width="456"></TD><TD align="left" height="60" rowspan="3" valign="top" width="29"><IMG border="0" height="60" hspace="0" src="../resources/right.gif" vspace="0" width="29"></TD></TR><TR><TD align="left" bgcolor="#0086b2" colspan="4" height="35" valign="top" width="456"><IMG alt="" border="0" height="35" hspace="0" src="../graphics/api-header.jpg" vspace="0" width="456"></TD></TR><TR><TD align="left" height="20" valign="top" width="168"><IMG border="0" height="20" hspace="0" src="../resources/bottom.gif" vspace="0" width="168"></TD><TD align="left" height="20" valign="top" width="96"><A href="http://xml.apache.org/" onMouseOut="rolloverOff('xml');" onMouseOver="rolloverOn('xml');" target="new"><IMG alt="http://xml.apache.org/" border="0" height="20" hspace="0" name="xml" onLoad="rolloverLoad('xml','../resources/button-xml-hi.gif','../resources/button-xml-lo.gif');" src="../resources/button-xml-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.apache.org/" onMouseOut="rolloverOff('asf');" onMouseOver="rolloverOn('asf');" target="new"><IMG alt="http://www.apache.org/" border="0" height="20" hspace="0" name="asf" onLoad="rolloverLoad('asf','../resources/button-asf-hi.gif','../resources/button-asf-lo.gif');" src="../resources/button-asf-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.w3.org/" onMouseOut="rolloverOff('w3c');" onMouseOver="rolloverOn('w3c');" target="new"><IMG alt="http://www.w3.org/" border="0" height="20" hspace="0" name="w3c" onLoad="rolloverLoad('w3c','../resources/button-w3c-hi.gif','../resources/button-w3c-lo.gif');" src="../resources/button-w3c-lo.gif" vspace="0" width="96"></A></TD></TR></TABLE><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" valign="top" width="120"><IMG border="0" height="14" hspace="0" src="../resources/join.gif" vspace="0" width="120"><BR>
+  <A href="../../index.html" onMouseOut="rolloverOff('side-ext-2');" onMouseOver="rolloverOn('side-ext-2');"><IMG alt="Home" border="0" height="12" hspace="0" name="side-ext-2" onLoad="rolloverLoad('side-ext-2','../graphics/ext-2-label-2.jpg','../graphics/ext-2-label-3.jpg');" src="../graphics/ext-2-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../index.html" onMouseOut="rolloverOff('side-index');" onMouseOver="rolloverOn('side-index');"><IMG alt="Readme" border="0" height="12" hspace="0" name="side-index" onLoad="rolloverLoad('side-index','../graphics/index-label-2.jpg','../graphics/index-label-3.jpg');" src="../graphics/index-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../releases.html" onMouseOut="rolloverOff('side-releases');" onMouseOver="rolloverOn('side-releases');"><IMG alt="Release Info" border="0" height="12" hspace="0" name="side-releases" onLoad="rolloverLoad('side-releases','../graphics/releases-label-2.jpg','../graphics/releases-label-3.jpg');" src="../graphics/releases-label-3.jpg" vspace="0" width="120"></A><BR>
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../install.html" onMouseOut="rolloverOff('side-install');" onMouseOver="rolloverOn('side-install');"><IMG alt="Installation" border="0" height="12" hspace="0" name="side-install" onLoad="rolloverLoad('side-install','../graphics/install-label-2.jpg','../graphics/install-label-3.jpg');" src="../graphics/install-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://xml.apache.org/dist/xerces-c/" onMouseOut="rolloverOff('side-ext-18');" onMouseOver="rolloverOn('side-ext-18');"><IMG alt="Download" border="0" height="12" hspace="0" name="side-ext-18" onLoad="rolloverLoad('side-ext-18','../graphics/ext-18-label-2.jpg','../graphics/ext-18-label-3.jpg');" src="../graphics/ext-18-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../build.html" onMouseOut="rolloverOff('side-build');" onMouseOver="rolloverOn('side-build');"><IMG alt="Build" border="0" height="12" hspace="0" name="side-build" onLoad="rolloverLoad('side-build','../graphics/build-label-2.jpg','../graphics/build-label-3.jpg');" src="../graphics/build-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../faqs.html" onMouseOut="rolloverOff('side-faqs');" onMouseOver="rolloverOn('side-faqs');"><IMG alt="FAQs" border="0" height="12" hspace="0" name="side-faqs" onLoad="rolloverLoad('side-faqs','../graphics/faqs-label-2.jpg','../graphics/faqs-label-3.jpg');" src="../graphics/faqs-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../samples.html" onMouseOut="rolloverOff('side-samples');" onMouseOver="rolloverOn('side-samples');"><IMG alt="Samples" border="0" height="12" hspace="0" name="side-samples" onLoad="rolloverLoad('side-samples','../graphics/samples-label-2.jpg','../graphics/samples-label-3.jpg');" src="../graphics/samples-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../api.html" onMouseOut="rolloverOff('side-api');" onMouseOver="rolloverOn('side-api');"><IMG alt="API Docs" border="0" height="12" hspace="0" name="side-api" onLoad="rolloverLoad('side-api','../graphics/api-label-2.jpg','../graphics/api-label-3.jpg');" src="../graphics/api-label-3.jpg" vspace="0" width="120"></A><BR>  
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../ApacheDOMC++Binding.html" onMouseOut="rolloverOff('side-ext-64');" onMouseOver="rolloverOn('side-ext-64');"><IMG alt="DOM C++ Binding" border="0" height="12" hspace="0" name="side-ext-64" onLoad="rolloverLoad('side-ext-64','../graphics/ext-64-label-2.jpg','../graphics/ext-64-label-3.jpg');" src="../graphics/ext-64-label-3.jpg" vspace="0" width="120"></A><BR> 
+  <A href="../program.html" onMouseOut="rolloverOff('side-program');" onMouseOver="rolloverOn('side-program');"><IMG alt="Programming" border="0" height="12" hspace="0" name="side-program" onLoad="rolloverLoad('side-program','../graphics/program-label-2.jpg','../graphics/program-label-3.jpg');" src="../graphics/program-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../migrate.html" onMouseOut="rolloverOff('side-migrate');" onMouseOver="rolloverOn('side-migrate');"><IMG alt="Migration Guide" border="0" height="12" hspace="0" name="side-migrate" onLoad="rolloverLoad('side-migrate','../graphics/migrate-label-2.jpg','../graphics/migrate-label-3.jpg');" src="../graphics/migrate-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../feedback.html" onMouseOut="rolloverOff('side-feedback');" onMouseOver="rolloverOn('side-feedback');"><IMG alt="Feedback" border="0" height="12" hspace="0" name="side-feedback" onLoad="rolloverLoad('side-feedback','../graphics/feedback-label-2.jpg','../graphics/feedback-label-3.jpg');" src="../graphics/feedback-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../bug-report.html" onMouseOut="rolloverOff('side-bug-report');" onMouseOver="rolloverOn('side-bug-report');"><IMG alt="Bug-Reporting" border="0" height="12" hspace="0" name="side-bug-report" onLoad="rolloverLoad('side-bug-report','../graphics/bug-report-label-2.jpg','../graphics/bug-report-label-3.jpg');" src="../graphics/bug-report-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../pdf.html" onMouseOut="rolloverOff('side-pdf');" onMouseOver="rolloverOn('side-pdf');"><IMG alt="PDF Document" border="0" height="12" hspace="0" name="side-pdf" onLoad="rolloverLoad('side-pdf','../graphics/pdf-label-2.jpg','../graphics/pdf-label-3.jpg');" src="../graphics/pdf-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="http://xml.apache.org/websrc/cvsweb.cgi/xml-xerces/c/" onMouseOut="rolloverOff('side-ext-96');" onMouseOver="rolloverOn('side-ext-96');"><IMG alt="CVS Repository" border="0" height="12" hspace="0" name="side-ext-96" onLoad="rolloverLoad('side-ext-96','../graphics/ext-96-label-2.jpg','../graphics/ext-96-label-3.jpg');" src="../graphics/ext-96-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://marc.theaimsgroup.com/?l=xerces-c-dev" onMouseOut="rolloverOff('side-ext-98');" onMouseOver="rolloverOn('side-ext-98');"><IMG alt="Mail Archive" border="0" height="12" hspace="0" name="side-ext-98" onLoad="rolloverLoad('side-ext-98','../graphics/ext-98-label-2.jpg','../graphics/ext-98-label-3.jpg');" src="../graphics/ext-98-label-3.jpg" vspace="0" width="120"></A><BR>
+
+<IMG border="0" height="14" hspace="0" src="../resources/close.gif" vspace="0" width="120"><BR></TD><TD align="left" valign="top" width="500"><TABLE border="0" cellpadding="3" cellspacing="0"><TR><TD>
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#FFFFFF" colspan="2" width="494"><TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#039acc" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#039acc" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#039acc" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#0086b2" width="492"><FONT color="#ffffff" face="arial,helvetica,sanserif" size="+1"><IMG border="0" height="2" hspace="0" src="../resources/void.gif" vspace="0" width="2"><B>API Docs for SAX and DOM</B></FONT></TD><TD bgcolor="#017299" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#017299" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#017299" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR></TABLE></TD></TR><TR><TD width="10">&nbsp;</TD><TD width="484"><FONT color="#000000" face="arial,helvetica,sanserif">
+
+	    <P>
+<!-- Generated by Doxygen 1.2.4 on Tue Aug 27 03:26:44 2002 -->
+<center>
+<a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="hierarchy.html">Class Hierarchy</a> &nbsp; <a class="qindex" href="classes.html">Alphabetical List</a> &nbsp; <a class="qindex" href="annotated.html">Compound List</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Compound Members</a> &nbsp; <a class="qindex" href="globals.html">File Members</a> &nbsp; </center>
+<hr><h1>XMLPlatformUtils  Class Reference</h1>Utilities that must be implemented in a platform-specific way. 
+<a href="#_details">More...</a>
+<p>
+<code>#include &lt;<a class="el" href="PlatformUtils_hpp-source.html">PlatformUtils.hpp</a>&gt;</code>
+<p>
+Collaboration diagram for XMLPlatformUtils:<p><center><img src="class_XMLPlatformUtils_coll_graph.gif" border="0" usemap="#XMLPlatformUtils_coll_map" alt="Collaboration graph"></center>
+<map name="XMLPlatformUtils_coll_map">
+<area href="class_XMLTransService.html" shape="rect" coords="14,36,129,14">
+</map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="class_XMLPlatformUtils-members.html">List of all members.</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Public Types</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Public Types</div></td></tr>
+<tr><td nowrap align=right valign=top>enum &nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#s8">PanicReasons</a> { <br>
+&nbsp;&nbsp;<a class="el" href="class_XMLPlatformUtils.html#s8s0">Panic_NoTransService</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s1">Panic_NoDefTranscoder</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s2">Panic_CantFindLib</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s3">Panic_UnknownMsgDomain</a>, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLPlatformUtils.html#s8s4">Panic_CantLoadMsgDomain</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s5">Panic_SynchronizationErr</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s6">Panic_SystemInit</a>, 
+<a class="el" href="class_XMLPlatformUtils.html#s8s7">PanicReasons_Count</a>
+<br>
+ }</td></tr>
+<tr><td colspan=2><br><h2>Static Public Methods</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Initialization amd Panic methods</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d0">Initialize</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Perform per-process parser initialization.</em> <a href="#d0">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d1">Terminate</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Perform per-process parser termination.</em> <a href="#d1">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d2">panic</a> (const <a class="el" href="class_XMLPlatformUtils.html#s8">PanicReasons</a> reason)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>The panic mechanism.</em> <a href="#d2">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">File Methods</div></td></tr>
+<tr><td nowrap align=right valign=top>unsigned int&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d3">curFilePos</a> (FileHandle theFile)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the current file position.</em> <a href="#d3">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d4">closeFile</a> (FileHandle theFile)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Closes the file handle.</em> <a href="#d4">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>unsigned int&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d5">fileSize</a> (FileHandle theFile)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Returns the file size.</em> <a href="#d5">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>FileHandle&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d6">openFile</a> (const char *const fileName)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Opens the file.</em> <a href="#d6">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>FileHandle&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d7">openFile</a> (const XMLCh *const fileName)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Opens a named file.</em> <a href="#d7">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>FileHandle&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d8">openFileToWrite</a> (const char *const fileName)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Open a named file to write.</em> <a href="#d8">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>FileHandle&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d9">openFileToWrite</a> (const XMLCh *const fileName)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Open a named file to write.</em> <a href="#d9">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>FileHandle&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d10">openStdInHandle</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Opens the standard input as a file.</em> <a href="#d10">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>unsigned int&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d11">readFileBuffer</a> (FileHandle theFile,const unsigned int toRead,<a class="el" href="XercesDefs_hpp.html#a9">XMLByte</a> *const toFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Reads the file buffer.</em> <a href="#d11">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d12">writeBufferToFile</a> (FileHandle const theFile,long toWrite,const <a class="el" href="XercesDefs_hpp.html#a9">XMLByte</a> *const toFlush)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Writes the buffer to the file.</em> <a href="#d12">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d13">resetFile</a> (FileHandle theFile)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Resets the file handle.</em> <a href="#d13">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">File System Methods</div></td></tr>
+<tr><td nowrap align=right valign=top>XMLCh*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d14">getFullPath</a> (const XMLCh *const srcPath)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gets the full path from a relative path.</em> <a href="#d14">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d15">isRelative</a> (const XMLCh *const toCheck)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Determines if a path is relative or absolute.</em> <a href="#d15">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>XMLCh*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d16">weavePaths</a> (const XMLCh *const basePath,const XMLCh *const relativePath)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Utility to join two paths.</em> <a href="#d16">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Timing Methods</div></td></tr>
+<tr><td nowrap align=right valign=top>unsigned long&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d17">getCurrentMillis</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Gets the system time in milliseconds.</em> <a href="#d17">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Mutex Methods</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d18">closeMutex</a> (void *const mtxHandle)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Closes a mutex handle.</em> <a href="#d18">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d19">lockMutex</a> (void *const mtxHandle)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Locks a mutex handle.</em> <a href="#d19">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d20">makeMutex</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Make a new mutex.</em> <a href="#d20">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d21">unlockMutex</a> (void *const mtxHandle)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Unlocks a mutex.</em> <a href="#d21">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">External Message Support</div></td></tr>
+<tr><td nowrap align=right valign=top>XMLMsgLoader*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d22">loadMsgSet</a> (const XMLCh *const msgDomain)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Loads the message set from among the available domains.</em> <a href="#d22">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Miscellaneous synchronization methods</div></td></tr>
+<tr><td nowrap align=right valign=top>void*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d23">compareAndSwap</a> (void **toFill,const void *const newValue,const void *const toCompare)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Conditionally updates or returns a single word variable atomically.</em> <a href="#d23">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Atomic Increment and Decrement</div></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d24">atomicIncrement</a> (int &amp;location)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Increments a single word variable atomically.</em> <a href="#d24">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d25">atomicDecrement</a> (int &amp;location)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Decrements a single word variable atomically.</em> <a href="#d25">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">NEL Character Handling</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d26">recognizeNEL</a> (bool state)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This function enables the recognition of NEL char as whitespace chars which is disabled by default.</em> <a href="#d26">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d27">isNELRecognized</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Return the value of fgNEL flag.</em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Strict IANA Encoding Checking</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d28">strictIANAEncoding</a> (const bool state)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This function enables/disables strict IANA encoding names checking.</em> <a href="#d28">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#d29">isStrictIANAEncoding</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Returns whether a strict IANA encoding name check is enabled or disabled.</em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Static Public Attributes</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Public Static Data</div></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_XMLNetAccessor.html">XMLNetAccessor</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#p0">fgNetAccessor</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>The network accessor.</em> <a href="#p0">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_XMLTransService.html">XMLTransService</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_XMLPlatformUtils.html#p1">fgTransService</a></td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>The transcoding service.</em> <a href="#p1">More...</a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Utilities that must be implemented in a platform-specific way.
+<p>
+This class contains methods that must be implemented in a platform specific manner. The actual implementations of these methods are available in the per-platform files indide <code>src/util/Platforms </code>. 
+<p>
+<hr><h2>Member Enumeration Documentation</h2>
+<a name="s8" doxytag="XMLPlatformUtils::PanicReasons"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+enum XMLPlatformUtils::PanicReasons
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+<dl compact><dt>
+<b>Enumeration values:</b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><a name="s8s0" doxytag="Panic_NoTransService"></a><em>Panic_NoTransService</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s1" doxytag="Panic_NoDefTranscoder"></a><em>Panic_NoDefTranscoder</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s2" doxytag="Panic_CantFindLib"></a><em>Panic_CantFindLib</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s3" doxytag="Panic_UnknownMsgDomain"></a><em>Panic_UnknownMsgDomain</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s4" doxytag="Panic_CantLoadMsgDomain"></a><em>Panic_CantLoadMsgDomain</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s5" doxytag="Panic_SynchronizationErr"></a><em>Panic_SynchronizationErr</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s6" doxytag="Panic_SystemInit"></a><em>Panic_SystemInit</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s8s7" doxytag="PanicReasons_Count"></a><em>PanicReasons_Count</em>
+&nbsp;</td><td>
+</td></tr>
+</table>
+</dl>
+    </td>
+  </tr>
+</table>
+<hr><h2>Member Function Documentation</h2>
+<a name="d0" doxytag="XMLPlatformUtils::Initialize"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::Initialize (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Perform per-process parser initialization.
+<p>
+Initialization <b>must</b> be called first in any client code.     </td>
+  </tr>
+</table>
+<a name="d1" doxytag="XMLPlatformUtils::Terminate"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::Terminate (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Perform per-process parser termination.
+<p>
+The termination call is currently optional, to aid those dynamically loading the parser to clean up before exit, or to avoid spurious reports from leak detectors.     </td>
+  </tr>
+</table>
+<a name="d25" doxytag="XMLPlatformUtils::atomicDecrement"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+int XMLPlatformUtils::atomicDecrement (
+          </b></td>
+          <td valign="bottom"><b>
+int &amp; <em>location</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Decrements a single word variable atomically.
+<p>
+This must be implemented by the per-platform driver. The atomicDecrement subroutine increments one word in a single atomic operation. This operation is useful when a counter variable is shared between several threads or processes. When updating such a counter variable, it is important to make sure that the fetch, update, and store operations occur atomically (are not interruptible).<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>location</em>
+&nbsp;</td><td>
+ Specifies the address of the word variable to be decremented.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The function return value is positive if the result of the operation was positive. Zero if the result of the operation was zero. Negative if the result of the operation was negative. Except for the zero case, the value returned may differ from the actual result of the operation - only the sign and zero/nonzero state is guaranteed to be correct. </dl>    </td>
+  </tr>
+</table>
+<a name="d24" doxytag="XMLPlatformUtils::atomicIncrement"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+int XMLPlatformUtils::atomicIncrement (
+          </b></td>
+          <td valign="bottom"><b>
+int &amp; <em>location</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Increments a single word variable atomically.
+<p>
+This must be implemented by the per-platform driver. The atomicIncrement subroutine increments one word in a single atomic operation. This operation is useful when a counter variable is shared between several threads or processes. When updating such a counter variable, it is important to make sure that the fetch, update, and store operations occur atomically (are not interruptible).<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>location</em>
+&nbsp;</td><td>
+ Specifies the address of the word variable to be incremented.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The function return value is positive if the result of the operation was positive. Zero if the result of the operation was zero. Negative if the result of the operation was negative. Except for the zero case, the value returned may differ from the actual result of the operation - only the sign and zero/nonzero state is guaranteed to be correct. </dl>    </td>
+  </tr>
+</table>
+<a name="d4" doxytag="XMLPlatformUtils::closeFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::closeFile (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle <em>theFile</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Closes the file handle.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to close the passed file handle, and to destroy the passed file handle and any allocated data or system resources it contains.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle to close </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d18" doxytag="XMLPlatformUtils::closeMutex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::closeMutex (
+          </b></td>
+          <td valign="bottom"><b>
+void *const <em>mtxHandle</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Closes a mutex handle.
+<p>
+Each per-platform driver must implement this. Only it knows what the actual content of the passed mutex handle is.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>mtxHandle</em>
+&nbsp;</td><td>
+ The mutex handle that you want to close </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d23" doxytag="XMLPlatformUtils::compareAndSwap"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void * XMLPlatformUtils::compareAndSwap (
+          </b></td>
+          <td valign="bottom"><b>
+void ** <em>toFill</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const void *const <em>newValue</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const void *const <em>toCompare</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Conditionally updates or returns a single word variable atomically.
+<p>
+This must be implemented by the per-platform driver. The compareAndSwap subroutine performs an atomic operation which compares the contents of a single word variable with a stored old value. If the values are equal, a new value is stored in the single word variable and TRUE is returned; otherwise, the old value is set to the current value of the single word variable and FALSE is returned.
+<p>
+The compareAndSwap subroutine is useful when a word value must be updated only if it has not been changed since it was last read.
+<p>
+Note: The word containing the single word variable must be aligned on a full word boundary.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ Specifies the address of the single word variable </td></tr>
+<tr><td valign=top><em>newValue</em>
+&nbsp;</td><td>
+ Specifies the new value to be conditionally assigned to the single word variable. </td></tr>
+<tr><td valign=top><em>toCompare</em>
+&nbsp;</td><td>
+ Specifies the address of the old value to be checked against (and conditionally updated with) the value of the single word variable.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns the new value assigned to the single word variable </dl>    </td>
+  </tr>
+</table>
+<a name="d3" doxytag="XMLPlatformUtils::curFilePos"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+unsigned int XMLPlatformUtils::curFilePos (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle <em>theFile</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the current file position.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to deterine the current position within the passed file.
+<p>
+Since the file API provided here only reads, if the host platform supports separate read/write positions, only the read position is of any interest, and hence should be the one returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d5" doxytag="XMLPlatformUtils::fileSize"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+unsigned int XMLPlatformUtils::fileSize (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle <em>theFile</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns the file size.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to determine the current size of the file represented by the passed handle.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle whose size you want
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns the size of the file in bytes </dl>    </td>
+  </tr>
+</table>
+<a name="d17" doxytag="XMLPlatformUtils::getCurrentMillis"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+unsigned long XMLPlatformUtils::getCurrentMillis (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets the system time in milliseconds.
+<p>
+This must be implemented by the per-platform driver, which should use local services to return the current value of a running millisecond timer. Note that the value returned is only as accurate as the millisecond time of the underyling host system.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ Returns the system time as an unsigned long </dl>    </td>
+  </tr>
+</table>
+<a name="d14" doxytag="XMLPlatformUtils::getFullPath"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+XMLCh * XMLPlatformUtils::getFullPath (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>srcPath</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Gets the full path from a relative path.
+<p>
+This must be implemented by the per-platform driver. It should complete a relative path using the 'current directory', or whatever the local equivalent of a current directory is. If the passed source path is actually fully qualified, then a straight copy of it will be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>srcPath</em>
+&nbsp;</td><td>
+ The path of the file for which you want the full path
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns the fully qualified path of the file name including the file name. This is dyanmically allocated and must be deleted by the caller when its no longer needed! </dl>    </td>
+  </tr>
+</table>
+<a name="d27" doxytag="XMLPlatformUtils::isNELRecognized"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLPlatformUtils::isNELRecognized (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Return the value of fgNEL flag.
+<p>
+    </td>
+  </tr>
+</table>
+<a name="d15" doxytag="XMLPlatformUtils::isRelative"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLPlatformUtils::isRelative (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>toCheck</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Determines if a path is relative or absolute.
+<p>
+This must be implemented by the per-platform driver, which should determine whether the passed path is relative or not. The concept of relative and absolute might be... well relative on different platforms. But, as long as the determination is made consistently and in coordination with the <a class="el" href="class_XMLPlatformUtils.html#d16">weavePaths</a>() method, it should work for any platform.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>toCheck</em>
+&nbsp;</td><td>
+ The file name which you want to check
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns true if the filename appears to be relative </dl>    </td>
+  </tr>
+</table>
+<a name="d29" doxytag="XMLPlatformUtils::isStrictIANAEncoding"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLPlatformUtils::isStrictIANAEncoding (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns whether a strict IANA encoding name check is enabled or disabled.
+<p>
+    </td>
+  </tr>
+</table>
+<a name="d22" doxytag="XMLPlatformUtils::loadMsgSet"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+XMLMsgLoader * XMLPlatformUtils::loadMsgSet (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>msgDomain</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Loads the message set from among the available domains.
+<p>
+The returned object must be dynamically allocated and the caller becomes responsible for cleaning it up.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>msgDomain</em>
+&nbsp;</td><td>
+ The message domain which you want to load </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d19" doxytag="XMLPlatformUtils::lockMutex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::lockMutex (
+          </b></td>
+          <td valign="bottom"><b>
+void *const <em>mtxHandle</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Locks a mutex handle.
+<p>
+Each per-platform driver must implement this. Only it knows what the actual content of the passed mutex handle is.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>mtxHandle</em>
+&nbsp;</td><td>
+ The mutex handle that you want to lock </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d20" doxytag="XMLPlatformUtils::makeMutex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void * XMLPlatformUtils::makeMutex (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Make a new mutex.
+<p>
+Each per-platform driver must implement this. Only it knows what the actual content of the passed mutex handle is. The returned handle pointer will be eventually passed to <a class="el" href="class_XMLPlatformUtils.html#d18">closeMutex</a>() which is also implemented by the platform driver.     </td>
+  </tr>
+</table>
+<a name="d7" doxytag="XMLPlatformUtils::openFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+FileHandle XMLPlatformUtils::openFile (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>fileName</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Opens a named file.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to open the passed file. If it fails, a null handle pointer should be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>
+&nbsp;</td><td>
+ The string containing the name of the file
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The file handle of the opened file </dl>    </td>
+  </tr>
+</table>
+<a name="d6" doxytag="XMLPlatformUtils::openFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+FileHandle XMLPlatformUtils::openFile (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>fileName</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Opens the file.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to open passed file. If it fails, a null handle pointer should be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>
+&nbsp;</td><td>
+ The string containing the name of the file
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The file handle of the opened file </dl>    </td>
+  </tr>
+</table>
+<a name="d9" doxytag="XMLPlatformUtils::openFileToWrite"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+FileHandle XMLPlatformUtils::openFileToWrite (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>fileName</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Open a named file to write.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to open the passed file. If it fails, a null handle pointer should be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>
+&nbsp;</td><td>
+ The string containing the name of the file
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The file handle of the opened file </dl>    </td>
+  </tr>
+</table>
+<a name="d8" doxytag="XMLPlatformUtils::openFileToWrite"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+FileHandle XMLPlatformUtils::openFileToWrite (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>fileName</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Open a named file to write.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to open passed file. If it fails, a null handle pointer should be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>fileName</em>
+&nbsp;</td><td>
+ The string containing the name of the file
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The file handle of the opened file </dl>    </td>
+  </tr>
+</table>
+<a name="d10" doxytag="XMLPlatformUtils::openStdInHandle"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+FileHandle XMLPlatformUtils::openStdInHandle (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Opens the standard input as a file.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to open a handle to the standard input. It should be a copy of the standard input handle, since it will be closed later!
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ The file handle of the standard input stream </dl>    </td>
+  </tr>
+</table>
+<a name="d2" doxytag="XMLPlatformUtils::panic"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::panic (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLPlatformUtils.html#s8">PanicReasons</a> <em>reason</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+The panic mechanism.
+<p>
+If, during initialization, we cannot even get far enough along to get transcoding up or get message loading working, we call this method.
+<p>
+Each platform can implement it however they want. This method is expected to display something meaningful and end the process. The enum indicates why its being called, to allow the per-platform code to display or log something more specific if desired.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>reason</em>
+&nbsp;</td><td>
+ The enumeration that defines the cause of the failure </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d11" doxytag="XMLPlatformUtils::readFileBuffer"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+unsigned int XMLPlatformUtils::readFileBuffer (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle <em>theFile</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>toRead</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+<a class="el" href="XercesDefs_hpp.html#a9">XMLByte</a> *const <em>toFill</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Reads the file buffer.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to read up to 'toRead' bytes of data from the passed file, and return those bytes in the 'toFill' buffer. It is not an error not to read the requested number of bytes. When the end of file is reached, zero should be returned.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle to be read from. </td></tr>
+<tr><td valign=top><em>toRead</em>
+&nbsp;</td><td>
+ The maximum number of byte to read from the current position </td></tr>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ The byte buffer to fill
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns the number of bytes read from the stream or file </dl>    </td>
+  </tr>
+</table>
+<a name="d26" doxytag="XMLPlatformUtils::recognizeNEL"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::recognizeNEL (
+          </b></td>
+          <td valign="bottom"><b>
+bool <em>state</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This function enables the recognition of NEL char as whitespace chars which is disabled by default.
+<p>
+It is only called once per process. Once it is set, any subsequent calls will result in exception being thrown.
+<p>
+Note: Turning this option on will make the parser non complicant.     </td>
+  </tr>
+</table>
+<a name="d13" doxytag="XMLPlatformUtils::resetFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::resetFile (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle <em>theFile</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Resets the file handle.
+<p>
+This must be implemented by the per-platform driver which will use local file services to reset the file position to the start of the the file.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle that you want to reset </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d28" doxytag="XMLPlatformUtils::strictIANAEncoding"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::strictIANAEncoding (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>state</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This function enables/disables strict IANA encoding names checking.
+<p>
+The strict checking is disabled by default.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>state</em>
+&nbsp;</td><td>
+ If true, a strict IANA encoding name check is performed, otherwise, no checking. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d21" doxytag="XMLPlatformUtils::unlockMutex"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::unlockMutex (
+          </b></td>
+          <td valign="bottom"><b>
+void *const <em>mtxHandle</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Unlocks a mutex.
+<p>
+Each per-platform driver must implement this. Only it knows what the actual content of the passed mutex handle is.
+<p>
+Note that, since the underlying system synchronization services are used, Xerces cannot guarantee that lock/unlock operaitons are correctly enforced on a per-thread basis or that incorrect nesting of lock/unlock operations will be caught.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>mtxHandle</em>
+&nbsp;</td><td>
+ The mutex handle that you want to unlock </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="d16" doxytag="XMLPlatformUtils::weavePaths"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+XMLCh * XMLPlatformUtils::weavePaths (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>basePath</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>relativePath</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Utility to join two paths.
+<p>
+This must be implemented by the per-platform driver, and should weave the relative path part together with the base part and return a new path that represents this combination.
+<p>
+If the relative part turns out to be fully qualified, it will be returned as is. If it is not, then it will be woven onto the passed base path, by removing one path component for each leading "../" (or whatever is the equivalent in the local system) in the relative path.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>basePath</em>
+&nbsp;</td><td>
+ The string containing the base path </td></tr>
+<tr><td valign=top><em>relativePath</em>
+&nbsp;</td><td>
+ The string containing the relative path
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Returns a string containing the 'woven' path. It should be dynamically allocated and becomes the responsibility of the caller to delete. </dl>    </td>
+  </tr>
+</table>
+<a name="d12" doxytag="XMLPlatformUtils::writeBufferToFile"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void XMLPlatformUtils::writeBufferToFile (
+          </b></td>
+          <td valign="bottom"><b>
+FileHandle const <em>theFile</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+long <em>toWrite</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const <a class="el" href="XercesDefs_hpp.html#a9">XMLByte</a> *const <em>toFlush</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Writes the buffer to the file.
+<p>
+This must be implemented by the per-platform driver, which should use local file services to write up to 'toWrite' bytes of data to the passed file. Unless exception raised by local file services, 'toWrite' bytes of data is to be written to the passed file.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>theFile</em>
+&nbsp;</td><td>
+ The file handle to be written to. </td></tr>
+<tr><td valign=top><em>toWrite</em>
+&nbsp;</td><td>
+ The maximum number of byte to write from the current position </td></tr>
+<tr><td valign=top><em>toFlush</em>
+&nbsp;</td><td>
+ The byte buffer to flush
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ void </dl>    </td>
+  </tr>
+</table>
+<hr><h2>Member Data Documentation</h2>
+<a name="p0" doxytag="XMLPlatformUtils::fgNetAccessor"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_XMLNetAccessor.html">XMLNetAccessor</a> * XMLPlatformUtils::fgNetAccessor<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+The network accessor.
+<p>
+This is provided by the per-platform driver, so each platform can choose what actual implementation it wants to use. The object must be dynamically allocated.
+<p>
+<em>Note that you may optionally, if your platform driver does not install a network accessor, set it manually from your client code after calling <a class="el" href="class_XMLPlatformUtils.html#d0">Initialize</a>(). This works because this object is not required during initialization, and only comes into play during actual XML parsing.</em>     </td>
+  </tr>
+</table>
+<a name="p1" doxytag="XMLPlatformUtils::fgTransService"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_XMLTransService.html">XMLTransService</a> * XMLPlatformUtils::fgTransService<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+The transcoding service.
+<p>
+This is provided by the per platform driver, so each platform can choose what implemenation it wants to use. When the platform independent initialization code needs to get a transcoding service object, it will call <code>makeTransService()</code> to ask the per-platform code to create one. Only one transcoding service object is reqeusted per-process, so it is shared and synchronized among parser instances within that process.     </td>
+  </tr>
+</table>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="PlatformUtils_hpp-source.html">PlatformUtils.hpp</a></ul>
+    </FONT></TD></TR></TABLE><BR>
+</TD></TR></TABLE></TD></TR></TABLE><BR><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD bgcolor="#0086b2"><IMG height="1" src="images/dot.gif" width="1" alt=""></TD></TR><TR><TD align="center"><FONT color="#0086b2" size="-1"><I>
+              Copyright &copy; 2000 The Apache Software Foundation.
+              All Rights Reserved.
+            </I></FONT></TD></TR></TABLE></BODY></HTML>

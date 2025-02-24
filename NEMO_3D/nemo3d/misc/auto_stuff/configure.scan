@@ -1,0 +1,50 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(nemo3d/src/ham/mb_ham_spds.c)
+
+dnl Checks for programs.
+AC_PROG_CXX
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+
+dnl Checks for libraries.
+dnl Replace `main' with a function in -ldl:
+AC_CHECK_LIB(dl, main)
+dnl Replace `main' with a function in -lm:
+AC_CHECK_LIB(m, main)
+dnl Replace `main' with a function in -lnml_dmatrix:
+AC_CHECK_LIB(nml_dmatrix, main)
+dnl Replace `main' with a function in -lnml_dscalar:
+AC_CHECK_LIB(nml_dscalar, main)
+dnl Replace `main' with a function in -lnml_dtensor:
+AC_CHECK_LIB(nml_dtensor, main)
+dnl Replace `main' with a function in -lnml_dvector:
+AC_CHECK_LIB(nml_dvector, main)
+dnl Replace `main' with a function in -lnml_imatrix:
+AC_CHECK_LIB(nml_imatrix, main)
+dnl Replace `main' with a function in -lnml_iscalar:
+AC_CHECK_LIB(nml_iscalar, main)
+dnl Replace `main' with a function in -lnml_itensor:
+AC_CHECK_LIB(nml_itensor, main)
+dnl Replace `main' with a function in -lnml_ivector:
+AC_CHECK_LIB(nml_ivector, main)
+dnl Replace `main' with a function in -lpthread:
+AC_CHECK_LIB(pthread, main)
+dnl Replace `main' with a function in -lutil:
+AC_CHECK_LIB(util, main)
+
+dnl Checks for header files.
+AC_HEADER_STDC
+AC_CHECK_HEADERS(malloc.h unistd.h)
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+
+dnl Checks for library functions.
+AC_FUNC_VPRINTF
+AC_CHECK_FUNCS(strtod strtol)
+
+AC_OUTPUT(nml/src/tensor/dctensor/Makefile build/Makefile nml/src/tensor/itensor/Makefile nml/src/tensor/dtensor/Makefile nml/src/scalar/dscalar/Makefile nml/src/scalar/iscalar/Makefile nml/src/global/global/Makefile nml/src/vector/dvector/Makefile nml/src/vector/ivector/Makefile nml/src/matrix/dmatrix/Makefile nml/src/matrix/imatrix/Makefile nml/src/Makefile nemo3d/temp/Makefile XMLtoC/Makefile nml/src/scalar/dcscalar/Makefile nml/src/vector/dcvector/Makefile eigen/Makefile nml/examples/Makefile nml/src/matrix/dcmatrix/Makefile XMLtoC/apps/ioNemo3D/Makefile eigen/examples/Makefile)

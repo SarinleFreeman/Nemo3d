@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+#### Time-stamp: <convert-to-dx  clemensh  2005-11-02 21:09 EST>
+#### Written by Clemens Heitzinger, 2005.
+
+import os
+import sys
+
+def remove_duplicates(list): 
+    new={} 
+    for x in list:
+        new[x]=None
+    return new.keys() 
+
+
+
+print "Reading points from %s" % sys.argv[1]
+print "Reading wave function from %s." % sys.argv[2]
+print "Writing DX file to %s." % sys.argv[3]
+
+fpoints=open(sys.argv[1],'r')
+fwf=open(sys.argv[2],'r')
+fdx=open(sys.argv[3],'w')
+
+points=fpoints.readlines()
+fpoints.close()
+points=points[6:]
+wf=fwf.readlines()
+fwf.close()
+wf=wf[6:]
+
+xcoords=[]
+ycoords=[]
+zcoords=[]
+for line in points:
+    xcoords.insert(0, float((line.split())[0]))
+    ycoords.insert(0, float((line.split())[1]))
+    zcoords.insert(0, float((line.split())[2]))
+
+xcoords=remove_duplicates(xcoords)
+ycoords=remove_duplicates(ycoords)
+zcoords=remove_duplicates(zcoords)
+
+xmin=min(xcoords)
+xmax=max(xcoords)
+ymin=min(ycoords)
+ymax=max(ycoords)
+zmin=min(zcoords)
+zmax=max(zcoords)
+print "x coordinates: %f .. %f" % (xmin,xmax)
+print "y coordinates: %f .. %f" % (ymin,ymax)
+print "z coordinates: %f .. %f" % (zmin,zmax)
+
+Nx=len(xcoords)
+Ny=len(ycoords)
+Nz=len(zcoords)
+print "Number of grid points: %d x %d x %d = %d" % (Nx,Ny,Nz,Nx*Ny*Nz)
+
+dx=(xmax-xmin)/(Nx-1)
+dy=(ymax-ymin)/(Ny-1)
+dz=(zmax-zmin)/(Nz-1)
+print "Grid spacing: %f, %f, %f" % (dx,dy,dz)
+
+fdx.write("#### Generated from %s and %s.\n" % (sys.argv[1],sys.argv[2]))
+fdx.write("object 1 class gridpositions counts %d %d %d\n" % (Nx,Ny,Nz))
+fdx.write("origin 0 0 0\n")
+fdx.write("delta %f 0 0\n" % dx)
+fdx.write("delta 0 %f 0\n" % dy)
+fdx.write("delta 0 0 %f\n" % dz)
+fdx.write("object 2 class gridconnections counts %d %d %d\n" % (Nx,Ny,Nz))
+fdx.write("attribute \"element type\" string \"cubes\"\n")
+fdx.write("attribute \"ref\" string \"positions\"\n")
+fdx.write("object 3 class array type float rank 0 items %d data follows\n" % (Nx*Ny*Nz))
+for line in wf:
+    fdx.write(line)
+fdx.write("attribute \"dep\" string \"positions\"\n")
+fdx.write("object \"regular positions regular connections\" class field\n")
+fdx.write("component \"positions\" value 1\n")
+fdx.write("component \"connections\" value 2\n")
+fdx.write("component \"data\" value 3\n")
+fdx.write("end\n")
+
+fdx.close()
+
+#### local variables:
+#### mode: python
+#### end:

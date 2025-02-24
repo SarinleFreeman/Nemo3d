@@ -1,0 +1,4571 @@
+<HTML><HEAD><SCRIPT language="JavaScript" src="../resources/script.js" type="text/javascript"></SCRIPT><TITLE>SAXParser Class Reference</TITLE><link href="XercesApi.css" rel="stylesheet" type="text/css"></HEAD><BODY alink="#ff0000" bgcolor="#ffffff" leftmargin="4" link="#0000ff" marginheight="4" marginwidth="4" text="#000000" topmargin="4" vlink="#0000aa"><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" height="60" rowspan="3" valign="top" width="135"><IMG border="0" height="60" hspace="0" src="../resources/logo.gif" vspace="0" width="135"></TD><TD align="left" colspan="4" height="5" valign="top" width="456"><IMG border="0" height="5" hspace="0" src="../resources/line.gif" vspace="0" width="456"></TD><TD align="left" height="60" rowspan="3" valign="top" width="29"><IMG border="0" height="60" hspace="0" src="../resources/right.gif" vspace="0" width="29"></TD></TR><TR><TD align="left" bgcolor="#0086b2" colspan="4" height="35" valign="top" width="456"><IMG alt="" border="0" height="35" hspace="0" src="../graphics/api-header.jpg" vspace="0" width="456"></TD></TR><TR><TD align="left" height="20" valign="top" width="168"><IMG border="0" height="20" hspace="0" src="../resources/bottom.gif" vspace="0" width="168"></TD><TD align="left" height="20" valign="top" width="96"><A href="http://xml.apache.org/" onMouseOut="rolloverOff('xml');" onMouseOver="rolloverOn('xml');" target="new"><IMG alt="http://xml.apache.org/" border="0" height="20" hspace="0" name="xml" onLoad="rolloverLoad('xml','../resources/button-xml-hi.gif','../resources/button-xml-lo.gif');" src="../resources/button-xml-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.apache.org/" onMouseOut="rolloverOff('asf');" onMouseOver="rolloverOn('asf');" target="new"><IMG alt="http://www.apache.org/" border="0" height="20" hspace="0" name="asf" onLoad="rolloverLoad('asf','../resources/button-asf-hi.gif','../resources/button-asf-lo.gif');" src="../resources/button-asf-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.w3.org/" onMouseOut="rolloverOff('w3c');" onMouseOver="rolloverOn('w3c');" target="new"><IMG alt="http://www.w3.org/" border="0" height="20" hspace="0" name="w3c" onLoad="rolloverLoad('w3c','../resources/button-w3c-hi.gif','../resources/button-w3c-lo.gif');" src="../resources/button-w3c-lo.gif" vspace="0" width="96"></A></TD></TR></TABLE><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" valign="top" width="120"><IMG border="0" height="14" hspace="0" src="../resources/join.gif" vspace="0" width="120"><BR>
+  <A href="../../index.html" onMouseOut="rolloverOff('side-ext-2');" onMouseOver="rolloverOn('side-ext-2');"><IMG alt="Home" border="0" height="12" hspace="0" name="side-ext-2" onLoad="rolloverLoad('side-ext-2','../graphics/ext-2-label-2.jpg','../graphics/ext-2-label-3.jpg');" src="../graphics/ext-2-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../index.html" onMouseOut="rolloverOff('side-index');" onMouseOver="rolloverOn('side-index');"><IMG alt="Readme" border="0" height="12" hspace="0" name="side-index" onLoad="rolloverLoad('side-index','../graphics/index-label-2.jpg','../graphics/index-label-3.jpg');" src="../graphics/index-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../releases.html" onMouseOut="rolloverOff('side-releases');" onMouseOver="rolloverOn('side-releases');"><IMG alt="Release Info" border="0" height="12" hspace="0" name="side-releases" onLoad="rolloverLoad('side-releases','../graphics/releases-label-2.jpg','../graphics/releases-label-3.jpg');" src="../graphics/releases-label-3.jpg" vspace="0" width="120"></A><BR>
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../install.html" onMouseOut="rolloverOff('side-install');" onMouseOver="rolloverOn('side-install');"><IMG alt="Installation" border="0" height="12" hspace="0" name="side-install" onLoad="rolloverLoad('side-install','../graphics/install-label-2.jpg','../graphics/install-label-3.jpg');" src="../graphics/install-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://xml.apache.org/dist/xerces-c/" onMouseOut="rolloverOff('side-ext-18');" onMouseOver="rolloverOn('side-ext-18');"><IMG alt="Download" border="0" height="12" hspace="0" name="side-ext-18" onLoad="rolloverLoad('side-ext-18','../graphics/ext-18-label-2.jpg','../graphics/ext-18-label-3.jpg');" src="../graphics/ext-18-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../build.html" onMouseOut="rolloverOff('side-build');" onMouseOver="rolloverOn('side-build');"><IMG alt="Build" border="0" height="12" hspace="0" name="side-build" onLoad="rolloverLoad('side-build','../graphics/build-label-2.jpg','../graphics/build-label-3.jpg');" src="../graphics/build-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../faqs.html" onMouseOut="rolloverOff('side-faqs');" onMouseOver="rolloverOn('side-faqs');"><IMG alt="FAQs" border="0" height="12" hspace="0" name="side-faqs" onLoad="rolloverLoad('side-faqs','../graphics/faqs-label-2.jpg','../graphics/faqs-label-3.jpg');" src="../graphics/faqs-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../samples.html" onMouseOut="rolloverOff('side-samples');" onMouseOver="rolloverOn('side-samples');"><IMG alt="Samples" border="0" height="12" hspace="0" name="side-samples" onLoad="rolloverLoad('side-samples','../graphics/samples-label-2.jpg','../graphics/samples-label-3.jpg');" src="../graphics/samples-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../api.html" onMouseOut="rolloverOff('side-api');" onMouseOver="rolloverOn('side-api');"><IMG alt="API Docs" border="0" height="12" hspace="0" name="side-api" onLoad="rolloverLoad('side-api','../graphics/api-label-2.jpg','../graphics/api-label-3.jpg');" src="../graphics/api-label-3.jpg" vspace="0" width="120"></A><BR>  
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../ApacheDOMC++Binding.html" onMouseOut="rolloverOff('side-ext-64');" onMouseOver="rolloverOn('side-ext-64');"><IMG alt="DOM C++ Binding" border="0" height="12" hspace="0" name="side-ext-64" onLoad="rolloverLoad('side-ext-64','../graphics/ext-64-label-2.jpg','../graphics/ext-64-label-3.jpg');" src="../graphics/ext-64-label-3.jpg" vspace="0" width="120"></A><BR> 
+  <A href="../program.html" onMouseOut="rolloverOff('side-program');" onMouseOver="rolloverOn('side-program');"><IMG alt="Programming" border="0" height="12" hspace="0" name="side-program" onLoad="rolloverLoad('side-program','../graphics/program-label-2.jpg','../graphics/program-label-3.jpg');" src="../graphics/program-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../migrate.html" onMouseOut="rolloverOff('side-migrate');" onMouseOver="rolloverOn('side-migrate');"><IMG alt="Migration Guide" border="0" height="12" hspace="0" name="side-migrate" onLoad="rolloverLoad('side-migrate','../graphics/migrate-label-2.jpg','../graphics/migrate-label-3.jpg');" src="../graphics/migrate-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../feedback.html" onMouseOut="rolloverOff('side-feedback');" onMouseOver="rolloverOn('side-feedback');"><IMG alt="Feedback" border="0" height="12" hspace="0" name="side-feedback" onLoad="rolloverLoad('side-feedback','../graphics/feedback-label-2.jpg','../graphics/feedback-label-3.jpg');" src="../graphics/feedback-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../bug-report.html" onMouseOut="rolloverOff('side-bug-report');" onMouseOver="rolloverOn('side-bug-report');"><IMG alt="Bug-Reporting" border="0" height="12" hspace="0" name="side-bug-report" onLoad="rolloverLoad('side-bug-report','../graphics/bug-report-label-2.jpg','../graphics/bug-report-label-3.jpg');" src="../graphics/bug-report-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../pdf.html" onMouseOut="rolloverOff('side-pdf');" onMouseOver="rolloverOn('side-pdf');"><IMG alt="PDF Document" border="0" height="12" hspace="0" name="side-pdf" onLoad="rolloverLoad('side-pdf','../graphics/pdf-label-2.jpg','../graphics/pdf-label-3.jpg');" src="../graphics/pdf-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="http://xml.apache.org/websrc/cvsweb.cgi/xml-xerces/c/" onMouseOut="rolloverOff('side-ext-96');" onMouseOver="rolloverOn('side-ext-96');"><IMG alt="CVS Repository" border="0" height="12" hspace="0" name="side-ext-96" onLoad="rolloverLoad('side-ext-96','../graphics/ext-96-label-2.jpg','../graphics/ext-96-label-3.jpg');" src="../graphics/ext-96-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://marc.theaimsgroup.com/?l=xerces-c-dev" onMouseOut="rolloverOff('side-ext-98');" onMouseOver="rolloverOn('side-ext-98');"><IMG alt="Mail Archive" border="0" height="12" hspace="0" name="side-ext-98" onLoad="rolloverLoad('side-ext-98','../graphics/ext-98-label-2.jpg','../graphics/ext-98-label-3.jpg');" src="../graphics/ext-98-label-3.jpg" vspace="0" width="120"></A><BR>
+
+<IMG border="0" height="14" hspace="0" src="../resources/close.gif" vspace="0" width="120"><BR></TD><TD align="left" valign="top" width="500"><TABLE border="0" cellpadding="3" cellspacing="0"><TR><TD>
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#FFFFFF" colspan="2" width="494"><TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#039acc" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#039acc" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#039acc" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#0086b2" width="492"><FONT color="#ffffff" face="arial,helvetica,sanserif" size="+1"><IMG border="0" height="2" hspace="0" src="../resources/void.gif" vspace="0" width="2"><B>API Docs for SAX and DOM</B></FONT></TD><TD bgcolor="#017299" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#017299" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#017299" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR></TABLE></TD></TR><TR><TD width="10">&nbsp;</TD><TD width="484"><FONT color="#000000" face="arial,helvetica,sanserif">
+
+	    <P>
+<!-- Generated by Doxygen 1.2.4 on Tue Aug 27 03:26:30 2002 -->
+<center>
+<a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="hierarchy.html">Class Hierarchy</a> &nbsp; <a class="qindex" href="classes.html">Alphabetical List</a> &nbsp; <a class="qindex" href="annotated.html">Compound List</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Compound Members</a> &nbsp; <a class="qindex" href="globals.html">File Members</a> &nbsp; </center>
+<hr><h1>SAXParser  Class Reference</h1>This class implements the SAX '<a class="el" href="class_Parser.html">Parser</a>' interface and should be used by applications wishing to parse the XML files using SAX. 
+<a href="#_details">More...</a>
+<p>
+<code>#include &lt;<a class="el" href="SAXParser_hpp-source.html">SAXParser.hpp</a>&gt;</code>
+<p>
+Inheritance diagram for SAXParser<p><center><img src="class_SAXParser_inherit_graph.gif" border="0" usemap="#SAXParser_inherit_map" alt="Inheritance graph"></center>
+<map name="SAXParser_inherit_map">
+<area href="class_Parser.html" shape="rect" coords="14,35,65,14">
+</map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for SAXParser:<p><center><img src="class_SAXParser_coll_graph.gif" border="0" usemap="#SAXParser_coll_map" alt="Collaboration graph"></center>
+<map name="SAXParser_coll_map">
+<area href="class_Parser.html" shape="rect" coords="70,27,121,6">
+</map>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="class_SAXParser-members.html">List of all members.</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Public Types</h2></td></tr>
+<tr><td nowrap align=right valign=top>enum &nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#s3">ValSchemes</a> { <a class="el" href="class_SAXParser.html#s3s0">Val_Never</a>, 
+<a class="el" href="class_SAXParser.html#s3s1">Val_Always</a>, 
+<a class="el" href="class_SAXParser.html#s3s2">Val_Auto</a>
+ }</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>ValScheme enum used in setValidationScheme Val_Never: Do not report validation errors.</em> <a href="#s3">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Public Methods</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Constructors and Destructor</div></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a0">SAXParser</a> (<a class="el" href="class_XMLValidator.html">XMLValidator</a> *const valToAdopt=0)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Constructor with an instance of validator class to use for validation.</em> <a href="#a0">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a1">~SAXParser</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Destructor.</em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Getter methods</div></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_DocumentHandler.html">DocumentHandler</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a2">getDocumentHandler</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed document handler.</em> <a href="#a2">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="class_DocumentHandler.html">DocumentHandler</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a3">getDocumentHandler</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed document handler.</em> <a href="#a3">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_EntityResolver.html">EntityResolver</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a4">getEntityResolver</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed entity resolver.</em> <a href="#a4">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="class_EntityResolver.html">EntityResolver</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a5">getEntityResolver</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed entity resolver.</em> <a href="#a5">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_ErrorHandler.html">ErrorHandler</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a6">getErrorHandler</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed error handler.</em> <a href="#a6">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="class_ErrorHandler.html">ErrorHandler</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a7">getErrorHandler</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the installed error handler.</em> <a href="#a7">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const <a class="el" href="class_XMLValidator.html">XMLValidator</a>&amp;&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a8">getValidator</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns a reference to the parser's installed validator.</em> <a href="#a8">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_SAXParser.html#s3">ValSchemes</a>&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a9">getValidationScheme</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns an enumerated value that indicates the current validation scheme set on this parser.</em> <a href="#a9">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a10">getDoSchema</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the 'do schema' flag.</em> <a href="#a10">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a11">getValidationSchemaFullChecking</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the 'full schema constraint checking' flag.</em> <a href="#a11">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>int&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a12">getErrorCount</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get error count from the last parse operation.</em> <a href="#a12">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a13">getDoNamespaces</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the state of the parser's namespace handling capability.</em> <a href="#a13">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a14">getExitOnFirstFatalError</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the state of the parser's exit-on-First-Fatal-Error flag.</em> <a href="#a14">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a15">getValidationConstraintFatal</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the state of the parser's validation-constraint-fatal flag.</em> <a href="#a15">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>XMLCh*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a16">getExternalSchemaLocation</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the set of Namespace/SchemaLocation that is specified externaly.</em> <a href="#a16">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>XMLCh*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a17">getExternalNoNamespaceSchemaLocation</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the noNamespace SchemaLocation that is specified externaly.</em> <a href="#a17">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a18">getLoadExternalDTD</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the 'Loading External DTD' flag.</em> <a href="#a18">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a19">isCachingGrammarFromParse</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the 'Grammar caching' flag.</em> <a href="#a19">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a20">isUsingCachedGrammarInParse</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Get the 'Use cached grammar' flag.</em> <a href="#a20">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>Grammar*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a21">getGrammar</a> (const XMLCh *const nameSpaceKey)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Retrieve the grammar that is associated with the specified namespace key.</em> <a href="#a21">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>Grammar*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a22">getRootGrammar</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Retrieve the grammar where the root element is declared.</em> <a href="#a22">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>const XMLCh*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a23">getURIText</a> (unsigned int uriId)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Returns the string corresponding to a URI id from the URI string pool.</em> <a href="#a23">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Setter methods</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a24">setDoNamespaces</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows users to enable or disable the parser's namespace processing.</em> <a href="#a24">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a25">setValidationScheme</a> (const <a class="el" href="class_SAXParser.html#s3">ValSchemes</a> newScheme)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows users to set the validation scheme to be used by this parser.</em> <a href="#a25">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a26">setDoSchema</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Set the 'schema support' flag.</em> <a href="#a26">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a27">setValidationSchemaFullChecking</a> (const bool schemaFullChecking)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user to turn full Schema constraint checking on/off.</em> <a href="#a27">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a28">setExitOnFirstFatalError</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows users to set the parser's behaviour when it encounters the first fatal error.</em> <a href="#a28">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a29">setValidationConstraintFatal</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows users to set the parser's behaviour when it encounters a validtion constraint error.</em> <a href="#a29">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a30">setExternalSchemaLocation</a> (const XMLCh *const schemaLocation)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user to specify a list of schemas to use.</em> <a href="#a30">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a31">setExternalSchemaLocation</a> (const char *const schemaLocation)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is same as <a class="el" href="class_SAXParser.html#a30">setExternalSchemaLocation</a>(const XMLCh* const).</em> <a href="#a31">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a32">setExternalNoNamespaceSchemaLocation</a> (const XMLCh *const noNamespaceSchemaLocation)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user to specify the no target namespace XML Schema Location externally.</em> <a href="#a32">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a33">setExternalNoNamespaceSchemaLocation</a> (const char *const noNamespaceSchemaLocation)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is same as <a class="el" href="class_SAXParser.html#a32">setExternalNoNamespaceSchemaLocation</a>(const XMLCh* const).</em> <a href="#a33">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a34">setLoadExternalDTD</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Set the 'Loading External DTD' flag.</em> <a href="#a34">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a35">cacheGrammarFromParse</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Set the 'Grammar caching' flag.</em> <a href="#a35">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a36">useCachedGrammarInParse</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Set the 'Use cached grammar' flag.</em> <a href="#a36">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Advanced document handler list maintenance methods</div></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a37">installAdvDocHandler</a> (<a class="el" href="class_XMLDocumentHandler.html">XMLDocumentHandler</a> *const toInstall)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method installs the specified 'advanced' document callback handler, thereby allowing the user to customize the processing, if they choose to do so.</em> <a href="#a37">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a38">removeAdvDocHandler</a> (<a class="el" href="class_XMLDocumentHandler.html">XMLDocumentHandler</a> *const toRemove)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method removes the 'advanced' document handler callback from the underlying parser scanner.</em> <a href="#a38">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Progressive scan methods</div></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a39">parseFirst</a> (const XMLCh *const systemId,XMLPScanToken &amp;toFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Begin a progressive parse operation.</em> <a href="#a39">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a40">parseFirst</a> (const char *const systemId,XMLPScanToken &amp;toFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Begin a progressive parse operation.</em> <a href="#a40">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a41">parseFirst</a> (const <a class="el" href="class_InputSource.html">InputSource</a> &amp;source,XMLPScanToken &amp;toFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Begin a progressive parse operation.</em> <a href="#a41">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a42">parseNext</a> (XMLPScanToken &amp;token)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Continue a progressive parse operation.</em> <a href="#a42">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a43">parseReset</a> (XMLPScanToken &amp;token)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Reset the parser after a progressive parse.</em> <a href="#a43">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of Grammar preparsing interface's.</div></td></tr>
+<tr><td nowrap align=right valign=top>Grammar*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a44">loadGrammar</a> (const <a class="el" href="class_InputSource.html">InputSource</a> &amp;source,const short grammarType,const bool toCache=false)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Preparse schema grammar (XML Schema, DTD, etc.) via an input source object.</em> <a href="#a44">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>Grammar*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a45">loadGrammar</a> (const XMLCh *const systemId,const short grammarType,const bool toCache=false)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Preparse schema grammar (XML Schema, DTD, etc.) via a file path or URL.</em> <a href="#a45">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>Grammar*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a46">loadGrammar</a> (const char *const systemId,const short grammarType,const bool toCache=false)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>Preparse schema grammar (XML Schema, DTD, etc.) via a file path or URL.</em> <a href="#a46">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a47">resetCachedGrammarPool</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user to reset the pool of cached grammars.</em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of SAX 1.0 Parser interface's.</div></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a48">parse</a> (const <a class="el" href="class_InputSource.html">InputSource</a> &amp;source)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method invokes the parsing process on the XML file specified by the <a class="el" href="class_InputSource.html">InputSource</a> parameter.</em> <a href="#a48">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a49">parse</a> (const XMLCh *const systemId)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method invokes the parsing process on the XML file specified by the Unicode string parameter 'systemId'.</em> <a href="#a49">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a50">parse</a> (const char *const systemId)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method invokes the parsing process on the XML file specified by the native char* string parameter 'systemId'.</em> <a href="#a50">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a51">setDocumentHandler</a> (<a class="el" href="class_DocumentHandler.html">DocumentHandler</a> *const handler)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method installs the user specified SAX Document Handler callback function on parser.</em> <a href="#a51">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a52">setDTDHandler</a> (<a class="el" href="class_DTDHandler.html">DTDHandler</a> *const handler)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method installs the user specified DTD handler on the parser.</em> <a href="#a52">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a53">setErrorHandler</a> (<a class="el" href="class_ErrorHandler.html">ErrorHandler</a> *const handler)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method installs the user specified error handler on the parser.</em> <a href="#a53">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a54">setEntityResolver</a> (<a class="el" href="class_EntityResolver.html">EntityResolver</a> *const resolver)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method installs the user specified entity resolver on the parser.</em> <a href="#a54">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of the XMLDocumentHandler Interface.</div></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a55">docCharacters</a> (const XMLCh *const chars,const unsigned int length,const bool cdataSection)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report all the characters scanned by the parser.</em> <a href="#a55">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a56">docComment</a> (const XMLCh *const comment)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any comments scanned by the parser.</em> <a href="#a56">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a57">docPI</a> (const XMLCh *const target,const XMLCh *const data)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any PI scanned by the parser.</em> <a href="#a57">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a58">endDocument</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the end of root element was just scanned by the parser.</em> <a href="#a58">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a59">endElement</a> (const <a class="el" href="class_XMLElementDecl.html">XMLElementDecl</a> &amp;elemDecl,const unsigned int urlId,const bool isRoot,const XMLCh *const elemPrefix)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the end tag of an element.</em> <a href="#a59">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a60">endEntityReference</a> (const <a class="el" href="class_XMLEntityDecl.html">XMLEntityDecl</a> &amp;entDecl)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate that an end of an entity reference was just scanned.</em> <a href="#a60">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a61">ignorableWhitespace</a> (const XMLCh *const chars,const unsigned int length,const bool cdataSection)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report all the whitespace characters, which are determined to be 'ignorable'.</em> <a href="#a61">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a62">resetDocument</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user installed Document Handler and any advanced callback handlers to 'reset' themselves.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a63">startDocument</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the start of the parsing process.</em> <a href="#a63">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a64">startElement</a> (const <a class="el" href="class_XMLElementDecl.html">XMLElementDecl</a> &amp;elemDecl,const unsigned int urlId,const XMLCh *const elemPrefix,const RefVectorOf&lt; <a class="el" href="class_XMLAttr.html">XMLAttr</a> &gt; &amp;attrList,const unsigned int attrCount,const bool isEmpty,const bool isRoot)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the start of an element.</em> <a href="#a64">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a65">startEntityReference</a> (const <a class="el" href="class_XMLEntityDecl.html">XMLEntityDecl</a> &amp;entDecl)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the start of an entity reference.</em> <a href="#a65">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a66">XMLDecl</a> (const XMLCh *const versionStr,const XMLCh *const encodingStr,const XMLCh *const standaloneStr,const XMLCh *const actualEncodingStr)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the XML decl scanned by the parser.</em> <a href="#a66">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of the XMLErrorReporter Interface.</div></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a67">error</a> (const unsigned int errCode,const XMLCh *const msgDomain,const <a class="el" href="class_XMLErrorReporter.html#s4">XMLErrorReporter::ErrTypes</a> errType,const XMLCh *const errorText,const XMLCh *const systemId,const XMLCh *const publicId,const XMLSSize_t lineNum,const XMLSSize_t colNum)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report back errors found while parsing the XML file.</em> <a href="#a67">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a68">resetErrors</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user installed Error Handler callback to 'reset' itself.</em> <a href="#a68">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of the XMLEntityHandler Interface.</div></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a69">endInputSource</a> (const <a class="el" href="class_InputSource.html">InputSource</a> &amp;inputSource)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the end of parsing of an external entity file.</em> <a href="#a69">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a70">expandSystemId</a> (const XMLCh *const systemId,XMLBuffer &amp;toFill)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows an installed <a class="el" href="class_XMLEntityHandler.html">XMLEntityHandler</a> to further process any system id's of enternal entities encountered in the XML file being parsed, such as redirection etc.</em> <a href="#a70">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a71">resetEntities</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the installed <a class="el" href="class_XMLEntityHandler.html">XMLEntityHandler</a> to reset itself.</em> <a href="#a71">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual <a class="el" href="class_InputSource.html">InputSource</a>*&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a72">resolveEntity</a> (const XMLCh *const publicId,const XMLCh *const systemId,const XMLCh *const baseURI=0)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows a user installed entity handler to further process any pointers to external entities.</em> <a href="#a72">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a73">startInputSource</a> (const <a class="el" href="class_InputSource.html">InputSource</a> &amp;inputSource)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the start of parsing an external entity file.</em> <a href="#a73">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Implementation of the deprecated DocTypeHandler Interface</div></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a74">attDef</a> (const DTDElementDecl &amp;elemDecl,const DTDAttDef &amp;attDef,const bool ignore)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report an attribute definition.</em> <a href="#a74">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a75">doctypeComment</a> (const XMLCh *const comment)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report a comment occurring within the DTD.</em> <a href="#a75">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a76">doctypeDecl</a> (const DTDElementDecl &amp;elemDecl,const XMLCh *const publicId,const XMLCh *const systemId,const bool hasIntSubset,const bool hasExtSubset=false)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the DOCTYPE declaration.</em> <a href="#a76">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a77">doctypePI</a> (const XMLCh *const target,const XMLCh *const data)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any PI declarations occurring inside the DTD definition block.</em> <a href="#a77">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a78">doctypeWhitespace</a> (const XMLCh *const chars,const unsigned int length)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any whitespaces occurring inside the DTD definition block.</em> <a href="#a78">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a79">elementDecl</a> (const DTDElementDecl &amp;decl,const bool isIgnored)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report an element declarations successfully scanned by the parser.</em> <a href="#a79">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a80">endAttList</a> (const DTDElementDecl &amp;elemDecl)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the end of an attribute list declaration for an element.</em> <a href="#a80">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a81">endIntSubset</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the end of the internal subset.</em> <a href="#a81">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a82">endExtSubset</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the end of the external subset.</em> <a href="#a82">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a83">entityDecl</a> (const DTDEntityDecl &amp;entityDecl,const bool isPEDecl,const bool isIgnored)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any entity declarations.</em> <a href="#a83">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a84">resetDocType</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows the user installed DTD handler to reset itself.</em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a85">notationDecl</a> (const <a class="el" href="class_XMLNotationDecl.html">XMLNotationDecl</a> &amp;notDecl,const bool isIgnored)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report any notation declarations.</em> <a href="#a85">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a86">startAttList</a> (const DTDElementDecl &amp;elemDecl)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to indicate the start of an element's attribute list declaration.</em> <a href="#a86">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a87">startIntSubset</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used indicate the start of the internal subset.</em> <a href="#a87">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a88">startExtSubset</a> ()</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used indicate the start of the external subset.</em> <a href="#a88">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>virtual void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a89">TextDecl</a> (const XMLCh *const versionStr,const XMLCh *const encodingStr)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method is used to report the TextDecl.</em> <a href="#a89">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Deprecated Methods</div></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a90">getDoValidation</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns the state of the parser's validation handling flag which controls whether validation checks are enforced or not.</em> <a href="#a90">More...</a><em></em></font><br><br></td></tr>
+<tr><td nowrap align=right valign=top>void&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#a91">setDoValidation</a> (const bool newState)</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method allows users to enable or disable the parser's validation checks.</em> <a href="#a91">More...</a><em></em></font><br><br></td></tr>
+<tr><td colspan=2><br><h2>Protected Methods</h2></td></tr>
+<tr><td nowrap align=right valign=top>const XMLScanner&amp;&nbsp;</td><td valign=bottom><a class="el" href="class_SAXParser.html#b0">getScanner</a> ()const</td></tr>
+<tr><td>&nbsp;</td><td><font size=-1><em>This method returns a reference to the underlying scanner object.</em> <a href="#b0">More...</a><em></em></font><br><br></td></tr>
+</table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+This class implements the SAX '<a class="el" href="class_Parser.html">Parser</a>' interface and should be used by applications wishing to parse the XML files using SAX.
+<p>
+It allows the client program to install SAX handlers for event callbacks.
+<p>
+
+<p>
+It can be used to instantiate a validating or non-validating parser, by setting a member flag. 
+<p>
+<hr><h2>Member Enumeration Documentation</h2>
+<a name="s3" doxytag="SAXParser::ValSchemes"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+enum SAXParser::ValSchemes
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+ValScheme enum used in setValidationScheme Val_Never: Do not report validation errors.
+<p>
+Val_Always: The parser will always report validation errors. Val_Auto: The parser will report validation errors only if a grammar is specified.
+<p>
+<dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a25">setValidationScheme</a> </dl><dl compact><dt>
+<b>Enumeration values:</b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><a name="s3s0" doxytag="Val_Never"></a><em>Val_Never</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s3s1" doxytag="Val_Always"></a><em>Val_Always</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s3s2" doxytag="Val_Auto"></a><em>Val_Auto</em>
+&nbsp;</td><td>
+</td></tr>
+</table>
+</dl>
+    </td>
+  </tr>
+</table>
+<hr><h2>Constructor &amp; Destructor Documentation</h2>
+<a name="a0" doxytag="SAXParser::SAXParser"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+SAXParser::SAXParser (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_XMLValidator.html">XMLValidator</a> *const <em>valToAdopt</em> = 0&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Constructor with an instance of validator class to use for validation.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>valToAdopt</em>
+&nbsp;</td><td>
+ Pointer to the validator instance to use. The parser is responsible for freeing the memory. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a1" doxytag="SAXParser::~SAXParser"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+SAXParser::~SAXParser (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Destructor.
+<p>
+    </td>
+  </tr>
+</table>
+<hr><h2>Member Function Documentation</h2>
+<a name="a89" doxytag="SAXParser::TextDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::TextDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>versionStr</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>encodingStr</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the TextDecl.
+<p>
+Refer to the XML specification for the syntax of a TextDecl.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>versionStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the version number of the 'version' clause. </td></tr>
+<tr><td valign=top><em>encodingStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the encoding name of the 'encoding' clause. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a66" doxytag="SAXParser::XMLDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::XMLDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>versionStr</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>encodingStr</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>standaloneStr</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>actualEncodingStr</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the XML decl scanned by the parser.
+<p>
+Refer to the XML specification to see the meaning of parameters.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>versionStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing version string value. </td></tr>
+<tr><td valign=top><em>encodingStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the encoding string value. </td></tr>
+<tr><td valign=top><em>standaloneStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the standalone string value. </td></tr>
+<tr><td valign=top><em>actualEncodingStr</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the actual encoding string value. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a12">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a74" doxytag="SAXParser::attDef"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::attDef (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDElementDecl &amp; <em>elemDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const DTDAttDef &amp; <em>attDef</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>ignore</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report an attribute definition.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing information about the element whose attribute definition was just parsed. </td></tr>
+<tr><td valign=top><em>attDef</em>
+&nbsp;</td><td>
+ A const reference to the object containing information attribute definition. </td></tr>
+<tr><td valign=top><em>ignore</em>
+&nbsp;</td><td>
+ The flag indicating whether this attribute definition was ignored by the parser or not. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a35" doxytag="SAXParser::cacheGrammarFromParse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::cacheGrammarFromParse (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Set the 'Grammar caching' flag.
+<p>
+This method allows users to enable or disable caching of grammar when parsing XML documents. When set to true, the parser will cache the resulting grammar for use in subsequent parses.
+<p>
+If the flag is set to true, the 'Use cached grammar' flag will also be set to true.
+<p>
+The parser's default state is: false.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether we should cache grammars or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a19">isCachingGrammarFromParse</a> ,  <a class="el" href="class_SAXParser.html#a36">useCachedGrammarInParse</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a55" doxytag="SAXParser::docCharacters"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::docCharacters (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>chars</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>length</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>cdataSection</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report all the characters scanned by the parser.
+<p>
+The driver will invoke the 'characters' method of the user installed SAX Document Handler.
+<p>
+
+<p>
+If any advanced callback handlers are installed, the corresponding 'docCharacters' method will also be invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>chars</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the character data. </td></tr>
+<tr><td valign=top><em>length</em>
+&nbsp;</td><td>
+ The length of the Unicode string returned in 'chars'. </td></tr>
+<tr><td valign=top><em>cdataSection</em>
+&nbsp;</td><td>
+ A flag indicating if the characters represent content from the CDATA section. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a2">DocumentHandler::characters</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a1">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a56" doxytag="SAXParser::docComment"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::docComment (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>comment</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any comments scanned by the parser.
+<p>
+This method is a no-op unless, unless an advanced callback handler is installed, in which case the corresponding 'docComment' method is invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>comment</em>
+&nbsp;</td><td>
+ A const pointer to a null terminated Unicode string representing the comment text. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a2">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a57" doxytag="SAXParser::docPI"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::docPI (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>target</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>data</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any PI scanned by the parser.
+<p>
+
+<p>
+Any PI's occurring before any 'content' are not reported to any SAX handler as per the specification. However, all PI's within content are reported via the SAX Document Handler's 'processingInstruction' method.
+<p>
+
+<p>
+If any advanced callback handlers are installed, the corresponding 'docPI' method will be invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>target</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the target of the PI declaration. </td></tr>
+<tr><td valign=top><em>data</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the data of the PI declaration. See the PI production rule in the XML specification for details.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a6">DocumentHandler::processingInstruction</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a3">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a75" doxytag="SAXParser::doctypeComment"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::doctypeComment (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>comment</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report a comment occurring within the DTD.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>comment</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the text of the comment just parsed. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a76" doxytag="SAXParser::doctypeDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::doctypeDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDElementDecl &amp; <em>elemDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>publicId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>hasIntSubset</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>hasExtSubset</em> = false&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the DOCTYPE declaration.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing information about the root element definition declaration of the XML document being parsed. </td></tr>
+<tr><td valign=top><em>publicId</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the public id of the DTD file. </td></tr>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the system id of the DTD file. </td></tr>
+<tr><td valign=top><em>hasIntSubset</em>
+&nbsp;</td><td>
+ A flag indicating if this XML file contains any internal subset. </td></tr>
+<tr><td valign=top><em>hasExtSubset</em>
+&nbsp;</td><td>
+ A flag indicating if this XML file contains any external subset. Default is false. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a77" doxytag="SAXParser::doctypePI"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::doctypePI (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>target</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>data</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any PI declarations occurring inside the DTD definition block.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>target</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the target of the PI declaration. </td></tr>
+<tr><td valign=top><em>data</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the data of the PI declaration. See the PI production rule in the XML specification for details. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a78" doxytag="SAXParser::doctypeWhitespace"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::doctypeWhitespace (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>chars</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>length</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any whitespaces occurring inside the DTD definition block.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>chars</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the whitespace characters. </td></tr>
+<tr><td valign=top><em>length</em>
+&nbsp;</td><td>
+ The length of the whitespace Unicode string. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a79" doxytag="SAXParser::elementDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::elementDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDElementDecl &amp; <em>decl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isIgnored</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report an element declarations successfully scanned by the parser.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>decl</em>
+&nbsp;</td><td>
+ A const reference to the object containing element declaration information. </td></tr>
+<tr><td valign=top><em>isIgnored</em>
+&nbsp;</td><td>
+ The flag indicating whether this definition was ignored by the parser or not. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a80" doxytag="SAXParser::endAttList"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endAttList (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDElementDecl &amp; <em>elemDecl</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the end of an attribute list declaration for an element.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing element declaration information. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a58" doxytag="SAXParser::endDocument"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endDocument (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the end of root element was just scanned by the parser.
+<p>
+Corresponding 'endDocument' method of the user installed SAX Document Handler will also be invoked.
+<p>
+
+<p>
+In addition, if any advanced callback handlers are installed, the corresponding 'endDocument' method is invoked.
+<p>
+<dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a3">DocumentHandler::endDocument</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a4">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a59" doxytag="SAXParser::endElement"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endElement (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLElementDecl.html">XMLElementDecl</a> &amp; <em>elemDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>urlId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isRoot</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>elemPrefix</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the end tag of an element.
+<p>
+The driver will invoke the corresponding 'endElement' method of the SAX Document Handler interface.
+<p>
+
+<p>
+If any advanced callback handlers are installed, the corresponding 'endElement' method is also invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing element declaration information. </td></tr>
+<tr><td valign=top><em>urlId</em>
+&nbsp;</td><td>
+ An id referring to the namespace prefix, if namespaces setting is switched on. </td></tr>
+<tr><td valign=top><em>isRoot</em>
+&nbsp;</td><td>
+ A flag indicating whether this element was the root element. </td></tr>
+<tr><td valign=top><em>elemPrefix</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string containing the namespace prefix for this element. Applicable only when namespace processing is enabled. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a4">DocumentHandler::endElement</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a5">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a60" doxytag="SAXParser::endEntityReference"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endEntityReference (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLEntityDecl.html">XMLEntityDecl</a> &amp; <em>entDecl</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate that an end of an entity reference was just scanned.
+<p>
+
+<p>
+If any advanced callback handlers are installed, the corresponding 'endEnityReference' method is invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>entDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing the entity declaration information. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a6">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a82" doxytag="SAXParser::endExtSubset"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endExtSubset (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the end of the external subset.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b>     </td>
+  </tr>
+</table>
+<a name="a69" doxytag="SAXParser::endInputSource"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endInputSource (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_InputSource.html">InputSource</a> &amp; <em>inputSource</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the end of parsing of an external entity file.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>inputSource</em>
+&nbsp;</td><td>
+ A const reference to the <a class="el" href="class_InputSource.html">InputSource</a> object which points to the XML file being parsed. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_InputSource.html">InputSource</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLEntityHandler.html#a1">XMLEntityHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a81" doxytag="SAXParser::endIntSubset"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::endIntSubset (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the end of the internal subset.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b>     </td>
+  </tr>
+</table>
+<a name="a83" doxytag="SAXParser::entityDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::entityDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDEntityDecl &amp; <em>entityDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isPEDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isIgnored</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any entity declarations.
+<p>
+For unparsed entities, this driver will invoke the SAX <a class="el" href="class_DTDHandler.html#a3">DTDHandler::unparsedEntityDecl</a> callback.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>entityDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing the entity declaration information. </td></tr>
+<tr><td valign=top><em>isPEDecl</em>
+&nbsp;</td><td>
+ The flag indicating whether this was a parameter entity declaration or not. </td></tr>
+<tr><td valign=top><em>isIgnored</em>
+&nbsp;</td><td>
+ The flag indicating whether this definition was ignored by the parser or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DTDHandler.html#a3">DTDHandler::unparsedEntityDecl</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a67" doxytag="SAXParser::error"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::error (
+          </b></td>
+          <td valign="bottom"><b>
+const unsigned int <em>errCode</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>msgDomain</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const <a class="el" href="class_XMLErrorReporter.html#s4">XMLErrorReporter::ErrTypes</a> <em>errType</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>errorText</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>publicId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLSSize_t <em>lineNum</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLSSize_t <em>colNum</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report back errors found while parsing the XML file.
+<p>
+The driver will call the corresponding user installed SAX Error Handler methods: 'fatal', 'error', 'warning' depending on the severity of the error. This classification is defined by the XML specification.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>errCode</em>
+&nbsp;</td><td>
+ An integer code for the error. </td></tr>
+<tr><td valign=top><em>msgDomain</em>
+&nbsp;</td><td>
+ A const pointer to an Unicode string representing the message domain to use. </td></tr>
+<tr><td valign=top><em>errType</em>
+&nbsp;</td><td>
+ An enumeration classifying the severity of the error. </td></tr>
+<tr><td valign=top><em>errorText</em>
+&nbsp;</td><td>
+ A const pointer to an Unicode string representing the text of the error message. </td></tr>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const pointer to an Unicode string representing the system id of the XML file where this error was discovered. </td></tr>
+<tr><td valign=top><em>publicId</em>
+&nbsp;</td><td>
+ A const pointer to an Unicode string representing the public id of the XML file where this error was discovered. </td></tr>
+<tr><td valign=top><em>lineNum</em>
+&nbsp;</td><td>
+ The line number where the error occurred. </td></tr>
+<tr><td valign=top><em>colNum</em>
+&nbsp;</td><td>
+ The column number where the error occurred. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_ErrorHandler.html">ErrorHandler</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a70" doxytag="SAXParser::expandSystemId"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::expandSystemId (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh * <em>const</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+XMLBuffer &amp; <em>toFill</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows an installed <a class="el" href="class_XMLEntityHandler.html">XMLEntityHandler</a> to further process any system id's of enternal entities encountered in the XML file being parsed, such as redirection etc.
+<p>
+<b>&lt;font color="FF0000"&gt;This method always returns 'false' for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const pointer to an Unicode string representing the system id scanned by the parser. </td></tr>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ A pointer to a buffer in which the application processed system id is stored. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ 'true', if any processing is done, 'false' otherwise. </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLEntityHandler.html#a2">XMLEntityHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a13" doxytag="SAXParser::getDoNamespaces"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getDoNamespaces (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the state of the parser's namespace handling capability.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to understand namespaces, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a24">setDoNamespaces</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a10" doxytag="SAXParser::getDoSchema"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getDoSchema (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the 'do schema' flag.
+<p>
+This method returns the state of the parser's schema processing flag.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to understand schema, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a26">setDoSchema</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a90" doxytag="SAXParser::getDoValidation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getDoValidation (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the state of the parser's validation handling flag which controls whether validation checks are enforced or not.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to do validation, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a91">setDoValidation</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a3" doxytag="SAXParser::getDocumentHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const <a class="el" href="class_DocumentHandler.html">DocumentHandler</a> * SAXParser::getDocumentHandler (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed document handler.
+<p>
+Suitable only for 'rvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ A const pointer to the installed document handler object. </dl>    </td>
+  </tr>
+</table>
+<a name="a2" doxytag="SAXParser::getDocumentHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_DocumentHandler.html">DocumentHandler</a> * SAXParser::getDocumentHandler (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed document handler.
+<p>
+Suitable for 'lvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ The pointer to the installed document handler object. </dl>    </td>
+  </tr>
+</table>
+<a name="a5" doxytag="SAXParser::getEntityResolver"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const <a class="el" href="class_EntityResolver.html">EntityResolver</a> * SAXParser::getEntityResolver (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed entity resolver.
+<p>
+Suitable for 'rvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ A const pointer to the installed entity resolver object. </dl>    </td>
+  </tr>
+</table>
+<a name="a4" doxytag="SAXParser::getEntityResolver"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_EntityResolver.html">EntityResolver</a> * SAXParser::getEntityResolver (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed entity resolver.
+<p>
+Suitable for 'lvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ The pointer to the installed entity resolver object. </dl>    </td>
+  </tr>
+</table>
+<a name="a12" doxytag="SAXParser::getErrorCount"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+int SAXParser::getErrorCount (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get error count from the last parse operation.
+<p>
+This method returns the error count from the last parse operation. Note that this count is actually stored in the scanner, so this method simply returns what the scanner reports.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ number of errors encountered during the latest parse operation. </dl>    </td>
+  </tr>
+</table>
+<a name="a7" doxytag="SAXParser::getErrorHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const <a class="el" href="class_ErrorHandler.html">ErrorHandler</a> * SAXParser::getErrorHandler (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed error handler.
+<p>
+Suitable for 'rvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ A const pointer to the installed error handler object. </dl>    </td>
+  </tr>
+</table>
+<a name="a6" doxytag="SAXParser::getErrorHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_ErrorHandler.html">ErrorHandler</a> * SAXParser::getErrorHandler (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the installed error handler.
+<p>
+Suitable for 'lvalue' usages.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ The pointer to the installed error handler object. </dl>    </td>
+  </tr>
+</table>
+<a name="a14" doxytag="SAXParser::getExitOnFirstFatalError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getExitOnFirstFatalError (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the state of the parser's exit-on-First-Fatal-Error flag.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to exit on the first fatal error, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a28">setExitOnFirstFatalError</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a17" doxytag="SAXParser::getExternalNoNamespaceSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+XMLCh * SAXParser::getExternalNoNamespaceSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the noNamespace SchemaLocation that is specified externaly.
+<p>
+This method returns the no target namespace XML Schema Location that was specified using setExternalNoNamespaceSchemaLocation.
+<p>
+The parser owns the returned string, and the memory allocated for the returned string will be destroyed when the parser is deleted.
+<p>
+To ensure assessiblity of the returned information after the parser is deleted, callers need to copy and store the returned information somewhere else.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ a pointer to the no target namespace Schema Location that was specified externally. The pointer spans the same life-time as the parser. A null pointer is returned if nothing was specified externally.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a32">setExternalNoNamespaceSchemaLocation</a>(const XMLCh* const) </dl>    </td>
+  </tr>
+</table>
+<a name="a16" doxytag="SAXParser::getExternalSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+XMLCh * SAXParser::getExternalSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the set of Namespace/SchemaLocation that is specified externaly.
+<p>
+This method returns the list of Namespace/SchemaLocation that was specified using setExternalSchemaLocation.
+<p>
+The parser owns the returned string, and the memory allocated for the returned string will be destroyed when the parser is deleted.
+<p>
+To ensure assessiblity of the returned information after the parser is deleted, callers need to copy and store the returned information somewhere else.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ a pointer to the list of Namespace/SchemaLocation that was specified externally. The pointer spans the same life-time as the parser. A null pointer is returned if nothing was specified externally.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a30">setExternalSchemaLocation</a>(const XMLCh* const) </dl>    </td>
+  </tr>
+</table>
+<a name="a21" doxytag="SAXParser::getGrammar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+Grammar * SAXParser::getGrammar (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>nameSpaceKey</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Retrieve the grammar that is associated with the specified namespace key.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>nameSpaceKey</em>
+&nbsp;</td><td>
+ Namespace key </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ Grammar associated with the Namespace key. </dl>    </td>
+  </tr>
+</table>
+<a name="a18" doxytag="SAXParser::getLoadExternalDTD"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getLoadExternalDTD (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the 'Loading External DTD' flag.
+<p>
+This method returns the state of the parser's loading external DTD flag.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ false, if the parser is currently configured to ignore external DTD completely, true otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a34">setLoadExternalDTD</a> ,  <a class="el" href="class_SAXParser.html#a9">getValidationScheme</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a22" doxytag="SAXParser::getRootGrammar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+Grammar * SAXParser::getRootGrammar (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Retrieve the grammar where the root element is declared.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ Grammar where root element declared </dl>    </td>
+  </tr>
+</table>
+<a name="b0" doxytag="SAXParser::getScanner"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const XMLScanner &amp; SAXParser::getScanner (
+          </b></td>
+          <td valign="bottom"><b>
+) const<code> [protected]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns a reference to the underlying scanner object.
+<p>
+It allows read only access to data maintained in the scanner.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ A const reference to the underlying scanner object. </dl>    </td>
+  </tr>
+</table>
+<a name="a23" doxytag="SAXParser::getURIText"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const XMLCh * SAXParser::getURIText (
+          </b></td>
+          <td valign="bottom"><b>
+unsigned int <em>uriId</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Returns the string corresponding to a URI id from the URI string pool.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>uriId</em>
+&nbsp;</td><td>
+ id of the string in the URI string pool. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ URI string corresponding to the URI id. </dl>    </td>
+  </tr>
+</table>
+<a name="a15" doxytag="SAXParser::getValidationConstraintFatal"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getValidationConstraintFatal (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns the state of the parser's validation-constraint-fatal flag.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to set validation constraint errors as fatal, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ setValidationContraintFatal </dl>    </td>
+  </tr>
+</table>
+<a name="a11" doxytag="SAXParser::getValidationSchemaFullChecking"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::getValidationSchemaFullChecking (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the 'full schema constraint checking' flag.
+<p>
+This method returns the state of the parser's full schema constraint checking flag.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to have full schema constraint checking, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a27">setValidationSchemaFullChecking</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a9" doxytag="SAXParser::getValidationScheme"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_SAXParser.html#s3">ValSchemes</a> SAXParser::getValidationScheme (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns an enumerated value that indicates the current validation scheme set on this parser.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ The ValSchemes value current set on this parser. </dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a25">setValidationScheme</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a8" doxytag="SAXParser::getValidator"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+const <a class="el" href="class_XMLValidator.html">XMLValidator</a> &amp; SAXParser::getValidator (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method returns a reference to the parser's installed validator.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ A const reference to the installed validator object. </dl>    </td>
+  </tr>
+</table>
+<a name="a61" doxytag="SAXParser::ignorableWhitespace"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::ignorableWhitespace (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>chars</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>length</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>cdataSection</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report all the whitespace characters, which are determined to be 'ignorable'.
+<p>
+This distinction between characters is only made, if validation is enabled. Corresponding 'ignorableWhitespace' method of the user installed SAX Document Handler interface is called.
+<p>
+
+<p>
+Any whitespace before content is not reported to the SAX Document Handler method, as per the SAX specification. However, if any advanced callback handlers are installed, the corresponding 'ignorableWhitespace' method is invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>chars</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the ignorable whitespace character data. </td></tr>
+<tr><td valign=top><em>length</em>
+&nbsp;</td><td>
+ The length of the Unicode string 'chars'. </td></tr>
+<tr><td valign=top><em>cdataSection</em>
+&nbsp;</td><td>
+ A flag indicating if the characters represent content from the CDATA section. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a5">DocumentHandler::ignorableWhitespace</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a7">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a37" doxytag="SAXParser::installAdvDocHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::installAdvDocHandler (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_XMLDocumentHandler.html">XMLDocumentHandler</a> *const <em>toInstall</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method installs the specified 'advanced' document callback handler, thereby allowing the user to customize the processing, if they choose to do so.
+<p>
+Any number of advanced callback handlers maybe installed.
+<p>
+
+<p>
+The methods in the advanced callback interface represent Xerces-C extensions. There is no specification for this interface.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>toInstall</em>
+&nbsp;</td><td>
+ A pointer to the users advanced callback handler.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a38">removeAdvDocHandler</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a19" doxytag="SAXParser::isCachingGrammarFromParse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::isCachingGrammarFromParse (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the 'Grammar caching' flag.
+<p>
+This method returns the state of the parser's grammar caching when parsing an XML document.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to cache grammars, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a35">cacheGrammarFromParse</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a20" doxytag="SAXParser::isUsingCachedGrammarInParse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::isUsingCachedGrammarInParse (
+          </b></td>
+          <td valign="bottom"><b>
+) const
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Get the 'Use cached grammar' flag.
+<p>
+This method returns the state of the parser's use of cached grammar when parsing an XML document.
+<p>
+<dl compact><dt>
+<b>Returns: </b><dd>
+ true, if the parser is currently configured to use cached grammars, false otherwise.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a36">useCachedGrammarInParse</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a46" doxytag="SAXParser::loadGrammar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+Grammar * SAXParser::loadGrammar (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const short <em>grammarType</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>toCache</em> = false&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Preparse schema grammar (XML Schema, DTD, etc.) via a file path or URL.
+<p>
+This method invokes the preparsing process on a schema grammar XML file specified by the file path parameter. If the 'toCache' flag is enabled, the parser will cache the grammars for re-use. If a grammar key is found in the pool, no caching of any grammar will take place.
+<p>
+
+<p>
+<b>"Experimental - subject to change"</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const char pointer to a native string which contains the path to the XML grammar file to be preparsed. </td></tr>
+<tr><td valign=top><em>grammarType</em>
+&nbsp;</td><td>
+ The grammar type (Schema or DTD). </td></tr>
+<tr><td valign=top><em>toCache</em>
+&nbsp;</td><td>
+ If <code>true</code>, we cache the preparsed grammar, otherwise, no chaching. Default is <code>false</code>. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The preparsed schema grammar object (SchemaGrammar or DTDGrammar). That grammar object is owned by the parser.</dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>SAXException</em>
+&nbsp;</td><td>
+ Any SAX exception, possibly wrapping another exception. </td></tr>
+<tr><td valign=top><em>XMLException</em>
+&nbsp;</td><td>
+ An exception from the parser or client handler code. </td></tr>
+<tr><td valign=top><em>DOMException</em>
+&nbsp;</td><td>
+ A DOM exception as per DOM spec. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a45" doxytag="SAXParser::loadGrammar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+Grammar * SAXParser::loadGrammar (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const short <em>grammarType</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>toCache</em> = false&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Preparse schema grammar (XML Schema, DTD, etc.) via a file path or URL.
+<p>
+This method invokes the preparsing process on a schema grammar XML file specified by the file path parameter. If the 'toCache' flag is enabled, the parser will cache the grammars for re-use. If a grammar key is found in the pool, no caching of any grammar will take place.
+<p>
+
+<p>
+<b>"Experimental - subject to change"</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const XMLCh pointer to the Unicode string which contains the path to the XML grammar file to be preparsed. </td></tr>
+<tr><td valign=top><em>grammarType</em>
+&nbsp;</td><td>
+ The grammar type (Schema or DTD). </td></tr>
+<tr><td valign=top><em>toCache</em>
+&nbsp;</td><td>
+ If <code>true</code>, we cache the preparsed grammar, otherwise, no chaching. Default is <code>false</code>. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The preparsed schema grammar object (SchemaGrammar or DTDGrammar). That grammar object is owned by the parser.</dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>SAXException</em>
+&nbsp;</td><td>
+ Any SAX exception, possibly wrapping another exception. </td></tr>
+<tr><td valign=top><em>XMLException</em>
+&nbsp;</td><td>
+ An exception from the parser or client handler code. </td></tr>
+<tr><td valign=top><em>DOMException</em>
+&nbsp;</td><td>
+ A DOM exception as per DOM spec. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a44" doxytag="SAXParser::loadGrammar"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+Grammar * SAXParser::loadGrammar (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_InputSource.html">InputSource</a> &amp; <em>source</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const short <em>grammarType</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>toCache</em> = false&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Preparse schema grammar (XML Schema, DTD, etc.) via an input source object.
+<p>
+This method invokes the preparsing process on a schema grammar XML file specified by the SAX <a class="el" href="class_InputSource.html">InputSource</a> parameter. If the 'toCache' flag is enabled, the parser will cache the grammars for re-use. If a grammar key is found in the pool, no caching of any grammar will take place.
+<p>
+
+<p>
+<b>"Experimental - subject to change"</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>source</em>
+&nbsp;</td><td>
+ A const reference to the SAX <a class="el" href="class_InputSource.html">InputSource</a> object which points to the schema grammar file to be preparsed. </td></tr>
+<tr><td valign=top><em>grammarType</em>
+&nbsp;</td><td>
+ The grammar type (Schema or DTD). </td></tr>
+<tr><td valign=top><em>toCache</em>
+&nbsp;</td><td>
+ If <code>true</code>, we cache the preparsed grammar, otherwise, no chaching. Default is <code>false</code>. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The preparsed schema grammar object (SchemaGrammar or DTDGrammar). That grammar object is owned by the parser.</dl><dl compact><dt>
+<b>Exceptions: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>SAXException</em>
+&nbsp;</td><td>
+ Any SAX exception, possibly wrapping another exception. </td></tr>
+<tr><td valign=top><em>XMLException</em>
+&nbsp;</td><td>
+ An exception from the parser or client handler code. </td></tr>
+<tr><td valign=top><em>DOMException</em>
+&nbsp;</td><td>
+ A DOM exception as per DOM spec.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_InputSource.html#b0">InputSource::InputSource</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a85" doxytag="SAXParser::notationDecl"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::notationDecl (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLNotationDecl.html">XMLNotationDecl</a> &amp; <em>notDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isIgnored</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report any notation declarations.
+<p>
+If there is a user installed <a class="el" href="class_DTDHandler.html">DTDHandler</a>, then the driver will invoke the SAX <a class="el" href="class_DTDHandler.html#a2">DTDHandler::notationDecl</a> callback.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>notDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing the notation declaration information. </td></tr>
+<tr><td valign=top><em>isIgnored</em>
+&nbsp;</td><td>
+ The flag indicating whether this definition was ignored by the parser or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DTDHandler.html#a2">DTDHandler::notationDecl</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a50" doxytag="SAXParser::parse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::parse (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>systemId</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method invokes the parsing process on the XML file specified by the native char* string parameter 'systemId'.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const char pointer to a native string which contains the path to the XML file to be parsed. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a8">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a49" doxytag="SAXParser::parse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::parse (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>systemId</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method invokes the parsing process on the XML file specified by the Unicode string parameter 'systemId'.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const XMLCh pointer to the Unicode string which contains the path to the XML file to be parsed.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ Parser::parse(XMLCh*) </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a7">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a48" doxytag="SAXParser::parse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::parse (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_InputSource.html">InputSource</a> &amp; <em>source</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method invokes the parsing process on the XML file specified by the <a class="el" href="class_InputSource.html">InputSource</a> parameter.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>source</em>
+&nbsp;</td><td>
+ A const reference to the <a class="el" href="class_InputSource.html">InputSource</a> object which points to the XML file to be parsed.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ Parser::parse(InputSource) </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a6">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a41" doxytag="SAXParser::parseFirst"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::parseFirst (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_InputSource.html">InputSource</a> &amp; <em>source</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+XMLPScanToken &amp; <em>toFill</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Begin a progressive parse operation.
+<p>
+This method is used to start a progressive parse on a XML file. To continue parsing, subsequent calls must be to the parseNext method.
+<p>
+It scans through the prolog and returns a token to be used on subsequent scanNext() calls. If the return value is true, then the token is legal and ready for further use. If it returns false, then the scan of the prolog failed and the token is not going to work on subsequent scanNext() calls.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>source</em>
+&nbsp;</td><td>
+ A const reference to the <a class="el" href="class_InputSource.html">InputSource</a> object which points to the XML file to be parsed. </td></tr>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ A token maintaing state information to maintain internal consistency between invocation of 'parseNext' calls.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ 'true', if successful in parsing the prolog. It indicates the user can go ahead with parsing the rest of the file. It returns 'false' to indicate that the parser could not parse the prolog.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a42">parseNext</a> ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(XMLCh*,...) ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(char*,...) </dl>    </td>
+  </tr>
+</table>
+<a name="a40" doxytag="SAXParser::parseFirst"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::parseFirst (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+XMLPScanToken &amp; <em>toFill</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Begin a progressive parse operation.
+<p>
+This method is used to start a progressive parse on a XML file. To continue parsing, subsequent calls must be to the parseNext method.
+<p>
+It scans through the prolog and returns a token to be used on subsequent scanNext() calls. If the return value is true, then the token is legal and ready for further use. If it returns false, then the scan of the prolog failed and the token is not going to work on subsequent scanNext() calls.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A pointer to a regular native string represting the path to the XML file to be parsed. </td></tr>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ A token maintaing state information to maintain internal consIstency between invocation of 'parseNext' calls.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ 'true', if successful in parsing the prolog. It indicates the user can go ahead with parsing the rest of the file. It returns 'false' to indicate that the parser could not parse the prolog.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a42">parseNext</a> ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(XMLCh*,...) ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(<a class="el" href="class_InputSource.html">InputSource</a>&amp;,...) </dl>    </td>
+  </tr>
+</table>
+<a name="a39" doxytag="SAXParser::parseFirst"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::parseFirst (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+XMLPScanToken &amp; <em>toFill</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Begin a progressive parse operation.
+<p>
+This method is used to start a progressive parse on a XML file. To continue parsing, subsequent calls must be to the parseNext method.
+<p>
+It scans through the prolog and returns a token to be used on subsequent scanNext() calls. If the return value is true, then the token is legal and ready for further use. If it returns false, then the scan of the prolog failed and the token is not going to work on subsequent scanNext() calls.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A pointer to a Unicode string represting the path to the XML file to be parsed. </td></tr>
+<tr><td valign=top><em>toFill</em>
+&nbsp;</td><td>
+ A token maintaing state information to maintain internal consistency between invocation of 'parseNext' calls.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ 'true', if successful in parsing the prolog. It indicates the user can go ahead with parsing the rest of the file. It returns 'false' to indicate that the parser could parse the prolog (which means the token will not be valid.)
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a42">parseNext</a> ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(char*,...) ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(<a class="el" href="class_InputSource.html">InputSource</a>&amp;,...) </dl>    </td>
+  </tr>
+</table>
+<a name="a42" doxytag="SAXParser::parseNext"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::parseNext (
+          </b></td>
+          <td valign="bottom"><b>
+XMLPScanToken &amp; <em>token</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Continue a progressive parse operation.
+<p>
+This method is used to continue with progressive parsing of XML files started by a call to 'parseFirst' method.
+<p>
+It parses the XML file and stops as soon as it comes across a XML token (as defined in the XML specification). Relevant callback handlers are invoked as required by the SAX specification.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>token</em>
+&nbsp;</td><td>
+ A token maintaing state information to maintain internal consistency between invocation of 'parseNext' calls.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ 'true', if successful in parsing the next XML token. It indicates the user can go ahead with parsing the rest of the file. It returns 'false' to indicate that the parser could not find next token as per the XML specification production rule.
+<p>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(XMLCh*,...) ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(char*,...) ,  <a class="el" href="class_SAXParser.html#a39">parseFirst</a>(<a class="el" href="class_InputSource.html">InputSource</a>&amp;,...) </dl>    </td>
+  </tr>
+</table>
+<a name="a43" doxytag="SAXParser::parseReset"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::parseReset (
+          </b></td>
+          <td valign="bottom"><b>
+XMLPScanToken &amp; <em>token</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Reset the parser after a progressive parse.
+<p>
+If a progressive parse loop exits before the end of the document is reached, the parser has no way of knowing this. So it will leave open any files or sockets or memory buffers that were in use at the time that the parse loop exited.
+<p>
+The next parse operation will cause these open files and such to be closed, but the next parse operation might occur at some unknown future point. To avoid this problem, you should reset the parser if you exit the loop early.
+<p>
+If you exited because of an error, then this cleanup will be done for you. Its only when you exit the file prematurely of your own accord, because you've found what you wanted in the file most likely.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>token</em>
+&nbsp;</td><td>
+ A token maintaing state information to maintain internal consistency between invocation of 'parseNext' calls. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a38" doxytag="SAXParser::removeAdvDocHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool SAXParser::removeAdvDocHandler (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_XMLDocumentHandler.html">XMLDocumentHandler</a> *const <em>toRemove</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method removes the 'advanced' document handler callback from the underlying parser scanner.
+<p>
+If no handler is installed, advanced callbacks are not invoked by the scanner. <dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>toRemove</em>
+&nbsp;</td><td>
+ A pointer to the advanced callback handler which should be removed.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a37">installAdvDocHandler</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a47" doxytag="SAXParser::resetCachedGrammarPool"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::resetCachedGrammarPool (
+          </b></td>
+          <td valign="bottom"><b>
+)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user to reset the pool of cached grammars.
+<p>
+    </td>
+  </tr>
+</table>
+<a name="a84" doxytag="SAXParser::resetDocType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::resetDocType (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user installed DTD handler to reset itself.
+<p>
+    </td>
+  </tr>
+</table>
+<a name="a62" doxytag="SAXParser::resetDocument"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::resetDocument (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user installed Document Handler and any advanced callback handlers to 'reset' themselves.
+<p>
+
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a8">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a71" doxytag="SAXParser::resetEntities"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::resetEntities (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the installed <a class="el" href="class_XMLEntityHandler.html">XMLEntityHandler</a> to reset itself.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b> 
+<p>
+Reimplemented from <a class="el" href="class_XMLEntityHandler.html#a3">XMLEntityHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a68" doxytag="SAXParser::resetErrors"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::resetErrors (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user installed Error Handler callback to 'reset' itself.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b> 
+<p>
+Reimplemented from <a class="el" href="class_XMLErrorReporter.html#a2">XMLErrorReporter</a>.    </td>
+  </tr>
+</table>
+<a name="a72" doxytag="SAXParser::resolveEntity"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_InputSource.html">InputSource</a> * SAXParser::resolveEntity (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh *const <em>publicId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>systemId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>baseURI</em> = 0&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows a user installed entity handler to further process any pointers to external entities.
+<p>
+The applications can implement 'redirection' via this callback. The driver should call the SAX EntityHandler 'resolveEntity' method.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>publicId</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the public id of the entity just parsed. </td></tr>
+<tr><td valign=top><em>systemId</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the system id of the entity just parsed. </td></tr>
+<tr><td valign=top><em>baseURI</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string representing the base URI of the entity just parsed, or <code>null</code> if there is no base URI. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>Returns: </b><dd>
+ The value returned by the SAX resolveEntity method or NULL otherwise to indicate no processing was done. The returned <a class="el" href="class_InputSource.html">InputSource</a> is owned by the parser which is responsible to clean up the memory. </dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_EntityResolver.html">EntityResolver</a> ,  <a class="el" href="class_XMLEntityHandler.html">XMLEntityHandler</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLEntityHandler.html#a4">XMLEntityHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a52" doxytag="SAXParser::setDTDHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setDTDHandler (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_DTDHandler.html">DTDHandler</a> *const <em>handler</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method installs the user specified DTD handler on the parser.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>handler</em>
+&nbsp;</td><td>
+ A pointer to the DTD handler to be called when the parser comes across 'DTD' events as per the SAX specification.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_Parser.html#a3">Parser::setDTDHandler</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a3">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a24" doxytag="SAXParser::setDoNamespaces"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setDoNamespaces (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows users to enable or disable the parser's namespace processing.
+<p>
+When set to true, parser starts enforcing all the constraints / rules specified by the NameSpace specification.
+<p>
+
+<p>
+The parser's default state is: false.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether NameSpace rules should be enforced or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a13">getDoNamespaces</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a26" doxytag="SAXParser::setDoSchema"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setDoSchema (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Set the 'schema support' flag.
+<p>
+This method allows users to enable or disable the parser's schema processing. When set to false, parser will not process any schema found.
+<p>
+The parser's default state is: false.
+<p>
+Note: If set to true, namespace processing must also be turned on.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether schema support should be enforced or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a10">getDoSchema</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a91" doxytag="SAXParser::setDoValidation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setDoValidation (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows users to enable or disable the parser's validation checks.
+<p>
+
+<p>
+By default, the parser does not to any validation. The default value is false.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether the parser should do validity checks or not against the DTD in the input XML document.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a90">getDoValidation</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a51" doxytag="SAXParser::setDocumentHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setDocumentHandler (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_DocumentHandler.html">DocumentHandler</a> *const <em>handler</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method installs the user specified SAX Document Handler callback function on parser.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>handler</em>
+&nbsp;</td><td>
+ A pointer to the document handler to be called when the parser comes across 'document' events as per the SAX specification.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ Parser::parse(char*) </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a4">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a54" doxytag="SAXParser::setEntityResolver"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setEntityResolver (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_EntityResolver.html">EntityResolver</a> *const <em>resolver</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method installs the user specified entity resolver on the parser.
+<p>
+It allows applications to trap and redirect calls to external entities.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>resolver</em>
+&nbsp;</td><td>
+ A pointer to the entity resolver to be called when the parser comes across references to entities in the XML file.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_Parser.html#a2">Parser::setEntityResolver</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a2">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a53" doxytag="SAXParser::setErrorHandler"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setErrorHandler (
+          </b></td>
+          <td valign="bottom"><b>
+<a class="el" href="class_ErrorHandler.html">ErrorHandler</a> *const <em>handler</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method installs the user specified error handler on the parser.
+<p>
+<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>handler</em>
+&nbsp;</td><td>
+ A pointer to the error handler to be called when the parser comes across 'error' events as per the SAX specification.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_Parser.html#a5">Parser::setErrorHandler</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_Parser.html#a5">Parser</a>.    </td>
+  </tr>
+</table>
+<a name="a28" doxytag="SAXParser::setExitOnFirstFatalError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setExitOnFirstFatalError (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows users to set the parser's behaviour when it encounters the first fatal error.
+<p>
+If set to true, the parser will exit at the first fatal error. If false, then it will report the error and continue processing.
+<p>
+
+<p>
+The default value is 'true' and the parser exits on the first fatal error.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether the parser should continue or exit when it encounters the first fatal error.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a14">getExitOnFirstFatalError</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a33" doxytag="SAXParser::setExternalNoNamespaceSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setExternalNoNamespaceSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>noNamespaceSchemaLocation</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is same as <a class="el" href="class_SAXParser.html#a32">setExternalNoNamespaceSchemaLocation</a>(const XMLCh* const).
+<p>
+It takes native char string as parameter<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>noNamespaceSchemaLocation</em>
+&nbsp;</td><td>
+ the XML Schema Location with no target namespace
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a32">setExternalNoNamespaceSchemaLocation</a>(const XMLCh* const) </dl>    </td>
+  </tr>
+</table>
+<a name="a32" doxytag="SAXParser::setExternalNoNamespaceSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setExternalNoNamespaceSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh * <em>const</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user to specify the no target namespace XML Schema Location externally.
+<p>
+If specified, the instance document's noNamespaceSchemaLocation attribute will be effectively ignored.
+<p>
+If this method is called more than once, only the last one takes effect.
+<p>
+The syntax is the same as for the noNamespaceSchemaLocation attribute that may occur in an instance document: e.g."file_name.xsd".<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>noNamespaceSchemaLocation</em>
+&nbsp;</td><td>
+ the XML Schema Location with no target namespace
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a17">getExternalNoNamespaceSchemaLocation</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a31" doxytag="SAXParser::setExternalSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setExternalSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+const char *const <em>schemaLocation</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is same as <a class="el" href="class_SAXParser.html#a30">setExternalSchemaLocation</a>(const XMLCh* const).
+<p>
+It takes native char string as parameter<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>schemaLocation</em>
+&nbsp;</td><td>
+ the list of schemas to use
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a30">setExternalSchemaLocation</a>(const XMLCh* const) </dl>    </td>
+  </tr>
+</table>
+<a name="a30" doxytag="SAXParser::setExternalSchemaLocation"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setExternalSchemaLocation (
+          </b></td>
+          <td valign="bottom"><b>
+const XMLCh * <em>const</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user to specify a list of schemas to use.
+<p>
+If the targetNamespace of a schema specified using this method matches the targetNamespace of a schema occuring in the instance document in the schemaLocation attribute, or if the targetNamespace matches the namespace attribute of the "import" element, the schema specified by the user using this method will be used (i.e., the schemaLocation attribute in the instance document or on the "import" element will be effectively ignored).
+<p>
+If this method is called more than once, only the last one takes effect.
+<p>
+The syntax is the same as for schemaLocation attributes in instance documents: e.g, "<a href="http://www.example.com">http://www.example.com</a> file_name.xsd". The user can specify more than one XML Schema in the list.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>schemaLocation</em>
+&nbsp;</td><td>
+ the list of schemas to use
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a16">getExternalSchemaLocation</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a34" doxytag="SAXParser::setLoadExternalDTD"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setLoadExternalDTD (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Set the 'Loading External DTD' flag.
+<p>
+This method allows users to enable or disable the loading of external DTD. When set to false, the parser will ignore any external DTD completely if the validationScheme is set to Val_Never.
+<p>
+The parser's default state is: true.
+<p>
+This flag is ignored if the validationScheme is set to Val_Always or Val_Auto.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether external DTD should be loaded or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a18">getLoadExternalDTD</a> ,  <a class="el" href="class_SAXParser.html#a25">setValidationScheme</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a29" doxytag="SAXParser::setValidationConstraintFatal"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setValidationConstraintFatal (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows users to set the parser's behaviour when it encounters a validtion constraint error.
+<p>
+If set to true, and the the parser will treat validation error as fatal and will exit depends on the state of "getExitOnFirstFatalError". If false, then it will report the error and continue processing.
+<p>
+Note: setting this true does not mean the validation error will be printed with the word "Fatal Error". It is still printed as "Error", but the parser will exit if "setExitOnFirstFatalError" is set to true.
+<p>
+
+<p>
+The default value is 'false'.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ If true, the parser will exit if "setExitOnFirstFatalError" is set to true.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a15">getValidationConstraintFatal</a> ,  <a class="el" href="class_SAXParser.html#a28">setExitOnFirstFatalError</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a27" doxytag="SAXParser::setValidationSchemaFullChecking"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setValidationSchemaFullChecking (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>schemaFullChecking</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows the user to turn full Schema constraint checking on/off.
+<p>
+Only takes effect if Schema validation is enabled. If turned off, partial constraint checking is done.
+<p>
+Full schema constraint checking includes those checking that may be time-consuming or memory intensive. Currently, particle unique attribution constraint checking and particle derivation resriction checking are controlled by this option.
+<p>
+The parser's default state is: false.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>schemaFullChecking</em>
+&nbsp;</td><td>
+ True to turn on full schema constraint checking.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a11">getValidationSchemaFullChecking</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a25" doxytag="SAXParser::setValidationScheme"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::setValidationScheme (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_SAXParser.html#s3">ValSchemes</a> <em>newScheme</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method allows users to set the validation scheme to be used by this parser.
+<p>
+The value is one of the ValSchemes enumerated values defined by this class:
+<p>
+<br>
+ Val_Never - turn off validation <br>
+ Val_Always - turn on validation <br>
+ Val_Auto - turn on validation if any internal/external DTD subset have been seen
+<p>
+
+<p>
+The parser's default state is: Val_Auto.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newScheme</em>
+&nbsp;</td><td>
+ The new validation scheme to use.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a9">getValidationScheme</a> </dl>    </td>
+  </tr>
+</table>
+<a name="a86" doxytag="SAXParser::startAttList"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startAttList (
+          </b></td>
+          <td valign="bottom"><b>
+const DTDElementDecl &amp; <em>elemDecl</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the start of an element's attribute list declaration.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing element declaration information. </td></tr>
+</table>
+</dl>    </td>
+  </tr>
+</table>
+<a name="a63" doxytag="SAXParser::startDocument"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startDocument (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the start of the parsing process.
+<p>
+The corresponding user installed SAX Document Handler's method 'startDocument' is invoked.
+<p>
+
+<p>
+If any advanced callback handlers are installed, then the corresponding 'startDocument' method is also called.
+<p>
+<dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a9">DocumentHandler::startDocument</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a9">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a64" doxytag="SAXParser::startElement"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startElement (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLElementDecl.html">XMLElementDecl</a> &amp; <em>elemDecl</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>urlId</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const XMLCh *const <em>elemPrefix</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const RefVectorOf&lt; <a class="el" href="class_XMLAttr.html">XMLAttr</a> &gt; &amp; <em>attrList</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const unsigned int <em>attrCount</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isEmpty</em>, 
+          </b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><b>
+const bool <em>isRoot</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to report the start of an element.
+<p>
+It is called at the end of the element, by which time all attributes specified are also parsed. The corresponding user installed SAX Document Handler's method 'startElement' is invoked.
+<p>
+
+<p>
+If any advanced callback handlers are installed, then the corresponding 'startElement' method is also called.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>elemDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing element declaration information. </td></tr>
+<tr><td valign=top><em>urlId</em>
+&nbsp;</td><td>
+ An id referring to the namespace prefix, if namespaces setting is switched on. </td></tr>
+<tr><td valign=top><em>elemPrefix</em>
+&nbsp;</td><td>
+ A const pointer to a Unicode string containing the namespace prefix for this element. Applicable only when namespace processing is enabled. </td></tr>
+<tr><td valign=top><em>attrList</em>
+&nbsp;</td><td>
+ A const reference to the object containing the list of attributes just scanned for this element. </td></tr>
+<tr><td valign=top><em>attrCount</em>
+&nbsp;</td><td>
+ A count of number of attributes in the list specified by the parameter 'attrList'. </td></tr>
+<tr><td valign=top><em>isEmpty</em>
+&nbsp;</td><td>
+ A flag indicating whether this is an empty element or not. </td></tr>
+<tr><td valign=top><em>isRoot</em>
+&nbsp;</td><td>
+ A flag indicating whether this element was the root element. </td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_DocumentHandler.html#a10">DocumentHandler::startElement</a> </dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a10">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a65" doxytag="SAXParser::startEntityReference"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startEntityReference (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLEntityDecl.html">XMLEntityDecl</a> &amp; <em>entDecl</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the start of an entity reference.
+<p>
+
+<p>
+If any advanced callback handlers are installed, the corresponding 'endEnityReference' method is invoked.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>entDecl</em>
+&nbsp;</td><td>
+ A const reference to the object containing the entity declaration information. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLDocumentHandler.html#a11">XMLDocumentHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a88" doxytag="SAXParser::startExtSubset"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startExtSubset (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used indicate the start of the external subset.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b>     </td>
+  </tr>
+</table>
+<a name="a73" doxytag="SAXParser::startInputSource"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startInputSource (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_InputSource.html">InputSource</a> &amp; <em>inputSource</em>&nbsp;)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used to indicate the start of parsing an external entity file.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b><dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>inputSource</em>
+&nbsp;</td><td>
+ A const reference to the <a class="el" href="class_InputSource.html">InputSource</a> object which points to the external entity being parsed. </td></tr>
+</table>
+</dl>
+<p>
+Reimplemented from <a class="el" href="class_XMLEntityHandler.html#a5">XMLEntityHandler</a>.    </td>
+  </tr>
+</table>
+<a name="a87" doxytag="SAXParser::startIntSubset"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::startIntSubset (
+          </b></td>
+          <td valign="bottom"><b>
+)<code> [virtual]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+This method is used indicate the start of the internal subset.
+<p>
+<b>&lt;font color="FF0000"&gt;This method is a no-op for this SAX driver implementation.&lt;/font&gt;</b>     </td>
+  </tr>
+</table>
+<a name="a36" doxytag="SAXParser::useCachedGrammarInParse"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+void SAXParser::useCachedGrammarInParse (
+          </b></td>
+          <td valign="bottom"><b>
+const bool <em>newState</em>&nbsp;)
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+Set the 'Use cached grammar' flag.
+<p>
+This method allows users to enable or disable the use of cached grammars. When set to true, the parser will use the cached grammar, instead of building the grammar from scratch, to validate XML documents.
+<p>
+If the 'Grammar caching' flag is set to true, this mehod ignore the value passed in.
+<p>
+The parser's default state is: false.<dl compact><dt>
+<b>Parameters: </b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><em>newState</em>
+&nbsp;</td><td>
+ The value specifying whether we should use the cached grammar or not.
+<p>
+</td></tr>
+</table>
+</dl><dl compact><dt>
+<b>See also: </b><dd>
+ <a class="el" href="class_SAXParser.html#a20">isUsingCachedGrammarInParse</a> ,  <a class="el" href="class_SAXParser.html#a35">cacheGrammarFromParse</a> </dl>    </td>
+  </tr>
+</table>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="SAXParser_hpp-source.html">SAXParser.hpp</a></ul>
+    </FONT></TD></TR></TABLE><BR>
+</TD></TR></TABLE></TD></TR></TABLE><BR><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD bgcolor="#0086b2"><IMG height="1" src="images/dot.gif" width="1" alt=""></TD></TR><TR><TD align="center"><FONT color="#0086b2" size="-1"><I>
+              Copyright &copy; 2000 The Apache Software Foundation.
+              All Rights Reserved.
+            </I></FONT></TD></TR></TABLE></BODY></HTML>

@@ -1,0 +1,82 @@
+Changes to the NML package introduced from October 1st to December 1st, 2004
+============================================================================
+Marek Korkusinski, marekk@purdue.edu
+
+
+1. Implemented new memory allocation/deallocation routines
+nml_malloc(), nml_calloc(), nml_free()
+These functions are declared in the file /src/global/global.hP
+Their implementation can be found in the file /src/global/nml_memory.c
+Their basic functionality is prepending the allocated memory block with a field
+containing information about the size of this block (in bytes).
+This is realized by defining a struct, in which the first field is the size-holding variable,
+and the second field is the beginning of the block.
+The allocation routines return the pointer to the actual memory block (and not to the 
+prepended field), but the offset (in bytes) necessary to move the pointer back to the size field
+is stored.
+The idea of these memory constructs is due to Michael Mclennan.
+
+The nml_free() frees the allocated memory correctly (i.e., with the size field).
+Additionally, global memory control variables are introduced:
+active_memory = showing the current total memory allocation (i.e., the amount of memory
+allocated for all data structures)
+max_active_memory = high-water mark, showing the maximal total memory allocation (i.e., maximal
+active_memory over the program's runtime)
+freed_memory = showing the total amount of memory ever freed
+total_memory = showing the total amount of memory ever allocated
+The function nml_memory_report(char *) prints all these memory indicators to standard output, followed
+by the string given to this function as the argument.
+These memory management tools are switched on ONLY if the package is compiled
+with option -DNML_MEM_EXT
+Otherwise, NML uses the system's functions malloc(), calloc() and free(), maintains memory indicators
+at zero, and does nothing when nml_memory_report() is called.
+
+2. Implemented new constructs to handle the vector size field.
+In NML vectors, templated in files /src/vector/vector.[hP|cP] and /src/vector/1DBase.[hP|cP],
+allocation of a vector of n fields would usually be realized by allocating (n+1) fields and
+writing the number of elements (n) into the element 0.
+However, for arrays of chars on 32-bit platforms, and also other types on 64-bit platforms,
+this management is insufficient: you cannot put an int (or a long) into a char.
+The problem was solved by allocating (n) fields and prepending it with a field of size_t,
+in the manner identical to that used in the memory allocation/deallocation routines 
+described in point 1.
+Since the design is introduced into the patterns, it is propagated to vectors of all types;
+vectors of each type have a unique structure to hold the information.
+The constructors and destructors of vectors, as well as vector size extractors have been modified 
+to take the new structures fully into account.
+
+The constructs are turned on in /src/vector/vector.hP and /src/vector/1DBase.hP
+by defining the compilation conditional option EXT_MEM_HANDLING
+As of now, this option is turned on in these files, so it is not necessary to include it as a compiler 
+option.
+When it is #undef'ed, the package will fully return to the previous allocation schemes.
+
+NOTE 1
+======
+The new structures have been implemented for vectors only.
+For matrix and tensor allocations they are not necessary, as data structures used there are
+vectors of pointers (of size_t), so overflow is not expected on any platform.
+
+NOTE 2
+=======
+This management makes it impossible to use the constructs "vdim" on vectors.
+If one wants to extract the vector length, one should use the proper NML function
+nml_<type>v_extent()
+However, vdim(), rdim() and cdim() will work on matrices and tensors.
+
+3. Implemented new types.
+In keeping with NML's general formats, each new type has assigned a letter unique to it.
+The new types are:
+
+precision/type                 letter
+==========================================
+char                            b
+short                           s
+single                          f
+single complex                  k, fc
+
+The appropriate system of Makefiles, header files and source code has been created
+for each of these types on all levels (from scalar to tensor).
+This system closely follows the system laid out for the other types, existing
+originally within NML (i.e., double, double complex, integer).
+Moreover, the NML file generator genclass (in /bin/) was tweaked to accomodate the new letters.

@@ -1,0 +1,146 @@
+dnl This is a class prototype input file for .../<ns>/bin/genclass.
+pushdef(`index', `ifelse($#, 0, ``index'', ``index($*)'')')dnl
+pushdef(`shift', `ifelse($#, 0, ``shift'', ``shift($*)'')')dnl
+#ifndef _<ns><p><s>scalar_h
+#define _<ns><p><s>scalar_h 1
+
+/*****************************************************************************
+The <namespace>.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This file is part of
+The NanoElectronic MOdeling (NEMO) Math Library.
+
+This library is free software which you can redistribute and/or modify
+under the terms of the GNU Library General Public License
+as published by the Free Software Foundation;
+either version 2, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+Written by E. Robert Tisdale
+
+*****************************************************************************
+$Header: /repo/nml/src/scalar/scalar.hP,v 1.4 2004/10/22 13:37:23 marek Exp $
+*****************************************************************************/
+
+
+define(_point_,
+ifelse(_precision_, long double, floating,
+ifelse(_precision_,      double, floating,
+ifelse(_precision_,       float, floating, fixed))))dnl
+ifelse(_system_, complex, `
+/* Include real scalar type definitions.	*/
+#include<<ns><p>scalar.h>
+
+typedef struct {
+  /* public: */
+  <ns><precision>	r, i;
+  } <ns><p>complex;
+
+typedef <ns><p>complex	<ns><p><s>scalar;
+
+ifelse(_precision_, float,`
+typedef <ns><p><s>scalar KOMPLEX; 
+')dnl
+
+ifelse(_precision_, double,`
+typedef <ns><p><s>scalar COMPLEX; 
+')dnl
+
+
+
+#ifdef <NS>INLINE
+inline static
+<ns><p>complex
+(<ns><p><s>mplx)(<ns><precision> r, <ns><precision> i) {
+  <ns><p>complex	c;
+  c.r = r; c.i = i;
+  return c; }
+inline static
+<ns><p>scalar
+(<ns><p><s>real)(<ns><p>complex c) {
+  return c.r; }
+inline static
+<ns><p>scalar
+(<ns><p><s>imag)(<ns><p>complex c) {
+  return c.i; }
+#else /*<NS>INLINE	*/
+<ns><p>complex
+(<ns><p><s>mplx)(<ns><precision> r, <ns><precision> i);
+<ns><precision>
+(<ns><p><s>real)(<ns><p>complex c);
+<ns><precision>
+(<ns><p><s>imag)(<ns><p>complex c);
+#endif/*<NS>INLINE	*/
+
+#ifdef	<NS>MACROS
+#define <ns><p><s>real(c) ((c).r)
+#define <ns><p><s>imag(c) ((c).i)
+#endif/*<NS>MACROS	*/
+
+#define <NS><P><S>ZERO <ns><p><s>mplx((<ns><p>scalar)0, (<ns><p>scalar)0)
+#define <NS><P><S>EQ(x, y) (((x.r) == (y.r)) && ((x.i) == (y.i)))
+#define <NS><P><S>NE(x, y) (((x.r) != (y.r)) || ((x.i) != (y.i)))
+#define <NS><P><S>SET(c, r, i) do { (c).r = (r); (c).i = (i); }
+#define <NS><P><S>MUL(t, x, y) \
+do { \
+  (t).r = (x).r*(y).r - (x).i*(y).i; \
+  (t).i = (x).r*(y).i + (x).i*(y).r; \
+  } while (0)
+#define <NS><P><S>DIV(t, x, y) \
+do { \
+  (t).i = ((y).r*(y).r + (y).i*(y).i); \
+  (t).r = ((x).r*(y).r + (x).i*(y).i)/(t).i; \
+  (t).i = ((x).i*(y).r - (x).r*(y).i)/(t).i; \
+  } while (0)
+#define <NS><P><S>ADD(t, x, y) \
+do { \
+  (t).r = (x).r + (y).r; \
+  (t).i = (x).i + (y).i; \
+  } while (0)
+#define <NS><P><S>SUB(t, x, y) \
+do { \
+  (t).r = (x).r - (y).r; \
+  (t).i = (x).i - (y).i; \
+  } while (0)
+#define <NS><P><S>SQR(x) ((x).r*(x).r + (x).i*(x).i)
+ifelse(floating, _point_,
+`#define <NS><P><S>ABS(x) sqrt(<NS><P><S>SQR(x))
+')dnl
+', `
+/* Include global type definitions.	*/
+#include<<ns>global.h>
+
+typedef <ns><precision>	<ns><p><s>scalar;
+
+#define <NS><P><S>ZERO ((<ns><p>scalar)0)
+#define <NS><P><S>EQ(x, y) ((x) == (y))
+#define <NS><P><S>NE(x, y) ((x) != (y))
+#define <NS><P><S>MUL(t, x, y) ((t) = (x)*(y))
+#define <NS><P><S>DIV(t, x, y) ((t) = (x)/(y))
+#define <NS><P><S>ADD(t, x, y) ((t) = (x) + (y))
+#define <NS><P><S>SUB(t, x, y) ((t) = (x) - (y))
+#define <NS><P><S>SQR(x) ((x)*(x))
+ifelse(floating, _point_,
+`#define <NS><P><S>ABS(x) fabs(x)
+',
+`#define <NS><P><S>ABS(x)  abs(x)
+')dnl
+')dnl
+
+int
+(<ns><p><s>fprintf)(FILE *stream, <ns><p><s>scalar x,
+    int width, unsigned int precision, <ns>fmtflags flags);
+
+#endif/*_<ns><p><s>scalar_h */
+

@@ -1,0 +1,43 @@
+---------------------------------------------------------------------------------------
+** Steps that are to be followed for building NEMO3D application on the AIX platform **
+                             Written by Hoon Ryu.
+---------------------------------------------------------------------------------------
+
+The instruction should be followed step by step.
+For those who have account in lear or hamlet, I recommand you do step 1~5 in lear or hamlet.
+
+1. Get the latest version of the code from the repository.
+
+2. Modify the make.inc file and select one of the builds for the AIX platform.
+
+3. Execute the script patches_AIX_perform.
+
+4. In ARPACK directory there is a file called ARmake.inc which need a minor 
+   modification of the archive option. If you want a 32-bit compilation, make 
+   ARFLAGS = -X 32 rv and -X 64 rv for 64-bit compilation.
+
+5. If you do not have makeC++SharedLib_r command in your path then add it
+to your path. It will most likely be available in /usr/vacpp/bin.
+
+6. Now connect to cloud.cc.purdue.edu using ssh command. 
+   The username and passwd will be same as those of your carrier account.
+
+7. The compilation should be done in NanoRegatta, which you can access using 
+   pbs interactive job. Since the compilation typically takes 2 hours, use 
+   qsub command to access NanoRegatta :
+ 
+   qsub -I -q nano -l nodes=1:ppn=1,walltime=2:00:00
+   (you need an authorized account for 'nano' cue here.)
+
+8. set XERCESCROOT to (your NEMO3D directory)/xerces-c-src2_1_0.
+
+9. set OBJECT_MODE to 32 or 64, according to your preference of compilation.
+
+10. To start the build process issue the gmake command.
+
+These are the set of instructions that you need to follow for getting started quickly. 
+Once the build process is complete the executable is created in the nemo3d/bin directory. 
+There are sample input decks to run in the nemo3d/example directory, which can be used to test run the code.
+The user has to specify on the command line the input deck for the nemo3d application to run.
+
+

@@ -1,0 +1,72 @@
+/*****************************************************************************
+The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This application is free software, which you can redistribute and/or modify
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; either version 2.1 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+For additional information, please contact
+  Gerhard Klimeck (gekco@jpl.nasa.gov)
+  Fabiano Oyafuso (fabiano@jpl.nasa.gov)
+
+Written by:  Chris Bowen
+             Gerhard Klimeck
+             Fabiano Oyafuso
+             Seungwon Lee
+             Olga Lazarenkova
+             Hook Hua
+
+This product includes software developed by the Apache Software Foundation
+(http://www.apache.org/).
+
+*****************************************************************************
+$Header: /repo/nemo3d/src/base/ham3d.h,v 1.6 2004/10/18 14:35:24 gekco Exp $ 
+*****************************************************************************/
+
+#ifndef HAM3D_H
+#define HAM3D_H 1
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include "io_utils.h"
+
+
+#include "realtype.h"
+#include "constants_nemo.h"
+#include "rvector.h"
+#include "i2tensor.h"
+#include "i3tensor.h"
+#include "cmatrix_nonsym.h"
+#include "qd_struct.h"
+#include "run3d_mpi.h"
+#include "strain3d.h"
+#include "mat3d.h"
+#include "ivectorvector.h"
+#include "polyshape.h"
+#include "matsite_init.h"
+#include "ptinply3.h"
+
+#include "mb_ham_spds_micro.h" 
+
+#include "geo_struct.h"
+
+#ifdef  MEMORY_SAVE_NEWSTRUCT
+#include "bmatrix.h"
+#endif
+#endif
+
+

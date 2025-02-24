@@ -1,0 +1,23 @@
+README for the TeraGrid build
+Written by Marek Korkusinski, marekk@purdue.edu, Nov. 2, 2004.
+
+I have built the NEMO_3D package on TeraGrid using the setting
+BUILD_TYPE = itanium2_intel8_mpi_static
+in the make.inc file.
+
+My builds were done from the TeraGrid login node
+tg-login1.ncsa.teragrid.org
+The TeraGrid cluster does not seem to have the necessary libraries 
+in the default paths, so I enabled them by adding a few lines into
+the make.inc file (to find the spot, just look for the string "tg-login1").
+
+As it is now, the build should proceed *fully automatically* on the login 
+node tg-login1 --- just set the XERCESC environment variable to
+<path_to_NEMO>/NEMO_3D/xerces-c-src2_1_0    
+and then execute 
+<path_to_NEMO>/NEMO_3D/build/make
+
+
+If you are using a different login host (e.g., tg-login2), 
+please adjust the host name in the file make.inc, 
+and proceed with the build as described above.

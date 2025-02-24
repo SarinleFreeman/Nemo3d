@@ -1,0 +1,1 @@
+setenv XERCESCROOT `pwd`/../xerces-c-src2_1_0

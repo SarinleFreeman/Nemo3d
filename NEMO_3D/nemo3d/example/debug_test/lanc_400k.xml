@@ -1,0 +1,3619 @@
+<?xml version="1.0"?>
+<application>
+    <!-- Inside the 'application' tag, we declare generation information
+about the application: its name and a brief description of what input
+it expects and what function it performs. -->
+    <name>NEMO-3D / WIGLAF</name>
+    <desc>This application reads in and outputs an XML-formatted input file for NEMO-3D.</desc>
+    <!-- NOTE:  ALL PATHS ARE RELATIVE TO THE WIGLAF_HOME DIRECTORY -->
+    <command>${WIGLAF_HOME}/../nemo3d/bin/nemo3d.ex ${WIGLAF_HOME}/../XMLtoC/xml/ioNemo3D.xml.current &gt;&amp; ${WIGLAF_HOME}/../XMLtoC/xml/console.dat &amp;</command>
+    <input>
+        <!-- The input element defines all the information that the
+    application will need to perform its work.  It is arranged
+    hierarchically, so that elements can be grouped logically. This
+    grouping will be presented to the user as a JTreeView, and a
+    collection of input panes. -->
+        <group type="struct">
+            <name>top</name>
+            <cTag>top</cTag>
+            <desc>top</desc>
+            <param type="string">
+                <name>Version</name>
+                <cTag>Version</cTag>
+                <desc>version of XML file</desc>
+                <value>0.17</value>
+            </param>
+            <param type="string">
+                <name>Python File</name>
+                <cTag>pythonFuncsFile</cTag>
+                <desc>python file containing function definitions</desc>
+                <value>funcs</value>
+            </param>
+            <group type="struct">
+                <!-- ********************* Geometric information  -->
+                <name>Geometric info</name>
+                <cTag>Dev</cTag>
+                <desc>Geometric specification of simulation</desc>
+                <param type="string">
+                    <name>Read from File</name>
+                    <cTag>StructFile</cTag>
+                    <desc>only NULL (i.e. do NOT read structure info of
+                        first shape from file) is implemented)</desc>
+                    <value>NULL</value>
+                </param>
+                <param type="option">
+                    <name>Crystal structure</name>
+                    <cTag>CrystalStruct</cTag>
+                    <desc>crystal structure</desc>
+                    <value>Zincblende</value>
+                    <option>Cubic</option>
+                    <option>Diamond</option>
+                    <option>Zincblende</option>
+                    <option>Diamond_FCC</option>
+                    <option>Zincblende_FCC</option>
+                    <option>Wurtzite</option>
+                </param>
+                <param type="option">
+                    <name>Band Model</name>
+                    <cTag>band_model</cTag>
+                    <desc>basis for electronic calculation</desc>
+                    <value>Bands_20_sp3d5ss_spin</value>
+                    <option>Bands_1_s_nospin</option>
+                    <option>Bands_10_sp3ss_spin</option>
+                    <option>Bands_10_sp3d5ss_nospin</option>
+                    <option>Bands_20_sp3d5ss_spin</option>
+                </param>
+                <param type="real">
+                    <name>a_x (nm)</name>
+                    <cTag>a_lattice_x</cTag>
+                    <desc>lattice constant in x-dir</desc>
+                    <value>0.57</value>
+                </param>
+                <param type="real">
+                    <name>a_y (nm)</name>
+                    <cTag>a_lattice_y</cTag>
+                    <desc>lattice constant in y-dir</desc>
+                    <value>0.57</value>
+                </param>
+                <param type="real">
+                    <name>a_z (nm)</name>
+                    <cTag>a_lattice_z</cTag>
+                    <desc>lattice constant in z-dir</desc>
+                    <value>0.57</value>
+                </param>
+                <!-- end group array -->
+                <group type="array">
+                    <!-- Shape Descriptor -->
+                    <name>Shape List</name>
+                    <cTag>ShapeList</cTag>
+                    <desc>array of shapes</desc>
+                    <param type="newbranch">
+                        <name>Add a shape</name>
+                        <cTag>DUMMY</cTag>
+                        <desc>None</desc>
+                        <value>
+                            <group type="struct">
+                                <!-- Shape Descriptor -->
+                                <name>ShapeName</name>
+                                <cTag>Shape</cTag>
+                                <desc>Shape descriptor</desc>
+                                <param type="deletebranch">
+                                    <name>Delete This Shape</name>
+                                    <cTag>DUMMY</cTag>
+                                    <value>dumval</value>
+                                    <desc>None</desc>
+                                </param>
+                                <param type="option">
+                                    <name>Shape</name>
+                                    <cTag>Shape</cTag>
+                                    <desc>type of geometric object</desc>
+                                    <value>Box</value>
+                                    <option>Box</option>
+                                    <option>Rhombohedron</option>
+                                    <option>Dome</option>
+                                    <option>Pyramid</option>
+                                    <option>Pyramid_spds</option>
+                                    <option>Pyramid_clipped</option>
+                                    <option>Cylinder</option>
+                                    <option>Ellipsoid</option>
+                                </param>
+                                <param type="boolean">
+                                    <name>Has Cell Granularity?</name>
+                                    <cTag>has_cell_granularity</cTag>
+                                    <desc>does this shape have cell granularity?</desc>
+                                    <value>true</value>
+                                </param>
+                                <param type="boolean">
+                                    <name>Strain AND Electronic Calculation?</name>
+                                    <cTag>use_for_strain_and_electronic</cTag>
+                                    <desc>also use this shape for
+                                    electronic calculation</desc>
+                                    <value>true</value>
+                                </param>
+                                <param type="real">
+                                    <name>x0 (nm)</name>
+                                    <cTag>xorigin</cTag>
+                                    <desc>minimum value in x-direction</desc>
+                                    <value>0</value>
+                                </param>
+                                <param type="real">
+                                    <name>y0 (nm)</name>
+                                    <cTag>yorigin</cTag>
+                                    <desc>minimum value in y-direction</desc>
+                                    <value>0</value>
+                                </param>
+                                <param type="real">
+                                    <name>z0 (nm)</name>
+                                    <cTag>zorigin</cTag>
+                                    <desc>minimum value in z-direction</desc>
+                                    <value>0</value>
+                                </param>
+                                <param type="real">
+                                    <name>L_x (nm)</name>
+                                    <cTag>x</cTag>
+                                    <desc>maximum length in x-direction</desc>
+                                    <value>1.6</value>
+                                </param>
+                                <param type="real">
+                                    <name>L_y (nm)</name>
+                                    <cTag>y</cTag>
+                                    <desc>maximum length in y-direction</desc>
+                                    <value>1.6</value>
+                                </param>
+                                <param type="real">
+                                    <name>L_z (nm)</name>
+                                    <cTag>z</cTag>
+                                    <desc>maximum height in z-direction</desc>
+                                    <value>1.9</value>
+                                </param>
+                                <param type="boolean">
+                                    <name>Mark as a subdomain</name>
+                                    <cTag>is_subdomain</cTag>
+                                    <desc>mark this for future use by local bandstructure calculation</desc>
+                                    <value>false</value>
+                                </param>
+                                <param type="boolean">
+                                    <name>Modify species</name>
+                                    <cTag>modify_species</cTag>
+                                    <desc>set species within this shape according to Mat, Mol, and Pol</desc>
+                                    <value>true</value>
+                                </param>
+                                <param type="array_string">
+                                    <name>Mat</name>
+                                    <cTag>mat</cTag>
+                                    <desc>list of atom species</desc>
+                                    <value>{ Ga As }</value>
+                                </param>
+                                <param type="array_real">
+                                    <name>Mol</name>
+                                    <cTag>mol</cTag>
+                                    <desc>concentrations of atom species</desc>
+                                    <value>{ 1 1 }</value>
+                                </param>
+                                <param type="array_integer">
+                                    <name>Pol</name>
+                                    <cTag>pol</cTag>
+                                    <desc>polarity (use {0 0} for SiGe)</desc>
+                                    <value>{ 1 -1 }</value>
+                                </param>
+                                <param type="option">
+                                    <name>Alloy Treatment</name>
+                                    <cTag>AlloyTreatment</cTag>
+                                    <desc>algorithm for distributing atoms</desc>
+                                    <value>RandomInUnitCell</value>
+                                    <option>VCA</option>
+                                    <option>RandomInUnitCell</option>
+                                    <option>RandomUnitCells</option>
+                                    <option>RandomCluster</option>
+                                </param>
+                                <param type="boolean">
+                                    <name>Fixed Concentration?</name>
+                                    <cTag>AlloyFixConcentration</cTag>
+                                    <desc>specify alloy concentration
+                                    with absolute certainty</desc>
+                                    <value>false</value>
+                                </param>
+                                <param type="integer">
+                                    <name>Alloy Cluster Radius</name>
+                                    <cTag>AlloyClusterRadius</cTag>
+                                    <desc>radius of clustering in alloys</desc>
+                                    <value>1</value>
+                                </param>
+                                <param type="integer">
+                                    <name>Internal variable 1</name>
+                                    <cTag>matid3d</cTag>
+                                    <desc>You should not be seeing this.</desc>
+                                    <value>-1</value>
+                                </param>
+                            </group>
+                        </value>
+                    </param>
+                    <group type="obj">
+                        <!-- Shape Descriptor -->
+                        <name>ShapeName_1</name>
+                        <cTag>Shape</cTag>
+                        <desc>Shape descriptor</desc>
+                        <param type="deletebranch">
+                            <name>Delete This Shape</name>
+                            <cTag>DUMMY</cTag>
+                            <value>dumval</value>
+                            <desc>None</desc>
+                        </param>
+                        <param type="option">
+                            <name>Shape</name>
+                            <cTag>Shape</cTag>
+                            <desc>type of geometric object</desc>
+                            <value>Box</value>
+                            <option>Box</option>
+                            <option>Rhombohedron</option>
+                            <option>Dome</option>
+                            <option>Pyramid</option>
+                            <option>Pyramid_spds</option>
+                            <option>Pyramid_clipped</option>
+                            <option>Cylinder</option>
+                            <option>Ellipsoid</option>
+                        </param>
+	                <param type="boolean">
+                            <name>Has Cell Granularity?</name>
+                            <cTag>has_cell_granularity</cTag>
+                            <desc>does this shape have cell granularity?</desc>
+                            <value>true</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Strain AND Electronic Calculation?</name>
+                            <cTag>use_for_strain_and_electronic</cTag>
+                            <desc>also use this shape for electronic calculation</desc>
+                            <value>true</value>
+                        </param>
+                        <param type="real">
+                            <name>x0 (nm)</name>
+                            <cTag>xorigin</cTag>
+                            <desc>minimum value in x-direction</desc>
+                            <value>0</value>
+                        </param>
+                        <param type="real">
+                            <name>y0 (nm)</name>
+                            <cTag>yorigin</cTag>
+                            <desc>minimum value in y-direction</desc>
+                            <value>0</value>
+                        </param>
+                        <param type="real">
+                            <name>z0 (nm)</name>
+                            <cTag>zorigin</cTag>
+                            <desc>minimum value in z-direction</desc>
+                            <value>0</value>
+                        </param>
+                        <param type="real">
+                            <name>L_x (nm)</name>
+                            <cTag>x</cTag>
+                            <desc>maximum length in x-direction</desc>
+                            <value>25.0</value>
+                        </param>
+                        <param type="real">
+                            <name>L_y (nm)</name>
+                            <cTag>y</cTag>
+                            <desc>maximum length in y-direction</desc>
+                            <value>20.3</value>
+                        </param>
+                        <param type="real">
+                            <name>L_z (nm)</name>
+                            <cTag>z</cTag>
+                            <desc>maximum height in z-direction</desc>
+                            <value>19.0</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Mark as a subdomain</name>
+                            <cTag>is_subdomain</cTag>
+                            <desc>mark this for future use by local
+                                bandstructure calculation</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Modify species</name>
+                            <cTag>modify_species</cTag>
+                            <desc>modify species within this shape as
+                                described below</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="array_string">
+                            <name>Mat</name>
+                            <cTag>mat</cTag>
+                            <desc>list of atom species</desc>
+                            <value>{ Ga As }</value>
+                        </param>
+                        <param type="array_real">
+                            <name>Mol</name>
+                            <cTag>mol</cTag>
+                            <desc>concentrations of atom species</desc>
+                            <value>{ 1 1 }</value>
+                        </param>
+                        <param type="array_integer">
+                            <name>Pol</name>
+                            <cTag>pol</cTag>
+                            <desc>polarity</desc>
+                            <value>{ 1 -1 }</value>
+                        </param>
+                        <param type="option">
+                            <name>Alloy Treatment</name>
+                            <cTag>AlloyTreatment</cTag>
+                            <desc>algorithm for distributing atoms</desc>
+                            <value>RandomInUnitCell</value>
+                            <option>VCA</option>
+                            <option>RandomInUnitCell</option>
+                            <option>RandomUnitCells</option>
+                            <option>RandomCluster</option>
+                        </param>
+                        <param type="boolean">
+                            <name>Fixed Concentration?</name>
+                            <cTag>AlloyFixConcentration</cTag>
+                            <desc>specify alloy concentration with
+                                absolute certainty</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="integer">
+                            <name>Alloy Cluster Radius</name>
+                            <cTag>AlloyClusterRadius</cTag>
+                            <desc>radius of clustering in alloys</desc>
+                            <value>1</value>
+                        </param>
+                        <param type="integer">
+                            <name>Internal variable 1</name>
+                            <cTag>matid3d</cTag>
+                            <desc>You should not be seeing this.</desc>
+                            <value>-1</value>
+                        </param>
+                    </group>
+                </group>
+            </group>
+            <group type="array">
+                <!-- ********************************** General Material Properties. -->
+                <name>Materials List</name>
+                <cTag>material_list</cTag>
+                <desc>general material properties</desc>
+                <param type="newbranch">
+                    <name>Add a material</name>
+                    <cTag>DUMMY</cTag>
+                    <desc>None</desc>
+                    <value>
+                        <group type="struct">
+                            <!-- Default Shape Descriptor -->
+                            <name>material</name>
+                            <cTag>Material</cTag>
+                            <desc>material bulk properties</desc>
+                            <param type="deletebranch">
+                                <name>Delete This Material</name>
+                                <cTag>DUMMY</cTag>
+                                <value>dumval</value>
+                                <desc>None</desc>
+                            </param>
+                            <param type="string">
+                                <name>Material</name>
+                                <cTag>material</cTag>
+                                <desc>material</desc>
+                                <value>InAs</value>
+                            </param>
+                            <param type="string">
+                                <name>comp1_mat</name>
+                                <cTag>comp1_mat</cTag>
+                                <desc>not sure about this</desc>
+                                <value>NULL</value>
+                            </param>
+                            <param type="real">
+                                <name>x concentration</name>
+                                <cTag>xval</cTag>
+                                <desc>x concentration</desc>
+                                <value>0</value>
+                            </param>
+                            <param type="string">
+                                <name>comp2_mat</name>
+                                <cTag>comp2_mat</cTag>
+                                <desc>not sure about this</desc>
+                                <value>NULL</value>
+                            </param>
+                            <param type="real">
+                                <name>y concentration</name>
+                                <cTag>yval</cTag>
+                                <desc>y concentration</desc>
+                                <value>0</value>
+                            </param>
+                            <param type="real">
+                                <name>temperature</name>
+                                <cTag>tkel</cTag>
+                                <desc>temperature</desc>
+                                <value>300</value>
+                            </param>
+                            <param type="string">
+                                <name>substrate</name>
+                                <cTag>substrate</cTag>
+                                <desc>substrate</desc>
+                                <value>GaAs</value>
+                            </param>
+                            <param type="real">
+                                <name>Ec</name>
+                                <cTag>Ec</cTag>
+                                <desc>NONE</desc>
+                                <value>0.601903</value>
+                            </param>
+                            <param type="real">
+                                <name>Ev</name>
+                                <cTag>Ev</cTag>
+                                <desc>NONE</desc>
+                                <value>0.227948</value>
+                            </param>
+                            <param type="real">
+                                <name>electron dos mass</name>
+                                <cTag>mstar_c_dos</cTag>
+                                <desc>NONE</desc>
+                                <value>0.0280812</value>
+                            </param>
+                            <param type="real">
+                                <name>hole dos mass</name>
+                                <cTag>mstar_v_dos</cTag>
+                                <desc>NONE</desc>
+                                <value>0.511872</value>
+                            </param>
+                            <param type="real">
+                                <name>dielectric constant</name>
+                                <cTag>epsilon</cTag>
+                                <desc>NONE</desc>
+                                <value>15.69</value>
+                            </param>
+                            <param type="real">
+                                <name>unstrained lattice constant</name>
+                                <cTag>unstrnd_cubic_cell_length</cTag>
+                                <desc>NONE</desc>
+                                <value>0.60583</value>
+                            </param>
+                            <param type="real">
+                                <name>alpha (Keating)</name>
+                                <cTag>strain_alpha</cTag>
+                                <desc>NONE</desc>
+                                <value>35.18</value>
+                            </param>
+                            <param type="real">
+                                <name>beta (Keating)</name>
+                                <cTag>strain_beta</cTag>
+                                <desc>NONE</desc>
+                                <value>5.49</value>
+                            </param>
+                            <param type="array_real">
+                                <name>Strain dependence of VFF</name>
+                                <cTag>strain_VFF</cTag>
+                                <desc>Parameters describing strain
+                                    dependence of VFF constants</desc>
+                                <value>{ 7.61  4.78  6.45  7.61  4.78  6.45 }</value>
+                            </param>
+                            <param type="array_real">
+                                <name>M_atom</name>
+                                <cTag>M_atom</cTag>
+                                <desc>Mass of atomic species in 10^-26 kg</desc>
+                                <value>{19.0663 12.441}</value>
+                            </param>
+                            <param type="string">
+                                <name>band model</name>
+                                <cTag>band_model</cTag>
+                                <desc>NONE</desc>
+                                <value>Bands_10_sp3ss_spin</value>
+                            </param>
+                            <param type="array_real">
+                                <name>mb_pv</name>
+                                <cTag>mb_pv</cTag>
+                                <desc>NONE</desc>
+                                <value>{ -9.60889        0.739114
+                                    -2.55269        3.71931 7.40911
+                                    6.73931 -5.4052 1.8398  4.4693
+                                    3.0354  6.3389  3.3744  3.9097  0.42
+                                    0.393 }</value>
+                            </param>
+                            <param type="real">
+                                <name>VB offset (eV)</name>
+                                <cTag>Ev_offset</cTag>
+                                <desc>NONE</desc>
+                                <value>0.227948</value>
+                            </param>
+                            <param type="array_real">
+                                <name>mb_strain</name>
+                                <cTag>mb_strain</cTag>
+                                <desc>NONE</desc>
+                                <value>{   2       2       2       2
+                                    2       2       2       2      2
+                                    2       2       2       2       2
+                                    0  27   27   1       1       1
+                                    1
+                                    1       1      1       1       1
+                                    1       1       1       1       1
+                                    1       0 }</value>
+                            </param>
+                        </group>
+                    </value>
+                </param>
+                <group type="obj">
+                    <name>material_1</name>
+                    <cTag>Material</cTag>
+                    <desc>GaAs bulk properties (spds*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.56532</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>41.49</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>8.94</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.2 7.62 6.4 5.38 7.62 6.83}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{11.5773 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{-5.50042 4.15107 -0.24119 6.70776
+                            19.71059 22.66352 13.03169 12.74846 0.17234
+                            0.02179 -1.64508 -3.67720 -2.20777 -1.31491
+                            2.66493 2.96032 1.97650 1.02755 -2.58357
+                            -2.32059 -0.62820 0.13324 4.15080 -1.42744
+                            -1.87428 -1.88964 2.52926 2.54913 -1.26996
+                            2.50536 -0.85174 0.56532 1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 0.00000 0.21266 2.06001 1.38498 2.68497
+                            1.31405 1.89889 1.39930 1.81235 2.37964
+                            2.93686 1.72443 1.97253 1.89672 1.78540 27.0
+                            27.0                             0.58696
+                            0.48609 0.88921 0.77095 0.75979
+                            1.45891 0.81079 1.21202 1.07015 0.38053
+                            1.03256 1.31726 0.00000 1.61350 0.00000
+                            1.26262 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_2</name>
+                    <cTag>Material</cTag>
+                    <desc>InAs bulk properties (spds*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>InAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>0.594213</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>0.224299</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0270249</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.409741</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>14.6</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.60583</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>35.18</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>5.49</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.61 4.78 6.45 4.27 4.78 6.95}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{19.0663 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -5.50042 4.15107 -0.53824 7.76234
+                            19.71059 18.76447 13.03169 13.44722 0.17234
+                            0.13967 -1.53021 -3.99086 -2.31717 -1.36162
+                            3.18532 2.37527 2.34216 0.60111 -2.27077
+                            -1.87451 -0.67754 -0.21773 4.49803 -1.41734
+                            -1.80534 -2.12734 2.43089 2.52183 -1.34592
+                            2.67210 -0.45412 0.60583 1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 0.00000 0.34902 1.87635 1.25042 2.73407
+                            1.32992 1.65530 1.11454 2.32014 2.57895
+                            1.94235 2.00323 1.84572 2.07788 3.00000 27.0
+                            27.0                             0.25331
+                            0.00000 2.97410 2.99811 0.93102
+                            3.00000 0.00000 2.24414 0.00001 3.00000
+                            0.00000 0.00000 2.36738 0.15676 0.49725
+                            0.16244 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_3</name>
+                    <cTag>Material</cTag>
+                    <desc>In(0.6)Ga(0.4)As bulk properties (spds*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>InGaAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>In</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0.6</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>0.970879</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>0.150383</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0473566</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.403722</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>13.8986</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.589626</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>37.704</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>6.87</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{ 7.446  5.916  6.43  4.714  5.916  6.91 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{19.0663 11.5773 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{  -5.50042 4.15107 -0.445634 6.86608
+                            19.7106 21.0302 13.0317 13.0836 0.17234
+                            0.087436 -1.67464 -3.99715 -2.33915 -1.22189
+                            2.62491  2.86974 2.0312 0.973424 -2.39445
+                            -2.30409 -0.790902 -0.240098 4.2467 -1.34435
+                            -1.78856 -1.94291 2.32502 2.49326 -1.45875
+                            2.6329  -0.64375 0.589626 1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{  0.03648 0.08555 1.97897 1.49601
+                            2.31089 1.4871 1.81895 1.63898 2.15523
+                            2.42522 2.58068 2.08352 1.75855 2.16347
+                            1.92848  27.0 27.0  0.556978 0.82983 0.63382
+                            1.47543                             1.42227
+                            2.38356 0.568948 2.28477 0.42806
+                            0.200104 0.413024 0.979994 1.18412 0.6454  0
+                            0.568294 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_4</name>
+                    <cTag>Material</cTag>
+                    <desc>Si bulk properties (spds*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>Si</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.543095</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>48.5</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>13.8</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.67 4.67 4.53  4.77 4.67 5.34 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{4.6637}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -2.14463 4.2363 -2.14463 4.2363
+                            19.12352 19.12352 13.79658 13.79658 0.01989
+                            0.01989 -1.83493 -4.36635 -1.16274 -1.16274
+                            2.90562 2.90562 2.79465 2.79465 -2.42485
+                            -2.42485 -1.02993 -1.02993 4.10364 -1.51801
+                            -1.35554 -1.35554 2.38479 2.38479 -1.68136
+                            2.58880 -1.81400 0.543095  1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 0.13203 0.19237 0.56247 2.36548 0.49435
+                            1.84385 2.5672 0.34492 2.23636 4.5125
+                            2.00203 4.66836 2.30238 0.92391 1.08601 27
+                            27 0.83942 0.38885 0.89216 0.89216 0.24004
+                            0.24004 1.7944 1.7944 0 0 0.17104 0.17104
+                            2.0332 0 0 2.64866 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_5</name>
+                    <cTag>Material</cTag>
+                    <desc>Ge bulk properties (spds*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>Ge</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.5657906</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>38.0</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>12.0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{8.33 4.80 5.08 4.82 4.80 6.18}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{12.0539}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -1.95617 5.3097 -1.95617 5.3097 19.296
+                            19.296 13.5806 13.5806 0.10132 0.10132
+                            -1.39456 -3.5668 -2.0183 -2.0183 2.73135
+                            2.73135 2.68638 2.68638 -2.64779 -2.64779
+                            -1.12312 -1.12312 4.28921 -1.73707 -2.00115
+                            -2.00115 2.10953 2.10953 -1.32941 2.56261
+                            -1.9512 0.5657906 1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 0 2.38823 1.99551 1.29303 1.13641
+                            1.74803 2.79244 5 2.68784 4.36921 1.57156 5
+                            0.69769 3.06253 0.75134 27.77 27.77 0 4
+                            1.18918 1.18918 1.29348 1.29348 4 4 0.10433
+                            0.10433 1.26061 1.26061 0.27253 0.07689
+                            0.07689 2.45557 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_6</name>
+                    <cTag>Material</cTag>
+                    <desc>SiGe bulk properties (spds*)  [Si~cation]</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>SiGe</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.554443</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>Obtained from linear interpolation of
+                            elastic stiffness coefficients and lattice
+                            constant for Si and Ge</desc>
+                        <value>43.25</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>Obtained from linear interpolation of
+                            elastic stiffness coefficients and lattice
+                            constant for Si and Ge</desc>
+                        <value>12.9</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{8.085  4.735  4.74 4.795  4.735  5.76 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{4.6637 12.0539}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -1.95617  5.3097  -2.15168  4.22925
+                            19.296  19.1165  13.5806  13.7895  0.10132
+                            0.01989   -1.574309    -3.999753
+                            -1.440045    -1.499091    2.760826
+                            2.878285     2.814474     2.747303
+                            -2.595310    -2.471630    -1.029594
+                            -1.045346    4.201374     -1.626914
+                            -2.022367    -1.415419    2.504041
+                            2.023372     -1.317709    2.501057
+                            -1.777856    0.554443  1  1  1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{  0.154363  0.000000  2.155355  2.157637
+                            2.621803  1.491652  1.831938  1.413615
+                            1.787961  2.257439  2.219744  1.814857
+                            1.973166  1.805441  2.538574   27.0 27.0
+                            1.396261
+                            0.944681   0.762707   1.425408   1.014765
+                            0.996035   1.076916   1.164764   0.568770
+                            0.850494   0.800251   0.822856   1.305150
+                            0.567874   1.584296   1.602936   }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_7</name>
+                    <cTag>Material</cTag>
+                    <desc>GeSi bulk properties (spds*) [Ge~cation]</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>GeSi</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.554443</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>Obtained from linear interpolation of
+                            elastic stiffness coefficients and lattice
+                            constant for Si and Ge</desc>
+                        <value>43.25</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>Obtained from linear interpolation of
+                            elastic stiffness coefficients and lattice
+                            constant for Si and Ge</desc>
+                        <value>12.9</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{8.085  4.735  4.74 4.795  4.735  5.76 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{12.0539 4.6637}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_20_sp3d5ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -2.15168   4.22925   -1.95617   5.3097
+                            19.1165   19.296   13.7895   13.5806
+                            0.01989   0.10132    -1.574309     -3.999753
+                            -1.499091     -1.440045     2.878285
+                            2.760826      2.747303      2.814474
+                            -2.471630     -2.595310     -1.045346
+                            -1.029594     4.201374      -1.626914
+                            -1.415419     -2.022367     2.023372
+                            2.504041      -1.317709     2.501057
+                            -1.777856    0.554443  1  1  1  }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{  0.154363  0.000000  2.155355  2.157637
+                            2.621803  1.491652  1.831938  1.413615
+                            1.787961  2.257439  2.219744  1.814857
+                            1.973166  1.805441  2.538574   27.0 27.0
+                            1.396261
+                            0.944681   1.425408    0.762707  0.996035
+                            1.014765   1.164764   1.076916   0.850494
+                            0.568770   0.822856   0.800251   1.305150
+                            1.584296   0.567874   1.602936   }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_8</name>
+                    <cTag>Material</cTag>
+                    <desc>GaAs bulk properties (sps*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.41734</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-4.80122e-07</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0681937</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.463947</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.56532</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>41.49</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>8.94</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.2 7.62 6.4 5.38 7.62 6.83}</value>
+                    </param>                   
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{11.5773 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_10_sp3ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -8.5107 0.954046 -2.77475 3.43405
+                            8.45405  6.58405 -6.4513 1.9546 4.77 4.68
+                            7.7 4.85 7.01 0.42 0.174  }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{   2       2       2       2       2
+                            2       2       2      2       2       2
+                            2       2       2       0  27.0 27.0     1
+                            1                             1       1
+                            1       1      1       1
+                            1       1       1       1       1       1
+                            1       0 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_9</name>
+                    <cTag>Material</cTag>
+                    <desc>InAs bulk properties (sps*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>InAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>0.601903</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>0.227948</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0280812</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.511872</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>15.69</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.60583</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>35.18</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>5.49</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.61 4.78 6.45 4.27 4.78 6.95}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{19.0663 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_10_sp3ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -9.60889        0.739114
+                            -2.55269        3.71931 7.40911 6.73931
+                            -5.4052 1.8398  4.4693  3.0354  6.3389
+                            3.3744  3.9097  0.42    0.393 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0.227948</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{2   2 2 2 2 2 2 2 2 2    2 2 2 2 0 27.0
+                            27.0 1                             1 1 1 1 1
+                            1 1 1 1 1 1 1 1 1 0 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_10</name>
+                    <cTag>Material</cTag>
+                    <desc>In(0.6)Ga(0.4)As bulk properties (sps*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>InGaAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>In</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0.6</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>0.920997</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>0.146885</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0426377</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.489795</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>14.5526</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.589626</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>37.704</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>6.87</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{ 7.446  5.916  6.43  4.714  5.916  6.91 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{19.0663 11.5773 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_10_sp3ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{  -9.1707 0.823993 -2.64261 3.6041 7.826
+                            6.67611 -5.83318 1.88572 4.58958 3.69326
+                            7.28168 3.94009 5.04908 0.42 0.3054 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0.143344</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{  2 2 2 2 2 2 2 2 2    2 2 2 2 2 0 27.0
+                            27.0 1                             1 1 1 1
+                            1 1 1 1 1 1 1 1 1 1 0 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_11</name>
+                    <cTag>Material</cTag>
+                    <desc>GaAs bulk properties (s)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.424</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-100</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0673039</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.5</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>41.49</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>8.94</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.2 7.62 6.4 5.38 7.62 6.83}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{11.5773 12.441}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_1_s_nospin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 1.424 0.067 0.067 0.067 0.25 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{   2       2       2       2       2
+                            2       2       2      2       2       2
+                            2       2       2       0  27.0 27.0     1
+                            1                             1       1
+                            1       1      1       1
+                            1       1       1       1       1       1
+                            1       0 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_12</name>
+                    <cTag>Material</cTag>
+                    <desc>Si bulk properties (spds* without spin)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>Si</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>GaAs</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.42116</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>-0.00305492</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0665337</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.402511</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>12.8464</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>NONE</desc>
+                        <value>0.543095</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>48.5</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>The set of values for alpha and beta
+                            chosen because they correspond most closely
+                            to the elastic constants used in nemo [see
+                            Chen/Sher p.47]</desc>
+                        <value>13.8</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{7.67 4.67 4.53  4.77 4.67 5.34 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{4.6637}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_10_sp3d5ss_nospin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -2.14463 4.2363 -2.14463 4.2363
+                            19.12352 19.12352 13.79658 13.79658 0.00000
+                            0.00000 -1.83493 -4.36635 -1.16274 -1.16274
+                            2.90562 2.90562 2.79465 2.79465 -2.42485
+                            -2.42485 -1.02993 -1.02993 4.10364 -1.51801
+                            -1.35554 -1.35554 2.38479 2.38479 -1.68136
+                            2.58880 -1.81400 0.543095  1 1 1 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{ 0.13203 0.19237 0.56247 2.36548 0.49435
+                            1.84385 2.5672 0.34492 2.23636 4.5125
+                            2.00203 4.66836 2.30238 0.92391 1.08601 27
+                            27 0.83942 0.38885 0.89216 0.89216 0.24004
+                            0.24004 1.7944 1.7944 0 0 0.17104 0.17104
+                            2.0332 0 0 2.64866 }</value>
+                    </param>
+                </group>
+                <group type="obj">
+                    <name>material_13</name>
+                    <cTag>Material</cTag>
+                    <desc>CdSe bulk properties (sps*)</desc>
+                    <param type="deletebranch">
+                        <name>Delete This Material</name>
+                        <cTag>DUMMY</cTag>
+                        <value>dumval</value>
+                        <desc>None</desc>
+                    </param>
+                    <param type="string">
+                        <name>Material</name>
+                        <cTag>material</cTag>
+                        <desc>material</desc>
+                        <value>CdSe</value>
+                    </param>
+                    <param type="string">
+                        <name>comp1_mat</name>
+                        <cTag>comp1_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>x concentration</name>
+                        <cTag>xval</cTag>
+                        <desc>x concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="string">
+                        <name>comp2_mat</name>
+                        <cTag>comp2_mat</cTag>
+                        <desc>not sure about this</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="real">
+                        <name>y concentration</name>
+                        <cTag>yval</cTag>
+                        <desc>y concentration</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>temperature</name>
+                        <cTag>tkel</cTag>
+                        <desc>temperature</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="string">
+                        <name>substrate</name>
+                        <cTag>substrate</cTag>
+                        <desc>substrate</desc>
+                        <value>CdSe</value>
+                    </param>
+                    <param type="real">
+                        <name>Ec</name>
+                        <cTag>Ec</cTag>
+                        <desc>NONE</desc>
+                        <value>1.7</value>
+                    </param>
+                    <param type="real">
+                        <name>Ev</name>
+                        <cTag>Ev</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0</value>
+                    </param>
+                    <param type="real">
+                        <name>electron dos mass</name>
+                        <cTag>mstar_c_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.12</value>
+                    </param>
+                    <param type="real">
+                        <name>hole dos mass</name>
+                        <cTag>mstar_v_dos</cTag>
+                        <desc>NONE</desc>
+                        <value>0.45</value>
+                    </param>
+                    <param type="real">
+                        <name>dielectric constant</name>
+                        <cTag>epsilon</cTag>
+                        <desc>NONE</desc>
+                        <value>10.16</value>
+                    </param>
+                    <param type="real">
+                        <name>unstrained lattice constant</name>
+                        <cTag>unstrnd_cubic_cell_length</cTag>
+                        <desc>unstrnd_cubic_cell_length</desc>
+                        <value>0.43</value>
+                    </param>
+                    <param type="real">
+                        <name>alpha (Keating)</name>
+                        <cTag>strain_alpha</cTag>
+                        <desc>NONE</desc>
+                        <value>1.0</value>
+                    </param>
+                    <param type="real">
+                        <name>beta (Keating)</name>
+                        <cTag>strain_beta</cTag>
+                        <desc>NONE</desc>
+                        <value>1.0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>Strain dependence of VFF</name>
+                        <cTag>strain_VFF</cTag>
+                        <desc>Parameters describing strain dependence of
+                            VFF constants</desc>
+                        <value>{ 1.0 1.0 1.0 }</value>
+                    </param>
+                    <param type="array_real">
+                        <name>M_atom</name>
+                        <cTag>M_atom</cTag>
+                        <desc>Mass of atomic species in 10^-26 kg</desc>
+                        <value>{18.6655 13.1111}</value>
+                    </param>
+                    <param type="string">
+                        <name>band model</name>
+                        <cTag>band_model</cTag>
+                        <desc>NONE</desc>
+                        <value>Bands_10_sp3ss_spin</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_pv</name>
+                        <cTag>mb_pv</cTag>
+                        <desc>NONE</desc>
+                        <value>{ -9.63 1.47 0.03 4.73 7.53
+                                  5.72 -4.64 2.64 5.36 4.57
+                                  5.54 3.05 2.49 0.16 0.0755 }</value>
+                    </param>
+                    <param type="real">
+                        <name>VB offset (eV)</name>
+                        <cTag>Ev_offset</cTag>
+                        <desc>NONE</desc>
+                        <value>0.0</value>
+                    </param>
+                    <param type="array_real">
+                        <name>mb_strain</name>
+                        <cTag>mb_strain</cTag>
+                        <desc>NONE</desc>
+                        <value>{  2 2 2 2 2 2 2 2 2    2 2 2 2 2 0 27.0
+                            27.0 1                             1 1 1 1
+                            1 1 1 1 1 1 1 1 1 1 0 }</value>
+                    </param>
+                </group>
+            </group>
+            <group type="struct">
+                <!-- ********************************** Execution parameters -->
+                <name>Execution parameters</name>
+                <cTag>ExecParam</cTag>
+                <desc>Parameters describing execution of code</desc>
+                <param type="boolean">
+                    <name>Calculate strain distribution?</name>
+                    <cTag>CalcStr</cTag>
+                    <desc> Calculate strain distribution?</desc>
+                    <value>false</value>
+                </param>
+                <param type="boolean">
+                   <name>Calculate electron dispersion</name>
+                   <cTag>CalcElDisp</cTag>
+                   <desc> Calculate electron dispersion? </desc>
+                   <value>true</value>
+                </param>
+                <param type="boolean">
+                   <name>Calculate phonon dispersion</name>
+                   <cTag>CalcPhonDisp</cTag>
+                   <desc> Calculate phonon dispersion? </desc>
+                   <value>false</value>
+                </param>
+                <param type="integer">
+                    <name>Random Seed</name>
+                    <cTag>RandomSeed</cTag>
+                    <desc>seed for random number generator</desc>
+                    <value>1001</value>
+                </param>
+                <group type="struct">
+                    <name>Physical parameters</name>
+                    <cTag>Phys</cTag>
+                    <desc>physical parameters including potentials</desc>
+                    <param type="string">
+                        <name>Electrostatic potential file</name>
+                        <cTag>PotentialFile</cTag>
+                        <desc>File describing electrostatic potential</desc>
+                        <value>NULL</value>
+                    </param>
+                    <param type="boolean">
+                        <name>Enable constant magnetic field?</name>
+                        <cTag>MagneticFieldOn</cTag>
+                        <desc>is magnetic field on?</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="real">
+                        <name>Bx</name>
+                        <cTag>Bx</cTag>
+                        <desc>x component of magnetic field (Tesla)</desc>
+                        <value>1</value>
+                    </param>
+                    <param type="real">
+                        <name>By</name>
+                        <cTag>By</cTag>
+                        <desc>y component of magnetic field (Tesla)</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Bz</name>
+                        <cTag>Bz</cTag>
+                        <desc>z component of magnetic field (Tesla)</desc>
+                        <value>1</value>
+                    </param>
+                    <param type="boolean">
+                        <name>Include impurity?</name>
+                        <cTag>includeImpurity</cTag>
+                        <desc>place a donor at the center of the device</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="real">
+                        <name>U0</name>
+                        <cTag>U0</cTag>
+                        <desc>On site potential U0 (eV)</desc>
+                        <value>4.3</value>
+                    </param>
+                    <param type="option">
+                        <name>Surface Passivation</name>
+                        <cTag>SurfacePassivation</cTag>
+                        <desc>method by which oribitals of surface atoms
+                            couple to vacuum</desc>
+                        <value>PassivateDanglingBond</value>
+                        <option>PassivateDanglingBond</option>
+                        <option>PassivateOrbital</option>
+                    </param>
+                    <param type="real">
+                        <name>Dangling Bond Shift</name>
+                        <cTag>DanglingBondEnergyShift</cTag>
+                        <desc>energy shift for dangling bonds on the
+                            surface (eV)</desc>
+                        <value>30</value>
+                    </param>
+                    <param type="real">
+                        <name>s orbital shift</name>
+                        <cTag>BondShift_s</cTag>
+                        <desc>s-orbital energy shift of surface atom</desc>
+                        <value>5</value>
+                    </param>
+                    <param type="real">
+                        <name>p-orbital shift</name>
+                        <cTag>BondShift_p</cTag>
+                        <desc>p orbital energy shift of surface atom</desc>
+                        <value>3</value>
+                    </param>
+                    <param type="real">
+                        <name>d-orbital shift</name>
+                        <cTag>BondShift_d</cTag>
+                        <desc>d orbital energy shift of surface atom</desc>
+                        <value>4</value>
+                    </param>
+                    <param type="real">
+                        <name>s*-orbital shift</name>
+                        <cTag>BondShift_sstar</cTag>
+                        <desc>s* orbital energy shift of surface atom</desc>
+                        <value>-1</value>
+                    </param>
+                    <param type="real">
+                        <name>Disorder parameter</name>
+                        <cTag>Disorder1</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Hbar/Tau</name>
+                        <cTag>HbarOverTau</cTag>
+                        <desc>NONE</desc>
+                        <value>0</value>
+                    </param>
+                </group>
+                <group type="struct">
+                    <name>Electronic structure calculation</name>
+                    <cTag>ElCalc</cTag>
+                    <desc>Electronic structure calculation</desc>
+                    <param type="boolean">
+                        <name>Strain-dependent hamiltonian?</name>
+                        <cTag>include_strain_in_Hamiltonian</cTag>
+                        <desc>make H matrix elements distance dependent?</desc>
+                        <value>true</value>
+                    </param>
+                    <group type="struct">
+                        <name>Modifications to geometry</name>
+                        <cTag>ElGeo</cTag>
+                        <desc>Modifications to geometry of input (or
+                            computed) structure</desc>
+                        <param type="option">
+                            <name>Periodicity - electronic structure</name>
+                            <cTag>Periodicity</cTag>
+                            <desc>periodicity of electronic calculation</desc>
+                            <value>Closed</value>
+                            <option>Closed</option>
+                            <option>Periodic_xyz</option>
+                            <option>Periodic_x</option>
+                            <option>Periodic_y</option>
+                            <option>Periodic_z</option>
+                            <option>Periodic_xy</option>
+                            <option>Periodic_yz</option>
+                            <option>Periodic_xz</option>
+                        </param>
+                        <param type="boolean">
+                            <name>Homogenize surface?</name>
+                            <cTag>HomogenizeSurface</cTag>
+                            <desc>Remove anions (or Ge) from the surface</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Remove single bonds?</name>
+                            <cTag>RemoveSingleBonds</cTag>
+                            <desc>Remove surface atoms with only one bond</desc>
+                            <value>false</value>
+                        </param>
+                    </group>
+                    <group type="struct">
+                        <name>Algorithms</name>
+                        <cTag>ElAlg</cTag>
+                        <desc>parameters relating to particular algorithms</desc>
+                        <param type="option">
+                            <name>Electronic eigensolver</name>
+                            <cTag>ResFind</cTag>
+                            <desc>method to find resonances</desc>
+                            <value>Lancz</value>
+                            <option>Lancz</option>
+                            <option>Rayleigh</option>
+                            <option>LanczAndRayleigh</option>
+                            <option>Direct</option>
+                            <option>Readstates</option>
+                            <option>ParpackSolver</option>
+                        </param>
+                        <param type="array_real">
+                            <name>Valence band energy range</name>
+                            <cTag>Erange_vb</cTag>
+                            <desc>Search range for valence band eigenvalues</desc>
+                            <value>{ -0.6 0.2 }</value>
+                        </param>
+                        <param type="array_real">
+                            <name>Conduction band energy range</name>
+                            <cTag>Erange_cb</cTag>
+                            <desc>Search range for conduction band eigenvalues</desc>
+                            <value>{ 1.4 2.0 }</value>
+                        </param>
+                        <param type="integer">
+                            <name>Number of BZ points</name>
+                            <cTag>Nk</cTag>
+                            <desc>Number of k space points</desc>
+                            <value>1</value>
+                        </param>
+                        <param type="array_real">
+                            <name>Initial k-vector</name>
+                            <cTag>k0</cTag>
+                            <desc>(kx, ky, kz)</desc>
+                            <value>{ 0 0 0 }</value>
+                        </param>
+                        <param type="array_real">
+                            <name>Final k-vector</name>
+                            <cTag>kf</cTag>
+                            <desc>(kx, ky, kz)</desc>
+                            <value>{ 0 0 0 }</value>
+                        </param>
+                        <param type="option">
+                            <name>Hamiltonian</name>
+                            <cTag>HamCompute</cTag>
+                            <desc>hamiltonian treatment of matrix-vector multiply</desc>
+                            <value>SparseStore</value>
+                            <option>SparseStore</option>
+                            <option>FullStore</option>
+                            <option>Recompute</option>
+                        </param>
+                        <param type="option">
+                            <name>Hamiltonian Size</name>
+                            <cTag>HamSize</cTag>
+                            <desc>compute electronic strucure of whole
+                                structure or of single cell</desc>
+                            <value>Full3d</value>
+                            <option>Full3d</option>
+                            <option>VCA_1_cell</option>
+                        </param>
+                        <param type="option">
+                            <name>Efficiency</name>
+                            <cTag>Efficiency</cTag>
+                            <desc>should hamiltonian be stored for high
+                                speed or
+                                small memory?</desc>
+                            <value>Speed</value>
+                            <option>Speed</option>
+                            <option>Memory</option>
+                        </param>
+                        <group
+                            enabledif="/application/input/top/Execution parameters/Electronic structure calculation/Algorithms/Electronic eigensolver==Lancz" type="struct">
+                            <name>Lanczos</name>
+                            <cTag>Lanczos</cTag>
+                            <desc>lanczos parameters</desc>
+                            <param type="boolean">
+                                <name>ReadInTridiag</name>
+                                <cTag>ReadInTridiag</cTag>
+                                <desc>ReadInTridiag</desc>
+                                <value>false</value>
+                            </param>
+                            <param type="real">
+                                <name>Convergence Tolerance</name>
+                                <cTag>ConvTolerance</cTag>
+                                <desc>NONE</desc>
+                                <value>1e-07</value>
+                            </param>
+                            <param type="integer">
+                                <name>Maximum Iteration Number</name>
+                                <cTag>MaxIter</cTag>
+                                <desc>NONE</desc>
+                                <value>200</value>
+                            </param>
+                            <param type="integer">
+                                <name>Number of requested VB eigenvalues</name>
+                                <cTag>NumEigReq_vb</cTag>
+                                <desc>NONE</desc>
+                                <value>50</value>
+                            </param>
+                            <param type="integer">
+                                <name>Number of requested CB eigenvalues</name>
+                                <cTag>NumEigReq_cb</cTag>
+                                <desc>NONE</desc>
+                                <value>50</value>
+                            </param>
+                            <param type="integer">
+                                <name>Start Convergence Check</name>
+                                <cTag>ConvCheckStartIter</cTag>
+                                <desc>first iteration number to check
+                                    for convergence</desc>
+                                <value>149</value>
+                            </param>
+                            <param type="integer">
+                                <name>Convergence Check Interval</name>
+                                <cTag>ConvCheckSkipRate</cTag>
+                                <desc>convergence check skip rate</desc>
+                                <value>50</value>
+                            </param>
+                            <param type="option">
+                                <name>Initial condition</name>
+                                <cTag>Start</cTag>
+                                <desc>inital guess</desc>
+                                <value>CyclicRandom</value>
+                                <option>CyclicRandom</option>
+                                <option>Random</option>
+                                <option>Const1</option>
+                                <option>ReadFile</option>
+                            </param>
+                            <param type="string">
+                                <name>File for Initial Guess</name>
+                                <cTag>StartFileRead</cTag>
+                                <desc>NONE</desc>
+                                <value>NULL</value>
+                            </param>
+                            <param type="integer">
+                                <name>Max number of iterations w/o eigval</name>
+                                <cTag>ConvSingleValue</cTag>
+                                <desc>maximum number of iterations
+                                    without a
+                                    converged eigenvalue</desc>
+                                <value>1000</value>
+                            </param>
+                            <param type="array_real">
+                                <name>CyclicString</name>
+                                <cTag>CyclicString</cTag>
+                                <desc>CyclicString</desc>
+                                <value>{ 1.2 0.8 -1.4 0.1 -0.9 -0.2 0.6 }</value>
+                            </param>
+                        </group>
+                        <group
+                            enabledif="/application/input/top/Execution parameters/Electronic structure calculation/Algorithms/Electronic eigensolver==Rayleigh" type="struct">
+                            <name>Rayleigh-Ritz</name>
+                            <cTag>RayleighRitz</cTag>
+                            <desc>rayleigh-ritz parameters</desc>
+                            <param type="integer">
+                                <name>maximum iteration number</name>
+                                <cTag>MaxIter</cTag>
+                                <desc>maximum number of iterations</desc>
+                                <value>2000</value>
+                            </param>
+                            <param type="array_real">
+                                <name>eigenvalue guestimate</name>
+                                <cTag>EigValGuess</cTag>
+                                <desc>guess for eigenvalue</desc>
+                                <value>{ 1.08478374425772
+                                    1.09001526518255
+                                    1.09003169617404 1.09436794697899
+                                    1.11529200746531 1.11623614894002
+                                    1.13258728902297 1.13571240030456
+                                    1.13573444977151 1.13937761631719
+                                    1.15129007360188 1.15530216330867 }</value>
+                            </param>
+                            <param type="option">
+                                <name>Convergence Criterion</name>
+                                <cTag>ConvCrit</cTag>
+                                <desc>macopt convergence criterion</desc>
+                                <value>Step</value>
+                                <option>Gradient</option>
+                                <option>Step</option>
+                            </param>
+                            <param type="string">
+                                <name>file for initial condition</name>
+                                <cTag>StartFileRead</cTag>
+                                <desc>NONE</desc>
+                                <value>init_guess</value>
+                            </param>
+                            <param type="integer">
+                                <name>verbosity</name>
+                                <cTag>verbose</cTag>
+                                <desc>verbosity level {01,2}</desc>
+                                <value>1</value>
+                            </param>
+                            <param type="real">
+                                <name>tolerance</name>
+                                <cTag>tol</cTag>
+                                <desc>tolerance</desc>
+                                <value>2e-08</value>
+                            </param>
+                            <param type="integer">
+                                <name>RunningIndex</name>
+                                <cTag>RunningIndex</cTag>
+                                <desc>this should never be visible</desc>
+                                <value>0</value>
+                            </param>
+                        </group>
+                        <group
+                            enabledif="/application/input/top/Execution parameters/Electronic structure calculation/Algorithms/Electronic eigensolver==ParpackSolver" type="struct">
+                            <name>Parpack</name>
+                            <cTag>Parpack</cTag>
+                            <desc>Parpack parameters</desc>
+                            <param type="integer">
+                                <name>maximum iteration number</name>
+                                <cTag>MaxIter</cTag>
+                                <desc>maximum iteration number</desc>
+                                <value>3600</value>
+                            </param>
+                            <param type="integer">
+                                <name>number of eigenvalues requested</name>
+                                <cTag>NumEigVal</cTag>
+                                <desc>number of eigenvalues requested</desc>
+                                <value>6</value>
+                            </param>
+                            <param type="integer">
+                                <name>number of Arnoldi vectors</name>
+                                <cTag>NumArnoldiVector</cTag>
+                                <desc>How many times of the number of
+                                    eigenvalues
+                                    is the number of Arnoldi vectors?</desc>
+                                <value>4</value>
+                            </param>
+                            <param type="real">
+                                <name>reference eigenvalue</name>
+                                <cTag>RefEigVal</cTag>
+                                <desc>reference eigenvalue</desc>
+                                <value>1.12</value>
+                            </param>
+                            <param type="real">
+                                <name>tolerance</name>
+                                <cTag>Tolerance</cTag>
+                                <desc>tolerance</desc>
+                                <value>5e-07</value>
+                            </param>
+                            <param type="boolean">
+                                <name>calculate eigenvectors</name>
+                                <cTag>CalEigVec</cTag>
+                                <desc>calculate eigenvectors?</desc>
+                                <value>true</value>
+                            </param>
+                        </group>
+                        <group type="struct">
+                            <name>ReadInEigen</name>
+                            <cTag>ReadInEigen</cTag>
+                            <desc>ReadInEigen</desc>
+                            <param type="string">
+                                <name>StateFileRead</name>
+                                <cTag>StateFileRead</cTag>
+                                <desc>StateFileRead (should be made obsolete)</desc>
+                                <value>NULL</value>
+                            </param>
+                            <param type="integer">
+                                <name>StateFileNumb</name>
+                                <cTag>StateFileNumb</cTag>
+                                <desc>StateFileNumb</desc>
+                                <value>1</value>
+                            </param>
+                        </group>
+                    </group>
+                    <group type="struct">
+                        <!-- Output parameters. -->
+                        <name>Output</name>
+                        <cTag>ElOut</cTag>
+                        <desc>output parameters</desc>
+                        <param type="boolean">
+                            <name>EnergyDispersion</name>
+                            <cTag>EnergyDispersion</cTag>
+                            <desc>EnergyDispersion</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Eigenvectors</name>
+                            <cTag>Eigvect</cTag>
+                            <desc>write electronic wavefunctions to file?</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>|Psi(r)|^2</name>
+                            <cTag>PsiSqr</cTag>
+                            <desc>write modulus squared of the wavefunctions to file</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>|Psi(cell)|^2</name>
+                            <cTag>PsiSqr_cell</cTag>
+                            <desc>write modulus squared of the wavefunctions to file (but averaged over a unit cell)</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Local Bandstructure</name>
+                            <cTag>LocalBands</cTag>
+                            <desc>compute local band structure?</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Save tridiagonal matrix</name>
+                            <cTag>SaveTridiagInfo</cTag>
+                            <desc>Save the matrix generated by the Lanczos 3-term recursion</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Trace of eigenvalues</name>
+                            <cTag>TraceEigval</cTag>
+                            <desc>Save a log of the computed Ritz values generated by the Lanczos algorithm</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Rayleigh-Ritz iteration log</name>
+                            <cTag>CGiter_log</cTag>
+                            <desc>used for logging progress of rayleigh-ritz</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Rayleigh-Ritz iteration log2</name>
+                            <cTag>CGiter_log2</cTag>
+                            <desc>another rayleigh-ritz logger</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Local Ham</name>
+                            <cTag>LocalHam</cTag>
+                            <desc>Dump the non-zero entries of the Hamiltonian for the local bandstructure computation</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>PsiSqrPDB</name>
+                            <cTag>PsiSqrPdb</cTag>
+                            <desc> PsiSqrPDB </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="real">
+                            <name>PsiSqrCutoffPdb</name>
+                            <cTag>PsiSqrCutoffPdb</cTag>
+                            <desc> PsiSqrCutoffPdb </desc>
+                            <value>0.1</value>
+                        </param>
+                        <param type="boolean">
+                            <name>StructurePDB</name>
+                            <cTag>StructurePdb</cTag>
+                            <desc> StructurePDB </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>StructureGMV</name>
+                            <cTag>StructureGmv</cTag>
+                            <desc> StructureGMV </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>StructureCubicGMV</name>
+                            <cTag>StructureCubicGmv</cTag>
+                            <desc> StructureCubicGMV </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Psi4_IPR</name>
+                            <cTag>Psi4_IPR</cTag>
+                            <desc> Psi4_IPR </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>OptMatrixElements</name>
+                            <cTag>OptMatrixEl</cTag>
+                            <desc> OptMatrixElements </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Absorption</name>
+                            <cTag>Absorption</cTag>
+                            <desc> Absorption </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="integer">
+                            <name>Debug Level</name>
+                            <cTag>LogLevel</cTag>
+                            <desc>Verbosity of output (0,..3)</desc>
+                            <value>0</value>
+                        </param>
+                    </group>
+                </group>
+                <group type="struct">
+                    <name>Strain calculation</name>
+                    <cTag>Strain</cTag>
+                    <desc>strain parameters</desc>
+                    <param type="option">
+                        <name>Strain Model</name>
+                        <cTag>StrainModel</cTag>
+                        <desc>strain model</desc>
+                        <value>Keating</value>
+                        <option>None</option>
+                        <option>VFF_keating</option>
+                        <option>VFF_keating_strained</option>
+                        <option>Read</option>
+                    </param>
+                    <group type="struct">
+                        <name>Keating</name>
+                        <cTag>Keating</cTag>
+                        <desc>keating parameters</desc>
+                        <param type="option">
+                            <name>Strain constraint</name>
+                            <cTag>BoundCond</cTag>
+                            <desc>impose constraint on configuration</desc>
+                            <value>AllFree</value>
+                            <option>AllFree</option>
+                            <option>FixOne</option>
+                            <option>FixSurfaceAll</option>
+                            <option>FixInterior</option>
+                            <option>FixZmin</option>
+                        </param>
+                        <param type="option">
+                            <name>Periodicity (strain)</name>
+                            <cTag>Periodicity_strain</cTag>
+                            <desc>periodicity for strain calculation</desc>
+                            <value>Periodic_xyz</value>
+                            <option>SameAsGlobal</option>
+                            <option>Closed</option>
+                            <option>Periodic_xyz</option>
+                            <option>Periodic_x</option>
+                            <option>Periodic_y</option>
+                            <option>Periodic_z</option>
+                            <option>Periodic_xy</option>
+                            <option>Periodic_yz</option>
+                            <option>Periodic_xz</option>
+                        </param>
+                        <param type="option">
+                            <name>Minimize wrt lattice const</name>
+                            <cTag>MinWrtLatt</cTag>
+                            <desc>allow the periodicity to relax</desc>
+                            <value>none</value>
+                            <option>none</option>
+                            <option>x</option>
+                            <option>y</option>
+                            <option>z</option>
+                            <option>xy</option>
+                            <option>xz</option>
+                            <option>yz</option>
+                            <option>xyz</option>
+                        </param>
+                        <param type="boolean">
+                            <name>Update lattice constants before strain calculation?</name>
+                            <cTag>UpdateLatt</cTag>
+                            <desc>update lattice constants before strain calculation?</desc>
+                            <value>true</value>
+                        </param>
+                        <param type="array_real">
+                            <name>If UpdateLatt is true, what are the new lattice constants?</name>
+                            <cTag>UpdateLattConst</cTag>
+                            <desc>If UpdateLatt is true, what are the new lattice constants?</desc>
+                            <value>{ 0.56532 0.56532 0.56532 }</value>
+                        </param>
+                        <param type="real">
+                            <name>What is the scaling factor for dE/da?</name>
+                            <cTag>SCALE_FCTR</cTag>
+                            <desc>What is the scaling factor (S) for dE/da?
+                                  Use number between 1e-2 to 1e-5 depending 
+                                  on the number of atoms (N) in strain calculation.
+                                  An ideal S is about 1.0/sqrt(N). 
+                            </desc>
+                            <value>1e-3</value>
+                        </param>
+                        <param type="integer">
+                            <name>Maximum iteration number</name>
+                            <cTag>MaxIter</cTag>
+                            <desc>maximum number of interations</desc>
+                            <value>200</value>
+                        </param>
+                        <param type="real">
+                            <name>Tolerance</name>
+                            <cTag>tol</cTag>
+                            <desc>tolerance</desc>
+                            <value>1e-8</value>
+                        </param>
+                        <param type="option">
+                            <name>Convergence Criterion</name>
+                            <cTag>ConvCrit</cTag>
+                            <desc>NONE</desc>
+                            <value>Step</value>
+                            <option>Gradient</option>
+                            <option>Step</option>
+                        </param>
+                        <param type="integer">
+                            <name>strainCheckPointInterval</name>
+                            <cTag>strainCheckPointInterval</cTag>
+                            <desc>Strain iteration checkpointing interval</desc>
+                            <value>0</value>
+                        </param>
+                        <param type="string">
+                            <name>File for Initial Guess</name>
+                            <cTag>StartFileRead</cTag>
+                            <desc>NONE</desc>
+                            <value>NULL</value>
+                        </param>
+                        <param type="integer">
+                            <name>Verbosity</name>
+                            <cTag>verbose</cTag>
+                            <desc>NONE</desc>
+                            <value>1</value>
+                        </param>
+                    </group>
+                    <group type="struct">
+                        <name>Output</name>
+                        <cTag>StrainOut</cTag>
+                        <desc>Output parameters for strain calculation</desc>
+                        <param type="boolean">
+                            <name>Final Energy</name>
+                            <cTag>EnergyFinal</cTag>
+                            <desc>NONE</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>CG Energy iteration</name>
+                            <cTag>EnergyCGiter</cTag>
+                            <desc>NONE</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>CG Energy all</name>
+                            <cTag>EnergyCGall</cTag>
+                            <desc>NONE</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Neighborhood</name>
+                            <cTag>Neighborhood</cTag>
+                            <desc> Neighborhood </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Bondlength info</name>
+                            <cTag>Bondlength</cTag>
+                            <desc> Bondlength </desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Displacement data for restart</name>
+                            <cTag>DisplacementData</cTag>
+                            <desc>NONE</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Displacement data for plot</name>
+                            <cTag>DisplacementData3D</cTag>
+                            <desc>NONE</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="integer">
+                            <name>Debug Level</name>
+                            <cTag>LogLevel</cTag>
+                            <desc>Verbosity of output (0,..3)</desc>
+                            <value>0</value>
+                        </param>
+                    </group>
+                </group>
+                <group type="struct">
+                    <name>Phonon calcuation</name>
+                    <cTag>PhonCalc</cTag>
+                    <desc>Input parameters for the phonon calculation.</desc>
+                    <param type="option">
+                        <name>Phonon model</name>
+                        <cTag>PhonModel</cTag>
+                        <desc>Valence-field force model or include Coulomb</desc>
+                        <value>VFFM</value>
+                        <option>VFFM</option>
+                        <option>none</option>
+                    </param>
+                    <param type="array_real">
+                        <name>minimal q_ph nm^{-1}</name>
+                        <cTag>q_ph_min</cTag>
+                        <inputTag>q_ph_min</inputTag>
+                        <desc>Initial value of phonon wave vector</desc>
+                        <value>{0.0 0.0 0.0}</value>
+                    </param>
+                    <param type="array_real">
+                        <name>maximal q_ph nm^{-1}</name>
+                        <cTag>q_ph_max</cTag>
+                        <inputTag>q_ph_max</inputTag>
+                        <desc>Final value of phonon wave vector</desc>
+                        <value>{0.0 0.0 1}</value>
+                    </param>
+                    <param type="integer">
+                        <name>Number of q_ph points</name>
+                        <cTag>Nq_ph</cTag>
+                        <inputTag>Nq_ph</inputTag>
+                        <desc>Number of points in quasi-Brillouin zone
+                            for phonon wave vector</desc>
+                        <value>10</value>
+                    </param>
+                    <param type="option">
+                        <name>Part of the phonon spectrum</name>
+                        <cTag>PS</cTag>
+                        <inputTag>PS</inputTag>
+                        <desc>What part of the phonon spectrum to compute?</desc>
+                        <value>Lower</value>
+                        <option>Higher</option>
+                        <option>Lower</option>
+                    </param>
+                    <param type="option">
+                        <name>Optimization of the anharmonicity corrections</name>
+                        <cTag>anh</cTag>
+                        <inputTag>anh</inputTag>
+                        <desc>By default the Lower part of the phonon
+                        spectrum computes with the same set of
+                        anharmonicity corrections as that used for
+                        strain calculations (first 3 values of strain_VFF), while
+                        the Higher part of the phonon spectrum
+                        computes with the set of anharmonicity
+                        corrections optimised for the optical phonons
+                        in Gamma point (second 3 values of strain_VFF)</desc>
+                        <value>Default</value>
+                        <option>Default</option>
+                        <option>AcousticalSet</option>
+                        <option>OpticalSet</option>
+                        <option>LinearInterpolation</option>
+                    </param>
+                    <param type="integer">
+                        <name>Number of phonon branches</name>
+                        <cTag>N_branches</cTag>
+                        <inputTag>N_branches</inputTag>
+                        <desc>Number of phonon branches to be searched
+                            with ARPACK/PARPACK</desc>
+                        <value>12</value>
+                    </param>
+                    <group type="struct">
+                        <name>Parpack</name>
+                        <cTag>PhonParpack</cTag>
+                        <desc>Parpack parameters</desc>
+                        <param type="integer">
+                            <name>maximum iteration number</name>
+                            <cTag>MaxIter</cTag>
+                            <desc>maximum iteration number</desc>
+                            <value>3600</value>
+                        </param>
+                        <param type="integer">
+                            <name>number of Arnoldi vectors</name>
+                            <cTag>NumArnoldiVector</cTag>
+                            <desc>How many times of the number of
+                                eigenvalues
+                                is the number of Arnoldi vectors?</desc>
+                            <value>3</value>
+                        </param>
+                        <param type="real">
+                            <name>reference eigenvalue</name>
+                            <cTag>RefEigVal</cTag>
+                            <desc>reference eigenvalue, eV</desc>
+                            <value>0.0</value>
+                        </param>
+                        <param type="real">
+                            <name>tolerance</name>
+                            <cTag>Tolerance</cTag>
+                            <desc>tolerance</desc>
+                            <value>1e-10</value>
+                        </param>
+                    </group>
+                    <group type="struct">
+                        <name>Output</name>
+                        <cTag>PhonOut</cTag>
+                        <desc>Output parameters for phonon calculation</desc>
+                        <param type="boolean">
+                            <name>Energy dispersion</name>
+                            <cTag>PhonEq</cTag>
+                            <desc>calculate eigenvalues?</desc>
+                            <value>true</value>
+                        </param>
+                        <param type="boolean">
+                            <name>Displacement vectors</name>
+                            <cTag>PhonDV</cTag>
+                            <desc>calculate eigenvectors of dynamical matrix?</desc>
+                            <value>false</value>
+                        </param>
+                        <param type="integer">
+                            <name>Debug Level</name>
+                            <cTag>LogLevel</cTag>
+                            <desc>Verbosity of output (0,..3)</desc>
+                            <value>0</value>
+                        </param>
+                    </group>
+                </group>
+                <group type="struct">
+                    <!-- Output parameters. -->
+                    <name>Output</name>
+                    <cTag>Output</cTag>
+                    <desc>output parameters (Out1)</desc>
+                    <param type="boolean">
+                        <name>AtomInfo</name>
+                        <cTag>AtomInfo</cTag>
+                        <desc>Print Atom-Type Information</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="boolean">
+                        <name>NbrIndx</name>
+                        <cTag>NbrIndx</cTag>
+                        <desc>Print Neighbor Index</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="boolean">
+                        <name>Atomic Positions</name>
+                        <cTag>AtomPos</cTag>
+                        <desc>AtomPos</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="boolean">
+                        <name>ShapeInfo</name>
+                        <cTag>ShapeInfo</cTag>
+                        <desc>Print Shape Information</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="boolean">
+                        <name>RunFile</name>
+                        <cTag>RunFile</cTag>
+                        <desc>Dump results of XML parser to file?</desc>
+                        <value>false</value>
+                    </param>
+                    <param type="integer">
+                        <name>Debug Level</name>
+                        <cTag>LogLevel</cTag>
+                        <desc>Verbosity of output (0,..3)</desc>
+                        <value>0</value>
+                    </param>
+                </group>
+                <group type="struct">
+                    <!-- Subdomain -->
+                    <name>Subdomain</name>
+                    <cTag>Subdomain</cTag>
+                    <desc>subdomain.</desc>
+                    <param type="real">
+                        <name>xMin</name>
+                        <cTag>xMin</cTag>
+                        <desc>xMin</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>yMin</name>
+                        <cTag>yMin</cTag>
+                        <desc>yMin</desc>
+                        <value>3.5</value>
+                    </param>
+                    <param type="real">
+                        <name>zMin</name>
+                        <cTag>zMin</cTag>
+                        <desc>zMin</desc>
+                        <value>3</value>
+                    </param>
+                    <param type="real">
+                        <name>xMax</name>
+                        <cTag>xMax</cTag>
+                        <desc>xMax</desc>
+                        <value>8</value>
+                    </param>
+                    <param type="real">
+                        <name>yMax</name>
+                        <cTag>yMax</cTag>
+                        <desc>yMax</desc>
+                        <value>3.7</value>
+                    </param>
+                    <param type="real">
+                        <name>zMax</name>
+                        <cTag>zMax</cTag>
+                        <desc>zMax</desc>
+                        <value>4.3</value>
+                    </param>
+                </group>
+                <group type="struct">
+                    <name>Absorp</name>
+                    <cTag>Absorp</cTag>
+                    <desc>absorption parameters</desc>
+                    <param type="boolean">
+                        <name>AbsCoeff</name>
+                        <cTag>AbsCoeff</cTag>
+                        <desc>AbsCoeff</desc>
+                        <value>true</value>
+                    </param>
+                    <param type="boolean">
+                        <name>IntegrAbs</name>
+                        <cTag>IntegrAbs</cTag>
+                        <desc>IntegrAbs</desc>
+                        <value>true</value>
+                    </param>
+                    <param type="real">
+                        <name>HbarOverTau</name>
+                        <cTag>HbarOverTau</cTag>
+                        <desc>HbarOverTau</desc>
+                        <value>0.0001</value>
+                    </param>
+                    <param type="option">
+                        <name>ramp</name>
+                        <cTag>ramp</cTag>
+                        <desc>ramp</desc>
+                        <value>fermi</value>
+                        <option>fermi</option>
+                        <option>temp</option>
+                        <option>strength</option>
+                        <option>phi</option>
+                        <option>theta</option>
+                    </param>
+                </group>
+                <group type="struct">
+                    <name>Abs_Ramp</name>
+                    <cTag>Abs_Ramp</cTag>
+                    <desc>absorption ramp parameters</desc>
+                    <param type="int">
+                        <name>Etemp_n</name>
+                        <cTag>Etemp_n</cTag>
+                        <desc>Electron temp steps</desc>
+                        <value>5</value>
+                    </param>
+                    <param type="real">
+                        <name>Etemp</name>
+                        <cTag>Etemp</cTag>
+                        <desc>Electron temp (K)</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="real">
+                        <name>Etemp_min</name>
+                        <cTag>Etemp_min</cTag>
+                        <desc>Min Electron temp (K)</desc>
+                        <value>4.2</value>
+                    </param>
+                    <param type="real">
+                        <name>Etemp_max</name>
+                        <cTag>Etemp_max</cTag>
+                        <desc>Max Electron temp (K)</desc>
+                        <value>300</value>
+                    </param>
+                    <param type="int">
+                        <name>Efermi_n</name>
+                        <cTag>Efermi_n</cTag>
+                        <desc>Fermi Energy Steps</desc>
+                        <value>5</value>
+                    </param>
+                    <param type="real">
+                        <name>Efermi</name>
+                        <cTag>Efermi</cTag>
+                        <desc>Efermi (eV)</desc>
+                        <value>0.3</value>
+                    </param>
+                    <param type="real">
+                        <name>Efermi_min</name>
+                        <cTag>Efermi_min</cTag>
+                        <desc>Min Fermi Energy (eV)</desc>
+                        <value>0.1</value>
+                    </param>
+                    <param type="real">
+                        <name>Efermi_max</name>
+                        <cTag>Efermi_max</cTag>
+                        <desc>Max Fermi Energy (eV)</desc>
+                        <value>0.5</value>
+                    </param>
+                    <param type="int">
+                        <name>Estrength_n</name>
+                        <cTag>Estrength_n</cTag>
+                        <desc>Electric field strength_n</desc>
+                        <value>10</value>
+                    </param>
+                    <param type="real">
+                        <name>Estrength</name>
+                        <cTag>Estrength</cTag>
+                        <desc>Electric field strength (eV/nm)</desc>
+                        <value>0.0001</value>
+                    </param>
+                    <param type="real">
+                        <name>Estrength_min</name>
+                        <cTag>Estrength_min</cTag>
+                        <desc>Min Electric Field Strength (eV/nm)</desc>
+                        <value>1e-06</value>
+                    </param>
+                    <param type="real">
+                        <name>Estrength_max</name>
+                        <cTag>Estrength_max</cTag>
+                        <desc>Max Electric Field Strength (eV/nm)</desc>
+                        <value>0.0001</value>
+                    </param>
+                    <param type="int">
+                        <name>Ephi_n</name>
+                        <cTag>Ephi_n</cTag>
+                        <desc>Ephi_n</desc>
+                        <value>10</value>
+                    </param>
+                    <param type="real">
+                        <name>Ephi</name>
+                        <cTag>Ephi</cTag>
+                        <desc>Electric Field Phi (degrees)</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Ephi_min</name>
+                        <cTag>Ephi_min</cTag>
+                        <desc>Min Electric Field Phi (degrees)</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Ephi_max</name>
+                        <cTag>Ephi_max</cTag>
+                        <desc>Max Electric Field Phi (degrees)</desc>
+                        <value>90</value>
+                    </param>
+                    <param type="int">
+                        <name>Etheta_n</name>
+                        <cTag>Etheta_n</cTag>
+                        <desc>Etheta_n</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Etheta</name>
+                        <cTag>Etheta</cTag>
+                        <desc>Electric Field Theta (degrees)</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Etheta_min</name>
+                        <cTag>Etheta_min</cTag>
+                        <desc>Min Electric Field Theta (degrees)</desc>
+                        <value>0</value>
+                    </param>
+                    <param type="real">
+                        <name>Etheta_max</name>
+                        <cTag>Etheta_max</cTag>
+                        <desc>Max Electric Field Theta (degrees)</desc>
+                        <value>0</value>
+                    </param>
+                </group>
+            </group>
+        </group>
+    </input>
+    <output>
+        <!-- The output element describes the output that is produced by
+    the application.  The basic output unit is the file.  A file may
+    represent either an output stream (such as stdout), or a real
+    file.  The file element will also, through the 'type' attribute,
+    declare the way that the output file should be interpreted by the
+    application.  We have only two types of output files defined
+    initially: 'stream', and 'plot'.  This output file is a stream,
+    meaning that the application should interpret it as a simple text
+    stream that should be presented to the user without special
+    processing.  There are two special elements, which denote the
+    availability of the stdout and stderr stream to the user. -->
+        <stdout/>
+        <stderr/>
+        <file type="text">
+            <!-- A 'text' output file will be interpreted as a plain text
+	     file. -->
+            <name>Function Text</name>
+            <filename>sample.dat</filename>
+            <desc>The file contains the X-Y sine plot produced by the         application.</desc>
+        </file>
+        <file type="plot">
+            <!-- A 'plot' output file will be interpreted as an X-Y data 
+             series to be plotted in cartesian coordinates, one
+             whitespace seperated, X-Y pair per line of the file. -->
+            <name>Function Plot</name>
+            <filename>sample.dat</filename>
+            <desc>The file contains the X-Y sine plot produced by the         application.</desc>
+        </file>
+    </output>
+</application>

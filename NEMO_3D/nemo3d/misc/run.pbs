@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+#PBS -l nodes=18
+#PBS -q long
+#PBS -k oe
+#PBS -j oe
+
+import sys
+sys.path.append("/home/fabiano/dbug-eth/vinyard-bin")
+from pbsrun2 import *
+
+PBSRun(use_gm = 0,
+       working_dir = "/home/fabiano/dbug-eth",
+       application = "./run3d tmp.in"
+       ).run()
+
+print "\n--- Done. ---\n"

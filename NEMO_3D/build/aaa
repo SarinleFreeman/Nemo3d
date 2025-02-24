@@ -1,0 +1,2047 @@
+(cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK; make lib ARPACKLIB='/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a' \
+	DIRS='/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/UTIL /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/SRC' \
+	FC='mpif90' FFLAGS='-O1' MAKE='make' RANLIB='ranlib')
+make[1]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK'
+Making lib in /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/UTIL
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/UTIL'
+Makefile:47: warning: overriding commands for target `.f.o'
+../ARmake.inc:95: warning: ignoring old commands for target `.f.o'
+mpif90 -O1 -c svout.f
+mpif90 -O1 -c smout.f
+mpif90 -O1 -c icnteq.f
+mpif90 -O1 -c icopy.f
+mpif90 -O1 -c iset.f
+mpif90 -O1 -c iswap.f
+mpif90 -O1 -c ivout.f
+mpif90 -O1 -c second.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a svout.o  smout.o icnteq.o icopy.o iset.o iswap.o ivout.o second.o
+ar: creating /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+a - svout.o
+a - smout.o
+a - icnteq.o
+a - icopy.o
+a - iset.o
+a - iswap.o
+a - ivout.o
+a - second.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c dvout.f
+mpif90 -O1 -c dmout.f
+mpif90 -O1 -c zvout.f
+mpif90 -O1 -c zmout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a dvout.o  dmout.o icnteq.o icopy.o iset.o iswap.o ivout.o second.o
+a - dvout.o
+a - dmout.o
+r - icnteq.o
+r - icopy.o
+r - iset.o
+r - iswap.o
+r - ivout.o
+r - second.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c cvout.f
+mpif90 -O1 -c cmout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a svout.o  smout.o cvout.o  cmout.o  icnteq.o icopy.o iset.o iswap.o ivout.o second.o
+r - svout.o
+r - smout.o
+a - cvout.o
+a - cmout.o
+r - icnteq.o
+r - icopy.o
+r - iset.o
+r - iswap.o
+r - ivout.o
+r - second.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a dvout.o  dmout.o zvout.o  zmout.o icnteq.o icopy.o iset.o iswap.o ivout.o second.o
+r - dvout.o
+r - dmout.o
+a - zvout.o
+a - zmout.o
+r - icnteq.o
+r - icopy.o
+r - iset.o
+r - iswap.o
+r - ivout.o
+r - second.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/UTIL'
+Making lib in /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/SRC
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/SRC'
+Makefile:50: warning: overriding commands for target `.f.o'
+../ARmake.inc:95: warning: ignoring old commands for target `.f.o'
+mpif90 -O1 -c sgetv0.f
+mpif90 -O1 -c slaqrb.f
+mpif90 -O1 -c sstqrb.f
+mpif90 -O1 -c ssortc.f
+mpif90 -O1 -c ssortr.f
+mpif90 -O1 -c sstatn.f
+mpif90 -O1 -c sstats.f
+mpif90 -O1 -c snaitr.f
+mpif90 -O1 -c snapps.f
+mpif90 -O1 -c snaup2.f
+mpif90 -O1 -c snaupd.f
+mpif90 -O1 -c snconv.f
+mpif90 -O1 -c sneigh.f
+mpif90 -O1 -c sngets.f
+mpif90 -O1 -c ssaitr.f
+mpif90 -O1 -c ssapps.f
+mpif90 -O1 -c ssaup2.f
+mpif90 -O1 -c ssaupd.f
+mpif90 -O1 -c ssconv.f
+mpif90 -O1 -c sseigt.f
+mpif90 -O1 -c ssgets.f
+mpif90 -O1 -c sneupd.f
+mpif90 -O1 -c sseupd.f
+mpif90 -O1 -c ssesrt.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a sgetv0.o slaqrb.o sstqrb.o ssortc.o ssortr.o sstatn.o sstats.o snaitr.o snapps.o snaup2.o snaupd.o snconv.o sneigh.o sngets.o ssaitr.o ssapps.o ssaup2.o ssaupd.o ssconv.o sseigt.o ssgets.o sneupd.o sseupd.o ssesrt.o
+a - sgetv0.o
+a - slaqrb.o
+a - sstqrb.o
+a - ssortc.o
+a - ssortr.o
+a - sstatn.o
+a - sstats.o
+a - snaitr.o
+a - snapps.o
+a - snaup2.o
+a - snaupd.o
+a - snconv.o
+a - sneigh.o
+a - sngets.o
+a - ssaitr.o
+a - ssapps.o
+a - ssaup2.o
+a - ssaupd.o
+a - ssconv.o
+a - sseigt.o
+a - ssgets.o
+a - sneupd.o
+a - sseupd.o
+a - ssesrt.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c dgetv0.f
+mpif90 -O1 -c dlaqrb.f
+mpif90 -O1 -c dstqrb.f
+mpif90 -O1 -c dsortc.f
+mpif90 -O1 -c dsortr.f
+mpif90 -O1 -c dstatn.f
+mpif90 -O1 -c dstats.f
+mpif90 -O1 -c dnaitr.f
+mpif90 -O1 -c dnapps.f
+mpif90 -O1 -c dnaup2.f
+mpif90 -O1 -c dnaupd.f
+mpif90 -O1 -c dnconv.f
+mpif90 -O1 -c dneigh.f
+mpif90 -O1 -c dngets.f
+mpif90 -O1 -c dsaitr.f
+mpif90 -O1 -c dsapps.f
+mpif90 -O1 -c dsaup2.f
+mpif90 -O1 -c dsaupd.f
+mpif90 -O1 -c dsconv.f
+mpif90 -O1 -c dseigt.f
+mpif90 -O1 -c dsgets.f
+mpif90 -O1 -c dneupd.f
+mpif90 -O1 -c dseupd.f
+mpif90 -O1 -c dsesrt.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a dgetv0.o dlaqrb.o dstqrb.o dsortc.o dsortr.o dstatn.o dstats.o dnaitr.o dnapps.o dnaup2.o dnaupd.o dnconv.o dneigh.o dngets.o dsaitr.o dsapps.o dsaup2.o dsaupd.o dsconv.o dseigt.o dsgets.o dneupd.o dseupd.o dsesrt.o
+a - dgetv0.o
+a - dlaqrb.o
+a - dstqrb.o
+a - dsortc.o
+a - dsortr.o
+a - dstatn.o
+a - dstats.o
+a - dnaitr.o
+a - dnapps.o
+a - dnaup2.o
+a - dnaupd.o
+a - dnconv.o
+a - dneigh.o
+a - dngets.o
+a - dsaitr.o
+a - dsapps.o
+a - dsaup2.o
+a - dsaupd.o
+a - dsconv.o
+a - dseigt.o
+a - dsgets.o
+a - dneupd.o
+a - dseupd.o
+a - dsesrt.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c cnaitr.f
+mpif90 -O1 -c cnapps.f
+mpif90 -O1 -c cnaup2.f
+mpif90 -O1 -c cnaupd.f
+mpif90 -O1 -c cneigh.f
+mpif90 -O1 -c cneupd.f
+mpif90 -O1 -c cngets.f
+mpif90 -O1 -c cgetv0.f
+mpif90 -O1 -c csortc.f
+mpif90 -O1 -c cstatn.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a cnaitr.o cnapps.o cnaup2.o cnaupd.o cneigh.o cneupd.o cngets.o cgetv0.o csortc.o cstatn.o
+a - cnaitr.o
+a - cnapps.o
+a - cnaup2.o
+a - cnaupd.o
+a - cneigh.o
+a - cneupd.o
+a - cngets.o
+a - cgetv0.o
+a - csortc.o
+a - cstatn.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c znaitr.f
+mpif90 -O1 -c znapps.f
+mpif90 -O1 -c znaup2.f
+mpif90 -O1 -c znaupd.f
+mpif90 -O1 -c zneigh.f
+mpif90 -O1 -c zneupd.f
+mpif90 -O1 -c zngets.f
+mpif90 -O1 -c zgetv0.f
+mpif90 -O1 -c zsortc.f
+mpif90 -O1 -c zstatn.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a znaitr.o znapps.o znaup2.o znaupd.o zneigh.o zneupd.o zngets.o zgetv0.o zsortc.o zstatn.o
+a - znaitr.o
+a - znapps.o
+a - znaup2.o
+a - znaupd.o
+a - zneigh.o
+a - zneupd.o
+a - zngets.o
+a - zgetv0.o
+a - zsortc.o
+a - zstatn.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/SRC'
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libarpack_x86_64_intel19_64_mpi_intelfast.a
+make[1]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK'
+==== ARPACK library archive up to date ====
+(cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK; make plib PARPACKLIB='/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a' \
+	PUTILdir="/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/PARPACK/UTIL/MPI" PSRCdir="/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/PARPACK/SRC/MPI" \
+	FC='mpif90' FFLAGS='-O1' MAKE='make' RANLIB='ranlib')
+make[1]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK'
+( cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/PARPACK/UTIL/MPI; make single double complex complex16 )
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/PARPACK/UTIL/MPI'
+Makefile:45: warning: overriding commands for target `.f.o'
+../../../ARmake.inc:95: warning: ignoring old commands for target `.f.o'
+mpif90 -O1 -c psvout.f
+mpif90 -O1 -c psmout.f
+mpif90 -O1 -c pivout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a psvout.o  psmout.o pivout.o
+ar: creating /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+a - psvout.o
+a - psmout.o
+a - pivout.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pdvout.f
+mpif90 -O1 -c pdmout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pdvout.o  pdmout.o pivout.o
+a - pdvout.o
+a - pdmout.o
+r - pivout.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pcvout.f
+mpif90 -O1 -c pcmout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pcvout.o  pcmout.o  pivout.o
+a - pcvout.o
+a - pcmout.o
+r - pivout.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pzvout.f
+mpif90 -O1 -c pzmout.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pzvout.o  pzmout.o pivout.o
+a - pzvout.o
+a - pzmout.o
+r - pivout.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/PARPACK/UTIL/MPI'
+( cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/PARPACK/SRC/MPI; make single double complex complex16 )
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/PARPACK/SRC/MPI'
+Makefile:48: warning: overriding commands for target `.f.o'
+../../../ARmake.inc:95: warning: ignoring old commands for target `.f.o'
+mpif90 -O1 -c psgetv0.f
+mpif90 -O1 -c psnaitr.f
+mpif90 -O1 -c psnapps.f
+mpif90 -O1 -c psnaup2.f
+mpif90 -O1 -c psnaupd.f
+mpif90 -O1 -c psneigh.f
+mpif90 -O1 -c psngets.f
+mpif90 -O1 -c pssaitr.f
+mpif90 -O1 -c pssapps.f
+mpif90 -O1 -c pssaup2.f
+mpif90 -O1 -c pssaupd.f
+mpif90 -O1 -c psseigt.f
+mpif90 -O1 -c pssgets.f
+mpif90 -O1 -c psneupd.f
+mpif90 -O1 -c psseupd.f
+mpif90 -O1 -c pslarnv.f
+mpif90 -O1 -c pslamch.f
+mpif90 -O1 -c psnorm2.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a psgetv0.o psnaitr.o psnapps.o psnaup2.o psnaupd.o psneigh.o psngets.o pssaitr.o pssapps.o pssaup2.o pssaupd.o psseigt.o pssgets.o psneupd.o psseupd.o pslarnv.o pslamch.o psnorm2.o
+a - psgetv0.o
+a - psnaitr.o
+a - psnapps.o
+a - psnaup2.o
+a - psnaupd.o
+a - psneigh.o
+a - psngets.o
+a - pssaitr.o
+a - pssapps.o
+a - pssaup2.o
+a - pssaupd.o
+a - psseigt.o
+a - pssgets.o
+a - psneupd.o
+a - psseupd.o
+a - pslarnv.o
+a - pslamch.o
+a - psnorm2.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pdgetv0.f
+mpif90 -O1 -c pdnaitr.f
+mpif90 -O1 -c pdnapps.f
+mpif90 -O1 -c pdnaup2.f
+mpif90 -O1 -c pdnaupd.f
+mpif90 -O1 -c pdneigh.f
+mpif90 -O1 -c pdngets.f
+mpif90 -O1 -c pdsaitr.f
+mpif90 -O1 -c pdsapps.f
+mpif90 -O1 -c pdsaup2.f
+mpif90 -O1 -c pdsaupd.f
+mpif90 -O1 -c pdseigt.f
+mpif90 -O1 -c pdsgets.f
+mpif90 -O1 -c pdneupd.f
+mpif90 -O1 -c pdseupd.f
+mpif90 -O1 -c pdlarnv.f
+mpif90 -O1 -c pdlamch.f
+mpif90 -O1 -c pdnorm2.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pdgetv0.o pdnaitr.o pdnapps.o pdnaup2.o pdnaupd.o pdneigh.o pdngets.o pdsaitr.o pdsapps.o pdsaup2.o pdsaupd.o pdseigt.o pdsgets.o pdneupd.o pdseupd.o pdlarnv.o pdlamch.o pdnorm2.o
+a - pdgetv0.o
+a - pdnaitr.o
+a - pdnapps.o
+a - pdnaup2.o
+a - pdnaupd.o
+a - pdneigh.o
+a - pdngets.o
+a - pdsaitr.o
+a - pdsapps.o
+a - pdsaup2.o
+a - pdsaupd.o
+a - pdseigt.o
+a - pdsgets.o
+a - pdneupd.o
+a - pdseupd.o
+a - pdlarnv.o
+a - pdlamch.o
+a - pdnorm2.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pcnaitr.f
+mpif90 -O1 -c pcnapps.f
+mpif90 -O1 -c pcnaup2.f
+mpif90 -O1 -c pcnaupd.f
+mpif90 -O1 -c pcneigh.f
+mpif90 -O1 -c pcneupd.f
+mpif90 -O1 -c pcngets.f
+mpif90 -O1 -c pcgetv0.f
+mpif90 -O1 -c pscnorm2.f
+mpif90 -O1 -c pclarnv.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pcnaitr.o pcnapps.o pcnaup2.o pcnaupd.o pcneigh.o pcneupd.o pcngets.o pcgetv0.o pscnorm2.o pclarnv.o
+a - pcnaitr.o
+a - pcnapps.o
+a - pcnaup2.o
+a - pcnaupd.o
+a - pcneigh.o
+a - pcneupd.o
+a - pcngets.o
+a - pcgetv0.o
+a - pscnorm2.o
+a - pclarnv.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+mpif90 -O1 -c pznaitr.f
+mpif90 -O1 -c pznapps.f
+mpif90 -O1 -c pznaup2.f
+mpif90 -O1 -c pznaupd.f
+mpif90 -O1 -c pzneigh.f
+mpif90 -O1 -c pzneupd.f
+mpif90 -O1 -c pzngets.f
+mpif90 -O1 -c pzgetv0.f
+mpif90 -O1 -c pdznorm2.f
+mpif90 -O1 -c pzlarnv.f
+ar  rv /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a pznaitr.o pznapps.o pznaup2.o pznaupd.o pzneigh.o pzneupd.o pzngets.o pzgetv0.o pdznorm2.o pzlarnv.o
+a - pznaitr.o
+a - pznapps.o
+a - pznaup2.o
+a - pznaupd.o
+a - pzneigh.o
+a - pzneupd.o
+a - pzngets.o
+a - pzgetv0.o
+a - pdznorm2.o
+a - pzlarnv.o
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK/PARPACK/SRC/MPI'
+ranlib /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../ARPACK/libparpack_x86_64_intel19_64_mpi_intelfast.a
+make[1]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/ARPACK'
+==== PARPACK library archive up to date ====
+(cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../nml/src; make PLATFORM='x86_64_intel19_64_mpi_intelfast' \
+	 CC='mpicxx ' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' \
+	 AR='xiar' AR_OPTIONS='rcvs' MAKE='make')
+make[1]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src'
+(cd tensor/itensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/itensor'
+(cd ../../matrix/imatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/imatrix'
+(cd ../../vector/ivector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/ivector'
+(cd ../../scalar/iscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/iscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+../../../bin/genclass '' '' global
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_global.h ../../../include/nml_global.h
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../../../lib/x86_64_intel19_64_mpi_intelfast
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+a - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_iscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/iscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_iscalar.h ../../../include/nml_iscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_iscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_iscalar.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_iscalar.a x86_64_intel19_64_mpi_intelfast/nml_iscalar.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_iscalar.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/iscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/iscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ivector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/ivector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_ivector.h ../../../include/nml_ivector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_ivector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_ivector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ivector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv ivector.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i 1DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_i1DBase.h ../../../include/nml_i1DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_i1DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_i1DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ivector.a x86_64_intel19_64_mpi_intelfast/nml_ivector.o x86_64_intel19_64_mpi_intelfast/ivector.o x86_64_intel19_64_mpi_intelfast/nml_i1DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_ivector.o
+a - x86_64_intel19_64_mpi_intelfast/ivector.o
+a - x86_64_intel19_64_mpi_intelfast/nml_i1DBase.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/ivector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/ivector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_imatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/imatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_imatrix.h ../../../include/nml_imatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_imatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_imatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c imatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv imatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i 2DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_i2DBase.h ../../../include/nml_i2DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_i2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_i2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c i2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv i2tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_imatrix.a x86_64_intel19_64_mpi_intelfast/nml_imatrix.o x86_64_intel19_64_mpi_intelfast/imatrix.o x86_64_intel19_64_mpi_intelfast/nml_i2DBase.o x86_64_intel19_64_mpi_intelfast/i2tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_imatrix.o
+a - x86_64_intel19_64_mpi_intelfast/imatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_i2DBase.o
+a - x86_64_intel19_64_mpi_intelfast/i2tensor.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/imatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/imatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_itensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/itensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_itensor.h ../../../include/nml_itensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_itensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_itensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass integer i 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_i3DBase.h ../../../include/nml_i3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_i3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_i3DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c i3tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv i3tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_itensor.a x86_64_intel19_64_mpi_intelfast/nml_itensor.o x86_64_intel19_64_mpi_intelfast/nml_i3DBase.o x86_64_intel19_64_mpi_intelfast/i3tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_itensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_i3DBase.o
+a - x86_64_intel19_64_mpi_intelfast/i3tensor.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/itensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/itensor'
+(cd tensor/stensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/stensor'
+(cd ../../matrix/smatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/smatrix'
+(cd ../../vector/svector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/svector'
+(cd ../../scalar/sscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/sscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: `../../../include/nml_global.h' is up to date.
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_sscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/sscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_sscalar.h ../../../include/nml_sscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_sscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_sscalar.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_sscalar.a x86_64_intel19_64_mpi_intelfast/nml_sscalar.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_sscalar.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/sscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/sscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_svector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/svector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_svector.h ../../../include/nml_svector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_svector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_svector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c svector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv svector.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s 1DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_s1DBase.h ../../../include/nml_s1DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_s1DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_s1DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_svector.a x86_64_intel19_64_mpi_intelfast/nml_svector.o x86_64_intel19_64_mpi_intelfast/svector.o x86_64_intel19_64_mpi_intelfast/nml_s1DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_svector.o
+a - x86_64_intel19_64_mpi_intelfast/svector.o
+a - x86_64_intel19_64_mpi_intelfast/nml_s1DBase.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/svector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/svector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_smatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/smatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_smatrix.h ../../../include/nml_smatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_smatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_smatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c smatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv smatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s 2DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_s2DBase.h ../../../include/nml_s2DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_s2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_s2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c s2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv s2tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_smatrix.a x86_64_intel19_64_mpi_intelfast/nml_smatrix.o x86_64_intel19_64_mpi_intelfast/smatrix.o x86_64_intel19_64_mpi_intelfast/nml_s2DBase.o x86_64_intel19_64_mpi_intelfast/s2tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_smatrix.o
+a - x86_64_intel19_64_mpi_intelfast/smatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_s2DBase.o
+a - x86_64_intel19_64_mpi_intelfast/s2tensor.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/smatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/smatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_stensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/stensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_stensor.h ../../../include/nml_stensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_stensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_stensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass short s 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_s3DBase.h ../../../include/nml_s3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_s3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_s3DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c s3tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv s3tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_stensor.a x86_64_intel19_64_mpi_intelfast/nml_stensor.o x86_64_intel19_64_mpi_intelfast/nml_s3DBase.o x86_64_intel19_64_mpi_intelfast/s3tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_stensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_s3DBase.o
+a - x86_64_intel19_64_mpi_intelfast/s3tensor.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/stensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/stensor'
+(cd tensor/btensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/btensor'
+(cd ../../matrix/bmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/bmatrix'
+(cd ../../vector/bvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/bvector'
+(cd ../../scalar/bscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/bscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: `../../../include/nml_global.h' is up to date.
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/bscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_bscalar.h ../../../include/nml_bscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_bscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_bscalar.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bscalar.a x86_64_intel19_64_mpi_intelfast/nml_bscalar.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_bscalar.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/bscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/bscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/bvector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_bvector.h ../../../include/nml_bvector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_bvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_bvector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c bvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv bvector.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b 1DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_b1DBase.h ../../../include/nml_b1DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_b1DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_b1DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bvector.a x86_64_intel19_64_mpi_intelfast/nml_bvector.o x86_64_intel19_64_mpi_intelfast/bvector.o x86_64_intel19_64_mpi_intelfast/nml_b1DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_bvector.o
+a - x86_64_intel19_64_mpi_intelfast/bvector.o
+a - x86_64_intel19_64_mpi_intelfast/nml_b1DBase.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/bvector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/bvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/bmatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_bmatrix.h ../../../include/nml_bmatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_bmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_bmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c bmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv bmatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b 2DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_b2DBase.h ../../../include/nml_b2DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_b2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_b2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c b2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv b2tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_bmatrix.a x86_64_intel19_64_mpi_intelfast/nml_bmatrix.o x86_64_intel19_64_mpi_intelfast/bmatrix.o x86_64_intel19_64_mpi_intelfast/nml_b2DBase.o x86_64_intel19_64_mpi_intelfast/b2tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_bmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/bmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_b2DBase.o
+a - x86_64_intel19_64_mpi_intelfast/b2tensor.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/bmatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/bmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_btensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/btensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_btensor.h ../../../include/nml_btensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_btensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_btensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass char b 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_b3DBase.h ../../../include/nml_b3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_b3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_b3DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c b3tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv b3tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_btensor.a x86_64_intel19_64_mpi_intelfast/nml_btensor.o x86_64_intel19_64_mpi_intelfast/nml_b3DBase.o x86_64_intel19_64_mpi_intelfast/b3tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_btensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_b3DBase.o
+a - x86_64_intel19_64_mpi_intelfast/b3tensor.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/btensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/btensor'
+(cd tensor/ftensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+(cd ../../matrix/fmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(cd ../../vector/fvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(cd ../../scalar/fscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: `../../../include/nml_global.h' is up to date.
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fscalar.h ../../../include/nml_fscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fscalar.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fvector.h ../../../include/nml_fvector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fvector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c fvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv fvector.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f 1DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_f1DBase.h ../../../include/nml_f1DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f1DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f1DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a x86_64_intel19_64_mpi_intelfast/nml_fvector.o x86_64_intel19_64_mpi_intelfast/fvector.o x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fvector.o
+a - x86_64_intel19_64_mpi_intelfast/fvector.o
+a - x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fmatrix.h ../../../include/nml_fmatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv fmatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f 2DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_f2DBase.h ../../../include/nml_f2DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c f2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv f2tensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f 3bands
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_f3bands.h ../../../include/nml_f3bands.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f3bands.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ftridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv ftridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o x86_64_intel19_64_mpi_intelfast/fmatrix.o x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o x86_64_intel19_64_mpi_intelfast/f2tensor.o x86_64_intel19_64_mpi_intelfast/nml_f3bands.o x86_64_intel19_64_mpi_intelfast/ftridiag.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/fmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o
+a - x86_64_intel19_64_mpi_intelfast/f2tensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_f3bands.o
+a - x86_64_intel19_64_mpi_intelfast/ftridiag.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ftensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_ftensor.h ../../../include/nml_ftensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_ftensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_ftensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_f3DBase.h ../../../include/nml_f3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f3DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c f3tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv f3tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ftensor.a x86_64_intel19_64_mpi_intelfast/nml_ftensor.o x86_64_intel19_64_mpi_intelfast/nml_f3DBase.o x86_64_intel19_64_mpi_intelfast/f3tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_ftensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_f3DBase.o
+a - x86_64_intel19_64_mpi_intelfast/f3tensor.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+(cd tensor/dtensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+(cd ../../matrix/dmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(cd ../../vector/dvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(cd ../../scalar/dscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: `../../../include/nml_global.h' is up to date.
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dscalar.h ../../../include/nml_dscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dscalar.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dvector.h ../../../include/nml_dvector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dvector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rvector.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d 1DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_d1DBase.h ../../../include/nml_d1DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d1DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d1DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a x86_64_intel19_64_mpi_intelfast/nml_dvector.o x86_64_intel19_64_mpi_intelfast/rvector.o x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dvector.o
+a - x86_64_intel19_64_mpi_intelfast/rvector.o
+a - x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dmatrix.h ../../../include/nml_dmatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rmatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d 2DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_d2DBase.h ../../../include/nml_d2DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c r2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv r2tensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d 3bands
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_d3bands.h ../../../include/nml_d3bands.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d3bands.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rtridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rtridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o x86_64_intel19_64_mpi_intelfast/rmatrix.o x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o x86_64_intel19_64_mpi_intelfast/r2tensor.o x86_64_intel19_64_mpi_intelfast/nml_d3bands.o x86_64_intel19_64_mpi_intelfast/rtridiag.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/rmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o
+a - x86_64_intel19_64_mpi_intelfast/r2tensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_d3bands.o
+a - x86_64_intel19_64_mpi_intelfast/rtridiag.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dtensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dtensor.h ../../../include/nml_dtensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dtensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dtensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_d3DBase.h ../../../include/nml_d3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d3DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c r3tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv r3tensor.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dtensor.a x86_64_intel19_64_mpi_intelfast/nml_dtensor.o x86_64_intel19_64_mpi_intelfast/nml_d3DBase.o x86_64_intel19_64_mpi_intelfast/r3tensor.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dtensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_d3DBase.o
+a - x86_64_intel19_64_mpi_intelfast/r3tensor.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+(cd tensor/dctensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dctensor'
+(cd ../../matrix/dcmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dcmatrix'
+(cd ../../vector/dcvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dcvector'
+(cd ../../scalar/dcscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dcscalar'
+(cd ../../scalar/dscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dcscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dcscalar.h ../../../include/nml_dcscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dcscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dcscalar.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c complex.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv complex.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcscalar.a x86_64_intel19_64_mpi_intelfast/nml_dcscalar.o x86_64_intel19_64_mpi_intelfast/complex.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dcscalar.o
+a - x86_64_intel19_64_mpi_intelfast/complex.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dcscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dcscalar'
+(cd ../../vector/dvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(cd ../../scalar/dscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a x86_64_intel19_64_mpi_intelfast/nml_dvector.o x86_64_intel19_64_mpi_intelfast/rvector.o x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dvector.o
+r - x86_64_intel19_64_mpi_intelfast/rvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dcvector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dcvector.h ../../../include/nml_dcvector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dcvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dcvector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c cvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv cvector.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcvector.a x86_64_intel19_64_mpi_intelfast/nml_dcvector.o x86_64_intel19_64_mpi_intelfast/cvector.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dcvector.o
+a - x86_64_intel19_64_mpi_intelfast/cvector.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dcvector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dcvector'
+(cd ../../matrix/dmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(cd ../../vector/dvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(cd ../../scalar/dscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a x86_64_intel19_64_mpi_intelfast/nml_dvector.o x86_64_intel19_64_mpi_intelfast/rvector.o x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dvector.o
+r - x86_64_intel19_64_mpi_intelfast/rvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c r2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv r2tensor.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d3bands.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o x86_64_intel19_64_mpi_intelfast/rmatrix.o x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o x86_64_intel19_64_mpi_intelfast/r2tensor.o x86_64_intel19_64_mpi_intelfast/nml_d3bands.o x86_64_intel19_64_mpi_intelfast/rtridiag.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/rmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o
+r - x86_64_intel19_64_mpi_intelfast/r2tensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d3bands.o
+r - x86_64_intel19_64_mpi_intelfast/rtridiag.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dcmatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dcmatrix.h ../../../include/nml_dcmatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dcmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dcmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c cmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv cmatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c 3bands
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dc3bands.h ../../../include/nml_dc3bands.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dc3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dc3bands.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ctridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv ctridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dcmatrix.a x86_64_intel19_64_mpi_intelfast/nml_dcmatrix.o x86_64_intel19_64_mpi_intelfast/cmatrix.o x86_64_intel19_64_mpi_intelfast/nml_dc3bands.o x86_64_intel19_64_mpi_intelfast/ctridiag.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dcmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/cmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_dc3bands.o
+a - x86_64_intel19_64_mpi_intelfast/ctridiag.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dcmatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dcmatrix'
+(cd ../../tensor/dtensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+(cd ../../matrix/dmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(cd ../../vector/dvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(cd ../../scalar/dscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dscalar.a x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/dscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dvector.a x86_64_intel19_64_mpi_intelfast/nml_dvector.o x86_64_intel19_64_mpi_intelfast/rvector.o x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dvector.o
+r - x86_64_intel19_64_mpi_intelfast/rvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/dvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c rtridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv rtridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dmatrix.a x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o x86_64_intel19_64_mpi_intelfast/rmatrix.o x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o x86_64_intel19_64_mpi_intelfast/r2tensor.o x86_64_intel19_64_mpi_intelfast/nml_d3bands.o x86_64_intel19_64_mpi_intelfast/rtridiag.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/rmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o
+r - x86_64_intel19_64_mpi_intelfast/r2tensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d3bands.o
+r - x86_64_intel19_64_mpi_intelfast/rtridiag.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/dmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dtensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dtensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dtensor.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_d3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_d3DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dtensor.a x86_64_intel19_64_mpi_intelfast/nml_dtensor.o x86_64_intel19_64_mpi_intelfast/nml_d3DBase.o x86_64_intel19_64_mpi_intelfast/r3tensor.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_dtensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_d3DBase.o
+r - x86_64_intel19_64_mpi_intelfast/r3tensor.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dtensor'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dctensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dctensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dctensor.h ../../../include/nml_dctensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dctensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dctensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass double d complex c 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_dc3DBase.h ../../../include/nml_dc3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_dc3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_dc3DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_dctensor.a x86_64_intel19_64_mpi_intelfast/nml_dctensor.o x86_64_intel19_64_mpi_intelfast/nml_dc3DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_dctensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_dc3DBase.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dctensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/dctensor'
+(cd tensor/fctensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/fctensor'
+(cd ../../matrix/fcmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fcmatrix'
+(cd ../../vector/fcvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fcvector'
+(cd ../../scalar/fcscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fcscalar'
+(cd ../../scalar/fscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fcscalar'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c scalar
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fcscalar.h ../../../include/nml_fcscalar.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fcscalar.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fcscalar.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c komplex.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv komplex.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcscalar.a x86_64_intel19_64_mpi_intelfast/nml_fcscalar.o x86_64_intel19_64_mpi_intelfast/komplex.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fcscalar.o
+a - x86_64_intel19_64_mpi_intelfast/komplex.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fcscalar'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fcscalar'
+(cd ../../vector/fvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(cd ../../scalar/fscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a x86_64_intel19_64_mpi_intelfast/nml_fvector.o x86_64_intel19_64_mpi_intelfast/fvector.o x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fvector.o
+r - x86_64_intel19_64_mpi_intelfast/fvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fcvector'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c vector
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fcvector.h ../../../include/nml_fcvector.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fcvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fcvector.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c kvector.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv kvector.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcvector.a x86_64_intel19_64_mpi_intelfast/nml_fcvector.o x86_64_intel19_64_mpi_intelfast/kvector.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fcvector.o
+a - x86_64_intel19_64_mpi_intelfast/kvector.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fcvector'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fcvector'
+(cd ../../matrix/fmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(cd ../../vector/fvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(cd ../../scalar/fscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a x86_64_intel19_64_mpi_intelfast/nml_fvector.o x86_64_intel19_64_mpi_intelfast/fvector.o x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fvector.o
+r - x86_64_intel19_64_mpi_intelfast/fvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv fmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c f2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv f2tensor.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f3bands.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o x86_64_intel19_64_mpi_intelfast/fmatrix.o x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o x86_64_intel19_64_mpi_intelfast/f2tensor.o x86_64_intel19_64_mpi_intelfast/nml_f3bands.o x86_64_intel19_64_mpi_intelfast/ftridiag.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/fmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o
+r - x86_64_intel19_64_mpi_intelfast/f2tensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f3bands.o
+r - x86_64_intel19_64_mpi_intelfast/ftridiag.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fcmatrix'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c matrix
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fcmatrix.h ../../../include/nml_fcmatrix.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fcmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fcmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c kmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv kmatrix.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c 3bands
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fc3bands.h ../../../include/nml_fc3bands.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fc3bands.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fc3bands.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ktridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv ktridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fcmatrix.a x86_64_intel19_64_mpi_intelfast/nml_fcmatrix.o x86_64_intel19_64_mpi_intelfast/kmatrix.o x86_64_intel19_64_mpi_intelfast/nml_fc3bands.o x86_64_intel19_64_mpi_intelfast/ktridiag.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fcmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/kmatrix.o
+a - x86_64_intel19_64_mpi_intelfast/nml_fc3bands.o
+a - x86_64_intel19_64_mpi_intelfast/ktridiag.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fcmatrix'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fcmatrix'
+(cd ../../tensor/ftensor; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+(cd ../../matrix/fmatrix; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(cd ../../vector/fvector; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(cd ../../scalar/fscalar; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(cd ../../global/global; make \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../include/nml_global.h)
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[8]: `../../../include/nml_global.h' is up to date.
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[8]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+mkdir -p ../x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ../nml_memory.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_memory.o ../x86_64_intel19_64_mpi_intelfast/
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_memory.a ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+xiar: executing 'ar'
+r - ../x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[8]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/global/global'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[7]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fscalar.a x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+make[7]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/scalar/fscalar'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[6]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fvector.a x86_64_intel19_64_mpi_intelfast/nml_fvector.o x86_64_intel19_64_mpi_intelfast/fvector.o x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fvector.o
+r - x86_64_intel19_64_mpi_intelfast/fvector.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+make[6]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/vector/fvector'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[5]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c fmatrix.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv fmatrix.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f2DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f2DBase.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c f2tensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv f2tensor.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c ftridiag.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv ftridiag.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fmatrix.a x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o x86_64_intel19_64_mpi_intelfast/fmatrix.o x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o x86_64_intel19_64_mpi_intelfast/f2tensor.o x86_64_intel19_64_mpi_intelfast/nml_f3bands.o x86_64_intel19_64_mpi_intelfast/ftridiag.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/fmatrix.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o
+r - x86_64_intel19_64_mpi_intelfast/f2tensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f3bands.o
+r - x86_64_intel19_64_mpi_intelfast/ftridiag.o
+make[5]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/matrix/fmatrix'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ftensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[4]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_ftensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_ftensor.o x86_64_intel19_64_mpi_intelfast
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_f3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_f3DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_ftensor.a x86_64_intel19_64_mpi_intelfast/nml_ftensor.o x86_64_intel19_64_mpi_intelfast/nml_f3DBase.o x86_64_intel19_64_mpi_intelfast/f3tensor.o
+xiar: executing 'ar'
+r - x86_64_intel19_64_mpi_intelfast/nml_ftensor.o
+r - x86_64_intel19_64_mpi_intelfast/nml_f3DBase.o
+r - x86_64_intel19_64_mpi_intelfast/f3tensor.o
+make[4]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/ftensor'
+(make ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fctensor.a \
+		CC='mpicxx ' DEFINES='-DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT' OPTIONS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' \
+		AR='xiar' AR_OPTIONS='rcvs' PLATFORM='x86_64_intel19_64_mpi_intelfast' MAKE='make')
+make[3]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/fctensor'
+mkdir -p x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c tensor
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fctensor.h ../../../include/nml_fctensor.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fctensor.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fctensor.o x86_64_intel19_64_mpi_intelfast
+../../../bin/genclass float f complex c 3DBase
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+/usr/bin//m4: Warning: `m4 -B' may be removed in a future release
+mv nml_fc3DBase.h ../../../include/nml_fc3DBase.h
+mpicxx  -I../../../include -DNML_ERRANT  -DNML_MEM_EXT  -Dmem_64BIT -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -c nml_fc3DBase.c
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mv nml_fc3DBase.o x86_64_intel19_64_mpi_intelfast
+xiar rcvs ../../../lib/x86_64_intel19_64_mpi_intelfast/libnml_fctensor.a x86_64_intel19_64_mpi_intelfast/nml_fctensor.o x86_64_intel19_64_mpi_intelfast/nml_fc3DBase.o
+xiar: executing 'ar'
+a - x86_64_intel19_64_mpi_intelfast/nml_fctensor.o
+a - x86_64_intel19_64_mpi_intelfast/nml_fc3DBase.o
+make[3]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/fctensor'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src/tensor/fctensor'
+(xiar rcvs ../lib/x86_64_intel19_64_mpi_intelfast/libnml.a */*/x86_64_intel19_64_mpi_intelfast/*.o */x86_64_intel19_64_mpi_intelfast/*.o )
+xiar: executing 'ar'
+a - matrix/bmatrix/x86_64_intel19_64_mpi_intelfast/b2tensor.o
+a - matrix/bmatrix/x86_64_intel19_64_mpi_intelfast/bmatrix.o
+a - matrix/bmatrix/x86_64_intel19_64_mpi_intelfast/nml_b2DBase.o
+a - matrix/bmatrix/x86_64_intel19_64_mpi_intelfast/nml_bmatrix.o
+a - matrix/dcmatrix/x86_64_intel19_64_mpi_intelfast/cmatrix.o
+a - matrix/dcmatrix/x86_64_intel19_64_mpi_intelfast/ctridiag.o
+a - matrix/dcmatrix/x86_64_intel19_64_mpi_intelfast/nml_dc3bands.o
+a - matrix/dcmatrix/x86_64_intel19_64_mpi_intelfast/nml_dcmatrix.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/nml_d2DBase.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/nml_d3bands.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/nml_dmatrix.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/r2tensor.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/rmatrix.o
+a - matrix/dmatrix/x86_64_intel19_64_mpi_intelfast/rtridiag.o
+a - matrix/fcmatrix/x86_64_intel19_64_mpi_intelfast/kmatrix.o
+a - matrix/fcmatrix/x86_64_intel19_64_mpi_intelfast/ktridiag.o
+a - matrix/fcmatrix/x86_64_intel19_64_mpi_intelfast/nml_fc3bands.o
+a - matrix/fcmatrix/x86_64_intel19_64_mpi_intelfast/nml_fcmatrix.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/f2tensor.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/fmatrix.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/ftridiag.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/nml_f2DBase.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/nml_f3bands.o
+a - matrix/fmatrix/x86_64_intel19_64_mpi_intelfast/nml_fmatrix.o
+a - matrix/imatrix/x86_64_intel19_64_mpi_intelfast/i2tensor.o
+a - matrix/imatrix/x86_64_intel19_64_mpi_intelfast/imatrix.o
+a - matrix/imatrix/x86_64_intel19_64_mpi_intelfast/nml_i2DBase.o
+a - matrix/imatrix/x86_64_intel19_64_mpi_intelfast/nml_imatrix.o
+a - matrix/smatrix/x86_64_intel19_64_mpi_intelfast/nml_s2DBase.o
+a - matrix/smatrix/x86_64_intel19_64_mpi_intelfast/nml_smatrix.o
+a - matrix/smatrix/x86_64_intel19_64_mpi_intelfast/s2tensor.o
+a - matrix/smatrix/x86_64_intel19_64_mpi_intelfast/smatrix.o
+a - scalar/bscalar/x86_64_intel19_64_mpi_intelfast/nml_bscalar.o
+a - scalar/dcscalar/x86_64_intel19_64_mpi_intelfast/complex.o
+a - scalar/dcscalar/x86_64_intel19_64_mpi_intelfast/nml_dcscalar.o
+a - scalar/dscalar/x86_64_intel19_64_mpi_intelfast/nml_dscalar.o
+a - scalar/fcscalar/x86_64_intel19_64_mpi_intelfast/komplex.o
+a - scalar/fcscalar/x86_64_intel19_64_mpi_intelfast/nml_fcscalar.o
+a - scalar/fscalar/x86_64_intel19_64_mpi_intelfast/nml_fscalar.o
+a - scalar/iscalar/x86_64_intel19_64_mpi_intelfast/nml_iscalar.o
+a - scalar/sscalar/x86_64_intel19_64_mpi_intelfast/nml_sscalar.o
+a - tensor/btensor/x86_64_intel19_64_mpi_intelfast/b3tensor.o
+a - tensor/btensor/x86_64_intel19_64_mpi_intelfast/nml_b3DBase.o
+a - tensor/btensor/x86_64_intel19_64_mpi_intelfast/nml_btensor.o
+a - tensor/dctensor/x86_64_intel19_64_mpi_intelfast/nml_dc3DBase.o
+a - tensor/dctensor/x86_64_intel19_64_mpi_intelfast/nml_dctensor.o
+a - tensor/dtensor/x86_64_intel19_64_mpi_intelfast/nml_d3DBase.o
+a - tensor/dtensor/x86_64_intel19_64_mpi_intelfast/nml_dtensor.o
+a - tensor/dtensor/x86_64_intel19_64_mpi_intelfast/r3tensor.o
+a - tensor/fctensor/x86_64_intel19_64_mpi_intelfast/nml_fc3DBase.o
+a - tensor/fctensor/x86_64_intel19_64_mpi_intelfast/nml_fctensor.o
+a - tensor/ftensor/x86_64_intel19_64_mpi_intelfast/f3tensor.o
+a - tensor/ftensor/x86_64_intel19_64_mpi_intelfast/nml_f3DBase.o
+a - tensor/ftensor/x86_64_intel19_64_mpi_intelfast/nml_ftensor.o
+a - tensor/itensor/x86_64_intel19_64_mpi_intelfast/i3tensor.o
+a - tensor/itensor/x86_64_intel19_64_mpi_intelfast/nml_i3DBase.o
+a - tensor/itensor/x86_64_intel19_64_mpi_intelfast/nml_itensor.o
+a - tensor/stensor/x86_64_intel19_64_mpi_intelfast/nml_s3DBase.o
+a - tensor/stensor/x86_64_intel19_64_mpi_intelfast/nml_stensor.o
+a - tensor/stensor/x86_64_intel19_64_mpi_intelfast/s3tensor.o
+a - vector/bvector/x86_64_intel19_64_mpi_intelfast/bvector.o
+a - vector/bvector/x86_64_intel19_64_mpi_intelfast/nml_b1DBase.o
+a - vector/bvector/x86_64_intel19_64_mpi_intelfast/nml_bvector.o
+a - vector/dcvector/x86_64_intel19_64_mpi_intelfast/cvector.o
+a - vector/dcvector/x86_64_intel19_64_mpi_intelfast/nml_dcvector.o
+a - vector/dvector/x86_64_intel19_64_mpi_intelfast/nml_d1DBase.o
+a - vector/dvector/x86_64_intel19_64_mpi_intelfast/nml_dvector.o
+a - vector/dvector/x86_64_intel19_64_mpi_intelfast/rvector.o
+a - vector/fcvector/x86_64_intel19_64_mpi_intelfast/kvector.o
+a - vector/fcvector/x86_64_intel19_64_mpi_intelfast/nml_fcvector.o
+a - vector/fvector/x86_64_intel19_64_mpi_intelfast/fvector.o
+a - vector/fvector/x86_64_intel19_64_mpi_intelfast/nml_f1DBase.o
+a - vector/fvector/x86_64_intel19_64_mpi_intelfast/nml_fvector.o
+a - vector/ivector/x86_64_intel19_64_mpi_intelfast/ivector.o
+a - vector/ivector/x86_64_intel19_64_mpi_intelfast/nml_i1DBase.o
+a - vector/ivector/x86_64_intel19_64_mpi_intelfast/nml_ivector.o
+a - vector/svector/x86_64_intel19_64_mpi_intelfast/nml_s1DBase.o
+a - vector/svector/x86_64_intel19_64_mpi_intelfast/nml_svector.o
+a - vector/svector/x86_64_intel19_64_mpi_intelfast/svector.o
+a - global/x86_64_intel19_64_mpi_intelfast/nml_memory.o
+make[1]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/nml/src'
+==== NML library archive up to date ====
+(cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../eigen; make PLATFORM='x86_64_intel19_64_mpi_intelfast' \
+	CCMKD='mpicxx -MM' CC='mpicxx ' CCOPT='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' LD='mpicxx ' AR='xiar' AR_OPTIONS='rcvs' MAKE='make' \
+	LIBBLAS='' LIBLAPACK='' LIBNML='/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../nml/lib/x86_64_intel19_64_mpi_intelfast/libnml.a')
+make[1]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen'
+(mkdir -p lib/x86_64_intel19_64_mpi_intelfast;)
+(mkdir -p obj/x86_64_intel19_64_mpi_intelfast;)
+(cd src; make PLATFORM='x86_64_intel19_64_mpi_intelfast' CCMKD='mpicxx -MM' \
+	CC='mpicxx ' CCOPT='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' LD='mpicxx ' AR='xiar -rcvs')
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen/src'
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen/src'
+make[2]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen/src'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/cmacopt.c -o ../obj/x86_64_intel19_64_mpi_intelfast/cmacopt.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/io.c -o ../obj/x86_64_intel19_64_mpi_intelfast/io.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/lanczos.c -o ../obj/x86_64_intel19_64_mpi_intelfast/lanczos.o
+INTEL_MODIFIED: Lanczos loop 1 vectorization is ON
+INTEL_MODIFIED: Lanczos loop 2 vectorization is ON
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/lanczos_blk.c -o ../obj/x86_64_intel19_64_mpi_intelfast/lanczos_blk.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/macopt.c -o ../obj/x86_64_intel19_64_mpi_intelfast/macopt.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/macopt_par.c -o ../obj/x86_64_intel19_64_mpi_intelfast/macopt_par.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/mpi_fake.c -o ../obj/x86_64_intel19_64_mpi_intelfast/mpi_fake.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+mpicxx  -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include -I../include -I../nml/include -I../../nemo3d/src/base -I../../nemo3d/src/math ../src/ritz.c -o ../obj/x86_64_intel19_64_mpi_intelfast/ritz.o
+icpc: warning #10145: no action performed for file '/apps/intel-ct/2019.3.199/mkl/include'
+xiar -rcvs ../lib/x86_64_intel19_64_mpi_intelfast/libeigen.a ../obj/x86_64_intel19_64_mpi_intelfast/cmacopt.o ../obj/x86_64_intel19_64_mpi_intelfast/io.o ../obj/x86_64_intel19_64_mpi_intelfast/lanczos.o ../obj/x86_64_intel19_64_mpi_intelfast/lanczos_blk.o ../obj/x86_64_intel19_64_mpi_intelfast/macopt.o ../obj/x86_64_intel19_64_mpi_intelfast/macopt_par.o ../obj/x86_64_intel19_64_mpi_intelfast/mpi_fake.o ../obj/x86_64_intel19_64_mpi_intelfast/ritz.o
+xiar: executing 'ar'
+a - ../obj/x86_64_intel19_64_mpi_intelfast/cmacopt.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/io.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/lanczos.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/lanczos_blk.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/macopt.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/macopt_par.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/mpi_fake.o
+a - ../obj/x86_64_intel19_64_mpi_intelfast/ritz.o
+
+Library '../lib/x86_64_intel19_64_mpi_intelfast/libeigen.a' is up-to-date.
+
+make[2]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen/src'
+make[1]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/eigen'
+==== EIGEN library archive up to date ====
+env CC=icc -Kc++ CFLAGS=-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include CXX=icc -Kc++ CXXFLAGS=-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include ./configure
+( cd /home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../xerces-c-src2_1_0/src/xercesc; env CC='icc -Kc++' CFLAGS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' CXX='icc -Kc++' CXXFLAGS='-c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include' ./configure; make )
+creating cache ./config.cache
+checking for gcc... icc -Kc++
+checking whether the C compiler (icc -Kc++ -c -O1  -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT /apps/intel-ct/2019.3.199/mkl/include ) works... no
+configure: error: installation or configuration problem: C compiler cannot create executables.
+make[1]: Entering directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/xerces-c-src2_1_0/src/xercesc'
+make[1]: *** No targets specified and no makefile found.  Stop.
+make[1]: Leaving directory `/home/561/rr7122/NEMO3D/code4/NEMO_3D/xerces-c-src2_1_0/src/xercesc'
+make: *** [/home/561/rr7122/NEMO3D/code4/NEMO_3D/build/../xerces-c-src2_1_0/lib/libxerces-c_x86_64_intel19_64_mpi_intelfast.a] Error 2

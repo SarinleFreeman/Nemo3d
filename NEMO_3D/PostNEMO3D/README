@@ -1,0 +1,63 @@
+Instruction for PostProcess.ex (self-standing version)*
+
+*Note that there is an embedded version of postprocessing binaries 
+in /NEMO3D/nemo3d/bin directory. Read /NEMO3D/nemo3d/misc/README_POSTPROCESS.
+
+PostProcess.ex [options]: postprocess outputs of NEMO3D.
+   1. calculate Coulomb/exchange energies of electron-hole pairs.
+   2. calculate dipole moments of electron-hole pair.
+   3. project electron/hole wavefunctions into bulk-band Bloch functions.
+   4. more to come .......
+   * You can turn on/off these tasks with [options]. (see below) 
+
+How to Creat PostProcess.ex:
+	cd ../build
+	make postprocess
+        PostProcess.ex will be created in postprocess/bin directory.
+
+Required files to run PostProcess.ex: 
+   -- output files from NEMO3D: 
+      	filename.nd_aType (atom type)
+      	filename.nd_nbrIndx (nearest neighbor index)
+      	filename.nd_rAtom (atom position)
+	filename.nd_Ek (electron and hole energy)
+ 	filename.nd_evec_# (electron and hole wavefunction)
+   -- table files for PostProcess:
+	coulomb.table (table for coulomb and exchange calculation)
+	dipole.table  (table for dipole moment calculation)
+        Note:( They are located in ./table directory. 
+               Please move them to a directory where you run a code. )
+Options to run PostProcess.ex:
+   --data filename : specify the filenames of NEMO3D output.
+                    (filename.nd_aType, filename.nd_nbrIndx,
+                     filename.nd_rAtom, filename.nd_Ek,
+                     filename.nd_evec_#)
+   --electron n1 n2 n3 ....: 
+          n1 is the number of electron wavefunctions to include in calculations.
+          n2, n3, ... are the indices of electron wavefunctions to read 
+          from filename.nd_evec_n2, filename.nd_evec_n3, ....
+          There should be n1 indices of electron wavefunctions.           
+   --hole n1 n2 n3 ....:
+          n1 is the number of hole wavefunctions to include in calculations.
+          n2, n3, ... are the indices of hole wavefunctions to read 
+          from filename.nd_evec_n2, filename.nd_evec_n3, ....
+          There should be n1 indices of hole wavefunctions.
+   --coulomb:
+          Coulomb/exchange energies of electron-hole pairs will be calculated.
+   --dipole:
+          Dipole moments/Oscillator strengths of electron-hole pairs will be calculated.
+   --projection:
+          Electron/hole wavefunctions will be projected onto bulk-band Bloch functions. 
+
+Example:
+   PostProcess.ex --data box --electron 2 6 7 --hole 3 1 2 3 --coulomb --dipole --projection
+   What this will do:
+   1. box.nd_aType, box.nd_nbrIndx, box.nd_rAtom, box.nd_Ek will be read. 
+   2. Two electron wavefunctions will be given by box.nd_evec_6 and box.nd_evec_7.  
+   3. Three hole wavefunctions will be given by box.nd_evec_1, box.nd_evec_2, 
+      and box.nd_evec_3  
+   4. The Coulomb, exchange, dipole moments between the two electron 
+      and the three hole wavefunctions will be calculated. 
+   5. The two electron wavefunctions and the three hole wavefunctions 
+      will be projected into bulk-band Bloch functions.
+

@@ -1,0 +1,139 @@
+The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+
+General Information
+===================
+
+NanoElectronic MOdeling (NEMO) 3D is a simulation tool designed 
+to analyze the electronic properties of zincblende nanostructures within 
+a 10 or 20 orbital tight-binding description.  This atomistic approach 
+enables an accurate characterization of the electronic structure for 
+nanostructures whose minimum feature sizes are less than a few tens of 
+monolayers, where traditional envelope function approximations would 
+ordinarily fail.  Appropriate tight-binding parameterization must, 
+of course, be used.  Parameterizations of several materials, including 
+GaAs, InAs, Si, and Ge, are included with this distribution.  The status 
+of this code is very alpha; only recently has any progress been made 
+to advance its status from that of research code to one which may be 
+used by those without intimate knowledge of the code itself.  For 
+instance, at present there is no GUI aside from a basic editor for the 
+input card, and some features are not yet fully implemented.  Furthermore,
+the software has been tested on only a limited set of platforms
+(gnu/linux on x86, and OS X on powerpc).  However, NEMO3D is under active 
+developement, regarding both its user interface and the underlying physics.  
+For more detailed information, please visit the NEMO-3D homepage at:
+
+http://hpc.jpl.nasa.gov/PEP/gekco/nemo3D/index.html
+
+
+
+License information
+===================
+
+See the file "NEMO3D/LICENSE" for information on the history of this software,
+terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
+
+
+
+Dependent Packages
+==================
+
+The NEMO3D application is dependent on the following freely available
+external packages:
+
+PYTHON     : Scripting Interpreter
+BLAS       : Basic Linear Algebra Fortran Library
+             http://www.netlib.org/lapack/
+LAPACK     : Linear Algebra Package Fortran Library
+             http://www.netlib.org/lapack/
+(P)ARPACK  : Parallel Arnoldi Package Library
+             http://www.caam.rice.edu/~kristyn/parpack_home.html
+XERCES-C++ : XML Parser
+             http://xml.apache.org/xerces-c
+
+NEMO3D has been tested with Python version v1.5, v2.1, and v2.2.
+Since Python is used for simple expression parsing of the XML input data,
+even the older Python v1.5 is sufficient.
+
+
+NEMO3D is distributed with four external packages:
+
+BLAS       : Version 3.0 + update; May 31, 2000
+LAPACK     : Version 3.0 + update;  May 31, 2000
+(P)ARPACK  : PARPACK based on ARPACK Release 2.1
+XERCES-C++ : Version 2.1.0, General UNIX Source Code build
+
+The packages used in NEMO3D are identical to those available from their 
+respective distribution websites. We have simply included them along 
+with NEMO3D distribution for user convenience.  
+
+If you are already running your own [optimized] versions of BLAS and LAPACK,
+you may delete the "NEMO3D/LAPACK" subdirectory altogether and modify
+"NEMO3D/build/make.inc" such stat LIB_BLAS and LIB_LAPACK point to your
+BLAS and LAPACK static libraries.  Also, a patch (available at 
+ftp://ftp.caam.rice.edu/pub/software/ARPACK) has been applied to the 
+version of PARPACK included with this distribution.
+
+If you already have Xerces-C++ installed, or would like to use a newer 
+version of Xerces-C++ (when available), then you may delete the 
+"NEMO3D/xerces-c-src2_1_0" subdirectory altogether and update the 
+environmental variable XERCESCROOT (see below).
+However, NEMO3D's XMLtoC component was originally developed using the
+DOM and parser models of Xerces-C++ v1.7.0.  Thus, while NEMO3D
+is distributed with Xerces-C++ 2.1.0, it uses the now deprecated
+v1.7.0 objects which are still distributed with v2.1.0.
+Later versions of Xerces, however, are not guaranteed to be compatible
+with NEMO3D.
+
+
+
+Distribution Structure
+======================
+
+The structure of NEMO3D is divided into subdirectories of functional components.
+
+
+   NEMO3D/
+
+	README              : Text file with general overview information.
+
+	BUILD               : Text file with build instructions.
+
+	LICENSE             : Licensing file for NEMO3D.
+
+	ARPACK              : Contains the Arnoldi-based eigensolver (P)ARPACK
+
+	build/              : Contains the master Makefile and include that 
+			      builds all the components together to create 
+ 			      NEMO3D. The Makefile recursions begin here.
+
+	eigen/              : The Parallel Lanczos Eigensolver component used
+			      to solve for eigenvalues.
+
+	LAPACK/             : Contains Netlib's LAPACK and BLAS Fortran 77
+			      mathematical routines.
+
+	nemo3d/             : The core of NEMO3D. 
+
+	nml/                : The Nemo Math Library component for mathematical
+			      operations.
+
+	xerces-c-src2_1_0/  : The Xerces-C++ v2.1.0 XML Parser distributed from
+			      the Apache XML Project.
+
+	XMLtoC/             : The XML to C code generator and XML I/O component
+			      used to read in XML data.
+
+
+Build and Installation
+======================
+
+NEMO3D has been tested on two platforms -- x86 running gnu/Linux and
+MacOS X.  For build instructions on these two platforms, please see
+NEMO3D/build/BUILD. 
+
+NEMO3D does not come with an installation feature. Rather, it simply is
+compiled into an executable located in "NEMO3D/nemo3d/bin".
+
+

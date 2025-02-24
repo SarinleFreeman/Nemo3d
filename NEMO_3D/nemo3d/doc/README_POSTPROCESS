@@ -1,0 +1,123 @@
+Instruction for postprocess.ex (embedded version)*
+
+*Note that there is a self-standing version of postprocessing binaries 
+in /NEMO3D/postprocess/bin directory. 
+
+postprocess.ex [options]: postprocess outputs of NEMO3D.
+   Task 1. project electron/hole wavefunctions into bulk-band Bloch functions.
+   Task 2. calculate dipole moments of electron-hole pair. (two options available see below)
+   Task 3. calculate angular momenta of electron/hole wave functions.
+   Task 4. calculate electron-nuclear hyperfine interaction 
+           and dephasing/decoherence times due to the interaction.  
+   Task 5. calculate time-reversal states (Kramers' degenerate state). 
+   Task 6. calculate Coulomb/exchange interactions of electron-hole pair. 
+          (Not quite implemented yet for this embedded postprocess.ex. 
+           Please use the self-standing PostProcess.ex for this task.)
+   Task 7. more to come .......
+   * You can turn on/off these tasks with [options]. (see below)
+
+How to create postprocess.ex:
+   cd /NEMO3D/build
+   edit file "make.inc" to have POSTPROCESS = Embedded
+   make nemo3d   
+     (nemo3d.ex will be created in nemo3d/bin directory)
+   ln -s nemo3d.ex postprocess.ex
+     (shoft-link nemo3d.ex to postprocess.ex) 
+
+Required files to run postprocess.ex: 
+   1.NEMO3D input/output files)
+        filename.xml (NEMO3D input file)
+        filename.nd_aType (atom type; not needed for Task 5) 
+        filename.nd_nbrIndx (nearest neighbor index; not needed for Task5)
+        filename.nd_rAtom (atom position; not needed for Task 5)
+        filename.nd_evec_# (electron or/and hole wavefunction)
+   2.Table fiels for postprocessing:
+        coulomb.table (table needed only for coulomb/exchange calculation)      
+        dipole.table  (table needed only for dipole moment calculation)
+        These files are located in the current directory.
+
+Options to run postprocess.ex
+   --data filename: specify the filesnames of NEMO3D input/output files
+                         (filename.xml, filename.nd_rAtom, etc)
+   --electron N n1 n2 ....:
+          N is the number of electron wavefunctions to include in calculations.
+          n1, n2, ... are the indices of electron wavefunctions to read
+          from filename.nd_evec_n1, filename.nd_evec_n2, ....
+          There should be N number of electron wavefunctions.
+   --hole N n1 n2 ....:
+          N is the number of hole wavefunctions to include in calculations.
+          n1, n2, ... are the indices of hole wavefunctions to read
+          from filename.nd_evec_n1, filename.nd_evec_n2, ....
+          There should be N number of hole wavefunctions.
+   --dipole:
+          calculate dipole moments/Oscillator strengths of electron-hole pairs.
+          include both intra-orbital and inter-orbital dipole moments.
+   --dipole_approximation:
+          calculate dipole moments <X>, <Y>, <Z> including only intra-orbital dipole moments.
+   --projection:
+          project electron/hole wavefunctions onto bulk-band Bloch functions.
+   --time_reversal --evec_file filename:
+          calculate time-reversal states of a wave function given by filename.
+          The file should be a NEMO3D outputfile with suffix ".nd_evec_#"
+   --decoherence:
+	  calculate electron-nuclear hyperfine interaction, nuclear magnetic filed, 
+          and electron dephasing/decoherence time.
+   --angularmomentum:
+	  calculate the angular momentum of electron/hole wave functions.
+
+Example 1:
+   postprocess.ex --data QuantumDot --electron 2 6 7 --hole 3 1 2 3 \
+                  --dipole --projection
+   What this will do:
+   1. QuantumDot.xml, QuantumDot.nd_aType, QuantumDot.nd_nbrIndx, 
+      and QuantumDot.nd_rAtom be read.
+   2. Two electron wavefunctions will be given by QuantumDot.nd_evec_6 
+      and QuantumDot.nd_evec_7.
+   3. Three hole wavefunctions will be given by QuantumDot.nd_evec_1, 
+      QuantumDot.nd_evec_2, and QuantumDot.nd_evec_3
+   4. The dipole moments between the two electron and the three hole 
+      wavefunctions will be calculated.
+   5. The two electron wavefunctions and the three hole wavefunctions
+      will be projected onto bulk-band Bloch functions.
+
+Example 2:
+   postprocess.ex --data QuantumWire --time_reversal --evec_file QuantumWire.nd_evec_5
+   What this will do:
+   1. QuantumWire.xml and QuantumWire.nd_evec_5 will be read. 
+   2. Note that other files (__.nd_aType, __.nd_rAtom, __.nd_nbrIndx)
+      are not needed for this "time_reversal" task.
+   3. The time-reversal state of the wave function given by "QuantumWire.nd_evec_5"
+      will be created, and written in new file "QuantumWire.nd_evec_5_tr"
+
+Example 3:
+   postprocess.ex --data QuantumWell --angularmomentum --electron 2 1 2 
+   What this will do:
+   1. QuantumWell.xml, QuantumWell.nd_aType, QuantumWell.nd_rAtom,
+      QuantumWell.nd_nbrIndx, QuantumWell.nd_evec_1, and QuantumWell.nd_evec_2 
+      will be read.
+   2. The angular momentum of the two electron wave functions given by 
+      QuantumWell.nd_evec_1 and QuantumWell.nd_evec_2 will be calculated.
+
+Exampe 4:
+   postprocess.ex --data QDWL --dipole_approximation --electron 1 1 --hole 1 2
+   What this will do:
+   1. QDWL.xml, QDWL.nd_aType, QDWL.nd_rAtom,
+      QDWL.nd_nbrIndx, QDWL.nd_evec_1, and QDWL.nd_evec_2 will be read.
+      All the listed files should be available in the working directory. 
+   2. The dipole moment of the two wave functions given by
+      QDWL.nd_evec_1 and QDWL.nd_evec_2 will be calculated.
+      i.e. <n1|X|n2>, <n1|Y|n2>, <n1|Z|n2> 
+      Note that the dipole moments are complex numbers. 
+   3. In contrast to the option "--dipole", this option "--dipole_approximation"
+      does not include inter-orbital dipole moments. It only includes intra-orbital 
+      dipole moments. Therefore, file "dipole.table" is not needed in this option.                   
+   4. Although the two wave functions are labeled as electron or hole, 
+      they do not have to be electron or hole wave functions. 
+      You can get dipole moments between two electron wave functions 
+      by listing one wave function as an electron, and the other as a hole. 
+
+
+
+
+
+ 

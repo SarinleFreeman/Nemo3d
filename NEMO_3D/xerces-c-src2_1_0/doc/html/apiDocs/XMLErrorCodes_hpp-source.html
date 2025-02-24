@@ -1,0 +1,378 @@
+<HTML><HEAD><SCRIPT language="JavaScript" src="../resources/script.js" type="text/javascript"></SCRIPT><TITLE>XMLErrorCodes.hpp Source File</TITLE><link href="XercesApi.css" rel="stylesheet" type="text/css"></HEAD><BODY alink="#ff0000" bgcolor="#ffffff" leftmargin="4" link="#0000ff" marginheight="4" marginwidth="4" text="#000000" topmargin="4" vlink="#0000aa"><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" height="60" rowspan="3" valign="top" width="135"><IMG border="0" height="60" hspace="0" src="../resources/logo.gif" vspace="0" width="135"></TD><TD align="left" colspan="4" height="5" valign="top" width="456"><IMG border="0" height="5" hspace="0" src="../resources/line.gif" vspace="0" width="456"></TD><TD align="left" height="60" rowspan="3" valign="top" width="29"><IMG border="0" height="60" hspace="0" src="../resources/right.gif" vspace="0" width="29"></TD></TR><TR><TD align="left" bgcolor="#0086b2" colspan="4" height="35" valign="top" width="456"><IMG alt="" border="0" height="35" hspace="0" src="../graphics/api-header.jpg" vspace="0" width="456"></TD></TR><TR><TD align="left" height="20" valign="top" width="168"><IMG border="0" height="20" hspace="0" src="../resources/bottom.gif" vspace="0" width="168"></TD><TD align="left" height="20" valign="top" width="96"><A href="http://xml.apache.org/" onMouseOut="rolloverOff('xml');" onMouseOver="rolloverOn('xml');" target="new"><IMG alt="http://xml.apache.org/" border="0" height="20" hspace="0" name="xml" onLoad="rolloverLoad('xml','../resources/button-xml-hi.gif','../resources/button-xml-lo.gif');" src="../resources/button-xml-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.apache.org/" onMouseOut="rolloverOff('asf');" onMouseOver="rolloverOn('asf');" target="new"><IMG alt="http://www.apache.org/" border="0" height="20" hspace="0" name="asf" onLoad="rolloverLoad('asf','../resources/button-asf-hi.gif','../resources/button-asf-lo.gif');" src="../resources/button-asf-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.w3.org/" onMouseOut="rolloverOff('w3c');" onMouseOver="rolloverOn('w3c');" target="new"><IMG alt="http://www.w3.org/" border="0" height="20" hspace="0" name="w3c" onLoad="rolloverLoad('w3c','../resources/button-w3c-hi.gif','../resources/button-w3c-lo.gif');" src="../resources/button-w3c-lo.gif" vspace="0" width="96"></A></TD></TR></TABLE><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" valign="top" width="120"><IMG border="0" height="14" hspace="0" src="../resources/join.gif" vspace="0" width="120"><BR>
+  <A href="../../index.html" onMouseOut="rolloverOff('side-ext-2');" onMouseOver="rolloverOn('side-ext-2');"><IMG alt="Home" border="0" height="12" hspace="0" name="side-ext-2" onLoad="rolloverLoad('side-ext-2','../graphics/ext-2-label-2.jpg','../graphics/ext-2-label-3.jpg');" src="../graphics/ext-2-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../index.html" onMouseOut="rolloverOff('side-index');" onMouseOver="rolloverOn('side-index');"><IMG alt="Readme" border="0" height="12" hspace="0" name="side-index" onLoad="rolloverLoad('side-index','../graphics/index-label-2.jpg','../graphics/index-label-3.jpg');" src="../graphics/index-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../releases.html" onMouseOut="rolloverOff('side-releases');" onMouseOver="rolloverOn('side-releases');"><IMG alt="Release Info" border="0" height="12" hspace="0" name="side-releases" onLoad="rolloverLoad('side-releases','../graphics/releases-label-2.jpg','../graphics/releases-label-3.jpg');" src="../graphics/releases-label-3.jpg" vspace="0" width="120"></A><BR>
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../install.html" onMouseOut="rolloverOff('side-install');" onMouseOver="rolloverOn('side-install');"><IMG alt="Installation" border="0" height="12" hspace="0" name="side-install" onLoad="rolloverLoad('side-install','../graphics/install-label-2.jpg','../graphics/install-label-3.jpg');" src="../graphics/install-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://xml.apache.org/dist/xerces-c/" onMouseOut="rolloverOff('side-ext-18');" onMouseOver="rolloverOn('side-ext-18');"><IMG alt="Download" border="0" height="12" hspace="0" name="side-ext-18" onLoad="rolloverLoad('side-ext-18','../graphics/ext-18-label-2.jpg','../graphics/ext-18-label-3.jpg');" src="../graphics/ext-18-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../build.html" onMouseOut="rolloverOff('side-build');" onMouseOver="rolloverOn('side-build');"><IMG alt="Build" border="0" height="12" hspace="0" name="side-build" onLoad="rolloverLoad('side-build','../graphics/build-label-2.jpg','../graphics/build-label-3.jpg');" src="../graphics/build-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../faqs.html" onMouseOut="rolloverOff('side-faqs');" onMouseOver="rolloverOn('side-faqs');"><IMG alt="FAQs" border="0" height="12" hspace="0" name="side-faqs" onLoad="rolloverLoad('side-faqs','../graphics/faqs-label-2.jpg','../graphics/faqs-label-3.jpg');" src="../graphics/faqs-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../samples.html" onMouseOut="rolloverOff('side-samples');" onMouseOver="rolloverOn('side-samples');"><IMG alt="Samples" border="0" height="12" hspace="0" name="side-samples" onLoad="rolloverLoad('side-samples','../graphics/samples-label-2.jpg','../graphics/samples-label-3.jpg');" src="../graphics/samples-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../api.html" onMouseOut="rolloverOff('side-api');" onMouseOver="rolloverOn('side-api');"><IMG alt="API Docs" border="0" height="12" hspace="0" name="side-api" onLoad="rolloverLoad('side-api','../graphics/api-label-2.jpg','../graphics/api-label-3.jpg');" src="../graphics/api-label-3.jpg" vspace="0" width="120"></A><BR>  
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../ApacheDOMC++Binding.html" onMouseOut="rolloverOff('side-ext-64');" onMouseOver="rolloverOn('side-ext-64');"><IMG alt="DOM C++ Binding" border="0" height="12" hspace="0" name="side-ext-64" onLoad="rolloverLoad('side-ext-64','../graphics/ext-64-label-2.jpg','../graphics/ext-64-label-3.jpg');" src="../graphics/ext-64-label-3.jpg" vspace="0" width="120"></A><BR> 
+  <A href="../program.html" onMouseOut="rolloverOff('side-program');" onMouseOver="rolloverOn('side-program');"><IMG alt="Programming" border="0" height="12" hspace="0" name="side-program" onLoad="rolloverLoad('side-program','../graphics/program-label-2.jpg','../graphics/program-label-3.jpg');" src="../graphics/program-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../migrate.html" onMouseOut="rolloverOff('side-migrate');" onMouseOver="rolloverOn('side-migrate');"><IMG alt="Migration Guide" border="0" height="12" hspace="0" name="side-migrate" onLoad="rolloverLoad('side-migrate','../graphics/migrate-label-2.jpg','../graphics/migrate-label-3.jpg');" src="../graphics/migrate-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../feedback.html" onMouseOut="rolloverOff('side-feedback');" onMouseOver="rolloverOn('side-feedback');"><IMG alt="Feedback" border="0" height="12" hspace="0" name="side-feedback" onLoad="rolloverLoad('side-feedback','../graphics/feedback-label-2.jpg','../graphics/feedback-label-3.jpg');" src="../graphics/feedback-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../bug-report.html" onMouseOut="rolloverOff('side-bug-report');" onMouseOver="rolloverOn('side-bug-report');"><IMG alt="Bug-Reporting" border="0" height="12" hspace="0" name="side-bug-report" onLoad="rolloverLoad('side-bug-report','../graphics/bug-report-label-2.jpg','../graphics/bug-report-label-3.jpg');" src="../graphics/bug-report-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../pdf.html" onMouseOut="rolloverOff('side-pdf');" onMouseOver="rolloverOn('side-pdf');"><IMG alt="PDF Document" border="0" height="12" hspace="0" name="side-pdf" onLoad="rolloverLoad('side-pdf','../graphics/pdf-label-2.jpg','../graphics/pdf-label-3.jpg');" src="../graphics/pdf-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="http://xml.apache.org/websrc/cvsweb.cgi/xml-xerces/c/" onMouseOut="rolloverOff('side-ext-96');" onMouseOver="rolloverOn('side-ext-96');"><IMG alt="CVS Repository" border="0" height="12" hspace="0" name="side-ext-96" onLoad="rolloverLoad('side-ext-96','../graphics/ext-96-label-2.jpg','../graphics/ext-96-label-3.jpg');" src="../graphics/ext-96-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://marc.theaimsgroup.com/?l=xerces-c-dev" onMouseOut="rolloverOff('side-ext-98');" onMouseOver="rolloverOn('side-ext-98');"><IMG alt="Mail Archive" border="0" height="12" hspace="0" name="side-ext-98" onLoad="rolloverLoad('side-ext-98','../graphics/ext-98-label-2.jpg','../graphics/ext-98-label-3.jpg');" src="../graphics/ext-98-label-3.jpg" vspace="0" width="120"></A><BR>
+
+<IMG border="0" height="14" hspace="0" src="../resources/close.gif" vspace="0" width="120"><BR></TD><TD align="left" valign="top" width="500"><TABLE border="0" cellpadding="3" cellspacing="0"><TR><TD>
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#FFFFFF" colspan="2" width="494"><TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#039acc" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#039acc" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#039acc" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#0086b2" width="492"><FONT color="#ffffff" face="arial,helvetica,sanserif" size="+1"><IMG border="0" height="2" hspace="0" src="../resources/void.gif" vspace="0" width="2"><B>API Docs for SAX and DOM</B></FONT></TD><TD bgcolor="#017299" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#017299" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#017299" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR></TABLE></TD></TR><TR><TD width="10">&nbsp;</TD><TD width="484"><FONT color="#000000" face="arial,helvetica,sanserif">
+
+	    <P>
+<!-- Generated by Doxygen 1.2.4 on Tue Aug 27 03:24:57 2002 -->
+<center>
+<a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="hierarchy.html">Class Hierarchy</a> &nbsp; <a class="qindex" href="classes.html">Alphabetical List</a> &nbsp; <a class="qindex" href="annotated.html">Compound List</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Compound Members</a> &nbsp; <a class="qindex" href="globals.html">File Members</a> &nbsp; </center>
+<hr><h1>XMLErrorCodes.hpp</h1><a href="XMLErrorCodes_hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre>00001 <font class="comment">// This file is generated, don't edit it!!</font>
+00002 
+00003 <font class="preprocessor">#if !defined(ERRHEADER_XMLErrs)</font>
+<a name="l00004"></a><a class="code" href="XMLErrorCodes_hpp.html#a0">00004</a> <font class="preprocessor"></font><font class="preprocessor">#define ERRHEADER_XMLErrs</font>
+00005 <font class="preprocessor"></font>
+00006 <font class="preprocessor">#include &lt;<a class="code" href="XMLErrorReporter_hpp.html">xercesc/framework/XMLErrorReporter.hpp</a>&gt;</font>
+00007 
+<a name="l00008"></a><a class="code" href="class_XMLErrs.html">00008</a> <font class="keyword">class </font><a class="code" href="class_XMLErrs.html">XMLErrs</a>
+00009 {
+00010 <font class="keyword">public</font> :
+<a name="l00011"></a><a class="code" href="class_XMLErrs.html#s291">00011</a>     <font class="keyword">enum</font> Codes
+00012     {
+00013         NoError                            = 0
+00014       , W_LowBounds                        = 1
+00015       , NotationAlreadyExists              = 2
+00016       , AttListAlreadyExists               = 3
+00017       , ContradictoryEncoding              = 4
+00018       , UndeclaredElemInCM                 = 5
+00019       , UndeclaredElemInAttList            = 6
+00020       , XMLException_Warning               = 7
+00021       , W_HighBounds                       = 8
+00022       , E_LowBounds                        = 9
+00023       , FeatureUnsupported                 = 10
+00024       , TopLevelNoNameComplexType          = 11
+00025       , TopLevelNoNameAttribute            = 12
+00026       , NoNameRefAttribute                 = 13
+00027       , GlobalNoNameElement                = 14
+00028       , NoNameRefElement                   = 15
+00029       , NoNameRefGroup                     = 16
+00030       , NoNameRefAttGroup                  = 17
+00031       , AnonComplexTypeWithName            = 18
+00032       , AnonSimpleTypeWithName             = 19
+00033       , InvalidElementContent              = 20
+00034       , UntypedElement                     = 21
+00035       , SimpleTypeContentError             = 22
+00036       , ExpectedSimpleTypeInList           = 23
+00037       , ListUnionRestrictionError          = 24
+00038       , SimpleTypeDerivationByListError    = 25
+00039       , ExpectedSimpleTypeInRestriction    = 26
+00040       , DuplicateFacet                     = 27
+00041       , ExpectedSimpleTypeInUnion          = 28
+00042       , EmptySimpleTypeContent             = 29
+00043       , InvalidSimpleContent               = 30
+00044       , UnspecifiedBase                    = 31
+00045       , InvalidComplexContent              = 32
+00046       , SchemaElementContentError          = 33
+00047       , ContentError                       = 34
+00048       , UnknownSimpleType                  = 35
+00049       , UnknownComplexType                 = 36
+00050       , UnresolvedPrefix                   = 37
+00051       , RefElementNotFound                 = 38
+00052       , TypeNotFound                       = 39
+00053       , TopLevelAttributeNotFound          = 40
+00054       , InvalidChildInComplexType          = 41
+00055       , BaseTypeNotFound                   = 42
+00056       , NoAttributeInSchema                = 43
+00057       , DatatypeValidatorCreationError     = 44
+00058       , InvalidChildFollowingSimpleContent   = 45
+00059       , InvalidChildFollowingConplexContent   = 46
+00060       , InvalidComplexTypeBlockValue       = 47
+00061       , InvalidComplexTypeFinalValue       = 48
+00062       , AttributeDefaultFixedValue         = 49
+00063       , NotOptionalDefaultAttValue         = 50
+00064       , LocalAttributeWithNameRef          = 51
+00065       , GlobalAttributeWithNameRef         = 52
+00066       , DuplicateAttribute                 = 53
+00067       , AttributeWithTypeAndSimpleType     = 54
+00068       , AttributeSimpleTypeNotFound        = 55
+00069       , ElementWithFixedAndDefault         = 56
+00070       , DeclarationWithNameRef             = 57
+00071       , BadAttWithRef                      = 58
+00072       , InvalidDeclarationName             = 59
+00073       , GlobalElementWithRef               = 60
+00074       , ElementWithTypeAndAnonType         = 61
+00075       , NotSimpleOrMixedElement            = 62
+00076       , DisallowedSimpleTypeExtension      = 63
+00077       , InvalidSimpleContentBase           = 64
+00078       , InvalidComplexTypeBase             = 65
+00079       , InvalidChildInSimpleContent        = 66
+00080       , InvalidChildInComplexContent       = 67
+00081       , AnnotationError                    = 68
+00082       , DisallowedBaseDerivation           = 69
+00083       , SubstitutionRepeated               = 70
+00084       , UnionRepeated                      = 71
+00085       , ExtensionRepeated                  = 72
+00086       , ListRepeated                       = 73
+00087       , RestrictionRepeated                = 74
+00088       , InvalidBlockValue                  = 75
+00089       , InvalidFinalValue                  = 76
+00090       , InvalidSubstitutionGroupElement    = 77
+00091       , SubstitutionGroupTypeMismatch      = 78
+00092       , DuplicateElementDeclaration        = 79
+00093       , InvalidElementBlockValue           = 80
+00094       , InvalidElementFinalValue           = 81
+00095       , InvalidAttValue                    = 82
+00096       , AttributeRefContentError           = 83
+00097       , DuplicateRefAttribute              = 84
+00098       , ForbiddenDerivationByRestriction   = 85
+00099       , ForbiddenDerivationByExtension     = 86
+00100       , BaseNotComplexType                 = 87
+00101       , ImportNamespaceDifference          = 88
+00102       , ImportRootError                    = 89
+00103       , DeclarationNoSchemaLocation        = 90
+00104       , IncludeNamespaceDifference         = 91
+00105       , OnlyAnnotationExpected             = 92
+00106       , InvalidAttributeContent            = 93
+00107       , AttributeRequired                  = 94
+00108       , AttributeDisallowed                = 95
+00109       , InvalidMin2MaxOccurs               = 96
+00110       , AnyAttributeContentError           = 97
+00111       , NoNameGlobalElement                = 98
+00112       , NoCircularDefinition               = 99
+00113       , DuplicateGlobalType                = 100
+00114       , DuplicateGlobalDeclaration         = 101
+00115       , WS_CollapseExpected                = 102
+00116       , Import_1_1                         = 103
+00117       , Import_1_2                         = 104
+00118       , ElemIDValueConstraint              = 105
+00119       , NoNotationType                     = 106
+00120       , EmptiableMixedContent              = 107
+00121       , EmptyComplexRestrictionDerivation   = 108
+00122       , MixedOrElementOnly                 = 109
+00123       , InvalidContentRestriction          = 110
+00124       , ForbiddenDerivation                = 111
+00125       , AtomicItemType                     = 112
+00126       , MemberTypeNoUnion                  = 113
+00127       , GroupContentError                  = 114
+00128       , AttGroupContentError               = 115
+00129       , MinMaxOnGroupChild                 = 116
+00130       , DeclarationNotFound                = 117
+00131       , AllContentLimited                  = 118
+00132       , BadMinMaxAllCT                     = 119
+00133       , BadMinMaxAllElem                   = 120
+00134       , NoCircularAttGroup                 = 121
+00135       , DuplicateAttInDerivation           = 122
+00136       , NotExpressibleWildCardIntersection   = 123
+00137       , BadAttDerivation_1                 = 124
+00138       , BadAttDerivation_2                 = 125
+00139       , BadAttDerivation_3                 = 126
+00140       , BadAttDerivation_4                 = 127
+00141       , BadAttDerivation_5                 = 128
+00142       , BadAttDerivation_6                 = 129
+00143       , BadAttDerivation_7                 = 130
+00144       , BadAttDerivation_8                 = 131
+00145       , AllContentError                    = 132
+00146       , RedefineNamespaceDifference        = 133
+00147       , Redefine_InvalidSimpleType         = 134
+00148       , Redefine_InvalidSimpleTypeBase     = 135
+00149       , Redefine_InvalidComplexType        = 136
+00150       , Redefine_InvalidComplexTypeBase    = 137
+00151       , Redefine_InvalidGroupMinMax        = 138
+00152       , Redefine_DeclarationNotFound       = 139
+00153       , Redefine_GroupRefCount             = 140
+00154       , Redefine_AttGroupRefCount          = 141
+00155       , Notation_InvalidDecl               = 142
+00156       , Notation_DeclNotFound              = 143
+00157       , IC_DuplicateDecl                   = 144
+00158       , IC_BadContent                      = 145
+00159       , IC_KeyRefReferNotFound             = 146
+00160       , IC_KeyRefCardinality               = 147
+00161       , IC_XPathExprMissing                = 148
+00162       , PD_EmptyBase                       = 149
+00163       , AttUseCorrect                      = 150
+00164       , AttDeclPropCorrect3                = 151
+00165       , AttDeclPropCorrect5                = 152
+00166       , AttGrpPropCorrect3                 = 153
+00167       , InvalidTargetNSValue               = 154
+00168       , DisplayErrorMessage                = 155
+00169       , XMLException_Error                 = 156
+00170       , InvalidRedefine                    = 157
+00171       , InvalidNSReference                 = 158
+00172       , NotAllContent                      = 159
+00173       , InvalidAnnotationContent           = 160
+00174       , InvalidFacetName                   = 161
+00175       , InvalidXMLSchemaRoot               = 162
+00176       , E_HighBounds                       = 163
+00177       , F_LowBounds                        = 164
+00178       , ExpectedCommentOrCDATA             = 165
+00179       , ExpectedAttrName                   = 166
+00180       , ExpectedNotationName               = 167
+00181       , NoRepInMixed                       = 168
+00182       , BadDefAttrDecl                     = 169
+00183       , ExpectedDefAttrDecl                = 170
+00184       , AttListSyntaxError                 = 171
+00185       , ExpectedEqSign                     = 172
+00186       , DupAttrName                        = 173
+00187       , BadIdForXMLLangAttr                = 174
+00188       , ExpectedElementName                = 175
+00189       , MustStartWithXMLDecl               = 176
+00190       , CommentsMustStartWith              = 177
+00191       , InvalidDocumentStructure           = 178
+00192       , ExpectedDeclString                 = 179
+00193       , BadXMLVersion                      = 180
+00194       , UnsupportedXMLVersion              = 181
+00195       , UnterminatedXMLDecl                = 182
+00196       , BadXMLEncoding                     = 183
+00197       , BadStandalone                      = 184
+00198       , UnterminatedComment                = 185
+00199       , PINameExpected                     = 186
+00200       , UnterminatedPI                     = 187
+00201       , InvalidCharacter                   = 188
+00202       , UnexpectedTextBeforeRoot           = 189
+00203       , UnterminatedStartTag               = 190
+00204       , ExpectedAttrValue                  = 191
+00205       , UnterminatedEndTag                 = 192
+00206       , ExpectedAttributeType              = 193
+00207       , ExpectedEndOfTagX                  = 194
+00208       , ExpectedMarkup                     = 195
+00209       , NotValidAfterContent               = 196
+00210       , ExpectedComment                    = 197
+00211       , ExpectedCommentOrPI                = 198
+00212       , ExpectedWhitespace                 = 199
+00213       , NoRootElemInDOCTYPE                = 200
+00214       , ExpectedQuotedString               = 201
+00215       , ExpectedPublicId                   = 202
+00216       , InvalidPublicIdChar                = 203
+00217       , UnterminatedDOCTYPE                = 204
+00218       , InvalidCharacterInIntSubset        = 205
+00219       , ExpectedCDATA                      = 206
+00220       , InvalidInitialNameChar             = 207
+00221       , InvalidNameChar                    = 208
+00222       , UnexpectedWhitespace               = 209
+00223       , InvalidCharacterInAttrValue        = 210
+00224       , ExpectedMarkupDecl                 = 211
+00225       , TextDeclNotLegalHere               = 212
+00226       , ConditionalSectInIntSubset         = 213
+00227       , ExpectedPEName                     = 214
+00228       , UnterminatedEntityDecl             = 215
+00229       , InvalidCharacterRef                = 216
+00230       , UnterminatedCharRef                = 217
+00231       , ExpectedEntityRefName              = 218
+00232       , EntityNotFound                     = 219
+00233       , NoUnparsedEntityRefs               = 220
+00234       , UnterminatedEntityRef              = 221
+00235       , RecursiveEntity                    = 222
+00236       , PartialMarkupInEntity              = 223
+00237       , UnterminatedElementDecl            = 224
+00238       , ExpectedContentSpecExpr            = 225
+00239       , ExpectedAsterisk                   = 226
+00240       , UnterminatedContentModel           = 227
+00241       , ExpectedSystemId                   = 228
+00242       , ExpectedSystemOrPublicId           = 229
+00243       , UnterminatedNotationDecl           = 230
+00244       , ExpectedSeqChoiceLeaf              = 231
+00245       , ExpectedChoiceOrCloseParen         = 232
+00246       , ExpectedSeqOrCloseParen            = 233
+00247       , ExpectedEnumValue                  = 234
+00248       , ExpectedEnumSepOrParen             = 235
+00249       , UnterminatedEntityLiteral          = 236
+00250       , MoreEndThanStartTags               = 237
+00251       , ExpectedOpenParen                  = 238
+00252       , AttrAlreadyUsedInSTag              = 239
+00253       , BracketInAttrValue                 = 240
+00254       , Expected2ndSurrogateChar           = 241
+00255       , ExpectedEndOfConditional           = 242
+00256       , ExpectedIncOrIgn                   = 243
+00257       , ExpectedINCLUDEBracket             = 244
+00258       , ExpectedTextDecl                   = 245
+00259       , ExpectedXMLDecl                    = 246
+00260       , UnexpectedEOE                      = 247
+00261       , PEPropogated                       = 248
+00262       , ExtraCloseSquare                   = 249
+00263       , PERefInMarkupInIntSubset           = 250
+00264       , EntityPropogated                   = 251
+00265       , ExpectedNumericalCharRef           = 252
+00266       , ExpectedOpenSquareBracket          = 253
+00267       , BadSequenceInCharData              = 254
+00268       , IllegalSequenceInComment           = 255
+00269       , UnterminatedCDATASection           = 256
+00270       , ExpectedNDATA                      = 257
+00271       , NDATANotValidForPE                 = 258
+00272       , HexRadixMustBeLowerCase            = 259
+00273       , DeclStringRep                      = 260
+00274       , DeclStringsInWrongOrder            = 261
+00275       , NoExtRefsInAttValue                = 262
+00276       , XMLDeclMustBeLowerCase             = 263
+00277       , ExpectedEntityValue                = 264
+00278       , BadDigitForRadix                   = 265
+00279       , EndedWithTagsOnStack               = 266
+00280       , AmbiguousContentModel              = 267
+00281       , NestedCDATA                        = 268
+00282       , UnknownPrefix                      = 269
+00283       , PartialTagMarkupError              = 270
+00284       , EmptyMainEntity                    = 271
+00285       , CDATAOutsideOfContent              = 272
+00286       , OnlyCharRefsAllowedHere            = 273
+00287       , Unexpected2ndSurrogateChar         = 274
+00288       , NoPIStartsWithXML                  = 275
+00289       , XMLDeclMustBeFirst                 = 276
+00290       , XMLVersionRequired                 = 277
+00291       , StandaloneNotLegal                 = 278
+00292       , EncodingRequired                   = 279
+00293       , TooManyColonsInName                = 280
+00294       , InvalidColonPos                    = 281
+00295       , ColonNotLegalWithNS                = 282
+00296       , SysException                       = 283
+00297       , XMLException_Fatal                 = 284
+00298       , UnexpectedEOF                      = 285
+00299       , UnexpectedError                    = 286
+00300       , BadSchemaLocation                  = 287
+00301       , NoGrammarResolver                  = 288
+00302       , SchemaScanFatalError               = 289
+00303       , F_HighBounds                       = 290
+00304     };
+00305 
+<a name="l00306"></a><a class="code" href="class_XMLErrs.html#d0">00306</a>     <font class="keyword">static</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLErrs.html#d0">isFatal</a>(<font class="keyword">const</font> XMLErrs::Codes toCheck)<font class="keyword"></font>
+00307 <font class="keyword">    </font>{
+00308         <font class="keywordflow">return</font> ((toCheck &gt;= F_LowBounds) &amp;&amp; (toCheck &lt;= F_HighBounds));
+00309     }
+00310 
+<a name="l00311"></a><a class="code" href="class_XMLErrs.html#d1">00311</a>     <font class="keyword">static</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLErrs.html#d1">isWarning</a>(<font class="keyword">const</font> XMLErrs::Codes toCheck)<font class="keyword"></font>
+00312 <font class="keyword">    </font>{
+00313         <font class="keywordflow">return</font> ((toCheck &gt;= W_LowBounds) &amp;&amp; (toCheck &lt;= W_HighBounds));
+00314     }
+00315 
+<a name="l00316"></a><a class="code" href="class_XMLErrs.html#d2">00316</a>     <font class="keyword">static</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLErrs.html#d2">isError</a>(<font class="keyword">const</font> XMLErrs::Codes toCheck)<font class="keyword"></font>
+00317 <font class="keyword">    </font>{
+00318         <font class="keywordflow">return</font> ((toCheck &gt;= E_LowBounds) &amp;&amp; (toCheck &lt;= E_HighBounds));
+00319     }
+00320 
+<a name="l00321"></a><a class="code" href="class_XMLErrs.html#d3">00321</a>     <font class="keyword">static</font> XMLErrorReporter::ErrTypes <a class="code" href="class_XMLErrs.html#d3">errorType</a>(<font class="keyword">const</font> XMLErrs::Codes toCheck)<font class="keyword"></font>
+00322 <font class="keyword">    </font>{
+00323        <font class="keywordflow">if</font> ((toCheck &gt;= W_LowBounds) &amp;&amp; (toCheck &lt;= W_HighBounds))
+00324            <font class="keywordflow">return</font> XMLErrorReporter::ErrType_Warning;
+00325        <font class="keywordflow">else</font> <font class="keywordflow">if</font> ((toCheck &gt;= F_LowBounds) &amp;&amp; (toCheck &lt;= F_HighBounds))
+00326             <font class="keywordflow">return</font> XMLErrorReporter::ErrType_Fatal;
+00327        <font class="keywordflow">else</font> <font class="keywordflow">if</font> ((toCheck &gt;= E_LowBounds) &amp;&amp; (toCheck &lt;= E_HighBounds))
+00328             <font class="keywordflow">return</font> XMLErrorReporter::ErrType_Error;
+00329        <font class="keywordflow">return</font> XMLErrorReporter::ErrTypes_Unknown;
+00330     }
+00331 };
+00332 <font class="preprocessor">#endif</font>
+00333 <font class="preprocessor"></font>
+</div></pre>    </FONT></TD></TR></TABLE><BR>
+</TD></TR></TABLE></TD></TR></TABLE><BR><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD bgcolor="#0086b2"><IMG height="1" src="images/dot.gif" width="1" alt=""></TD></TR><TR><TD align="center"><FONT color="#0086b2" size="-1"><I>
+              Copyright &copy; 2000 The Apache Software Foundation.
+              All Rights Reserved.
+            </I></FONT></TD></TR></TABLE></BODY></HTML>

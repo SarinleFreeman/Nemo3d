@@ -1,0 +1,50 @@
+These are release notes for NEMO-3D.
+
+WHAT IS NEMO-3D?
+================
+
+In brief, NEMO-3D is a tight-binding based electronic structure solver.  
+At the moment, only zinc-blende structures have been implemented, but 
+the code has been written in a sufficiently general way that it can be 
+readily modified to handle any kind of atomic connectivity.  The electronic 
+structure component also includes postprocessing tools (described in 
+NEMO3D/postprocessing/README) to compute electron-hole exchange energies 
+and dipole moments.  This release of NEMO-3D is still considered 
+preliminary and is *not* currently ready for mass consumption.  There is,
+for example, no simple GUI to guide the simulation, and the code is not
+rebust and fault-tolerant enough for casual use.  However, it is under
+active development and we feel it is nevertheless in a state where it may
+be useful to those interested in a tight-binding-based electronic structure
+solver.  For details regarding the physics of the NEMO-3D please refer 
+first to the list of publications below.  More publications and additional 
+documentation is available at http://hpc.jpl.nasa.gov/PEP/gekco/journal.html.
+
+
+DOCUMENTATION
+=============
+
+installation:
+After untarring NEMO3D.tar.gz, run the "nemo3d_setup.sh" script to
+setup the third party packages (Xerces C++, LAPACK, BLAS, ARPACK, PARPACK),
+symbolic links, and patches.  Please cd into the build directory and read 
+the README and BUILD for build instructions.
+
+execution:
+Please read nemo3d/example/README for (brief) information on running NEMO3D.
+
+
+ADDITIONAL DOCUMENTATION
+========================
+
+selected list of publications:
+
+"Development of a Nanoelectronic 3-D (NEMO 3-D) Simulator for Multimillion Atom Simulations and Its Application to Alloyed Quantum Dots" (INVITED), Gerhard Klimeck, Fabiano Oyafuso, Timothy B. Boykin, R. Chris Bowen, and Paul von Allmen, Computer Modeling in Engineering and Science (CMES) Volume 3, No. 5 pp 601-642 (2002).
+
+"Diagonal parameter shifts due to nearest-neighbor displacements in empirical tight-binding theory", Timothy B. Boykin, Gerhard Klimeck, R. Chris Bowen, and Fabiano Oyafuso Phys. Rev. B 66, 125207 (2002).
+
+"Strain Effects in large-scale atomistic quantum dot simulations", Fabiano Oyafuso, Gerhard Klimeck, Paul von Allmen, Tim Boykin, and R. Chris Bowen, Phys. Stat. Sol. (b), Vol. 239, p 71-79 (2003).
+
+for more documentation, please visit
+
+http://hpc.jpl.nasa.gov/PEP/gekco/journal.html
+

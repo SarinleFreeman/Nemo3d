@@ -1,0 +1,463 @@
+<HTML><HEAD><SCRIPT language="JavaScript" src="../resources/script.js" type="text/javascript"></SCRIPT><TITLE>XMLElementDecl.hpp Source File</TITLE><link href="XercesApi.css" rel="stylesheet" type="text/css"></HEAD><BODY alink="#ff0000" bgcolor="#ffffff" leftmargin="4" link="#0000ff" marginheight="4" marginwidth="4" text="#000000" topmargin="4" vlink="#0000aa"><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" height="60" rowspan="3" valign="top" width="135"><IMG border="0" height="60" hspace="0" src="../resources/logo.gif" vspace="0" width="135"></TD><TD align="left" colspan="4" height="5" valign="top" width="456"><IMG border="0" height="5" hspace="0" src="../resources/line.gif" vspace="0" width="456"></TD><TD align="left" height="60" rowspan="3" valign="top" width="29"><IMG border="0" height="60" hspace="0" src="../resources/right.gif" vspace="0" width="29"></TD></TR><TR><TD align="left" bgcolor="#0086b2" colspan="4" height="35" valign="top" width="456"><IMG alt="" border="0" height="35" hspace="0" src="../graphics/api-header.jpg" vspace="0" width="456"></TD></TR><TR><TD align="left" height="20" valign="top" width="168"><IMG border="0" height="20" hspace="0" src="../resources/bottom.gif" vspace="0" width="168"></TD><TD align="left" height="20" valign="top" width="96"><A href="http://xml.apache.org/" onMouseOut="rolloverOff('xml');" onMouseOver="rolloverOn('xml');" target="new"><IMG alt="http://xml.apache.org/" border="0" height="20" hspace="0" name="xml" onLoad="rolloverLoad('xml','../resources/button-xml-hi.gif','../resources/button-xml-lo.gif');" src="../resources/button-xml-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.apache.org/" onMouseOut="rolloverOff('asf');" onMouseOver="rolloverOn('asf');" target="new"><IMG alt="http://www.apache.org/" border="0" height="20" hspace="0" name="asf" onLoad="rolloverLoad('asf','../resources/button-asf-hi.gif','../resources/button-asf-lo.gif');" src="../resources/button-asf-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.w3.org/" onMouseOut="rolloverOff('w3c');" onMouseOver="rolloverOn('w3c');" target="new"><IMG alt="http://www.w3.org/" border="0" height="20" hspace="0" name="w3c" onLoad="rolloverLoad('w3c','../resources/button-w3c-hi.gif','../resources/button-w3c-lo.gif');" src="../resources/button-w3c-lo.gif" vspace="0" width="96"></A></TD></TR></TABLE><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" valign="top" width="120"><IMG border="0" height="14" hspace="0" src="../resources/join.gif" vspace="0" width="120"><BR>
+  <A href="../../index.html" onMouseOut="rolloverOff('side-ext-2');" onMouseOver="rolloverOn('side-ext-2');"><IMG alt="Home" border="0" height="12" hspace="0" name="side-ext-2" onLoad="rolloverLoad('side-ext-2','../graphics/ext-2-label-2.jpg','../graphics/ext-2-label-3.jpg');" src="../graphics/ext-2-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../index.html" onMouseOut="rolloverOff('side-index');" onMouseOver="rolloverOn('side-index');"><IMG alt="Readme" border="0" height="12" hspace="0" name="side-index" onLoad="rolloverLoad('side-index','../graphics/index-label-2.jpg','../graphics/index-label-3.jpg');" src="../graphics/index-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../releases.html" onMouseOut="rolloverOff('side-releases');" onMouseOver="rolloverOn('side-releases');"><IMG alt="Release Info" border="0" height="12" hspace="0" name="side-releases" onLoad="rolloverLoad('side-releases','../graphics/releases-label-2.jpg','../graphics/releases-label-3.jpg');" src="../graphics/releases-label-3.jpg" vspace="0" width="120"></A><BR>
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../install.html" onMouseOut="rolloverOff('side-install');" onMouseOver="rolloverOn('side-install');"><IMG alt="Installation" border="0" height="12" hspace="0" name="side-install" onLoad="rolloverLoad('side-install','../graphics/install-label-2.jpg','../graphics/install-label-3.jpg');" src="../graphics/install-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://xml.apache.org/dist/xerces-c/" onMouseOut="rolloverOff('side-ext-18');" onMouseOver="rolloverOn('side-ext-18');"><IMG alt="Download" border="0" height="12" hspace="0" name="side-ext-18" onLoad="rolloverLoad('side-ext-18','../graphics/ext-18-label-2.jpg','../graphics/ext-18-label-3.jpg');" src="../graphics/ext-18-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../build.html" onMouseOut="rolloverOff('side-build');" onMouseOver="rolloverOn('side-build');"><IMG alt="Build" border="0" height="12" hspace="0" name="side-build" onLoad="rolloverLoad('side-build','../graphics/build-label-2.jpg','../graphics/build-label-3.jpg');" src="../graphics/build-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../faqs.html" onMouseOut="rolloverOff('side-faqs');" onMouseOver="rolloverOn('side-faqs');"><IMG alt="FAQs" border="0" height="12" hspace="0" name="side-faqs" onLoad="rolloverLoad('side-faqs','../graphics/faqs-label-2.jpg','../graphics/faqs-label-3.jpg');" src="../graphics/faqs-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../samples.html" onMouseOut="rolloverOff('side-samples');" onMouseOver="rolloverOn('side-samples');"><IMG alt="Samples" border="0" height="12" hspace="0" name="side-samples" onLoad="rolloverLoad('side-samples','../graphics/samples-label-2.jpg','../graphics/samples-label-3.jpg');" src="../graphics/samples-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../api.html" onMouseOut="rolloverOff('side-api');" onMouseOver="rolloverOn('side-api');"><IMG alt="API Docs" border="0" height="12" hspace="0" name="side-api" onLoad="rolloverLoad('side-api','../graphics/api-label-2.jpg','../graphics/api-label-3.jpg');" src="../graphics/api-label-3.jpg" vspace="0" width="120"></A><BR>  
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../ApacheDOMC++Binding.html" onMouseOut="rolloverOff('side-ext-64');" onMouseOver="rolloverOn('side-ext-64');"><IMG alt="DOM C++ Binding" border="0" height="12" hspace="0" name="side-ext-64" onLoad="rolloverLoad('side-ext-64','../graphics/ext-64-label-2.jpg','../graphics/ext-64-label-3.jpg');" src="../graphics/ext-64-label-3.jpg" vspace="0" width="120"></A><BR> 
+  <A href="../program.html" onMouseOut="rolloverOff('side-program');" onMouseOver="rolloverOn('side-program');"><IMG alt="Programming" border="0" height="12" hspace="0" name="side-program" onLoad="rolloverLoad('side-program','../graphics/program-label-2.jpg','../graphics/program-label-3.jpg');" src="../graphics/program-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../migrate.html" onMouseOut="rolloverOff('side-migrate');" onMouseOver="rolloverOn('side-migrate');"><IMG alt="Migration Guide" border="0" height="12" hspace="0" name="side-migrate" onLoad="rolloverLoad('side-migrate','../graphics/migrate-label-2.jpg','../graphics/migrate-label-3.jpg');" src="../graphics/migrate-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../feedback.html" onMouseOut="rolloverOff('side-feedback');" onMouseOver="rolloverOn('side-feedback');"><IMG alt="Feedback" border="0" height="12" hspace="0" name="side-feedback" onLoad="rolloverLoad('side-feedback','../graphics/feedback-label-2.jpg','../graphics/feedback-label-3.jpg');" src="../graphics/feedback-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../bug-report.html" onMouseOut="rolloverOff('side-bug-report');" onMouseOver="rolloverOn('side-bug-report');"><IMG alt="Bug-Reporting" border="0" height="12" hspace="0" name="side-bug-report" onLoad="rolloverLoad('side-bug-report','../graphics/bug-report-label-2.jpg','../graphics/bug-report-label-3.jpg');" src="../graphics/bug-report-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../pdf.html" onMouseOut="rolloverOff('side-pdf');" onMouseOver="rolloverOn('side-pdf');"><IMG alt="PDF Document" border="0" height="12" hspace="0" name="side-pdf" onLoad="rolloverLoad('side-pdf','../graphics/pdf-label-2.jpg','../graphics/pdf-label-3.jpg');" src="../graphics/pdf-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="http://xml.apache.org/websrc/cvsweb.cgi/xml-xerces/c/" onMouseOut="rolloverOff('side-ext-96');" onMouseOver="rolloverOn('side-ext-96');"><IMG alt="CVS Repository" border="0" height="12" hspace="0" name="side-ext-96" onLoad="rolloverLoad('side-ext-96','../graphics/ext-96-label-2.jpg','../graphics/ext-96-label-3.jpg');" src="../graphics/ext-96-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://marc.theaimsgroup.com/?l=xerces-c-dev" onMouseOut="rolloverOff('side-ext-98');" onMouseOver="rolloverOn('side-ext-98');"><IMG alt="Mail Archive" border="0" height="12" hspace="0" name="side-ext-98" onLoad="rolloverLoad('side-ext-98','../graphics/ext-98-label-2.jpg','../graphics/ext-98-label-3.jpg');" src="../graphics/ext-98-label-3.jpg" vspace="0" width="120"></A><BR>
+
+<IMG border="0" height="14" hspace="0" src="../resources/close.gif" vspace="0" width="120"><BR></TD><TD align="left" valign="top" width="500"><TABLE border="0" cellpadding="3" cellspacing="0"><TR><TD>
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#FFFFFF" colspan="2" width="494"><TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#039acc" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#039acc" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#039acc" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#0086b2" width="492"><FONT color="#ffffff" face="arial,helvetica,sanserif" size="+1"><IMG border="0" height="2" hspace="0" src="../resources/void.gif" vspace="0" width="2"><B>API Docs for SAX and DOM</B></FONT></TD><TD bgcolor="#017299" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#017299" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#017299" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR></TABLE></TD></TR><TR><TD width="10">&nbsp;</TD><TD width="484"><FONT color="#000000" face="arial,helvetica,sanserif">
+
+	    <P>
+<!-- Generated by Doxygen 1.2.4 on Tue Aug 27 03:24:57 2002 -->
+<center>
+<a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="hierarchy.html">Class Hierarchy</a> &nbsp; <a class="qindex" href="classes.html">Alphabetical List</a> &nbsp; <a class="qindex" href="annotated.html">Compound List</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Compound Members</a> &nbsp; <a class="qindex" href="globals.html">File Members</a> &nbsp; </center>
+<hr><h1>XMLElementDecl.hpp</h1><a href="XMLElementDecl_hpp.html">Go to the documentation of this file.</a><div class="fragment"><pre>00001 <font class="comment">/*</font>
+00002 <font class="comment"> * The Apache Software License, Version 1.1</font>
+00003 <font class="comment"> *</font>
+00004 <font class="comment"> * Copyright (c) 1999-2001 The Apache Software Foundation.  All rights</font>
+00005 <font class="comment"> * reserved.</font>
+00006 <font class="comment"> *</font>
+00007 <font class="comment"> * Redistribution and use in source and binary forms, with or without</font>
+00008 <font class="comment"> * modification, are permitted provided that the following conditions</font>
+00009 <font class="comment"> * are met:</font>
+00010 <font class="comment"> *</font>
+00011 <font class="comment"> * 1. Redistributions of source code must retain the above copyright</font>
+00012 <font class="comment"> *    notice, this list of conditions and the following disclaimer.</font>
+00013 <font class="comment"> *</font>
+00014 <font class="comment"> * 2. Redistributions in binary form must reproduce the above copyright</font>
+00015 <font class="comment"> *    notice, this list of conditions and the following disclaimer in</font>
+00016 <font class="comment"> *    the documentation and/or other materials provided with the</font>
+00017 <font class="comment"> *    distribution.</font>
+00018 <font class="comment"> *</font>
+00019 <font class="comment"> * 3. The end-user documentation included with the redistribution,</font>
+00020 <font class="comment"> *    if any, must include the following acknowledgment:</font>
+00021 <font class="comment"> *       "This product includes software developed by the</font>
+00022 <font class="comment"> *        Apache Software Foundation (http://www.apache.org/)."</font>
+00023 <font class="comment"> *    Alternately, this acknowledgment may appear in the software itself,</font>
+00024 <font class="comment"> *    if and wherever such third-party acknowledgments normally appear.</font>
+00025 <font class="comment"> *</font>
+00026 <font class="comment"> * 4. The names "Xerces" and "Apache Software Foundation" must</font>
+00027 <font class="comment"> *    not be used to endorse or promote products derived from this</font>
+00028 <font class="comment"> *    software without prior written permission. For written</font>
+00029 <font class="comment"> *    permission, please contact apache\@apache.org.</font>
+00030 <font class="comment"> *</font>
+00031 <font class="comment"> * 5. Products derived from this software may not be called "Apache",</font>
+00032 <font class="comment"> *    nor may "Apache" appear in their name, without prior written</font>
+00033 <font class="comment"> *    permission of the Apache Software Foundation.</font>
+00034 <font class="comment"> *</font>
+00035 <font class="comment"> * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED</font>
+00036 <font class="comment"> * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES</font>
+00037 <font class="comment"> * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE</font>
+00038 <font class="comment"> * DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR</font>
+00039 <font class="comment"> * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,</font>
+00040 <font class="comment"> * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT</font>
+00041 <font class="comment"> * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF</font>
+00042 <font class="comment"> * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND</font>
+00043 <font class="comment"> * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,</font>
+00044 <font class="comment"> * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT</font>
+00045 <font class="comment"> * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF</font>
+00046 <font class="comment"> * SUCH DAMAGE.</font>
+00047 <font class="comment"> * ====================================================================</font>
+00048 <font class="comment"> *</font>
+00049 <font class="comment"> * This software consists of voluntary contributions made by many</font>
+00050 <font class="comment"> * individuals on behalf of the Apache Software Foundation, and was</font>
+00051 <font class="comment"> * originally based on software copyright (c) 1999, International</font>
+00052 <font class="comment"> * Business Machines, Inc., http://www.ibm.com .  For more information</font>
+00053 <font class="comment"> * on the Apache Software Foundation, please see</font>
+00054 <font class="comment"> * &lt;http://www.apache.org/&gt;.</font>
+00055 <font class="comment"> */</font>
+00056 
+00057 <font class="comment">/*</font>
+00058 <font class="comment"> * $Log: XMLElementDecl.hpp,v $</font>
+00059 <font class="comment"> * Revision 1.2  2002/08/20 16:55:33  tng</font>
+00060 <font class="comment"> * [Bug 6251] Info during compilation.</font>
+00061 <font class="comment"> *</font>
+00062 <font class="comment"> * Revision 1.1.1.1  2002/02/01 22:21:51  peiyongz</font>
+00063 <font class="comment"> * sane_include</font>
+00064 <font class="comment"> *</font>
+00065 <font class="comment"> * Revision 1.18  2001/08/21 16:06:10  tng</font>
+00066 <font class="comment"> * Schema: Unique Particle Attribution Constraint Checking.</font>
+00067 <font class="comment"> *</font>
+00068 <font class="comment"> * Revision 1.17  2001/07/24 18:30:47  knoaman</font>
+00069 <font class="comment"> * Added support for &lt;group&gt; + extra constraint checking for complexType</font>
+00070 <font class="comment"> *</font>
+00071 <font class="comment"> * Revision 1.16  2001/06/21 14:25:28  knoaman</font>
+00072 <font class="comment"> * Fix for bug 1946</font>
+00073 <font class="comment"> *</font>
+00074 <font class="comment"> * Revision 1.15  2001/05/11 13:25:32  tng</font>
+00075 <font class="comment"> * Copyright update.</font>
+00076 <font class="comment"> *</font>
+00077 <font class="comment"> * Revision 1.14  2001/05/03 20:34:22  tng</font>
+00078 <font class="comment"> * Schema: SchemaValidator update</font>
+00079 <font class="comment"> *</font>
+00080 <font class="comment"> * Revision 1.13  2001/04/19 18:16:52  tng</font>
+00081 <font class="comment"> * Schema: SchemaValidator update, and use QName in Content Model</font>
+00082 <font class="comment"> *</font>
+00083 <font class="comment"> * Revision 1.12  2001/03/21 21:56:02  tng</font>
+00084 <font class="comment"> * Schema: Add Schema Grammar, Schema Validator, and split the DTDValidator into DTDValidator, DTDScanner, and DTDGrammar.</font>
+00085 <font class="comment"> *</font>
+00086 <font class="comment"> * Revision 1.11  2001/03/21 19:29:29  tng</font>
+00087 <font class="comment"> * Schema: Content Model Updates, by Pei Yong Zhang.</font>
+00088 <font class="comment"> *</font>
+00089 <font class="comment"> * Revision 1.10  2001/02/26 19:29:13  tng</font>
+00090 <font class="comment"> * Schema: add virtual method getURI(), getContentSpec and setContenSpec in XMLElementDecl, and DTDElementDecl.</font>
+00091 <font class="comment"> *</font>
+00092 <font class="comment"> * Revision 1.9  2001/02/26 19:21:30  tng</font>
+00093 <font class="comment"> * Schema: add parameter prefix in findElem and findAttr.</font>
+00094 <font class="comment"> *</font>
+00095 <font class="comment"> * Revision 1.8  2000/12/14 18:49:57  tng</font>
+00096 <font class="comment"> * Fix API document generation warning: "Warning: end of member group without matching begin"</font>
+00097 <font class="comment"> *</font>
+00098 <font class="comment"> * Revision 1.7  2000/11/30 18:22:38  andyh</font>
+00099 <font class="comment"> * reuseValidator - fix bugs (spurious errors) that occured on reuse due to</font>
+00100 <font class="comment"> * pools already containing some items.  Fixed by Tinny Ng.</font>
+00101 <font class="comment"> *</font>
+00102 <font class="comment"> * Revision 1.6  2000/05/11 23:11:32  andyh</font>
+00103 <font class="comment"> * Add missing validity checks for stand-alone documents, character range</font>
+00104 <font class="comment"> * and Well-formed parsed entities.  Changes contributed by Sean MacRoibeaird</font>
+00105 <font class="comment"> * &lt;sean.Macroibeaird@ireland.sun.com&gt;</font>
+00106 <font class="comment"> *</font>
+00107 <font class="comment"> * Revision 1.5  2000/02/24 20:00:23  abagchi</font>
+00108 <font class="comment"> * Swat for removing Log from API docs</font>
+00109 <font class="comment"> *</font>
+00110 <font class="comment"> * Revision 1.4  2000/02/16 19:48:56  roddey</font>
+00111 <font class="comment"> * More documentation updates</font>
+00112 <font class="comment"> *</font>
+00113 <font class="comment"> * Revision 1.3  2000/02/15 01:21:30  roddey</font>
+00114 <font class="comment"> * Some initial documentation improvements. More to come...</font>
+00115 <font class="comment"> *</font>
+00116 <font class="comment"> * Revision 1.2  2000/02/06 07:47:48  rahulj</font>
+00117 <font class="comment"> * Year 2K copyright swat.</font>
+00118 <font class="comment"> *</font>
+00119 <font class="comment"> * Revision 1.1.1.1  1999/11/09 01:08:32  twl</font>
+00120 <font class="comment"> * Initial checkin</font>
+00121 <font class="comment"> *</font>
+00122 <font class="comment"> * Revision 1.2  1999/11/08 20:44:38  rahul</font>
+00123 <font class="comment"> * Swat for adding in Product name and CVS comment log variable.</font>
+00124 <font class="comment"> *</font>
+00125 <font class="comment"> */</font>
+00126 
+00127 <font class="preprocessor">#if !defined(XMLELEMENTDECL_HPP)</font>
+<a name="l00128"></a><a class="code" href="XMLElementDecl_hpp.html#a0">00128</a> <font class="preprocessor"></font><font class="preprocessor">#define XMLELEMENTDECL_HPP</font>
+00129 <font class="preprocessor"></font>
+00130 <font class="preprocessor">#include &lt;<a class="code" href="XMLString_hpp.html">xercesc/util/XMLString.hpp</a>&gt;</font>
+00131 <font class="preprocessor">#include &lt;<a class="code" href="XMLAttr_hpp.html">xercesc/framework/XMLAttr.hpp</a>&gt;</font>
+00132 <font class="preprocessor">#include &lt;<a class="code" href="XMLAttDefList_hpp.html">xercesc/framework/XMLAttDefList.hpp</a>&gt;</font>
+00133 
+00134 <font class="keyword">class </font>ContentSpecNode;
+00135 <font class="keyword">class </font><a class="code" href="class_XMLContentModel.html">XMLContentModel</a>;
+00136 
+<a name="l00152"></a><a class="code" href="class_XMLElementDecl.html">00152</a> <font class="keyword">class </font> <a class="code" href="class_XMLElementDecl.html">XMLElementDecl</a>
+00153 {
+00154  <font class="keyword">public</font>:
+00155     <font class="comment">// -----------------------------------------------------------------------</font>
+00156     <font class="comment">//  Class specific types</font>
+00157     <font class="comment">//</font>
+00158     <font class="comment">//  CreateReasons</font>
+00159     <font class="comment">//      This type is used to store how an element declaration got into</font>
+00160     <font class="comment">//      the grammar's element pool. They are faulted in for various</font>
+00161     <font class="comment">//      reasons.</font>
+00162     <font class="comment">//</font>
+00163     <font class="comment">//  LookupOpts</font>
+00164     <font class="comment">//      These are the values used by the attribute lookup methods.</font>
+00165     <font class="comment">//</font>
+00166     <font class="comment">//  CharDataOpts</font>
+00167     <font class="comment">//      This is used to indicate how this type of element reacts to</font>
+00168     <font class="comment">//      character data as content.</font>
+00169     <font class="comment">// -----------------------------------------------------------------------</font>
+<a name="l00170"></a><a class="code" href="class_XMLElementDecl.html#s11">00170</a>     <font class="keyword">enum</font> CreateReasons
+00171     {
+00172         NoReason
+00173         , Declared
+00174         , AttList
+00175         , InContentModel
+00176         , AsRootElem
+00177         , JustFaultIn
+00178     };
+00179 
+<a name="l00180"></a><a class="code" href="class_XMLElementDecl.html#s12">00180</a>     <font class="keyword">enum</font> LookupOpts
+00181     {
+00182         AddIfNotFound
+00183         , FailIfNotFound
+00184     };
+00185 
+<a name="l00186"></a><a class="code" href="class_XMLElementDecl.html#s13">00186</a>     <font class="keyword">enum</font> CharDataOpts
+00187     {
+00188         NoCharData
+00189         , SpacesOk
+00190         , AllCharData
+00191     };
+00192 
+00193 
+00194     <font class="comment">// -----------------------------------------------------------------------</font>
+00195     <font class="comment">//  Public static data</font>
+00196     <font class="comment">//</font>
+00197     <font class="comment">//  fgInvalidElemId</font>
+00198     <font class="comment">//      A value to represent an invalid element node id.</font>
+00199     <font class="comment">//</font>
+00200     <font class="comment">//  fgPCDataElemId</font>
+00201     <font class="comment">//      This is the value to use to represent a PCDATA node when an</font>
+00202     <font class="comment">//      element id is required.</font>
+00203     <font class="comment">//</font>
+00204     <font class="comment">//  fgPCDataElemName</font>
+00205     <font class="comment">//      This is the value to use to represent a PCDATA node when an</font>
+00206     <font class="comment">//      element name is required.</font>
+00207     <font class="comment">// -----------------------------------------------------------------------</font>
+<a name="l00208"></a><a class="code" href="class_XMLElementDecl.html#p0">00208</a>     <font class="keyword">static</font> <font class="keyword">const</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font>   fgInvalidElemId;
+<a name="l00209"></a><a class="code" href="class_XMLElementDecl.html#p1">00209</a>     <font class="keyword">static</font> <font class="keyword">const</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font>   fgPCDataElemId;
+<a name="l00210"></a><a class="code" href="class_XMLElementDecl.html#p2">00210</a>     <font class="keyword">static</font> <font class="keyword">const</font> XMLCh          fgPCDataElemName[];
+00211 
+00212 
+00213 
+00214     <font class="comment">// -----------------------------------------------------------------------</font>
+00215     <font class="comment">//  Destructor</font>
+00216     <font class="comment">// -----------------------------------------------------------------------</font>
+00219 <font class="comment">    virtual ~XMLElementDecl();</font>
+00221 <font class="comment"></font>
+00222 
+00223     <font class="comment">// -----------------------------------------------------------------------</font>
+00224     <font class="comment">//  The virtual element decl interface</font>
+00225     <font class="comment">// -----------------------------------------------------------------------</font>
+00226 
+00229 
+00258     <font class="keyword">virtual</font> <a class="code" href="class_XMLAttDef.html">XMLAttDef</a>* findAttr
+00259     (
+00260         <font class="keyword">const</font>   XMLCh* <font class="keyword">const</font>    qName
+00261         , <font class="keyword">const</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font>    uriId
+00262         , <font class="keyword">const</font> XMLCh* <font class="keyword">const</font>    baseName
+00263         , <font class="keyword">const</font> XMLCh* <font class="keyword">const</font>    prefix
+00264         , <font class="keyword">const</font> LookupOpts      options
+00265         ,       <font class="keywordtype">bool</font>&amp;           wasAdded
+00266     )   <font class="keyword">const</font> = 0;
+00267 
+00279     <font class="keyword">virtual</font> <a class="code" href="class_XMLAttDefList.html">XMLAttDefList</a>&amp; <a class="code" href="class_XMLElementDecl.html#a2">getAttDefList</a>() <font class="keyword">const</font> = 0;
+00280 
+00288     <font class="keyword">virtual</font> CharDataOpts <a class="code" href="class_XMLElementDecl.html#a3">getCharDataOpts</a>() <font class="keyword">const</font> = 0;
+00289 
+00296     <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a4">hasAttDefs</a>() <font class="keyword">const</font> = 0;
+00297 
+00305     <font class="keyword">virtual</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a5">resetDefs</a>() = 0;
+00306 
+00314     <font class="keyword">virtual</font> <font class="keyword">const</font> ContentSpecNode* <a class="code" href="class_XMLElementDecl.html#a6">getContentSpec</a>() <font class="keyword">const</font> = 0;
+00315 
+00321     <font class="keyword">virtual</font> ContentSpecNode* <a class="code" href="class_XMLElementDecl.html#a6">getContentSpec</a>() = 0;
+00322 
+00332     <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a8">setContentSpec</a>(ContentSpecNode* toAdopt) = 0;
+00333 
+00345     <font class="keyword">virtual</font> <a class="code" href="class_XMLContentModel.html">XMLContentModel</a>* <a class="code" href="class_XMLElementDecl.html#a9">getContentModel</a>() = 0;
+00346 
+00358     <font class="keyword">virtual</font> <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a10">setContentModel</a>(<a class="code" href="class_XMLContentModel.html">XMLContentModel</a>* <font class="keyword">const</font> newModelToAdopt) = 0;
+00359 
+00372     <font class="keyword">virtual</font> <font class="keyword">const</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a11">getFormattedContentModel</a> ()   <font class="keyword">const</font> = 0;
+00373 
+00375 
+00376 
+00377     <font class="comment">// -----------------------------------------------------------------------</font>
+00378     <font class="comment">//  Getter methods</font>
+00379     <font class="comment">// -----------------------------------------------------------------------</font>
+00380 
+00383 
+00391     <font class="keyword">const</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a12">getBaseName</a>() <font class="keyword">const</font>;
+00392     XMLCh* <a class="code" href="class_XMLElementDecl.html#a12">getBaseName</a>();
+00393 
+00400     <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> <a class="code" href="class_XMLElementDecl.html#a14">getURI</a>() <font class="keyword">const</font>;
+00401 
+00409     <font class="keyword">const</font> <a class="code" href="class_QName.html">QName</a>* <a class="code" href="class_XMLElementDecl.html#a15">getElementName</a>() <font class="keyword">const</font>;
+00410     <a class="code" href="class_QName.html">QName</a>* <a class="code" href="class_XMLElementDecl.html#a15">getElementName</a>();
+00411 
+00420     <font class="keyword">const</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a17">getFullName</a>() <font class="keyword">const</font>;
+00421 
+00432 
+00433     CreateReasons <a class="code" href="class_XMLElementDecl.html#a18">getCreateReason</a>() <font class="keyword">const</font>;
+00434 
+00444     <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> <a class="code" href="class_XMLElementDecl.html#a19">getId</a>() <font class="keyword">const</font>;
+00445 
+00455     <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a20">isDeclared</a>() <font class="keyword">const</font>;
+00456 
+00464 
+00465     <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a21">isExternal</a>() <font class="keyword">const</font>;
+00466 
+00468 
+00469 
+00470     <font class="comment">// -----------------------------------------------------------------------</font>
+00471     <font class="comment">//  Setter methods</font>
+00472     <font class="comment">// -----------------------------------------------------------------------</font>
+00473 
+00476 
+00487       <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a22">setElementName</a>(<font class="keyword">const</font> XMLCh* <font class="keyword">const</font>       prefix
+00488                         , <font class="keyword">const</font> XMLCh* <font class="keyword">const</font>       localPart
+00489                         , <font class="keyword">const</font> <font class="keywordtype">int</font>                uriId );
+00490 
+00500       <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a22">setElementName</a>(<font class="keyword">const</font> XMLCh* <font class="keyword">const</font>    rawName
+00501                         , <font class="keyword">const</font> <font class="keywordtype">int</font>             uriId );
+00502 
+00511       <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a22">setElementName</a>(<font class="keyword">const</font> <a class="code" href="class_QName.html">QName</a>* <font class="keyword">const</font>    elementName);
+00512 
+00523     <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a25">setCreateReason</a>(<font class="keyword">const</font> CreateReasons newReason);
+00524 
+00531     <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a26">setId</a>(<font class="keyword">const</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> newId);
+00532 
+00533 
+00537     <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a27">setExternalElemDeclaration</a>(<font class="keyword">const</font> <font class="keywordtype">bool</font> aValue);
+00538 
+00540 
+00541 
+00542     <font class="comment">// -----------------------------------------------------------------------</font>
+00543     <font class="comment">//  Miscellaneous methods</font>
+00544     <font class="comment">// -----------------------------------------------------------------------</font>
+00545 
+00548 
+00550 
+00551 
+00552 <font class="keyword">protected</font> :
+00553     <font class="comment">// -----------------------------------------------------------------------</font>
+00554     <font class="comment">//  Hidden constructors</font>
+00555     <font class="comment">// -----------------------------------------------------------------------</font>
+00556     <a class="code" href="class_XMLElementDecl.html#b0">XMLElementDecl</a>();
+00557 
+00558 <font class="keyword">private</font> :
+00559     <font class="comment">// -----------------------------------------------------------------------</font>
+00560     <font class="comment">//  Unimplemented constructors and operators</font>
+00561     <font class="comment">// -----------------------------------------------------------------------</font>
+00562     <a class="code" href="class_XMLElementDecl.html#b0">XMLElementDecl</a>(<font class="keyword">const</font> <a class="code" href="class_XMLElementDecl.html">XMLElementDecl</a>&amp;);
+00563     <font class="keywordtype">void</font> operator=(<font class="keyword">const</font> <a class="code" href="class_XMLElementDecl.html">XMLElementDecl</a>&amp;);
+00564 
+00565 
+00566     <font class="comment">// -----------------------------------------------------------------------</font>
+00567     <font class="comment">//  Data members</font>
+00568     <font class="comment">//</font>
+00569     <font class="comment">//  fElementName</font>
+00570     <font class="comment">//      This is the name of the element decl.</font>
+00571     <font class="comment">//</font>
+00572     <font class="comment">//  fCreateReason</font>
+00573     <font class="comment">//      We sometimes have to put an element decl object into the elem</font>
+00574     <font class="comment">//      decl pool before the element's declaration is seen, such as when</font>
+00575     <font class="comment">//      its used in another element's content model or an att list is</font>
+00576     <font class="comment">//      seen for it. This flag tells us whether its been declared, and</font>
+00577     <font class="comment">//      if not why it had to be created.</font>
+00578     <font class="comment">//</font>
+00579     <font class="comment">//  fId</font>
+00580     <font class="comment">//      The unique id of this element. This is created by the derived</font>
+00581     <font class="comment">//      class, or more accurately the grammar that owns the objects</font>
+00582     <font class="comment">//      of the derived types. But, since they all have to have them, we</font>
+00583     <font class="comment">//      let them all store the id here. It is defaulted to have the</font>
+00584     <font class="comment">//      value fgInvalidElem until explicitly set.</font>
+00585     <font class="comment">//</font>
+00586     <font class="comment">//  fExternalElement</font>
+00587     <font class="comment">//      This flag indicates whether or the element was declared externally.</font>
+00588     <font class="comment">// -----------------------------------------------------------------------</font>
+00589     <a class="code" href="class_QName.html">QName</a>*              fElementName;
+00590     CreateReasons       fCreateReason;
+00591     <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font>        fId;
+00592     <font class="keywordtype">bool</font>                fExternalElement;
+00593 };
+00594 
+00595 
+00596 <font class="comment">// ---------------------------------------------------------------------------</font>
+00597 <font class="comment">//  XMLElementDecl: Getter methods</font>
+00598 <font class="comment">// ---------------------------------------------------------------------------</font>
+<a name="l00599"></a><a class="code" href="class_XMLElementDecl.html#a12">00599</a> <font class="keyword">inline</font> <font class="keyword">const</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a12">XMLElementDecl::getBaseName</a>()<font class="keyword"> const</font>
+00600 <font class="keyword"></font>{
+00601     <font class="keywordflow">return</font> fElementName-&gt;<a class="code" href="class_QName.html#a7">getLocalPart</a>();
+00602 }
+00603 
+<a name="l00604"></a><a class="code" href="class_XMLElementDecl.html#a13">00604</a> <font class="keyword">inline</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a12">XMLElementDecl::getBaseName</a>()<font class="keyword"></font>
+00605 <font class="keyword"></font>{
+00606     <font class="keywordflow">return</font> fElementName-&gt;<a class="code" href="class_QName.html#a7">getLocalPart</a>();
+00607 }
+00608 
+<a name="l00609"></a><a class="code" href="class_XMLElementDecl.html#a14">00609</a> <font class="keyword">inline</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> <a class="code" href="class_XMLElementDecl.html#a14">XMLElementDecl::getURI</a>()<font class="keyword"> const</font>
+00610 <font class="keyword"></font>{
+00611     <font class="keywordflow">return</font> fElementName-&gt;<a class="code" href="class_QName.html#a9">getURI</a>();
+00612 }
+00613 
+<a name="l00614"></a><a class="code" href="class_XMLElementDecl.html#a15">00614</a> <font class="keyword">inline</font> <font class="keyword">const</font> <a class="code" href="class_QName.html">QName</a>* <a class="code" href="class_XMLElementDecl.html#a15">XMLElementDecl::getElementName</a>()<font class="keyword"> const</font>
+00615 <font class="keyword"></font>{
+00616     <font class="keywordflow">return</font> fElementName;
+00617 }
+00618 
+<a name="l00619"></a><a class="code" href="class_XMLElementDecl.html#a16">00619</a> <font class="keyword">inline</font> <a class="code" href="class_QName.html">QName</a>* <a class="code" href="class_XMLElementDecl.html#a15">XMLElementDecl::getElementName</a>()<font class="keyword"></font>
+00620 <font class="keyword"></font>{
+00621     <font class="keywordflow">return</font> fElementName;
+00622 }
+00623 
+<a name="l00624"></a><a class="code" href="class_XMLElementDecl.html#a17">00624</a> <font class="keyword">inline</font> <font class="keyword">const</font> XMLCh* <a class="code" href="class_XMLElementDecl.html#a17">XMLElementDecl::getFullName</a>()<font class="keyword"> const</font>
+00625 <font class="keyword"></font>{
+00626     <font class="keywordflow">return</font> fElementName-&gt;<a class="code" href="class_QName.html#a10">getRawName</a>();
+00627 }
+00628 
+<a name="l00629"></a><a class="code" href="class_XMLElementDecl.html#a18">00629</a> <font class="keyword">inline</font> XMLElementDecl::CreateReasons <a class="code" href="class_XMLElementDecl.html#a18">XMLElementDecl::getCreateReason</a>()<font class="keyword"> const</font>
+00630 <font class="keyword"></font>{
+00631     <font class="keywordflow">return</font> fCreateReason;
+00632 }
+00633 
+<a name="l00634"></a><a class="code" href="class_XMLElementDecl.html#a19">00634</a> <font class="keyword">inline</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> <a class="code" href="class_XMLElementDecl.html#a19">XMLElementDecl::getId</a>()<font class="keyword"> const</font>
+00635 <font class="keyword"></font>{
+00636     <font class="keywordflow">return</font> fId;
+00637 }
+00638 
+<a name="l00639"></a><a class="code" href="class_XMLElementDecl.html#a20">00639</a> <font class="keyword">inline</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a20">XMLElementDecl::isDeclared</a>()<font class="keyword"> const</font>
+00640 <font class="keyword"></font>{
+00641     <font class="keywordflow">return</font> (fCreateReason == Declared);
+00642 }
+00643 
+00644 
+<a name="l00645"></a><a class="code" href="class_XMLElementDecl.html#a21">00645</a> <font class="keyword">inline</font> <font class="keywordtype">bool</font> <a class="code" href="class_XMLElementDecl.html#a21">XMLElementDecl::isExternal</a>()<font class="keyword"> const</font>
+00646 <font class="keyword"></font>{
+00647     <font class="keywordflow">return</font> fExternalElement;
+00648 }
+00649 
+00650 
+00651 <font class="comment">// ---------------------------------------------------------------------------</font>
+00652 <font class="comment">//  XMLElementDecl: Setter methods</font>
+00653 <font class="comment">// ---------------------------------------------------------------------------</font>
+00654 <font class="keyword">inline</font> <font class="keywordtype">void</font>
+<a name="l00655"></a><a class="code" href="class_XMLElementDecl.html#a25">00655</a> <a class="code" href="class_XMLElementDecl.html#a25">XMLElementDecl::setCreateReason</a>(<font class="keyword">const</font> XMLElementDecl::CreateReasons newReason)<font class="keyword"></font>
+00656 <font class="keyword"></font>{
+00657     fCreateReason = newReason;
+00658 }
+00659 
+<a name="l00660"></a><a class="code" href="class_XMLElementDecl.html#a26">00660</a> <font class="keyword">inline</font> <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a26">XMLElementDecl::setId</a>(<font class="keyword">const</font> <font class="keywordtype">unsigned</font> <font class="keywordtype">int</font> newId)<font class="keyword"></font>
+00661 <font class="keyword"></font>{
+00662     fId = newId;
+00663 }
+00664 
+00665 
+<a name="l00666"></a><a class="code" href="class_XMLElementDecl.html#a27">00666</a> <font class="keyword">inline</font> <font class="keywordtype">void</font> <a class="code" href="class_XMLElementDecl.html#a27">XMLElementDecl::setExternalElemDeclaration</a>(<font class="keyword">const</font> <font class="keywordtype">bool</font> aValue)<font class="keyword"></font>
+00667 <font class="keyword"></font>{
+00668     fExternalElement = aValue;
+00669 }
+00670 
+00671 <font class="preprocessor">#endif</font>
+</font></div></pre>    </FONT></TD></TR></TABLE><BR>
+</TD></TR></TABLE></TD></TR></TABLE><BR><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD bgcolor="#0086b2"><IMG height="1" src="images/dot.gif" width="1" alt=""></TD></TR><TR><TD align="center"><FONT color="#0086b2" size="-1"><I>
+              Copyright &copy; 2000 The Apache Software Foundation.
+              All Rights Reserved.
+            </I></FONT></TD></TR></TABLE></BODY></HTML>

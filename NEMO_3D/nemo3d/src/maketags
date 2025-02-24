@@ -1,0 +1,7 @@
+#!/bin/csh
+find base  ham  io  math  top  util \( -name "*.c" -a -exec etags --append {} \; \) -o \( -name "*.h" -a -exec etags --append {} \; \)
+foreach file ( base/  ham/  io/  math/  top/  util/ )
+cd $file
+ln -s ../TAGS .
+cd ../
+end

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "ioNemo3D_driver.C": "cpp",
+        "vector": "cpp",
+        "string": "cpp",
+        "Material_struct.C": "cpp",
+        "Output_struct.C": "cpp",
+        "Abs_Ramp_struct.C": "cpp"
+    }
+}

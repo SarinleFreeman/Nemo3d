@@ -1,0 +1,98 @@
+/*****************************************************************************
+The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This application is free software, which you can redistribute and/or modify
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; either version 2.1 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+For additional information, please contact
+  Gerhard Klimeck (gekco@jpl.nasa.gov)
+  Fabiano Oyafuso (fabiano@jpl.nasa.gov)
+
+Written by:  Chris Bowen
+             Gerhard Klimeck
+             Fabiano Oyafuso
+             Seungwon Lee
+             Olga Lazarenkova
+             Hook Hua
+
+This product includes software developed by the Apache Software Foundation
+(http://www.apache.org/).
+
+*****************************************************************************
+$Header: /repo/nemo3d/src/base/qtracemin_driver.h,v 1.2 2007/07/24 17:20:51 lee509 Exp $
+*****************************************************************************/
+
+#ifndef QTRACEMIN_DRIVER_H
+#define QTRACEMIN_DRIVER_H
+
+/*! \file qtracemin_driver.h
+ *  \brief Driver interface of Quadratic Tracemin eigenvalue solver algorithm.
+ *  Tracemin algorithms are implemented in /NEMO_3D/TRACEMIN folder
+ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus 
+
+#ifdef FORTRAN_UNDERSCORE
+#define zcopy                                zcopy_
+#define zdotc                                zdotc_
+#define zlarnv                               zlarnv_
+#define dznrm2                               dznrm2_
+#define ztracemin_wrapper                    ztracemin_wrapper_
+#define modified_conjugate_gradient_wrapper  modified_conjugate_gradient_wrapper_
+#endif
+
+#ifdef FORTRAN_UNDERSCORE2
+#define zcopy                                zcopy__
+#define zdotc                                zdotc__
+#define zlarnv                               zlarnv__
+#define dznrm2                               dznrm2__
+#define ztracemin_wrapper                    ztracemin_wrapper__
+#define modified_conjugate_gradient_wrapper  modified_conjugate_gradient_wrapper__
+#endif
+
+#ifdef FORTRAN_ALLCAPS
+#define zcopy                                ZCOPY
+#define zdotc                                ZDOTC
+#define zlarnv                               ZLARNV
+#define dznrm2                               DZNRM2
+#define ztracemin_wrapper                    ZTRACEMIN_WRAPPER             
+#define modified_conjugate_gradient_wrapper  MODIFIED_CONJUGATE_GRADIENT_WRAPPER
+#endif
+
+//LAPACK Functions
+void zcopy (int *, complex *, int *, complex *, int *);                  //subroutine used to copy vectors
+void zlarnv(int *, int *, int *, complex *);                             //subroutine used to generate random vector 
+real dznrm2(int *, complex *, int *);                                    //functions used to compute norm of two vectors
+void zdotc (complex *, int *, complex *, int *, complex *, int *);       //function used to compute complex conjugate dot product of two vectors
+
+void modified_conjugate_gradient_wrapper(int*,int*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,real*,int*,int*,real*,real*,int*,int*,int*,int*,int*);
+void ztracemin_wrapper(int *,int *,complex *,real *,complex *,complex *,complex *,complex *,real *,int *,complex *,real *,int *,int *,int *,int *,int *,int *,int *);
+                     
+#ifdef __cplusplus
+}
+#endif // __cplusplus 
+
+
+int qtracemin_driver( qd_struct d );
+/*!< Driver function for Quadratic Tracemin eigenvalue solver algorithm
+ * @param d IN: QD_struct, see qd_struct.h
+ * @return Number of eigenvalues found
+ */
+
+#endif // QTRACEMIN_DRIVER_H 

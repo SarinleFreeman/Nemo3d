@@ -1,0 +1,7 @@
+set XERCESCROOT ../xerces-c-src2_1_0
+cp ./MACOSX_local/Makefile_lapack_macosx_local ../LAPACK/SRC/Makefile
+cp ./MACOSX_local/second_macosx_local.f ../ARPACK/UTIL/second.f
+#cp ./MACOSX_local/dsecnd_macosx_local.f ../LAPACK/SRC/dsecnd.f
+mkdir -p ../XMLtoC/bin
+mkdir -p ../nemo3d/bin
+

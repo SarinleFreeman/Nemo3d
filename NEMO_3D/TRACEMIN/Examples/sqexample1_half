@@ -1,0 +1,19 @@
+9 5 0 0 3 50 1.0D-7  !number of nonzero elements, size of the matrix, size of the block, shift (A-shift*I), number of eigenvalues you are interested in,   
+1  1 4.0 0.0           !maximum number of iterations, tolerance
+2  1 1.0 1.0                             
+2  2 4.0 0.0
+3  2 1.0 1.0
+3  3 4.0 0.0
+4  3 1.0 1.0
+4  4 4.0 0.0
+5  4 1.0 1.0
+5  5 4.0 0.0
+
+
+!I'm storing only lower part of the following matrix: 
+| 4   1-1i  0    0    0  |
+|1+1i  4   1-1i  0    0  |
+| 0   1+1i  4   1-1i  0  |
+| 0    0   1+1i  4   1-1i|
+| 0    0    0   1+1i  4  | 
+!Eigenvalues of this matrix are: [1.5505, 2.5858, 4.0000, 5.4142, 6.4495]

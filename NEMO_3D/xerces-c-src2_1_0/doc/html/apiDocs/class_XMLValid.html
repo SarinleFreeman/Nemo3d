@@ -1,0 +1,684 @@
+<HTML><HEAD><SCRIPT language="JavaScript" src="../resources/script.js" type="text/javascript"></SCRIPT><TITLE>XMLValid Class Reference</TITLE><link href="XercesApi.css" rel="stylesheet" type="text/css"></HEAD><BODY alink="#ff0000" bgcolor="#ffffff" leftmargin="4" link="#0000ff" marginheight="4" marginwidth="4" text="#000000" topmargin="4" vlink="#0000aa"><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" height="60" rowspan="3" valign="top" width="135"><IMG border="0" height="60" hspace="0" src="../resources/logo.gif" vspace="0" width="135"></TD><TD align="left" colspan="4" height="5" valign="top" width="456"><IMG border="0" height="5" hspace="0" src="../resources/line.gif" vspace="0" width="456"></TD><TD align="left" height="60" rowspan="3" valign="top" width="29"><IMG border="0" height="60" hspace="0" src="../resources/right.gif" vspace="0" width="29"></TD></TR><TR><TD align="left" bgcolor="#0086b2" colspan="4" height="35" valign="top" width="456"><IMG alt="" border="0" height="35" hspace="0" src="../graphics/api-header.jpg" vspace="0" width="456"></TD></TR><TR><TD align="left" height="20" valign="top" width="168"><IMG border="0" height="20" hspace="0" src="../resources/bottom.gif" vspace="0" width="168"></TD><TD align="left" height="20" valign="top" width="96"><A href="http://xml.apache.org/" onMouseOut="rolloverOff('xml');" onMouseOver="rolloverOn('xml');" target="new"><IMG alt="http://xml.apache.org/" border="0" height="20" hspace="0" name="xml" onLoad="rolloverLoad('xml','../resources/button-xml-hi.gif','../resources/button-xml-lo.gif');" src="../resources/button-xml-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.apache.org/" onMouseOut="rolloverOff('asf');" onMouseOver="rolloverOn('asf');" target="new"><IMG alt="http://www.apache.org/" border="0" height="20" hspace="0" name="asf" onLoad="rolloverLoad('asf','../resources/button-asf-hi.gif','../resources/button-asf-lo.gif');" src="../resources/button-asf-lo.gif" vspace="0" width="96"></A></TD><TD align="left" height="20" valign="top" width="96"><A href="http://www.w3.org/" onMouseOut="rolloverOff('w3c');" onMouseOver="rolloverOn('w3c');" target="new"><IMG alt="http://www.w3.org/" border="0" height="20" hspace="0" name="w3c" onLoad="rolloverLoad('w3c','../resources/button-w3c-hi.gif','../resources/button-w3c-lo.gif');" src="../resources/button-w3c-lo.gif" vspace="0" width="96"></A></TD></TR></TABLE><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD align="left" valign="top" width="120"><IMG border="0" height="14" hspace="0" src="../resources/join.gif" vspace="0" width="120"><BR>
+  <A href="../../index.html" onMouseOut="rolloverOff('side-ext-2');" onMouseOver="rolloverOn('side-ext-2');"><IMG alt="Home" border="0" height="12" hspace="0" name="side-ext-2" onLoad="rolloverLoad('side-ext-2','../graphics/ext-2-label-2.jpg','../graphics/ext-2-label-3.jpg');" src="../graphics/ext-2-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../index.html" onMouseOut="rolloverOff('side-index');" onMouseOver="rolloverOn('side-index');"><IMG alt="Readme" border="0" height="12" hspace="0" name="side-index" onLoad="rolloverLoad('side-index','../graphics/index-label-2.jpg','../graphics/index-label-3.jpg');" src="../graphics/index-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../releases.html" onMouseOut="rolloverOff('side-releases');" onMouseOver="rolloverOn('side-releases');"><IMG alt="Release Info" border="0" height="12" hspace="0" name="side-releases" onLoad="rolloverLoad('side-releases','../graphics/releases-label-2.jpg','../graphics/releases-label-3.jpg');" src="../graphics/releases-label-3.jpg" vspace="0" width="120"></A><BR>
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../install.html" onMouseOut="rolloverOff('side-install');" onMouseOver="rolloverOn('side-install');"><IMG alt="Installation" border="0" height="12" hspace="0" name="side-install" onLoad="rolloverLoad('side-install','../graphics/install-label-2.jpg','../graphics/install-label-3.jpg');" src="../graphics/install-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://xml.apache.org/dist/xerces-c/" onMouseOut="rolloverOff('side-ext-18');" onMouseOver="rolloverOn('side-ext-18');"><IMG alt="Download" border="0" height="12" hspace="0" name="side-ext-18" onLoad="rolloverLoad('side-ext-18','../graphics/ext-18-label-2.jpg','../graphics/ext-18-label-3.jpg');" src="../graphics/ext-18-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../build.html" onMouseOut="rolloverOff('side-build');" onMouseOver="rolloverOn('side-build');"><IMG alt="Build" border="0" height="12" hspace="0" name="side-build" onLoad="rolloverLoad('side-build','../graphics/build-label-2.jpg','../graphics/build-label-3.jpg');" src="../graphics/build-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../faqs.html" onMouseOut="rolloverOff('side-faqs');" onMouseOver="rolloverOn('side-faqs');"><IMG alt="FAQs" border="0" height="12" hspace="0" name="side-faqs" onLoad="rolloverLoad('side-faqs','../graphics/faqs-label-2.jpg','../graphics/faqs-label-3.jpg');" src="../graphics/faqs-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../samples.html" onMouseOut="rolloverOff('side-samples');" onMouseOver="rolloverOn('side-samples');"><IMG alt="Samples" border="0" height="12" hspace="0" name="side-samples" onLoad="rolloverLoad('side-samples','../graphics/samples-label-2.jpg','../graphics/samples-label-3.jpg');" src="../graphics/samples-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../api.html" onMouseOut="rolloverOff('side-api');" onMouseOver="rolloverOn('side-api');"><IMG alt="API Docs" border="0" height="12" hspace="0" name="side-api" onLoad="rolloverLoad('side-api','../graphics/api-label-2.jpg','../graphics/api-label-3.jpg');" src="../graphics/api-label-3.jpg" vspace="0" width="120"></A><BR>  
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+  <A href="../ApacheDOMC++Binding.html" onMouseOut="rolloverOff('side-ext-64');" onMouseOver="rolloverOn('side-ext-64');"><IMG alt="DOM C++ Binding" border="0" height="12" hspace="0" name="side-ext-64" onLoad="rolloverLoad('side-ext-64','../graphics/ext-64-label-2.jpg','../graphics/ext-64-label-3.jpg');" src="../graphics/ext-64-label-3.jpg" vspace="0" width="120"></A><BR> 
+  <A href="../program.html" onMouseOut="rolloverOff('side-program');" onMouseOver="rolloverOn('side-program');"><IMG alt="Programming" border="0" height="12" hspace="0" name="side-program" onLoad="rolloverLoad('side-program','../graphics/program-label-2.jpg','../graphics/program-label-3.jpg');" src="../graphics/program-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../migrate.html" onMouseOut="rolloverOff('side-migrate');" onMouseOver="rolloverOn('side-migrate');"><IMG alt="Migration Guide" border="0" height="12" hspace="0" name="side-migrate" onLoad="rolloverLoad('side-migrate','../graphics/migrate-label-2.jpg','../graphics/migrate-label-3.jpg');" src="../graphics/migrate-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="../feedback.html" onMouseOut="rolloverOff('side-feedback');" onMouseOver="rolloverOn('side-feedback');"><IMG alt="Feedback" border="0" height="12" hspace="0" name="side-feedback" onLoad="rolloverLoad('side-feedback','../graphics/feedback-label-2.jpg','../graphics/feedback-label-3.jpg');" src="../graphics/feedback-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="../bug-report.html" onMouseOut="rolloverOff('side-bug-report');" onMouseOver="rolloverOn('side-bug-report');"><IMG alt="Bug-Reporting" border="0" height="12" hspace="0" name="side-bug-report" onLoad="rolloverLoad('side-bug-report','../graphics/bug-report-label-2.jpg','../graphics/bug-report-label-3.jpg');" src="../graphics/bug-report-label-3.jpg" vspace="0" width="120"></A><BR>  
+  <A href="../pdf.html" onMouseOut="rolloverOff('side-pdf');" onMouseOver="rolloverOn('side-pdf');"><IMG alt="PDF Document" border="0" height="12" hspace="0" name="side-pdf" onLoad="rolloverLoad('side-pdf','../graphics/pdf-label-2.jpg','../graphics/pdf-label-3.jpg');" src="../graphics/pdf-label-3.jpg" vspace="0" width="120"></A><BR>
+
+  <IMG border="0" height="6" hspace="0" src="../resources/separator.gif" vspace="0" width="120"><BR>
+
+  <A href="http://xml.apache.org/websrc/cvsweb.cgi/xml-xerces/c/" onMouseOut="rolloverOff('side-ext-96');" onMouseOver="rolloverOn('side-ext-96');"><IMG alt="CVS Repository" border="0" height="12" hspace="0" name="side-ext-96" onLoad="rolloverLoad('side-ext-96','../graphics/ext-96-label-2.jpg','../graphics/ext-96-label-3.jpg');" src="../graphics/ext-96-label-3.jpg" vspace="0" width="120"></A><BR>
+  <A href="http://marc.theaimsgroup.com/?l=xerces-c-dev" onMouseOut="rolloverOff('side-ext-98');" onMouseOver="rolloverOn('side-ext-98');"><IMG alt="Mail Archive" border="0" height="12" hspace="0" name="side-ext-98" onLoad="rolloverLoad('side-ext-98','../graphics/ext-98-label-2.jpg','../graphics/ext-98-label-3.jpg');" src="../graphics/ext-98-label-3.jpg" vspace="0" width="120"></A><BR>
+
+<IMG border="0" height="14" hspace="0" src="../resources/close.gif" vspace="0" width="120"><BR></TD><TD align="left" valign="top" width="500"><TABLE border="0" cellpadding="3" cellspacing="0"><TR><TD>
+    <TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#FFFFFF" colspan="2" width="494"><TABLE border="0" cellpadding="0" cellspacing="0" width="494"><TR><TD bgcolor="#039acc" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#039acc" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#039acc" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#0086b2" width="492"><FONT color="#ffffff" face="arial,helvetica,sanserif" size="+1"><IMG border="0" height="2" hspace="0" src="../resources/void.gif" vspace="0" width="2"><B>API Docs for SAX and DOM</B></FONT></TD><TD bgcolor="#017299" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR><TR><TD bgcolor="#0086b2" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD><TD bgcolor="#017299" height="1" width="492"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="492"></TD><TD bgcolor="#017299" height="1" width="1"><IMG border="0" height="1" hspace="0" src="../resources/void.gif" vspace="0" width="1"></TD></TR></TABLE></TD></TR><TR><TD width="10">&nbsp;</TD><TD width="484"><FONT color="#000000" face="arial,helvetica,sanserif">
+
+	    <P>
+<!-- Generated by Doxygen 1.2.4 on Tue Aug 27 03:26:47 2002 -->
+<center>
+<a class="qindex" href="index.html">Main Page</a> &nbsp; <a class="qindex" href="hierarchy.html">Class Hierarchy</a> &nbsp; <a class="qindex" href="classes.html">Alphabetical List</a> &nbsp; <a class="qindex" href="annotated.html">Compound List</a> &nbsp; <a class="qindex" href="files.html">File List</a> &nbsp; <a class="qindex" href="functions.html">Compound Members</a> &nbsp; <a class="qindex" href="globals.html">File Members</a> &nbsp; </center>
+<hr><h1>XMLValid  Class Reference</h1><code>#include &lt;<a class="el" href="XMLValidityCodes_hpp-source.html">XMLValidityCodes.hpp</a>&gt;</code>
+<p>
+<a href="class_XMLValid-members.html">List of all members.</a><table border=0 cellpadding=0 cellspacing=0>
+<tr><td colspan=2><br><h2>Public Types</h2></td></tr>
+<tr><td nowrap align=right valign=top>enum &nbsp;</td><td valign=bottom><a class="el" href="class_XMLValid.html#s112">Codes</a> { <br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s0">NoError</a> = 0, 
+<a class="el" href="class_XMLValid.html#s112s1">E_LowBounds</a> = 1, 
+<a class="el" href="class_XMLValid.html#s112s2">ElementNotDefined</a> = 2, 
+<a class="el" href="class_XMLValid.html#s112s3">AttNotDefined</a> = 3, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s4">NotationNotDeclared</a> = 4, 
+<a class="el" href="class_XMLValid.html#s112s5">RootElemNotLikeDocType</a> = 5, 
+<a class="el" href="class_XMLValid.html#s112s6">RequiredAttrNotProvided</a> = 6, 
+<a class="el" href="class_XMLValid.html#s112s7">ElementNotValidForContent</a> = 7, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s8">BadIDAttrDefType</a> = 8, 
+<a class="el" href="class_XMLValid.html#s112s9">InvalidEmptyAttValue</a> = 9, 
+<a class="el" href="class_XMLValid.html#s112s10">ElementAlreadyExists</a> = 10, 
+<a class="el" href="class_XMLValid.html#s112s11">MultipleIdAttrs</a> = 11, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s12">ReusedIDValue</a> = 12, 
+<a class="el" href="class_XMLValid.html#s112s13">IDNotDeclared</a> = 13, 
+<a class="el" href="class_XMLValid.html#s112s14">UnknownNotRefAttr</a> = 14, 
+<a class="el" href="class_XMLValid.html#s112s15">UndeclaredElemInDocType</a> = 15, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s16">EmptyNotValidForContent</a> = 16, 
+<a class="el" href="class_XMLValid.html#s112s17">AttNotDefinedForElement</a> = 17, 
+<a class="el" href="class_XMLValid.html#s112s18">BadEntityRefAttr</a> = 18, 
+<a class="el" href="class_XMLValid.html#s112s19">UnknownEntityRefAttr</a> = 19, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s20">NotEnoughElemsForCM</a> = 20, 
+<a class="el" href="class_XMLValid.html#s112s21">NoCharDataInCM</a> = 21, 
+<a class="el" href="class_XMLValid.html#s112s22">DoesNotMatchEnumList</a> = 22, 
+<a class="el" href="class_XMLValid.html#s112s23">AttrValNotName</a> = 23, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s24">NoMultipleValues</a> = 24, 
+<a class="el" href="class_XMLValid.html#s112s25">NotSameAsFixedValue</a> = 25, 
+<a class="el" href="class_XMLValid.html#s112s26">RepElemInMixed</a> = 26, 
+<a class="el" href="class_XMLValid.html#s112s27">NoValidatorFor</a> = 27, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s28">IncorrectDatatype</a> = 28, 
+<a class="el" href="class_XMLValid.html#s112s29">NotADatatype</a> = 29, 
+<a class="el" href="class_XMLValid.html#s112s30">TextOnlyContentWithType</a> = 30, 
+<a class="el" href="class_XMLValid.html#s112s31">FeatureUnsupported</a> = 31, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s32">NestedOnlyInElemOnly</a> = 32, 
+<a class="el" href="class_XMLValid.html#s112s33">EltRefOnlyInMixedElemOnly</a> = 33, 
+<a class="el" href="class_XMLValid.html#s112s34">OnlyInEltContent</a> = 34, 
+<a class="el" href="class_XMLValid.html#s112s35">OrderIsAll</a> = 35, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s36">DatatypeWithType</a> = 36, 
+<a class="el" href="class_XMLValid.html#s112s37">DatatypeQualUnsupported</a> = 37, 
+<a class="el" href="class_XMLValid.html#s112s38">GroupContentRestricted</a> = 38, 
+<a class="el" href="class_XMLValid.html#s112s39">UnknownBaseDatatype</a> = 39, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s40">OneOfTypeRefArchRef</a> = 40, 
+<a class="el" href="class_XMLValid.html#s112s41">NoContentForRef</a> = 41, 
+<a class="el" href="class_XMLValid.html#s112s42">IncorrectDefaultType</a> = 42, 
+<a class="el" href="class_XMLValid.html#s112s43">IllegalAttContent</a> = 43, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s44">ValueNotInteger</a> = 44, 
+<a class="el" href="class_XMLValid.html#s112s45">DatatypeError</a> = 45, 
+<a class="el" href="class_XMLValid.html#s112s46">SchemaError</a> = 46, 
+<a class="el" href="class_XMLValid.html#s112s47">TypeAlreadySet</a> = 47, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s48">ProhibitedAttributePresent</a> = 48, 
+<a class="el" href="class_XMLValid.html#s112s49">IllegalXMLSpace</a> = 49, 
+<a class="el" href="class_XMLValid.html#s112s50">NotBoolean</a> = 50, 
+<a class="el" href="class_XMLValid.html#s112s51">NotDecimal</a> = 51, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s52">FacetsInconsistent</a> = 52, 
+<a class="el" href="class_XMLValid.html#s112s53">IllegalFacetValue</a> = 53, 
+<a class="el" href="class_XMLValid.html#s112s54">IllegalDecimalFacet</a> = 54, 
+<a class="el" href="class_XMLValid.html#s112s55">UnknownFacet</a> = 55, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s56">InvalidEnumValue</a> = 56, 
+<a class="el" href="class_XMLValid.html#s112s57">OutOfBounds</a> = 57, 
+<a class="el" href="class_XMLValid.html#s112s58">NotAnEnumValue</a> = 58, 
+<a class="el" href="class_XMLValid.html#s112s59">NotInteger</a> = 59, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s60">IllegalIntegerFacet</a> = 60, 
+<a class="el" href="class_XMLValid.html#s112s61">NotReal</a> = 61, 
+<a class="el" href="class_XMLValid.html#s112s62">IllegalRealFacet</a> = 62, 
+<a class="el" href="class_XMLValid.html#s112s63">ScaleLargerThanPrecision</a> = 63, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s64">PrecisionExceeded</a> = 64, 
+<a class="el" href="class_XMLValid.html#s112s65">ScaleExceeded</a> = 65, 
+<a class="el" href="class_XMLValid.html#s112s66">NotFloat</a> = 66, 
+<a class="el" href="class_XMLValid.html#s112s67">SchemaRootError</a> = 67, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s68">WrongTargetNamespace</a> = 68, 
+<a class="el" href="class_XMLValid.html#s112s69">SimpleTypeHasChild</a> = 69, 
+<a class="el" href="class_XMLValid.html#s112s70">NoDatatypeValidatorForSimpleType</a> = 70, 
+<a class="el" href="class_XMLValid.html#s112s71">GrammarNotFound</a> = 71, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s72">DisplayErrorMessage</a> = 72, 
+<a class="el" href="class_XMLValid.html#s112s73">NillNotAllowed</a> = 73, 
+<a class="el" href="class_XMLValid.html#s112s74">NilAttrNotEmpty</a> = 74, 
+<a class="el" href="class_XMLValid.html#s112s75">FixedDifferentFromActual</a> = 75, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s76">NoDatatypeValidatorForAttribute</a> = 76, 
+<a class="el" href="class_XMLValid.html#s112s77">GenericError</a> = 77, 
+<a class="el" href="class_XMLValid.html#s112s78">ElementNotQualified</a> = 78, 
+<a class="el" href="class_XMLValid.html#s112s79">ElementNotUnQualified</a> = 79, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s80">IllegalRefInStandalone</a> = 80, 
+<a class="el" href="class_XMLValid.html#s112s81">NoDefAttForStandalone</a> = 81, 
+<a class="el" href="class_XMLValid.html#s112s82">NoAttNormForStandalone</a> = 82, 
+<a class="el" href="class_XMLValid.html#s112s83">NoWSForStandalone</a> = 83, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s84">VC_EntityNotFound</a> = 84, 
+<a class="el" href="class_XMLValid.html#s112s85">PartialMarkupInPE</a> = 85, 
+<a class="el" href="class_XMLValid.html#s112s86">DatatypeValidationFailure</a> = 86, 
+<a class="el" href="class_XMLValid.html#s112s87">UniqueParticleAttributionFail</a> = 87, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s88">NoAbstractInXsiType</a> = 88, 
+<a class="el" href="class_XMLValid.html#s112s89">NoDirectUseAbstractElement</a> = 89, 
+<a class="el" href="class_XMLValid.html#s112s90">NoUseAbstractType</a> = 90, 
+<a class="el" href="class_XMLValid.html#s112s91">BadXsiType</a> = 91, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s92">NonDerivedXsiType</a> = 92, 
+<a class="el" href="class_XMLValid.html#s112s93">NoSubforBlock</a> = 93, 
+<a class="el" href="class_XMLValid.html#s112s94">AttributeNotQualified</a> = 94, 
+<a class="el" href="class_XMLValid.html#s112s95">AttributeNotUnQualified</a> = 95, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s96">IC_FieldMultipleMatch</a> = 96, 
+<a class="el" href="class_XMLValid.html#s112s97">IC_UnknownField</a> = 97, 
+<a class="el" href="class_XMLValid.html#s112s98">IC_AbsentKeyValue</a> = 98, 
+<a class="el" href="class_XMLValid.html#s112s99">IC_UniqueNotEnoughValues</a> = 99, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s100">IC_KeyNotEnoughValues</a> = 100, 
+<a class="el" href="class_XMLValid.html#s112s101">IC_KeyRefNotEnoughValues</a> = 101, 
+<a class="el" href="class_XMLValid.html#s112s102">IC_KeyMatchesNillable</a> = 102, 
+<a class="el" href="class_XMLValid.html#s112s103">IC_DuplicateUnique</a> = 103, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s104">IC_DuplicateKey</a> = 104, 
+<a class="el" href="class_XMLValid.html#s112s105">IC_KeyRefOutOfScope</a> = 105, 
+<a class="el" href="class_XMLValid.html#s112s106">IC_KeyNotFound</a> = 106, 
+<a class="el" href="class_XMLValid.html#s112s107">E_HighBounds</a> = 107, 
+<br>
+&nbsp;&nbsp;<a class="el" href="class_XMLValid.html#s112s108">W_LowBounds</a> = 108, 
+<a class="el" href="class_XMLValid.html#s112s109">W_HighBounds</a> = 109, 
+<a class="el" href="class_XMLValid.html#s112s110">F_LowBounds</a> = 110, 
+<a class="el" href="class_XMLValid.html#s112s111">F_HighBounds</a> = 111
+<br>
+ }</td></tr>
+<tr><td colspan=2><br><h2>Static Public Methods</h2></td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLValid.html#d0">isFatal</a> (const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> toCheck)</td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLValid.html#d1">isWarning</a> (const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> toCheck)</td></tr>
+<tr><td nowrap align=right valign=top>bool&nbsp;</td><td valign=bottom><a class="el" href="class_XMLValid.html#d2">isError</a> (const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> toCheck)</td></tr>
+<tr><td nowrap align=right valign=top><a class="el" href="class_XMLErrorReporter.html#s4">XMLErrorReporter::ErrTypes</a>&nbsp;</td><td valign=bottom><a class="el" href="class_XMLValid.html#d3">errorType</a> (const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> toCheck)</td></tr>
+</table>
+<hr><h2>Member Enumeration Documentation</h2>
+<a name="s112" doxytag="XMLValid::Codes"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+enum XMLValid::Codes
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+<dl compact><dt>
+<b>Enumeration values:</b><dd>
+<table border=0 cellspacing=2 cellpadding=0>
+<tr><td valign=top><a name="s112s0" doxytag="NoError"></a><em>NoError</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s1" doxytag="E_LowBounds"></a><em>E_LowBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s2" doxytag="ElementNotDefined"></a><em>ElementNotDefined</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s3" doxytag="AttNotDefined"></a><em>AttNotDefined</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s4" doxytag="NotationNotDeclared"></a><em>NotationNotDeclared</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s5" doxytag="RootElemNotLikeDocType"></a><em>RootElemNotLikeDocType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s6" doxytag="RequiredAttrNotProvided"></a><em>RequiredAttrNotProvided</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s7" doxytag="ElementNotValidForContent"></a><em>ElementNotValidForContent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s8" doxytag="BadIDAttrDefType"></a><em>BadIDAttrDefType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s9" doxytag="InvalidEmptyAttValue"></a><em>InvalidEmptyAttValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s10" doxytag="ElementAlreadyExists"></a><em>ElementAlreadyExists</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s11" doxytag="MultipleIdAttrs"></a><em>MultipleIdAttrs</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s12" doxytag="ReusedIDValue"></a><em>ReusedIDValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s13" doxytag="IDNotDeclared"></a><em>IDNotDeclared</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s14" doxytag="UnknownNotRefAttr"></a><em>UnknownNotRefAttr</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s15" doxytag="UndeclaredElemInDocType"></a><em>UndeclaredElemInDocType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s16" doxytag="EmptyNotValidForContent"></a><em>EmptyNotValidForContent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s17" doxytag="AttNotDefinedForElement"></a><em>AttNotDefinedForElement</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s18" doxytag="BadEntityRefAttr"></a><em>BadEntityRefAttr</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s19" doxytag="UnknownEntityRefAttr"></a><em>UnknownEntityRefAttr</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s20" doxytag="NotEnoughElemsForCM"></a><em>NotEnoughElemsForCM</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s21" doxytag="NoCharDataInCM"></a><em>NoCharDataInCM</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s22" doxytag="DoesNotMatchEnumList"></a><em>DoesNotMatchEnumList</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s23" doxytag="AttrValNotName"></a><em>AttrValNotName</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s24" doxytag="NoMultipleValues"></a><em>NoMultipleValues</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s25" doxytag="NotSameAsFixedValue"></a><em>NotSameAsFixedValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s26" doxytag="RepElemInMixed"></a><em>RepElemInMixed</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s27" doxytag="NoValidatorFor"></a><em>NoValidatorFor</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s28" doxytag="IncorrectDatatype"></a><em>IncorrectDatatype</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s29" doxytag="NotADatatype"></a><em>NotADatatype</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s30" doxytag="TextOnlyContentWithType"></a><em>TextOnlyContentWithType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s31" doxytag="FeatureUnsupported"></a><em>FeatureUnsupported</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s32" doxytag="NestedOnlyInElemOnly"></a><em>NestedOnlyInElemOnly</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s33" doxytag="EltRefOnlyInMixedElemOnly"></a><em>EltRefOnlyInMixedElemOnly</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s34" doxytag="OnlyInEltContent"></a><em>OnlyInEltContent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s35" doxytag="OrderIsAll"></a><em>OrderIsAll</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s36" doxytag="DatatypeWithType"></a><em>DatatypeWithType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s37" doxytag="DatatypeQualUnsupported"></a><em>DatatypeQualUnsupported</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s38" doxytag="GroupContentRestricted"></a><em>GroupContentRestricted</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s39" doxytag="UnknownBaseDatatype"></a><em>UnknownBaseDatatype</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s40" doxytag="OneOfTypeRefArchRef"></a><em>OneOfTypeRefArchRef</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s41" doxytag="NoContentForRef"></a><em>NoContentForRef</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s42" doxytag="IncorrectDefaultType"></a><em>IncorrectDefaultType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s43" doxytag="IllegalAttContent"></a><em>IllegalAttContent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s44" doxytag="ValueNotInteger"></a><em>ValueNotInteger</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s45" doxytag="DatatypeError"></a><em>DatatypeError</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s46" doxytag="SchemaError"></a><em>SchemaError</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s47" doxytag="TypeAlreadySet"></a><em>TypeAlreadySet</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s48" doxytag="ProhibitedAttributePresent"></a><em>ProhibitedAttributePresent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s49" doxytag="IllegalXMLSpace"></a><em>IllegalXMLSpace</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s50" doxytag="NotBoolean"></a><em>NotBoolean</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s51" doxytag="NotDecimal"></a><em>NotDecimal</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s52" doxytag="FacetsInconsistent"></a><em>FacetsInconsistent</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s53" doxytag="IllegalFacetValue"></a><em>IllegalFacetValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s54" doxytag="IllegalDecimalFacet"></a><em>IllegalDecimalFacet</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s55" doxytag="UnknownFacet"></a><em>UnknownFacet</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s56" doxytag="InvalidEnumValue"></a><em>InvalidEnumValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s57" doxytag="OutOfBounds"></a><em>OutOfBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s58" doxytag="NotAnEnumValue"></a><em>NotAnEnumValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s59" doxytag="NotInteger"></a><em>NotInteger</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s60" doxytag="IllegalIntegerFacet"></a><em>IllegalIntegerFacet</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s61" doxytag="NotReal"></a><em>NotReal</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s62" doxytag="IllegalRealFacet"></a><em>IllegalRealFacet</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s63" doxytag="ScaleLargerThanPrecision"></a><em>ScaleLargerThanPrecision</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s64" doxytag="PrecisionExceeded"></a><em>PrecisionExceeded</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s65" doxytag="ScaleExceeded"></a><em>ScaleExceeded</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s66" doxytag="NotFloat"></a><em>NotFloat</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s67" doxytag="SchemaRootError"></a><em>SchemaRootError</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s68" doxytag="WrongTargetNamespace"></a><em>WrongTargetNamespace</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s69" doxytag="SimpleTypeHasChild"></a><em>SimpleTypeHasChild</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s70" doxytag="NoDatatypeValidatorForSimpleType"></a><em>NoDatatypeValidatorForSimpleType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s71" doxytag="GrammarNotFound"></a><em>GrammarNotFound</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s72" doxytag="DisplayErrorMessage"></a><em>DisplayErrorMessage</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s73" doxytag="NillNotAllowed"></a><em>NillNotAllowed</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s74" doxytag="NilAttrNotEmpty"></a><em>NilAttrNotEmpty</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s75" doxytag="FixedDifferentFromActual"></a><em>FixedDifferentFromActual</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s76" doxytag="NoDatatypeValidatorForAttribute"></a><em>NoDatatypeValidatorForAttribute</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s77" doxytag="GenericError"></a><em>GenericError</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s78" doxytag="ElementNotQualified"></a><em>ElementNotQualified</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s79" doxytag="ElementNotUnQualified"></a><em>ElementNotUnQualified</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s80" doxytag="IllegalRefInStandalone"></a><em>IllegalRefInStandalone</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s81" doxytag="NoDefAttForStandalone"></a><em>NoDefAttForStandalone</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s82" doxytag="NoAttNormForStandalone"></a><em>NoAttNormForStandalone</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s83" doxytag="NoWSForStandalone"></a><em>NoWSForStandalone</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s84" doxytag="VC_EntityNotFound"></a><em>VC_EntityNotFound</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s85" doxytag="PartialMarkupInPE"></a><em>PartialMarkupInPE</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s86" doxytag="DatatypeValidationFailure"></a><em>DatatypeValidationFailure</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s87" doxytag="UniqueParticleAttributionFail"></a><em>UniqueParticleAttributionFail</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s88" doxytag="NoAbstractInXsiType"></a><em>NoAbstractInXsiType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s89" doxytag="NoDirectUseAbstractElement"></a><em>NoDirectUseAbstractElement</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s90" doxytag="NoUseAbstractType"></a><em>NoUseAbstractType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s91" doxytag="BadXsiType"></a><em>BadXsiType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s92" doxytag="NonDerivedXsiType"></a><em>NonDerivedXsiType</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s93" doxytag="NoSubforBlock"></a><em>NoSubforBlock</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s94" doxytag="AttributeNotQualified"></a><em>AttributeNotQualified</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s95" doxytag="AttributeNotUnQualified"></a><em>AttributeNotUnQualified</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s96" doxytag="IC_FieldMultipleMatch"></a><em>IC_FieldMultipleMatch</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s97" doxytag="IC_UnknownField"></a><em>IC_UnknownField</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s98" doxytag="IC_AbsentKeyValue"></a><em>IC_AbsentKeyValue</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s99" doxytag="IC_UniqueNotEnoughValues"></a><em>IC_UniqueNotEnoughValues</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s100" doxytag="IC_KeyNotEnoughValues"></a><em>IC_KeyNotEnoughValues</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s101" doxytag="IC_KeyRefNotEnoughValues"></a><em>IC_KeyRefNotEnoughValues</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s102" doxytag="IC_KeyMatchesNillable"></a><em>IC_KeyMatchesNillable</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s103" doxytag="IC_DuplicateUnique"></a><em>IC_DuplicateUnique</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s104" doxytag="IC_DuplicateKey"></a><em>IC_DuplicateKey</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s105" doxytag="IC_KeyRefOutOfScope"></a><em>IC_KeyRefOutOfScope</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s106" doxytag="IC_KeyNotFound"></a><em>IC_KeyNotFound</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s107" doxytag="E_HighBounds"></a><em>E_HighBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s108" doxytag="W_LowBounds"></a><em>W_LowBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s109" doxytag="W_HighBounds"></a><em>W_HighBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s110" doxytag="F_LowBounds"></a><em>F_LowBounds</em>
+&nbsp;</td><td>
+</td></tr>
+<tr><td valign=top><a name="s112s111" doxytag="F_HighBounds"></a><em>F_HighBounds</em>
+&nbsp;</td><td>
+</td></tr>
+</table>
+</dl>
+    </td>
+  </tr>
+</table>
+<hr><h2>Member Function Documentation</h2>
+<a name="d3" doxytag="XMLValid::errorType"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+<a class="el" href="class_XMLErrorReporter.html#s4">XMLErrorReporter::ErrTypes</a> XMLValid::errorType (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> <em>toCheck</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+    </td>
+  </tr>
+</table>
+<a name="d2" doxytag="XMLValid::isError"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLValid::isError (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> <em>toCheck</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+    </td>
+  </tr>
+</table>
+<a name="d0" doxytag="XMLValid::isFatal"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLValid::isFatal (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> <em>toCheck</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+    </td>
+  </tr>
+</table>
+<a name="d1" doxytag="XMLValid::isWarning"></a><p>
+<table width="100%" cellpadding="2" cellspacing="0" border="0">
+  <tr>
+    <td class="md">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td nowrap valign="top"><b> 
+bool XMLValid::isWarning (
+          </b></td>
+          <td valign="bottom"><b>
+const <a class="el" href="class_XMLValid.html#s112">XMLValid::Codes</a> <em>toCheck</em>&nbsp;)<code> [static]</code>
+          </b></td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+<table cellspacing=5 cellpadding=0 border=0>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+
+<p>
+    </td>
+  </tr>
+</table>
+<hr>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="XMLValidityCodes_hpp-source.html">XMLValidityCodes.hpp</a></ul>
+    </FONT></TD></TR></TABLE><BR>
+</TD></TR></TABLE></TD></TR></TABLE><BR><TABLE border="0" cellpadding="0" cellspacing="0" width="620"><TR><TD bgcolor="#0086b2"><IMG height="1" src="images/dot.gif" width="1" alt=""></TD></TR><TR><TD align="center"><FONT color="#0086b2" size="-1"><I>
+              Copyright &copy; 2000 The Apache Software Foundation.
+              All Rights Reserved.
+            </I></FONT></TD></TR></TABLE></BODY></HTML>

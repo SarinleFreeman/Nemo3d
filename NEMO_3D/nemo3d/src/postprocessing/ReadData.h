@@ -1,0 +1,61 @@
+/*****************************************************************************
+The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This application is free software, which you can redistribute and/or modify
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; either version 2.1 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+For additional information, please contact
+  Gerhard Klimeck (gekco@jpl.nasa.gov)
+  Fabiano Oyafuso (fabiano@jpl.nasa.gov)
+
+Written by:  Chris Bowen
+             Gerhard Klimeck
+             Fabiano Oyafuso
+             Seungwon Lee
+             Olga Lazarenkova
+             Hook Hua
+
+This product includes software developed by the Apache Software Foundation
+(http://www.apache.org/).
+
+*****************************************************************************
+$Header: /repo/nemo3d/src/postprocessing/ReadData.h,v 1.1 2004/08/26 21:28:07 swlee Exp $
+*****************************************************************************/
+
+#ifndef _read_data_h
+#define _read_data_h 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stream.h>
+
+#if (defined MPI3d && !defined FAKE_MPI)
+#include <mpi.h>
+#else
+#include "mpi_fake.h"
+#endif
+
+#include "cvector_lib.h" 
+#include "io_utils.h"
+#include "fileformat.h"
+
+void read_natoms_norbitals(const char*, int*, int*);
+void read_wavefunction_only(const char*, int, int, complex**);
+void read_data_for_postprocessing(const char*, int, const int*, int, const int*,
+                                  complex**, complex**, int**, int**, int**, double** );
+
+#endif

@@ -1,0 +1,4 @@
+#
+cp patches_MACOSX/Makefile.incl   ../xerces-c-src2_1_0/src/xercesc/Makefile.incl
+cp patches_MACOSX/second.f        ../ARPACK/UTIL/second.f
+

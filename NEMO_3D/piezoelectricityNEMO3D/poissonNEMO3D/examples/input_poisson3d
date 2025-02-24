@@ -1,0 +1,82 @@
+&PARAM_LIST      iamdummy=0/
+'DOT'              ! Device to simulate 'SiP', 'DOT', 'CQD', 'SiP_HOON'
+1.D-5              ! V_max (tolerance)
+8.85418D-12        ! eps_o
+11.8D0 		   ! Si
+3.95D0  	   ! ox
+11.8D0             ! p
+15.69D0            ! InAs
+14.0D0             ! InGaAs
+12.84D0            ! GaAs
+12.64D0            ! SiGe
+11.95D0            ! Si_strained
+
+&STRUC_LIST_DOT  iamdummy=0/
+5.6532D-10         !a0 of GaAs 
+2.0                !discretization_factor_x
+2.0                !discretization_factor_y
+2.0                !discretization_factor_z
+2                  !piezo_model (1->experimental,2->LDA-first-order,3->LDA-second-order,4->LDA-total)
+1                  !interpolate (interpolation scheme)
+7.                 !z_contour (nm)...where to plot xy contour
+
+&STRUC_LIST_CQD  iamdummy=0/
+5.6532D-10         !a0 of GaAs 
+2.0                !discretization_factor_x
+2.0                !discretization_factor_y
+2.0                !discretization_factor_z
+2.5e-9             !Gate oxide thickness
+10                 !k_ox = gate oxide # of grids (k_ox =< kneg)
+2                  !piezo_model (1->experimental,2->LDA-first-order,3->LDA-second-order,4->LDA-total)
+1                  !interpolate
+7.                 !z_contour (nm)...where to plot xy contour
+
+&STRUC_LIST_SiP  iamdummy=0/
+5.43e-10           !a0 of Silicon
+4.0                !discretization_factor_x
+4.0                !discretization_factor_y
+4.0                !discretization_factor_z
+2                  !n_dopants
+1.0e-9             !x_dop(1)
+2.5e-9             !y_dop(1) 
+2.5e-9             !z_dop(1)
+1.0e0              !charge_dop(1) 
+4.0e-9             !x_dop(2)
+2.5e-9             !y_dop(2)   
+2.5e-9             !z_dop(2)
+1.0e0              !charge_dop(2)
+2.5e-9             !Gate oxide thickness
+10                 !k_ox = gate oxide # of grids (k_ox =< kneg)
+7.                 !z_contour (nm)
+5.                 !gate_voltage (Volts)
+
+&STRUC_LIST_SiP_DEF  iamdummy=0/
+5.e-9              !x_length  
+5.e-9              !y_width
+5.e-9              !z_depth excluding the gate oxide
+5.43e-10           !a0 of Silicon
+4.0                !discretization_factor_x
+4.0                !discretization_factor_y
+4.0                !discretization_factor_z
+2                  !n_dopants
+1.0e-9             !x_dop(1)
+2.5e-9             !y_dop(1) 
+2.5e-9             !z_dop(1)
+1.0e0              !charge_dop(1) 
+4.0e-9             !x_dop(2)
+2.5e-9             !y_dop(2)   
+2.5e-9             !z_dop(2)
+1.0e0              !charge_dop(2)
+2.5e-9             !Gate oxide thickness
+10                 !k_ox = gate oxide # of grids (k_ox =< kneg)
+3.                 !z_contour (nm)
+5.                 !gate_voltage (Volts)
+
+&STRUC_LIST_SiP_HOON  iamdummy=0/
+5.43e-10           !a0 of Silicon
+1.0                !discretization_factor_x
+1.0                !discretization_factor_y
+1.0                !discretization_factor_z
+2.5                !xy_contour; z dimension where to plot xy potential contour (nm)
+2.5                !xz_contour; y dimension where to plot xz potential contour (nm)
+0.55               !yz_contour; x dimension where to plot xz potential contour (nm)

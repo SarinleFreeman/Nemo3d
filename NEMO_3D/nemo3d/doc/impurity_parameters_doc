@@ -1,0 +1,16 @@
+impurity_model:  1(U0 only)   2(Si:P parameters)  (int)
+number_of_impurities: (int)
+impurity 1 coordinates:  x y z (float)
+.
+.
+.
+.
+.
+impurity n coordinates: x y z (float)
+include nuclear term: (int)" 0 (don't use) 1 (use) //used only if there are more than 1 impurities, describes the nuclear term of potential
+include electric field: (int): 0 (no field) 1 (add a constant electric field)
+Electric field: Ex Ey Ez (float)	//electric field components
+donor file dump: 0 (no)  1 (yes)
+electric file dump: 0 (no) 1 (yes)
+total potential file: 0 (no) 1 (yes)
+PS: A sample file is also placed in this directory

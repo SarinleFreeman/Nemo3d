@@ -1,0 +1,349 @@
+#!/bin/sh
+
+#   Copyright (C) 1989 Free Software Foundation, Inc.
+#   
+#   This genclass shell script was customized by E. Robert Tisdale.
+#   The original version was written by Doug Lea
+#   <dl@rocky.oswego.edu> and enhanced by Wendell C. Baker.
+
+#This file is part of GNU libg++.
+
+#GNU libg++ is free software; you can redistribute it and/or modify it
+#under the terms of the GNU General Public License as published
+#by the Free Software Foundation; either version 1, or (at your option)
+#any later version.
+
+#GNU libg++ is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty
+#of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#See the GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with GNU libg++; see the file COPYING.  If not, write to
+#the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+
+#
+# genclass -list [basename ...]
+# genclass -catalog [basename ...]
+# genclass precision p basename [basefilename]
+# genclass precision p system s basename [basefilename]
+#
+# This shell script generates
+# The ANSI C Numerical Class Library
+# from prototype files named basename.hP and basename.cP
+# If it fails to find them in the current working directory,
+# it searches for them the parent directory.
+# Each file is filtered through the m4 macro preprocessor
+# then piped through the sed stream editor
+# and the output is redirected to files named
+# ns_tsbasename.h and ns_tsbasename.c respectively or
+# basefilename.h and basefilename.c respectively
+# if an optional base file name is specified.
+# The m4 macro preprocessor replaces
+# every instance of _precision_ with precision and
+# every instance of _system_ with system.
+# The sed stream editor replaces
+# every instance of <precision> with precision,
+# every instance of <p> with p,
+# every instance of <P> with P,
+# every instance of <system> with system and
+# every instance of <s> with s.
+# every instance of <S> with S.
+# precision, p, system and s
+# must not contain any white space.
+#
+name=genclass;
+usage="
+    $name -list [basename ...]
+    $name -catalog [basename ...]
+    $name precision p basename [basefilename]
+    $name precision p system s basename [basefilename]";
+
+case "$1" in
+-usage)
+    #
+    # -usage
+    #
+    echo "usage: $usage" 1>&2;
+    exit 0;
+   ;;
+-version)
+    #
+    # -version
+    #
+    # Maybe this version number should be the version number of the libg++
+    # from whence this came - edited in during the installation process...
+    version="`expr '$Revision: 1.2 $' : '.*Revision: \(.*\) .*'`";
+    echo "$name: version $version";
+    exit 0;
+   ;;
+-requires)
+    #
+    # -requires
+    #
+    # The following line should contain any nonstandard programs
+    # which must be in the user's path (i.e. not referenced by a fullpath);
+    # it allows one to check a script for dependencies
+    # without exhaustively testing its usages.
+    # ... in this case genclass depends on the m4 preprocessor.
+    echo "genclass depends on the m4 preprocessor.";
+    exit 0;
+   ;;
+esac;
+
+# pull it in from the environment
+[ "$TRACE" = "" ] || set -xv 
+
+# Search in standard g++ prototype directory and in the current directory
+# NOTE: this variable is edited by the install process
+
+pwd=`pwd`
+
+case "$1" in
+-catalog*|-list*)
+    #
+    # genclass -catalog [basename ...]
+    # genclass -list [basename ...]
+    #
+    option="$1";
+    shift;
+
+    case $# in
+    0)
+        #
+        # -catalog
+        # -list
+        #
+        select=all;
+        select_pattern=p;
+       ;;
+    *)
+        #
+        # -catalog basename ...
+        # -list basename ...
+        #
+        select="$@";
+        select_pattern=;
+        for i in $@; do
+            select_pattern="\
+$select_pattern
+/.*$i\$/ p
+";
+        done;
+
+       ;;
+    esac;
+
+    #
+    # select_pattern is now a (possibly-vacuous)
+    # newline-separated list of patterns of the form:
+    #
+    #     /.*Proto1$/ p
+    #     /.*Proto2$/ p
+    #     /.*Proto3$/ p
+    #
+    # or select_pattern is simply ``p'' to select everything
+
+    # Hmmm... not all systems have a fmt program;
+    # should we just go ahead and use ``nroff | cat -s'' here?
+    fmt='nroff | cat -s'
+    #fmt=fmt;
+
+    case "$option" in
+    -catalog*)
+        #
+        # -catalog [basename ...]
+        #
+        echo "\
+Catalog of ${name} prototypes directories searched:
+    $pwd
+selecting: $select
+prototypes available:";
+       ;;
+    -list*)
+        #
+        # -list [basename ...]
+        #
+        # no need to do anything (the list is coming out next)
+       ;;
+    esac;
+
+    ls $pwd | sed -e '
+# If it does not end in a .cP or .hP
+# then it is not a template and we are not interested
+/\.cP$/ !{
+   /\.hP$/ !{
+     d
+   }
+}
+# Get rid of pathname components
+s;.*/;;
+# Just take the template names
+s/\.cP$//
+s/\.hP$//
+' -e "
+# change quoting conventions and select off what we want to see
+$select_pattern
+# if it did not pass the patterns, kill it
+d
+" | sort -u | case "$option" in
+    -catalog*)
+	# The library catalog information preceded the list format the list,
+	# and tab in in a bit to make it readable.
+        # Re-evaluate $fmt because it might contain a shell command
+        eval $fmt | sed -e 's/.*/    &/';
+       ;;
+    -list*)
+        # nothing special, just let the sorted list dribble out
+        # we must use cat to receive (and reproduce) the incoming list
+        cat;
+       ;;
+    esac;
+    exit 0;
+   ;;
+*)
+    #
+    # genclass precision p basename [basefilename]
+    #
+
+    case $# in
+    0 | 1 | 2)
+        echo "${name}: too few arguments" 1>&2;
+	echo "usage: $usage" 1>&2;
+	exit 1;
+	;;
+    3 | 4 | 5 | 6)
+	;;
+    *)
+	echo "${name}: too many arguments" 1>&2;
+	echo "usage: $usage" 1>&2;
+	exit 1;
+    esac;
+   ;;
+esac
+
+#
+#     precision p basename [basefilename]
+#     precision p system s basename [basefilename]
+#
+
+#
+# Quote all of the $1 $2 etc references to guard against
+# dynamic syntax errors due to vacuous arguments (i.e. '')
+# as sometimes occurs when genclass is used from a Makefile
+#
+
+precision="$1";
+p="$2";
+  if [ $p ]; then
+    if [ $p = s ]; then
+    P=S;
+  elif [ $p = d ]; then
+    P=D;
+  elif [ $p = x ]; then
+    P=X;
+  elif [ $p = f ]; then
+    P=F;
+  else
+    P=$p;
+  fi;
+else
+  P="";
+  fi
+
+
+namespace="NEMO Math Library";
+ns="nml_";
+NS="NML_";
+
+case $# in
+3)  # precision p basename
+    system="";
+    s="";
+    basename="$3";
+    basefilename="$ns$p$s$basename";
+   ;;
+4)  # precision p basename basefilename
+    system="";
+    s="";
+    basename="$3";
+    basefilename="$4";
+   ;;
+5)  # precision p system s basename
+    system="$3";
+    s="$4";
+    basename="$5";
+    basefilename="$ns$p$s$basename";
+   ;;
+6)  # precision p system s basename basefilename
+    system="$3";
+    s="$4";
+    basename="$5";
+    basefilename="$6";
+   ;;
+esac;
+
+  if [ $s ]; then
+    if [ $s = r ] ; then
+    S=R;
+  elif [ $s = c ] ; then
+    S=C;
+  else
+    S=$s;
+    fi;
+else
+  S="";
+  fi
+
+# Path for system 5 m4 preprocessor.
+# SYS5=/usr/local/bin/
+# SYS5=/usr/local/bin/
+SYS5=/usr/bin/
+
+if [ -f $basename.hP ]; then
+    src_h=$basename.hP;
+else 
+    src_h=../$basename.hP;
+fi
+
+out_h=$basefilename.h;
+
+if [ -f $src_h ]; then
+$SYS5/m4 -B16384 -D_precision_="$precision" -D_system_="$system" $src_h | \
+sed > $out_h -e "
+s/<namespace>/$namespace/g
+s/<ns>/$ns/g
+s/<NS>/$NS/g
+s/<precision>/$precision/g
+s/<p>/$p/g
+s/<P>/$P/g
+s/<system>/$system/g
+s/<s>/$s/g
+s/<S>/$S/g
+";
+fi
+
+if [ -f $basename.cP ]; then
+    src_c=$basename.cP;
+else 
+    src_c=../$basename.cP;
+fi
+
+out_c=$basefilename.c;
+
+if [ -f $src_c ]; then
+$SYS5/m4 -B16384 -D_precision_="$precision" -D_system_="$system" $src_c | \
+sed > $out_c -e "
+s/<namespace>/$namespace/g
+s/<ns>/$ns/g
+s/<NS>/$NS/g
+s/<precision>/$precision/g
+s/<p>/$p/g
+s/<P>/$P/g
+s/<system>/$system/g
+s/<s>/$s/g
+s/<S>/$S/g
+"
+fi
+
+exit 0;

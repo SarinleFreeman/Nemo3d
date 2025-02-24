@@ -1,0 +1,318 @@
+# Generated automatically from Makefile.in by configure.
+#
+# The Apache Software License, Version 1.1
+#
+# Copyright (c) 1999-2000 The Apache Software Foundation.  All rights
+# reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in
+#    the documentation and/or other materials provided with the
+#    distribution.
+#
+# 3. The end-user documentation included with the redistribution,
+#    if any, must include the following acknowledgment:
+#       "This product includes software developed by the
+#        Apache Software Foundation (http://www.apache.org/)."
+#    Alternately, this acknowledgment may appear in the software itself,
+#    if and wherever such third-party acknowledgments normally appear.
+#
+# 4. The names "Xerces" and "Apache Software Foundation" must
+#    not be used to endorse or promote products derived from this
+#    software without prior written permission. For written
+#    permission, please contact apache\@apache.org.
+#
+# 5. Products derived from this software may not be called "Apache",
+#    nor may "Apache" appear in their name, without prior written
+#    permission of the Apache Software Foundation.
+#
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+#
+# This software consists of voluntary contributions made by many
+# individuals on behalf of the Apache Software Foundation, and was
+# originally based on software copyright (c) 1999, International
+# Business Machines, Inc., http://www.ibm.com .  For more information
+# on the Apache Software Foundation, please see
+# <http://www.apache.org/>.
+#
+#
+# $Id: Makefile.in,v 1.9 2002/07/26 16:49:26 tng Exp $
+#
+
+###################################################################
+#                    IMPORTANT NOTE                               #
+###################################################################
+# Before you try to run the Makefile, make sure you have two      #
+# environment variables set.                                      #
+#                                                                 #
+# export XERCESCROOT=<the directory where you installed XERCES-C> #
+#     export ICUROOT=<the directory where you installed ICU>      #
+#                                                                 #
+###################################################################
+#MACROS defining commands
+MKDIR=mkdir
+CP=cp
+CD=cd
+RM=rm
+CHMODE=chmod
+
+include ../../version.incl
+include Makefile.incl
+
+UTIL_DIR = util
+SAX_DIR = sax
+SAX2_DIR = sax2
+INTERNAL_DIR = internal
+FRAMEWORK_DIR = framework
+DOM_DIR = dom
+PARSERS_DIR = parsers
+VALIDATORS_DIR = validators
+
+LIBNAME = libxerces-c
+
+#all these setting come from the arguments passed in to runConfigure.
+PLATFORM = LINUX
+CC  = icc -Kc++
+CXX = icc -Kc++
+PREFIX = /usr/local
+MESSAGELOADER=
+TRANSCODER=
+
+GCC = yes
+GXX = yes
+
+PRODUCTNAME=xerces
+PRODUCTVERSION=${VER}
+BINTARGETDIR=${HOME}/${PRODUCTNAME}-c-${PLATFORM}-${CXX}-${PRODUCTVERSION}
+
+all:: lib
+
+compile:: Prepare Util Sax Internal Framework Parsers Sax2 Dom Validators
+
+lib:: ${FQ_REAL_NAME}
+
+Prepare::
+	@echo Preparing the directory structure for a build ...
+	-${MKDIR} -p ${XML_OBJ_DIR}
+	-${MKDIR} -p ${XML_LIB_DIR}
+	${MAKE} -C $(UTIL_DIR) includes
+	${MAKE} -C $(SAX_DIR) includes
+	${MAKE} -C $(SAX2_DIR) includes
+	${MAKE} -C $(INTERNAL_DIR) includes
+	${MAKE} -C $(FRAMEWORK_DIR) includes
+	${MAKE} -C $(PARSERS_DIR) includes
+	${MAKE} -C $(VALIDATORS_DIR) includes
+	${MAKE} -C $(DOM_DIR) includes
+
+Util::
+	@echo Building "util"
+	${MAKE} -C $(UTIL_DIR) $(MAKE_FLAGS)
+
+Sax::
+	@echo Building "sax"
+	${MAKE} -C $(SAX_DIR) $(MAKE_FLAGS)
+
+
+Internal::
+	@echo Building "internal"
+	${MAKE} -C $(INTERNAL_DIR) $(MAKE_FLAGS)
+
+Framework::
+	@echo Building "framework"
+	${MAKE} -C $(FRAMEWORK_DIR) $(MAKE_FLAGS)
+
+Parsers::
+	@echo Building "parsers"
+	${MAKE} -C $(PARSERS_DIR) $(MAKE_FLAGS)
+
+Sax2::
+	@echo Building "sax2"
+	${MAKE} -C $(SAX2_DIR) $(MAKE_FLAGS)
+
+Dom::
+	@echo Building "dom"
+	${MAKE} -C $(DOM_DIR) $(MAKE_FLAGS)
+
+Validators::
+	@echo Building "validators"
+	${MAKE} -C $(VALIDATORS_DIR) $(MAKE_FLAGS)
+
+${FQ_REAL_NAME}:: compile
+	@echo Building ${FQ_REAL_NAME}
+	${MAKE} -C $(XML_OBJ_DIR)/.. -k $(MAKE_FLAGS)
+
+install::
+	${MAKE} -C $(UTIL_DIR) $@
+	${MAKE} -C $(SAX_DIR) $@
+	${MAKE} -C $(SAX2_DIR) $@
+	${MAKE} -C $(INTERNAL_DIR) $@
+	${MAKE} -C $(FRAMEWORK_DIR) $@
+	${MAKE} -C $(PARSERS_DIR) $@
+	${MAKE} -C $(DOM_DIR) $@
+	${MAKE} -C $(VALIDATORS_DIR) $@
+	${MAKE} -C $(XML_OBJ) $@
+
+clean::
+	${MAKE} -C $(UTIL_DIR) $@
+	${MAKE} -C $(SAX_DIR) $@
+	${MAKE} -C $(SAX2_DIR) $@
+	${MAKE} -C $(INTERNAL_DIR) $@
+	${MAKE} -C $(FRAMEWORK_DIR) $@
+	${MAKE} -C $(PARSERS_DIR) $@
+	${MAKE} -C $(DOM_DIR) $@
+	${MAKE} -C $(VALIDATORS_DIR) $@
+	${MAKE} -C $(XML_OBJ) $@
+
+distclean::
+	${MAKE} -C $(UTIL_DIR) $@
+	${MAKE} -C $(SAX_DIR) $@
+	${MAKE} -C $(SAX2_DIR) $@
+	${MAKE} -C $(INTERNAL_DIR) $@
+	${MAKE} -C $(FRAMEWORK_DIR) $@
+	${MAKE} -C $(PARSERS_DIR) $@
+	${MAKE} -C $(DOM_DIR) $@
+	${MAKE} -C $(VALIDATORS_DIR) $@
+	${MAKE} -C $(XML_OBJ) $@
+	rm -f Makefile config.cache config.log config.status
+	find . -name Makefile -print -exec rm -f {} \;
+	rm -f *~ core
+
+#docs::
+
+samples::
+	${MAKE} -C ../../samples
+
+copy:: lib samples
+	@echo Make the target directory and its main subdirectories
+	-${MKDIR} ${BINTARGETDIR}
+	-${MKDIR} ${BINTARGETDIR}/bin
+	-${MKDIR} ${BINTARGETDIR}/lib
+ifeq (${TRANSCODER},ICU)
+	echo -${MKDIR} ${BINTARGETDIR}/include/unicode
+endif
+ifeq (${MESSAGELOADER},ICU)
+	echo -${MKDIR} ${BINTARGETDIR}/include/unicode
+endif
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/sax
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/sax2
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/framework
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/internal
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/parsers
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/util
+	-${MKDIR} ${BINTARGETDIR}/include/xercesc/dom
+
+	-${MKDIR} ${BINTARGETDIR}/samples
+	-${MKDIR} ${BINTARGETDIR}/samples/data
+	-${MKDIR} ${BINTARGETDIR}/samples/SAXCount
+	-${MKDIR} ${BINTARGETDIR}/samples/SAXPrint
+	-${MKDIR} ${BINTARGETDIR}/samples/DOMCount
+	-${MKDIR} ${BINTARGETDIR}/samples/DOMPrint
+	-${MKDIR} ${BINTARGETDIR}/samples/Redirect
+	-${MKDIR} ${BINTARGETDIR}/samples/MemParse
+	-${MKDIR} ${BINTARGETDIR}/doc
+	-${MKDIR} ${BINTARGETDIR}/doc/apiDocs
+
+	@echo Populate the include output directory
+	@echo Copying headers files ...
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/sax/*.hpp ${BINTARGETDIR}/include/xercesc/sax
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/sax2/*.hpp ${BINTARGETDIR}/include/xercesc/sax2
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/framework/*.hpp ${BINTARGETDIR}/include/xercesc/framework
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/dom/DOM*.hpp ${BINTARGETDIR}/include/xercesc/dom
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/dom/deprecated/DOM*.hpp ${BINTARGETDIR}/include/xercesc/dom/deprecated
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/internal/*.hpp ${BINTARGETDIR}/include/xercesc/internal
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/internal/*.c ${BINTARGETDIR}/include/xercesc/internal
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/parsers/*.hpp ${BINTARGETDIR}/include/xercesc/parsers
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/util/*.hpp ${BINTARGETDIR}/include/xercesc/util
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/util/*.c ${BINTARGETDIR}/include/xercesc/util
+	-${CP} -Rf ${XERCESCROOT}/src/xercesc/validators/*.hpp ${BINTARGETDIR}/include/xercesc/validators
+	-${CP} -Rf ${ICUROOT}/include/* ${BINTARGETDIR}/include/unicode
+
+	@echo Populate the binary output directory
+	@echo Copying binary outputs ...
+	-${CP} -Rf ${XERCESCROOT}/bin/* ${BINTARGETDIR}/bin
+	-${CP} -f ${ICUROOT}/source/tools/makeconv/makeconv ${BINTARGETDIR}/bin
+	-${CP} -f ${ICUROOT}/lib/libicuuc.* ${BINTARGETDIR}/lib
+	-${CP} -f ${XERCESCROOT}/lib/*.a ${BINTARGETDIR}/lib
+	-${CP} -f ${XERCESCROOT}/lib/*.so ${BINTARGETDIR}/lib
+	-${CP} -f ${XERCESCROOT}/lib/*.sl ${BINTARGETDIR}/lib
+ifeq (${MESSAGELOADER},ICONV)
+ifeq (${PLATFORM},SOLARIS)
+	-${CP} -f ${XERCESCROOT}/lib/msg/*.cat ${BINTARGETDIR}/lib/msg
+endif
+ifeq (${PLATFORM},AIX)
+	-${CP} -f ${XERCESCROOT}/lib/msg/*.cat ${BINTARGETDIR}/lib/msg
+endif
+endif
+	-{RM} -rf ${BINTARGETDIR}/bin/obj
+
+	@echo Populate the samples directory
+	@echo Copying sample files ...
+	-${CP} -f ${XERCESCROOT}/samples/config.guess 	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/config.h.in 	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/config.sub 	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/configure	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/configure.in	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/install-sh	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/runConfigure 	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/Makefile.in	${BINTARGETDIR}/samples
+	-${CP} -f ${XERCESCROOT}/samples/Makefile.incl 	${BINTARGETDIR}/samples
+
+	-${CP} -Rf ${XERCESCROOT}/samples/data/* ${BINTARGETDIR}/samples/data
+	-${CP} -Rf ${XERCESCROOT}/samples/SAXCount/* ${BINTARGETDIR}/samples/SAXCount
+	-${CP} -Rf ${XERCESCROOT}/samples/SAXPrint/* ${BINTARGETDIR}/samples/SAXPrint
+	-${CP} -Rf ${XERCESCROOT}/samples/DOMCount/* ${BINTARGETDIR}/samples/DOMCount
+	-${CP} -Rf ${XERCESCROOT}/samples/DOMPrint/* ${BINTARGETDIR}/samples/DOMPrint
+	-${CP} -Rf ${XERCESCROOT}/samples/Redirect/* ${BINTARGETDIR}/samples/Redirect
+	-${CP} -Rf ${XERCESCROOT}/samples/MemParse/* ${BINTARGETDIR}/samples/MemParse
+
+	@echo Populate the docs directory
+	@echo Copying documentation ..
+	-${CP} -Rf ${XERCESCROOT}/doc/* ${BINTARGETDIR}/doc
+	-${CP} -Rf ${XERCESCROOT}/doc/apiDocs/* ${BINTARGETDIR}/doc/apiDocs
+	-${CP} ${XERCESCROOT}/Readme.html ${BINTARGETDIR}
+	-${CP} ${XERCESCROOT}/doc/license.html ${BINTARGETDIR}
+
+	@echo Change the directory permissions
+	-{CHMODE} 644 `find ${BINTARGETDIR} -type f`
+	-{CHMODE} 755 ${BINTARGETDIR}/bin/* ${BINTARGETDIR}/lib/*.sl ${BINTARGETDIR}/lib/*.so ${BINTARGETDIR}/lib/*.a
+	-{CHMODE} +x ${BINTARGETDIR}/samples/runConfigure ${BINTARGETDIR}/samples/configure ${BINTARGETDIR}/samples/install-sh
+	-{CHMODE} +x ${BINTARGETDIR}/samples/config.sub ${BINTARGETDIR}/samples/config.guess ${BINTARGETDIR}/samples/config.status
+	-{CHMODE} 755 `find ${BINTARGETDIR} -type d`
+
+tarball:: copy
+	@echo Now package it all up using tar
+	@echo TARing up all files ...
+	${CD} ${BINTARGETDIR}/..
+	tar -cvf ${BINTARGETDIR}.tar ${BINTARGETDIR}
+	@echo Finally compress the files
+	@echo Compressing ${BINTARGETDIR}.tar ...
+	gzip ${BINTARGETDIR}.tar
+
+zip:: copy
+	${CD} ${BINTARGETDIR}/..
+	@echo ZIPping up all files ...
+	zip -r ${BINTARGETDIR}.zip ${BINTARGETDIR}
+
+
+package_bin:: zip tarball
+

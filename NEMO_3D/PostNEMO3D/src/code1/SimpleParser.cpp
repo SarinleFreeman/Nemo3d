@@ -1,0 +1,118 @@
+/*****************************************************************************
+The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D
+PostProcessing package.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This application is free software, which you can redistribute and/or modify
+under the terms of the GNU Lesser General Public License as published by the
+Free Software Foundation; either version 2.1 of the License, or (at your
+option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+For additional information, please contact
+  Seungwon Lee (Seungwon.Lee@jpl.nasa.gov)
+
+Written by:  Seungwon Lee
+*****************************************************************************/
+
+
+#include "SimpleParser.h"
+
+char* readLine(char *s, int max, istream &fp){
+  char ch;
+  int i = 0;
+  while ( fp.get(ch) && !( ch == '\n' || ch ==';') )
+  {
+    if ( ch == '\\' ) // line continuation character
+    {
+      // check if backslash is followed by a newline
+      fp.get(ch);
+      if ( ch == '\n' )
+      {
+        // backslash followed by newline, do nothing
+      }
+      else
+      {
+        // backslash not followed by newline
+        if ( i < max - 1 )
+          s[i++] = '\\';
+        if ( i < max - 1 )
+          s[i++] = ch; //
+      }
+    }
+    else
+    {
+      if (i < max - 1)
+        s[i++] = ch;
+    }
+  }
+  if (max > 0) s[i] = '\0';  // add terminating NULL
+
+  if ( !(ch == '\n' || ch == ';' ) )
+    return NULL;             // return NULL for end of file
+  return s;
+}
+
+
+// NOTE that it only adds strings
+unsigned parsewords(char *inbuf, vector<string>& slist){
+  const char* token = "=, \t\n";
+
+  char *tmpstr = new char[strlen(inbuf)+1];
+  strcpy(tmpstr, inbuf);
+  slist.erase(slist.begin(), slist.end());
+
+  int num = 0;
+  char* tokenp = strtok(tmpstr, token);
+  while(tokenp && tokenp[0] != '#') {
+    num++;
+    slist.push_back(string(tokenp));
+    tokenp = strtok(0,token);
+  }
+
+  delete [] tmpstr;
+  return num;
+
+}
+
+unsigned parsewords(char *inbuf, list<string>& slist){
+  const char* token = "=, \t\n";
+
+  char *tmpstr = new char[strlen(inbuf)+1];
+  strcpy(tmpstr, inbuf);
+  slist.erase(slist.begin(), slist.end());
+
+  int num = 0;
+  char* tokenp = strtok(tmpstr, token);
+  while(tokenp && tokenp[0] != '#') {
+    num++;
+    slist.push_back(string(tokenp));
+    tokenp = strtok(0,token);
+  }
+
+  delete [] tmpstr;
+  return num;
+
+}
+
+int getwords(vector<string>& slist, istream &fp) {
+
+  const int max = 1024;
+  char s[max];
+
+  if(readLine(s,max,fp)) 
+    return parsewords(s,slist);
+  else
+    return -1;
+
+}

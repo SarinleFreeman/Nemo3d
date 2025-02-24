@@ -1,0 +1,20 @@
+#!/bin/tcsh
+#PBS -me -l nodes=2:ppn=8,walltime=10:00:00
+#PBS -q ncn-par
+#PBS -o post2.out
+#PBS -e post2.err
+# name of the executable goes on next line
+set executable="/usr/rmt_share/scratch96/r/rrahman/code4/NEMO_3D/PostNEMO3D/bin/post_exe/PostProcess-x86_64-linux_intel9_64_mpi_intelfast.ex"
+echo $executable
+
+cd $PBS_O_WORKDIR
+
+set machinefile=`basename $PBS_NODEFILE`
+cp $PBS_NODEFILE  machinefile.txt
+
+module load mpich-intel64/9.1.045
+
+set cmd="mpirun -np 16 -machinefile machinefile.txt $executable --data silicon5 --electron 2 1 3 --hole 0 --hl"
+echo $cmd
+$cmd
+

@@ -1,0 +1,238 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+/usr/rmt_share/scratch96/r/rrahman/code4/NEMO_3D/PostNEMO3D/bin/post_exe/PostProcess-x86_64-linux_intel9_64_mpi_intelfast.ex
+mpirun -np 16 -machinefile machinefile.txt /usr/rmt_share/scratch96/r/rrahman/code4/NEMO_3D/PostNEMO3D/bin/post_exe/PostProcess-x86_64-linux_intel9_64_mpi_intelfast.ex --data silicon5 --electron 2 2 4 --hole 0 --hl
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+NumElectrons, NumHoles 2 0
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+NumElectrons, NumHoles 2 0
+eList: 2 4 
+hList: 
+
+hList: 
+
+eList: 2 4 
+hList: 
+
+eList: 2 4 
+hList: 
+
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of atoms: 64000
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of atoms: 64000
+Number of orbitals: 10
+Number of atoms: 64000
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Number of atoms: 64000
+Number of orbitals: 10
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Reading atomic species:  silicon5.nd_aType
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+size of wavefunction=1280000 * ( 2*sizeof(real) + 0*sizeof(int) )
+Dim[0]20
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic species:  silicon5.nd_aType
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic neighborhood info:  silicon5.nd_nbrIndx
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading atomic positions:  silicon5.nd_rAtom
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading eigenvalues:  silicon5.nd_Ek
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_2
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+Reading electron eigenvectors:  silicon5.nd_evec_4
+File not found: Using default parameters. dd_cutoff=12 nm
+Use dd_cutoff: 1
+dd_cutoff: 1.200000e+01  nm
+
+=====================================================
+Electron and Hole Pair: 
+Coulomb:  (3.029758e-07,0.000000e+00)
+Exchange: (-4.721398e-08,0.000000e+00)
+
+Time to compute a matrix element:4.184375e+01

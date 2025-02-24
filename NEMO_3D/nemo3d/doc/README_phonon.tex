@@ -1,0 +1,348 @@
+\documentclass[12pt]{article}
+\usepackage{url}
+\usepackage{layout}
+
+\textwidth=450pt
+\textheight=600pt
+\oddsidemargin=2pt
+\hoffset=0pt
+\voffset=0pt
+
+\title{Calculation of phonon spectrum within NEMO-3D code}
+\author{Olga L. Lazarenkova}
+\date{Last update -- \today}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note containes a brief description of  the model, input file  and
+referes to some examples of calculation of phonon spectrum.
+\end{abstract}
+
+\section{Model}
+The current version of the code is dealing with two-parameter Keating
+model for calculation of the phonon spectrum. It may be applicable to
+covalent semiconductors (C, Si, Ge, etc.)  with 10\% accuracy in the
+whole Brillouin zone, except the lack in reproducing flattering of
+transversal acoustical dispersion near the Brillouin zone
+boundary. The model does not include Coulomb interaction, which leads
+to splitting of optical phonon states in the center of the Brillouin
+zone in bulk A$_3$B$_5$ semiconductors. Thus phonon dispersion,
+computed for A$_3$B$_5$ material systems, may serve as a preliminary
+estimation only.
+
+\subsection{Valence-force-field Keating model}
+The silmplest way to deal with crystall lattice on atomic level is to
+model it by a set of small balls of certain mass, corresponding to
+different atoms, connected with springs that represent atomic bonds.
+
+Two-parameter Keating model consider only nearest-neighbour atoms
+interactions. The original Keating \cite{Keating_VFFM} formula that
+was rewritten later by Martin \cite{Martin_ZnS_VFFM} for the
+distorsion energy per unit cell in covalent semiconductors is the
+following
+\begin{equation}
+\label{E_cell}
+E_{cell}=\frac{1}{2}\alpha\left({3\over4d^2}\right)\sum_{i=1}^4\left[\Delta\left({\bf r}_i^1\cdot{\bf r}_i^1\right)\right]^2+\frac{1}{2}\sum_{s=1}^2\beta^s\left({3\over4d^2}\right)\sum_{i=1}^4\sum_{j>i}\left[\Delta\left({\bf r}_i^s\cdot{\bf r}_j^s\right)\right]^2.
+\end{equation}
+Here $\alpha_{ij}$ and $\beta_{ij}$ represent the force constants for bond
+length and bond angle distortions in the crystal, respectively;  ${\bf
+d}$ and ${\bf r}$ are the equilibrium and real bond length,
+respectively; $\Delta\left({\bf r}_i\cdot{\bf r}_j\right)$ is the
+change of the dot product of the two bond vectors that start at the
+common atom, point along the bond directions, and end at the
+\textit{first-neighbor} atoms. 
+
+\subsection{Phonon spectrum}
+As a result of thermal fluctuations every $i$-th atom is displaced
+from its equilibrium position ${\bf d}_i$ by an amount ${\bf u}({\bf
+d}_i)$. The total kinetic energy of the lattice becomes
+\begin{equation}
+\label{kin}
+T=\frac{1}{2}\sum_i\sum_{\xi=x,y,z}M_i\left({\mathrm{d}\: u_\xi({\bf
+  d}_i) \over \mathrm{d}\:t}\right)^2.
+\end{equation}
+The total potential energy of the crystal is assumed to be some
+function of the instantaneous positions of all atoms. Within the
+\emph{harmonic approximation} the corresponding equation of motion has
+the following form
+\begin{equation}
+\label{eq_motion}
+M_i{\mathrm{d}^2\: u_\xi({\bf d}_i) \over \mathrm{d}\:
+  t^2}=-\sum_{j}\sum_{\zeta=x,y,z}{\partial^2 E_T \over \partial
+  u_\xi({\bf d}_i)\partial u_\zeta({\bf d}_j)} u_\zeta({\bf d}_j).
+\end{equation}
+Here $E_T$ is the total distortion energy given by summation of
+Eq.~(\ref{E_cell}) over all unit cells. Assuming the harmonicity of vibrations, the
+solution of the equation of motion (\ref{eq_motion}) may be
+represented as
+\begin{equation}
+\label{U_cluster}
+{\bf U}({\bf d}_i,\omega)=\sqrt{M_i}{\bf u}({\bf
+d}_i)\exp\left(-i\omega t\right).
+\end{equation}
+Thus the elements of \emph{dynamical matrix} to be solved for
+eigenvalues corresponding to $\omega^2$ have the following form
+\begin{equation}
+\label{D_cluster}
+D_{\xi \zeta}({\bf d}_i,{\bf d}_j)=\left(M_i
+  M_j\right)^{-\frac{1}{2}}{\partial^2 E_T \over \partial u_\xi({\bf
+  d}_i)\partial u_\zeta({\bf d}_j)}
+\end{equation}
+The eigenvalues of the dynamical matrix in NEMO-3D are always searched
+by PARPACK.
+
+
+\section{Input file}
+In order to be able to compute phonon dispersion you should specify in
+{\bf Execution parameters} tree both
+
+-{\it Calculate phonon dispersion}\\
+and
+
+-{\it Calculate strain distribution}.\\
+The later option is absolutely necessary, since otherwise you are
+out of the minimum of the strain energy and the results of phonon
+calculations would will be wrong.
+
+Then you should go to {\bf Phonon calculation} subtree of {\bf
+Execution parameters} tree and specify
+
+-{\it Phonon model}={\bf VFFM} for {\bf V}alence {\bf F}ield {\bf
+ F}orce {\bf M}odel, since it is the only model implemented so far.
+
+-{\it Minimal q$_{ph}$ [nm$^{-1}$]}\\
+and
+
+-{\it Maximal q$_{ph}$ [nm$^{-1}$]}\\ 
+are three-component vectors of
+initial and final phonon wave vector. The phonon spectrum will be
+computed in the equidistant points in the direction from minimal to
+maximal q$_{ph}$ in the reciprocal space.
+
+-{\it Number of q$_{ph}$ points} is the number of points in which you
+ want the phonon spectrum to be computed. For rough estimations of the
+ dispersion 10 points should be enough. In order to acheive the better
+ smoothness of phonon branches you will have to trade between
+ computational time, which scales linearly, and your desire to see nice
+ pictures.
+
+-{\it Part of the phonon spectrum} should be set to {\bf Lower} if you
+ are interested in {\it acoustic} and {\bf Higher} if you are
+ interested in {\it optical} phonons.
+
+-{\it Number of phonon branches} is recommended to be larger then 3
+ for better convergency. Also note that the number of phonon branches
+ has a physical upper limit, which is three times larger then the
+ number of atoms in the solution domain. However, due to the specifics
+ of eigensolver, we would not recommend to ask for more then a half of
+ the existing eigenstates for tyny systems. You may compute lower and
+ upper parts of it in separate runs if you are interested in the whole
+ phonon spectrum. For larger system the computational time increases
+ dramatically if you are too curious and would like to have too many
+ states at once. The recommended upper limit for the number of phonon
+ branches is about a dozen.
+
+-{\bf Parpack} sub-subtree would be better left untouched...
+
+-{\bf Output} sub-subtree has only one implemented option so far: {\it
+ Phonon dispersion}. If you do not specify it, you only will be able
+ to see the corresponding output on the screen after all computations
+ completed. If you DO specify it, the file {\tt input\_file\_name.PhonDisp} will
+ be rewritten after calculation of energy spectrum completed in every
+ requested point of the reciprocal space.
+
+\section{Output file}
+The output information about computed phonon dispersion is  saved in 
+{\tt input\_file\_name.PhonDisp} file if you have specified it in the
+{\bf Output} sub-subtree of {\bf Phonon calculation} subtree of {\bf
+Execution parameters} tree.
+
+This is an example of the output file {\tt GeSi\_pa.PhonDisp}  for 8 lowest phonon branches of
+a three-dimensional array of pyramidal Ge quantum dots embedded into Si.
+{\tiny
+\begin{verbatim}
+%8 branches of phonon dispersion:
+
+% #   q_x,nm^-1     q_y,nm^-1    q_z,nm^-1  |    q,nm^-1  |   0-br   1-br   2-br   3-br   4-br   5-br   6-br   7-br  
+
+ 0  0  0  0  0  0  6.61827e-10  6.73645e-10  0.00168103  0.00173119  0.00173152  0.00177565  0.00178688 
+ 1  0  0  0.0253684  0.0253684  0.000220557  0.000254217  0.000282209  0.00169869  0.00174823  0.00174912  0.00178307  0.0017895 
+ 2  0  0  0.0507368  0.0507368  0.000432254  0.000491335  0.00053944  0.00174125  0.00177668  0.00178374  0.00180485  0.00180649 
+ 3  0  0  0.0761053  0.0761053  0.000627543  0.000700047  0.000756606  0.00177192  0.00178773  0.00182736  0.00182759  0.00184651 
+ 4  0  0  0.101474  0.101474  0.000801149  0.000876681  0.000932241  0.00178976  0.00179998  0.00184964  0.00188272  0.00191156  
+ 5  0  0  0.126842  0.126842  0.000950565  0.00102279  0.00107355  0.00181356  0.00181919  0.00187484  0.00193757  0.00198882  
+ 6  0  0  0.152211  0.152211  0.00107613  0.00114194  0.00118913  0.00184726  0.00184734  0.00190359  0.00199477  0.002059  
+ 7  0  0  0.177579  0.177579  0.00118052  0.00123821  0.00128562  0.00188414  0.00189174  0.00193679  0.00205174  0.00208816  
+ 8  0  0  0.202947  0.202947  0.00126752  0.00131607  0.00136814  0.00192735  0.00194541  0.00197588  0.00210548  0.00211059  
+ 9  0  0  0.228316  0.228316  0.00134084  0.00138027  0.00144115  0.00197271  0.00200557  0.00202243  0.00213049  0.00215376  
+ 10  0  0  0.253684  0.253684  0.00140389  0.00143526  0.00150824  0.00201758  0.00206897  0.00207569  0.00214967  0.00219585  
+ 11  0  0  0.279053  0.279053  0.00145979  0.00148471  0.00157163  0.00206223  0.00213145  0.00213257  0.00216921  0.00223249  
+ 12  0  0  0.304421  0.304421  0.00151121  0.00153118  0.0016323  0.00210751  0.00218063  0.0021925  0.00219272  0.00226477  
+ 13  0  0  0.329789  0.329789  0.00156006  0.00157627  0.00169053  0.00215365  0.00220529  0.00222256  0.00223252  0.00228604  
+ 14  0  0  0.355158  0.355158  0.00160744  0.0016207  0.00174629  0.00219862  0.00220773  0.00220952  0.00223209  0.00231815  
+ 15  0  0  0.380526  0.380526  0.00165352  0.00166438  0.00179924  0.00216534  0.00216878  0.00224668  0.00225257  0.00227263  
+ 16  0  0  0.405895  0.405895  0.00169748  0.00170626  0.00184854  0.00211923  0.00212568  0.00222733  0.00227091  0.00229348  
+ 17  0  0  0.431263  0.431263  0.00173684  0.00174375  0.00189214  0.00207715  0.00208555  0.0021863  0.00228861  0.00233422  
+ 18  0  0  0.456632  0.456632  0.00176627  0.00177161  0.00192503  0.00204574  0.00205564  0.00215483  0.00230115  0.00236492  
+ 19  0  0  0.482  0.482  0.00177734  0.00178202  0.00193768  0.00203399  0.00204451  0.00214261  0.00230563  0.00237651  
+\end{verbatim}
+} The first column counts points in the reciprocal space; phonon wave
+vector $x,y,z$ components in nm$^{-1}$ are written in the next 3
+columns; the 5-th column contains the amplitude of the phonon wave
+vector in nm$^{-1}$; and the energy of phonon modes in eV is written in the
+rest 8 columns.
+
+The format of the ASCII {\tt input\_file\_name.PhonDisp} file is
+designed to allow to plot phonon dispersion curves in matlab. In order
+to plot the first two dispersion curves from the output file {\tt
+GeSi\_pa.PhonDisp} with blue dots connected with lines you should type
+the following commands in matlab:
+\begin{verbatim}
+>> e=load('GeSi_pa.PhonDisp');
+>> figure
+>> plot(e(:,5),e(:,6),'b.-');
+>> hold on
+>> plot(e(:,5),e(:,7),'b.-');
+\end{verbatim}
+
+This output file is rewritten after calculation of the energy spectrum is
+completed in every requested point of the reciprocal space. Thus if
+you see that some rows of the file are filled with zeros, it means
+that the calculations have not been completed for this point yet.
+
+\section{Examples}
+\subsection{Dispersion of bulk materials}
+The bulk material may be built from translation in all 3 directions of
+one unit cell. That is you should specify only one shape with
+$a_0 \leq L_x=L_y=L_z < 2a_0$, where $a_0$ is unstrained lattice constant of
+the material.
+
+{\tt Si.xml} is the example of the input file to compute 12 lower
+branches of the phonon dispersion in [001] crystallographic
+direction of bulk Si. You may change the {\it Part of the phonon spectrum} to
+{\it Higher} and together with the {\it Lower} one it would complete the
+whole phonon spectrum of bulk Si.
+
+Note that since the actual unit cell consists of 4 elementary cells,
+i.e., it containes 8 atoms instead of 2, the computed spectrum corresponds to the
+twice folded real one (see the output file {\tt
+  Si.PhonDisp}) and there are 24 eigenstates instead of 6 phonon
+branches. You should ``unfold'' it manually.
+
+\subsection{Phonon dispersion in nanostructures}
+The calculation of phonon spectrum may be done for all types of
+nanostructures generally implemented in NEMO-3D code: quantum wells,
+nanowires, quantum dots and their regimented 1D, 2D, and 3D
+arrays. Also, you may specify more complicated structures using
+combination of different shapes.
+
+{\tt GeSi\_pa.xml} is the example of the input file to compute 12
+lower branches of the phonon dispersion in [001] crystallographic
+direction of a three-dimensionally regimented array of pyramidal Ge
+quantum dots in Si with atomically smooth interfaces. The base of the
+dot $L_x=L_y=6.518$nm (i.e.,24 monolayers)and its heigth
+$L_z=3.26$nm(i.e.,12 monolayers) are specified in Shape 2. The
+periods $D_x=D_y=13.04$nm (i.e.,48 monolayers), and $D_z=6.518$nm
+(i.e.,24 monolayers) are specified in Shape 1. The fragment of the
+corresponding output file {\tt GeSi\_pa.PhonDisp} was shown in the
+previous section.
+
+\section{Conclusion}
+The phonon part of the NEMO-3D is still under development... ;)
+
+
+\begin{thebibliography}{16}
+
+\bibitem{Cardona} 
+Peter Y.\ Yu and Manuel Cardona,
+\emph{Fundamentals of Semiconductors: Physics and Material Properties} 
+3rd, revised and enlarged edition, 
+(Springer,N-Y), 2001.
+
+\bibitem{Keating_VFFM}
+P.\ N.\ Keating,
+Effect of Invariance requirements on the elastic strain energy of
+crystals with application to the diamond structure,
+\emph{Phys.\ Rev.\ }{\bf 145},2, 637--645 (1966).
+
+\bibitem{Martin_VFFM}
+Richard M.\ Martin,
+Dielectric screening Model for Lattice Vibrations of Diamond-Structure
+Crystals,
+\emph{Phys.\ Rev.\ }{\bf 186},3, 871--884 (1969).
+
+\bibitem{Martin_ZnS_VFFM}
+Richard M.\ Martin,
+Elastic Properties of ZnS Structure Semiconductors,
+\emph{Phys.\ Rev.\ B}{\bf 1},10, 4005--4011 (1970).
+
+\bibitem{Pryor}
+C.\ Pryor, J.\ Kim, L.\ W.\ Wang, A.\ J.\ Williamson, and A.\ Zunger,
+Comparison of two methods for describing the strain profiles in
+quantum dots,
+\emph{J.\ of Appl.\ Phys.\ }{\bf 83}, 5, 2548--2554 (1998).
+
+\bibitem{NEMO3D}
+Gerhard Klimeck, Fabiano Oyafuso, Timothy B.\ Boikin, R.\ Cris Bowen,
+and Paul von Allmen,
+Development of a Nanoelectronic 3-D (NEMO 3-D) Simulator for
+multimillion Atom Simulations and its Application to Alloyed Quantum
+Dots,
+\emph{CMES}{\bf 3} 5, 601-642 (2002).
+
+\bibitem{Alloys}
+An-Ban Chen and Arden Sher,
+\emph{Semiconductor alloys: physics and materials engineering}
+(Plenum Press, N-Y) 1995.
+
+\bibitem{Harrison_book}
+Walter A.\ Harrison,
+\emph{Elementary Electronic Structure}
+(World Scientific Publishing Co.\ Pte.\ Ltd., London) 1999.
+
+\bibitem{Landolt22}
+Landolt-B\"{o}rnstein, Series III, Vol.~22 ({\em Semiconductors\/}), Subvolume
+a. \emph{Intrinsic properties of group IV elements, III-V, II-VI, and
+  I-VII compounds} (Springer, Berlin, Heidelberg 1987).
+
+\bibitem{Boer}
+Karl W.\ B\"{o}er,
+\emph{Survey of Semiconductor Physics}, 2nd revised edition (John
+Wiley \& Sons, Inc.: New York) 2002.
+
+\bibitem{Maradudin}
+A.A~Maradudin,E.W.~Montroll, G.H.~Weiss, and I.P.~Ipatova
+\emph{Theory of Lattice Dynamics in the Harmonic Approximation}
+(Academic Press, New York and Londod) 1971.
+
+\bibitem{Ewald}
+P.P.~Ewald,
+\emph{Ann.\ Physik} {\bf 64}, 253 (1921).
+
+\bibitem{Kane}
+E.O.\ Kane,
+Phonon spectra of diamond and zinc-blende semiconductors,
+\emph{Phys.\ Rev.\ B} {\bf 31}, 7865 (1985).
+
+\bibitem{Tersoff}
+J.\ Tersoff,
+Modeling solid-state chemistry: Interatomic potentials for
+multicomponent systems
+\emph{Phys.\ Rev.\ B} {\bf 39}, 5566 (1989).
+
+\bibitem{QD_emp_piezo} 
+M.A.\ Migliorato, A.G.\ Cullis, M.\ Fearn, and J.H.\ Jefferson,
+Atomistic simulation of In$_x$Ga$_{1-x}$As/GaAs
+quantum dots with nonuniform composition,
+\emph{Physica E} {\bf 13}, 1147 (2002).
+
+\bibitem{Zunger}
+H.\ Fu, V.\ Ozoli\c{n}\v{s}, and A.\ Zunger,
+Phonons in GaP quantum dots,
+\emph{Phys.\ Rev.\ B} {\bf 59}, 2881 (1999).
+
+\end{thebibliography}
+
+\end{document}

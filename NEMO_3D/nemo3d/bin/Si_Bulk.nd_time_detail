@@ -1,0 +1,2 @@
+# cpu total, setup, strain, electr, fileio, sendrecev, allreduce, barrier, bcast, send, receive, matmul, strain_sendrecv, strain_allreduce, strain_barrier, strain_bcast, strain_send, strain_recv, electr_sendrecv, electr_allreduce, electr_barrier, electr_bcast, electr_send, electr_recv
+  1 0 9.55187 0.120832 0.002048 9.42285 2.54566 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.147456 0 0 0 0 

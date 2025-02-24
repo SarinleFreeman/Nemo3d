@@ -1,0 +1,112 @@
+The NanoElectronic MOdeling (NEMO) Math Library (NML) is available
+as a compressed tape archive nml.tgz
+Copy nml.tgz into your home directory and type
+
+	gunzip nml.tgz
+	tar xvf nml.tar
+	cd nml/src
+	make
+
+to uncompress and unarchive the nml/ distribution directory
+then make the NML class libraries in the nml/src/ directory.
+Type
+
+	cd ../examples
+	make example
+	./example
+
+to make and run the example program in the nml/examples/ directory.
+
+The NML supports both real and complex double precision floating-point
+as well as integer scalar, vector and matrix classes.
+
+	integer		real		complex
+----------------------------------------------------
+scalar	nml_iscalar	nml_dscalar	nml_dcscalar
+vector	nml_ivector	nml_dvector	nml_dcvector
+matrix	nml_imatrix	nml_dmatrix	nml_dcmatrix
+
+A vector is an array of scalars and
+a matrix is an array of pointers to scalars
+each of which points to the first element
+of the corresponding row of the matrix.
+The rows of the matrix are all stored together
+end-to-end in a vector of scalars.
+
+The NML defines a few types
+
+	typedef	signed int	ptrdiff_t;
+	typedef    size_t	nml_offset;
+	typedef    size_t	nml_extent;
+	typedef ptrdiff_t	nml_stride;
+
+which are used as parameters:
+
+	const nml_extent	m = 7;	/* extent of a column	*/
+	const nml_extent	n = 4;	/* extent of a row	*/
+
+in function calls.
+Storage for vector and matrix objects is allocated dynamically at run time.
+NML functions reference vector and matrix objects through pointers:
+
+	nml_ivector*	pv;	/* pointer to an integer vector	*/
+	nml_dvector*	pv;	/* pointer to a real vector	*/
+	nml_dcvector*	pv;	/* pointer to a complex vector	*/
+	nml_imatrix*	pM;	/* pointer to an integer matrix	*/
+	nml_dmatrix*	pM;	/* pointer to a real matrix	*/
+	nml_dcmatrix*	pM;	/* pointer to a complex matrix	*/
+
+There are functions:
+
+extent	integer			real			complex
+---------------------------------------------------------------------------
+vector	nml_iv_extent(pv)	nml_dv_extent(pv)	nml_dcv_extent(pv)
+column	nml_im_extent1(pM)	nml_dm_extent1(pM)	nml_dcm_extent1(pM)
+row	nml_im_extent2(pM)	nml_dm_extent2(pM)	nml_dcm_extent2(pM)
+
+to retrieve the extent of a vector or
+the extent of a column or row of a matrix.
+
+There are functions:
+
+vector	pseudo-constructor	destructor		reconstructor
+------------------------------------------------------------------------------
+integer	pv = nml_iv_new(n)	nml_iv_delete(pv)	nml_iv_resize(&pv, n)
+real	pv = nml_dv_new(n)	nml_dv_delete(pv)	nml_dv_resize(&pv, n)
+complex	pv = nml_dcv_new(n)	nml_dcv_delete(pv)	nml_dcv_resize(&pv, n)
+
+matrix	pseudo-constructor	destructor		reconstructor
+------------------------------------------------------------------------------
+integer	pM = nml_im_new(n)	nml_im_delete(pM)	nml_im_resize(&pM, n)
+real	pM = nml_dm_new(n)	nml_dm_delete(pM)	nml_dm_resize(&pM, n)
+complex	pM = nml_dcm_new(n)	nml_dcm_delete(pM)	nml_dcm_resize(&pM, n)
+
+to create, destroy or recreate vector and matrix objects.
+Notice that the reconstructor must be passed
+a pointer to a pointer to a vector or matrix object
+so that it can change the pointer itself.
+It returns a pointer to the resized vector or matrix object as well.
+
+A sequence of type definitions:
+
+	typedef double		nml_double;
+	typedef nml_double	nml_dscalar;
+	typedef struct {
+	  /* public: */
+	  nml_double	r, i;
+	  } nml_dcomplex;
+	typedef nml_dcomplex	nml_dcscalar;
+
+defines [Cartesian] complex numbers.
+There are functions:
+
+	nml_double r = nml_dcreal(c);	/*      real part of c	*/
+	nml_double i = nml_dcimag(c);	/* imaginary part of c	*/
+
+to retrieve the real or imaginary part of a complex number
+and a pseudo-constructor
+
+	nml_dcomplex c = nml_dcmplx(r, i);
+
+to create a complex number from two real numbers.
+

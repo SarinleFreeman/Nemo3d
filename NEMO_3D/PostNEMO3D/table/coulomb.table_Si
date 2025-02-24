@@ -1,0 +1,77 @@
+# *****************************************************************************
+# The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D
+# PostProcessing package.
+# Copyright (C) 2002 California Institute of Technology (Caltech)
+#
+# This application is free software, which you can redistribute and/or modify
+# under the terms of the GNU Lesser General Public License as published by the
+# Free Software Foundation; either version 2.1 of the License, or (at your
+# option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; see the file COPYING. If not, write to the
+# Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330,
+# Boston, MA  02111-1307  USA
+#
+# For additional information, please contact
+#   Seungwon Lee (Seungwon.Lee@jpl.nasa.gov)
+#
+# Written by:  Seungwon Lee
+# *****************************************************************************
+
+
+#This is a Coulomb-exchange table for Si:P atoms.
+#The unit of Coulomb and exchange integrals is eV.
+
+num_atom_type 1 
+num_atom_pair 1
+
+dielectric_constant 11.9
+
+atom_pair 0 0
+
+coulomb_onsite_ss_ss		2.29		
+coulomb_onsite_ss_s 		2.86 
+coulomb_onsite_ss_p 		2.86	 
+coulomb_onsite_ss_d 		2.32
+coulomb_onsite_s_s		9.69
+coulomb_onsite_s_p  		9.68 
+coulomb_onsite_s_d  		3.01
+coulomb_onsite_p_p_homo         10.49
+coulomb_onsite_p_p_hetero  	9.28
+coulomb_onsite_p_d  		2.96
+coulomb_onsite_d_d  		2.51
+
+exchange_onsite_ss_s 		0.00
+exchange_onsite_ss_p 		0.00 
+exchange_onsite_ss_d 		0.25 
+exchange_onsite_s_p  	        2.28 
+exchange_onsite_s_d  		0.00 
+exchange_onsite_px_py  		0.62 
+exchange_onsite_p_d  		0.00
+exchange_onsite_d_d  		0.00 
+
+exchange_offsite_ss_ss		0.00 
+exchange_offsite_ss_s  		0.00 
+exchange_offsite_ss_p  		0.00
+exchange_offsite_ss_d  		0.00 
+exchange_offsite_s_ss  		0.00 
+exchange_offsite_s_s  		0.00 
+exchange_offsite_s_p  		0.00 
+exchange_offsite_s_d  		0.00 
+exchange_offsite_p_ss 		0.00
+exchange_offsite_p_s  		0.00 
+exchange_offsite_p_p  		0.00 
+exchange_offsite_p_d  		0.00 
+exchange_offsite_d_ss 		0.00 
+exchange_offsite_d_s  		0.00 
+exchange_offsite_d_p  		0.00 
+exchange_offsite_d_d  		0.00 
+
+

@@ -1,0 +1,5 @@
+g++ -c Random.cpp
+g++ -c CoulombIntegral.cpp
+g++ -c ExchangeIntegral.cpp
+g++ -o Coulomb CoulombIntegral.o Random.o
+g++ -o Exchagne ExchangeIntegral.o Random.o

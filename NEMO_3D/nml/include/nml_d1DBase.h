@@ -1,0 +1,210 @@
+#ifndef _nml_d1DBase_h
+#define _nml_d1DBase_h 1
+
+/*****************************************************************************
+The NEMO Math Library.
+Copyright (C) 2002 California Institute of Technology (Caltech)
+
+This file is part of
+The NanoElectronic MOdeling (NEMO) Math Library.
+
+This library is free software which you can redistribute and/or modify
+under the terms of the GNU Library General Public License
+as published by the Free Software Foundation;
+either version 2, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this library; see the file COPYING. If not, write to the
+Free Software Foundation, Inc.,
+59 Temple Place, Suite 330,
+Boston, MA  02111-1307  USA
+
+Written by E. Robert Tisdale
+Modified by Marek J. Korkusinski, November 2004
+*****************************************************************************
+$Header: /repo/nml/src/vector/1DBase.hP,v 1.6 2004/12/02 12:11:55 marek Exp $
+*****************************************************************************/
+
+
+#include<stdlib.h>
+
+/* Include scalar type definitions.					*/
+#include<nml_dscalar.h>
+
+typedef nml_dscalar	nml_d1DBase;
+
+#define EXT_MEM_HANDLING
+
+#ifdef EXT_MEM_HANDLING
+typedef struct 
+{
+   nml_index upper ;
+   nml_index lower ;
+   double start ;
+} nml_d1D_darray ;
+
+static nml_extent nml_d1D_offsetLength = ( (nml_extent) 
+                        ((char *) &((nml_d1D_darray *) 0)->start)) ;
+#endif /*   EXT_MEM_HANDLING   */
+
+
+#ifdef	NML_INLINE
+/* Functions								*/
+#ifdef EXT_MEM_HANDLING
+inline static
+nml_index		(nml_d1D_lower)(const nml_d1DBase* pv) {
+   return(  
+            ( (nml_d1D_darray *)
+                     (    ((char *)pv) - nml_d1D_offsetLength     )
+            ) -> lower
+         ) ;
+  }
+inline static
+nml_index		(nml_d1D_upper)(const nml_d1DBase* pv) {
+   return(  
+            ( (nml_d1D_darray *)
+                     (    ((char *)pv) - nml_d1D_offsetLength     )
+            ) -> upper
+         ) ;
+  }
+
+#else /*   EXT_MEM_HANDLING   */
+
+inline static
+nml_index		(nml_d1D_lower)(const nml_d1DBase* pv) {
+  return *((const nml_index*)(pv - 1));
+  }
+inline static
+nml_index		(nml_d1D_upper)(const nml_d1DBase* pv) {
+  return *((const nml_index*)(pv - 2));
+  }
+#endif  /*   EXT_MEM_HANDLING   */
+
+inline static
+nml_extent		(nml_d1D_extent)(const nml_d1DBase* pv) {
+  return 1+nml_d1D_upper(pv)-nml_d1D_lower(pv);
+  }
+
+/* Constructor								*/
+#ifdef EXT_MEM_HANDLING
+inline static
+nml_d1DBase*	(nml_d1D_new)(nml_index lb, nml_index ub) {
+   nml_d1D_darray * p = NULL ;
+   nml_index * pointerCopy ;
+   nml_index		n = 1 + ub - lb;
+  if (n < 0) {
+    nml_message("In function nml_d1D_new(nml_index. nml_index):\n"
+      "extent is negative.");
+    }
+  else {		/* (0 <= n)		*/
+    p = ( nml_d1D_darray * ) nml_calloc(nml_d1D_offsetLength +
+                                       n * sizeof(nml_dscalar) , 1 ) ;
+    if (NULL == p) {
+      nml_message("In function nml_d1D_new(nml_index. nml_index):\n"
+	"unable to allocate memory.");
+      }
+    else {		/* (NULL != p)		*/
+      pointerCopy = ( nml_index * ) p ;
+      *pointerCopy = ub ; 
+      ++pointerCopy ;
+      *pointerCopy = lb ;
+      }
+    }
+  return( (nml_dscalar*)  &p->start ) ;
+  }
+#else /*   EXT_MEM_HANDLING   */
+inline static
+nml_d1DBase*	(nml_d1D_new)(nml_index lb, nml_index ub) {
+  nml_dscalar*	p = NULL;
+  nml_index		n = 1 + ub - lb;
+  if (n < 0) {
+    nml_message("In function nml_d1D_new(nml_index. nml_index):\n"
+      "extent is negative.");
+    }
+  else {		/* (0 <= n)		*/
+    p = (nml_dscalar*)nml_calloc(2 + n, sizeof(nml_dscalar));
+    if (NULL == p) {
+      nml_message("In function nml_d1D_new(nml_index. nml_index):\n"
+	"unable to allocate memory.");
+      }
+    else {		/* (NULL != p)		*/
+      *((nml_index*)p)	= ub; ++p;
+      *((nml_index*)p)	= lb; ++p;
+      }
+    }
+  return p;
+  }
+#endif  /*   EXT_MEM_HANDLING   */
+
+/* Destructor								*/
+#ifdef EXT_MEM_HANDLING
+inline static
+void			(nml_d1D_delete)(nml_d1DBase* pv) {
+   nml_d1D_darray * pointerToDarray ;
+	if (NULL != pv ) {
+   pointerToDarray = 
+   ( nml_d1D_darray * ) ( (char*) pv - nml_d1D_offsetLength ) ;
+   nml_free( pointerToDarray ) ;
+	}
+  }
+#else /*   EXT_MEM_HANDLING   */
+inline static
+void			(nml_d1D_delete)(nml_d1DBase* pv) {
+  nml_free(pv - 2);
+  }
+#endif  /*   EXT_MEM_HANDLING   */
+
+/* Reconstructor							*/
+inline static
+nml_d1DBase*	(nml_d1D_resize)(nml_d1DBase* *ppv,
+    nml_index lb, nml_index ub) {
+  if (NULL != ppv) {
+    (nml_d1D_delete)(*ppv);
+    *ppv = (nml_d1D_new)(lb, ub);
+    return *ppv;
+    }
+  else {		/* (NULL == ppv)	*/
+    nml_message(
+"In function nml_d1D_resize(nml_d1DBase**, nml_index, nml_index):\n"
+"invalid pointer to nml_d1DBase*.");
+    return NULL;
+    }
+  }
+#else /*NML_INLINE	*/
+/* Functions								*/
+nml_index		(nml_d1D_lower)(const nml_d1DBase*);
+nml_index		(nml_d1D_upper)(const nml_d1DBase*);
+nml_extent		(nml_d1D_extent)(const nml_d1DBase*);
+/* Constructor								*/
+nml_d1DBase*	(nml_d1D_new)(nml_index, nml_index);
+/* Destructor								*/
+void			(nml_d1D_delete)(nml_d1DBase*);
+/* Reconstructor							*/
+nml_d1DBase*	(nml_d1D_resize)(nml_d1DBase**,
+    nml_index, nml_index);
+#endif/*NML_INLINE	*/
+
+int			(nml_d1D_fprintf)(FILE*,
+    const nml_d1DBase*, int, unsigned int, nml_fmtflags, unsigned int);
+
+#ifdef	NML_MACROS
+
+#ifdef EXT_MEM_HANDLING
+#define nml_d1D_lower(pv) (((nml_d1D_darray *) \
+     (((char *)pv) - nml_d1D_offsetLength )  ) -> lower  )
+#define nml_d1D_upper(pv) (((nml_d1D_darray *) \
+     (((char *)pv) - nml_d1D_offsetLength )  ) -> upper  )
+#else /*   EXT_MEM_HANDLING   */
+#define nml_d1D_lower(pv) (*((const nml_index*)((pv) - 1)))
+#define nml_d1D_upper(pv) (*((const nml_index*)((pv) - 2)))
+#endif /*   EXT_MEM_HANDLING   */
+
+#define nml_d1D_extent(pv) (1+nml_d1D_upper(pv)-nml_d1D_lower(pv))
+#endif/*NML_MACROS	*/
+
+#endif/* _nml_d1DBase_h */

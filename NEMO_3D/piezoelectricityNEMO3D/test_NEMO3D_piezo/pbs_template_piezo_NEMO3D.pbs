@@ -1,0 +1,21 @@
+#!/bin/tcsh
+#PBS -me -l nodes=MY_NODES:ppn=2,walltime=40:00:00
+#PBS -q ncn
+#PBS -o nemo.out
+#PBS -e nemo.err
+
+# name of the executable goes on next line
+set executable="/autohome/u106/ssahmed/nemo3d_piezoelectric/NEMO_3D/nemo3d/bin/nemo3d.ex"
+
+echo $executable
+cd $PBS_O_WORKDIR
+
+set machinefile=`basename $PBS_NODEFILE`
+cp $PBS_NODEFILE  machinefile.txt
+
+module load mpich64-intel
+
+set cmd="mpirun -np MY_NODES -machinefile machinefile.txt $executable MY_INPUT_FILE"
+echo $cmd
+$cmd
+

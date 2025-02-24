@@ -1,0 +1,27 @@
+#To run a standalone tracemin:
+0. cd to directory /Bin
+1. Choose a version you want to run:    a)pctracemin
+                                        b)pqtracemin
+                                        c)sctracemin
+                                        d)sqtracemin
+2. Copy corresponding example from directory /Examples to file matrixA.in in
+directory /Bin
+3. Run the code (for sequential version simply type name of the executable,
+while for parallel might need to use mpiexec/mpirun)
+
+#details on how ti run parallel program on different platforms
+#Running Parallel Programs on Nocona Cluster
+mpdboot -n 2 --rsh=ssh  #here you are specifying number of machines, where each machine has 2 processors 
+mpiexec -n 4 ./tracemin #here you are specifying number of processors 
+mpdallexit              #terminates all mpi hosts 
+mpdtrace                #check hosts setup for mpi by mpdboot 
+
+#Running Parallel Programs on IBM SP
+qsub -q sp_short -l nodes=5,walltime=5:00 tracemin_script
+qstat sp_short | grep mnaoumo1
+
+#Running Parallel Programs on Lear Cluster
+qsub -I -q ncn -l nodes=1:ppn=2,walltime=1:00:00        #starts interactive job on 1 node with 2 processors per node and walltime 1 hour
+cd /usr/rmt_share/scratch37/maxim/NEMO_3D/TRACEMIN/     #equivalent to cd /scratch/local/maxim/NEMO_3D/TRACEMIN/ParallelTracemin/ on lear.rcac.purdue.edu
+mpirun -np 2 -machinefile $PBS_NODEFILE tracemin        #run tracemin on 2 processors using value of the environment variable PBS_NODEFILE as your hostfile name
+

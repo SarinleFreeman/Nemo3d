@@ -1,0 +1,30 @@
+#!/bin/sh
+# build p??drv1 [processors [blocks [values [maxitr [platform]]]]]
+processors=5
+blocks=2
+values=18
+vectors=64
+maxitr=65536
+platform=$HOSTTYPE
+if [ 0 -lt $# ]; then
+  if [ 1 -lt $# ]; then
+    processors=$2;
+    if [ 2 -lt $# ]; then
+      blocks=$3;
+      if [ 3 -lt $# ]; then
+        values=$4;
+        if [ 4 -lt $# ]; then
+          vectors=$5;
+          if [ 5 -lt $# ]; then
+            maxitr=$6;
+            if [ 6 -lt $# ]; then
+              platform=$7;
+              fi
+            fi
+          fi
+        fi
+      fi
+    fi
+  rm -f $1.o ${1}_$platform
+  make PLAT=$platform PROCESSORS=$processors BLOCKS=$blocks VALUES=$values VECTORS=$vectors MAXITR=$maxitr $1
+  fi

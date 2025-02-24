@@ -1,0 +1,46 @@
+Steps to build NEMO_3D for CrayXT platform. Special instructions are needed
+because of the frontend/backend nature of the computing environment.
+
+1. set BUILD_TYPE = crayxt_frontend_pgi_fast in make.inc
+
+2. make xercesc XMLtoC
+   Because shared object libraries are not allowed the following error will result:
+      make[2]: *** [..../NEMO_3D/build/../xerces-c-src2_1_0/lib/libxerces-c.so.21.0] Error 1
+      make[2]: Target `ALL' not remade because of errors.
+      make[2]: Leaving directory `..../NEMO_3D/xerces-c-src2_1_0/obj'
+      make[1]: *** [..../NEMO_3D/build/../xerces-c-src2_1_0/lib/libxerces-c.21.0] Error 2
+      make[1]: Leaving directory `..../NEMO_3D/xerces-c-src2_1_0/src/xercesc'
+      make: *** [..../NEMO_3D/build/../xerces-c-src2_1_0/lib/libxerces-c_x86_64_crayxt_frontend_pgi_fast.a] Error 2
+   This is not a problem because the library libxerces-c.so.21.0 is not used anyway.
+
+3. touch ../xerces-c-src2_1_0/lib/libxerces-c.so.21.0
+
+4. make xercesc XMLtoC
+   Completion of step 2.
+
+5. make cleanall_xercesc clean_XMLtoC
+   Erase to force rebuild for backend.
+
+6. set BUILD_TYPE = crayxt_backend_pgi_fast in make.inc
+
+7. make
+   This will fail like step 2.
+
+8. touch ../xerces-c-src2_1_0/lib/libxerces-c.so.21.0
+
+9. make
+   Because backend executable XMLtoC cannot run on the frontend the following error will result:
+      mv *.[CH] ..../NEMO_3D/XMLtoC/apps/ioNemo3D/src;
+      mv: cannot stat `*.[CH]': No such file or directory
+      make[1]: *** [bldapp] Error 1
+      make[1]: Leaving directory `..../NEMO_3D/XMLtoC'
+      make: *** [..../NEMO_3D/build/../XMLtoC/apps/ioNemo3D/lib/x86_64_crayxt_backend_pgi_fast/libioNemo3D-x86_64_crayxt_backend_pgi_fast.a] Error 2
+
+10. cd ../XMLtoC/bin
+
+11. cp XMLtoC-x86_64_crayxt_frontend_pgi_fast.ex XMLtoC-x86_64_crayxt_backend_pgi_fast.ex
+
+12. cd ../../build
+
+13. make
+

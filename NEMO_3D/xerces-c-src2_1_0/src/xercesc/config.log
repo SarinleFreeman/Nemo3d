@@ -1,0 +1,29 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:529: checking for gcc
+configure:642: checking whether the C compiler (icc -Kc++ -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include ) works
+configure:658: icc -Kc++ -o conftest -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include   conftest.c  1>&5
+configure(655): warning #1009: return type "int" omitted in declaration of function "main"
+  main(){return(0);}
+  ^
+
+configure:684: checking whether the C compiler (icc -Kc++ -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include ) is a cross-compiler
+configure:689: checking whether we are using GNU C
+configure:698: icc -Kc++ -E conftest.c
+configure:717: checking whether icc -Kc++ accepts -g
+configure:753: checking for c++
+configure:785: checking whether the C++ compiler (icc -Kc++ -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include ) works
+configure:801: icc -Kc++ -o conftest -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include   conftest.C  1>&5
+configure:827: checking whether the C++ compiler (icc -Kc++ -c -O0 -g -DINTEL_MODIFIED -DLINUX -DFORTRAN_UNDERSCORE -DMPI3d -DMPI_TIMING -DUSE_MKL   -DDO_NOT_USE_PYTHON -DHamMemorySave  -Dmem_64BIT -I/apps/intel-ct/2020.0.166/mkl/include ) is a cross-compiler
+configure:832: checking whether we are using GNU C++
+configure:841: icc -Kc++ -E conftest.C
+configure:860: checking whether icc -Kc++ accepts -g
+configure:922: checking for a BSD compatible install
+configure:977: checking for autoconf
+configure:1007: checking how to run the C preprocessor
+configure:1028: icc -Kc++ -E  conftest.c >/dev/null 2>conftest.out
+configure:1087: checking for ANSI C header files
+configure:1100: icc -Kc++ -E  conftest.c >/dev/null 2>conftest.out
+configure:1191: checking for XMLByte
+configure:1231: checking host system type

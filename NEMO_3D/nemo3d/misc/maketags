@@ -1,0 +1,13 @@
+#!/bin/csh
+
+set dir_src = $HOME/DEVELOP/3dnemo-C++/src
+
+cd $dir_src
+set dirs = "base io math top nemo-1D/includes_needed_by_3dnemo nemo-1D/io nemo-1D/mat nemo-1D/math nemo-1D/util nemo_ham/src/mat nemo_ham/src/incl nemo_ham/src/include_tmp"
+find $dirs \( -name "*.c" -a -exec etags --append {} \; \) -o \( -name "*.h" -a -exec etags --append {} \; \)
+
+foreach file ( $dirs )
+cd $file
+ln -s -f $dir_src/TAGS .
+cd $owd
+end

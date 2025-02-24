@@ -1,0 +1,20 @@
+#!/bin/tcsh
+#PBS -me -l nodes=6:ppn=8,walltime=20:00:00
+#PBS -q ncn-par
+#PBS -o scf.out
+#PBS -e scf.err
+# name of the executable goes on next line
+set executable="/usr/rmt_share/scratch96/r/rrahman/spin_filling/Wayne/PostProcess-x86_64-linux_intel9_64_mpi_intelfast.ex"
+echo $executable
+
+cd $PBS_O_WORKDIR
+
+set machinefile=`basename $PBS_NODEFILE`
+cp $PBS_NODEFILE  machinefile.txt
+
+module load mpich-intel64/9.1.045
+
+set cmd="mpirun -np 48 -machinefile machinefile.txt $executable --data silicon4 --electron 1 1 --hole 0 --scf"
+echo $cmd
+$cmd
+

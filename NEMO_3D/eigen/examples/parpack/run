@@ -1,0 +1,15 @@
+#!/bin/sh
+# run p??drv1 [processors [platform]]
+processors=5
+platform=$HOSTTYPE
+if [ 0 -lt $# ]; then
+  if [ 1 -lt $# ]; then
+    processors=$2;
+    if [ 2 -lt $# ]; then
+      platform=$3;
+      fi
+    fi
+  date
+  echo time mpirun -np $processors -nolocal ${1}_$platform
+  time mpirun -np $processors -nolocal ${1}_$platform
+  fi

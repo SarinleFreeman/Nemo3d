@@ -1,0 +1,87 @@
+====================================
+  UPDATES 2006: quick summary
+====================================
+
+* TRACEMIN added (also in input decks, with options)
+  Please, read the README file in TRACEMIN before attempting to use it. 
+  ./TRACEMIN/README
+
+* The input decks have been updated: list of new parameters can be found in 
+  ./nemo3d/example/README_Updates_May06. 
+  Shall you have an old input deck (Version = 0.17), you'll need to 
+  update it to Version 0.18, using the script "update-nemo3d-input.pl", 
+  which can be found in ~/My_path_to_NEMO_3D/NEMO_3D/nemo3d/misc/: 
+
+  > (PATH_TO_UPDATES)/update-nemo3d-input.pl my_input_deck.xml
+
+  where eg. (PATH_TO_UPDATES) = ~/My_path_to_NEMO_3D/NEMO_3D/nemo3d/misc/   
+  Then, you'll get as an output, your file 'my_input_deck.xm" OVERWRITTEN:
+  take this into account, if you want to re-use it!
+
+* New options in build's make: by typing
+
+  > make test 
+
+  four test will be run in will run a test and compare 
+  output files with old ones: 
+  Howto:
+  -----
+  1. Change to the NEMO_3D/build/ directory,
+     > cd ~/My_path_to_NEMO_3D/NEMO_3D/build/
+
+  2. Make the test, just type
+     > make test
+
+  Output:
+  -------
+  The tests can take about 15mins to be finished.
+
+  OK: If everything is OK, then the eigenvaules in
+     NEMO_3D/nemo3d/example/TestRun/inputs/*.nd_Ek_ascii
+     will be the same as the old ones,
+     NEMO_3D/nemo3d/example/TestRun/*.old_nd_Ek.
+     One gets in the output:
+
+       ===== NEMO_3D TEST MADE: CONGRATULLATIONS! test OK ====
+
+  NOT OK: If the executable is producing a different output,
+     you will see in the output a warning message:
+
+       ===== NEMO_3D TEST MADE:  WARNING: Your new executable is
+       producing DIFFERENT OUTPUT than before!!! =====
+    
+     -Check differences between old and new eigenvalues in
+      NEMO_3D/nemo3d/example/TestRun/*.difs
+     -Check the output from NEMO_3D: that is dumped in *.out
+
+* Bug: in ./PostNEMO3D/Makefile the variable LDOPT has been updated: as a 
+  result, postprocess runs also in LEAR cluster now... 
+
+* Affected files: 
+
+  ~/NEMO_3D/nemo3d/src/base/ham3d_final.c
+  ~/NEMO_3D/nemo3d/src/base/eigsys3d_par.c
+  ~/NEMO_3D/nemo3d/src/base/qd_struct_make.c
+  ~/NEMO_3D/nemo3d/NEMO3D_files.mk
+  ~/NEMO_3D/nemo3d/src/base/pqtracemin_driver.c
+  ~/NEMO_3D/nemo3d/src/base/pqtracemin_driver.h
+  ~/NEMO_3D/nemo3d/src/base/pctracemin_driver.c
+  ~/NEMO_3D/nemo3d/src/base/pctracemin_driver.h
+  ~/NEMO_3D/TRACEMIN/*
+  ~/NEMO_3D/nemo3d/misc/update-nemo3d-input.pl
+  ~/NEMO_3D/nemo3d/src/io/i_3dout_files.c
+  ~/NEMO_3D/README_Updates
+  ~/NEMO_3D/PostNEMO3D/Makefile
+  ~/NEMO_3D/build/Makefile
+  ~/NEMO_3D/build/make.inc
+  ~/NEMO_3D/XMLtoC/xml/ioNemo3D.xml
+  ~/NEMO_3D/nemo3d/example/README_Updates_May06
+  ~/NEMO_3D/nemo3d/example/TestRun/*
+  ~/NEMO_3D/nemo3d/NEMO3D_dependencies.mk
+
+
+===================================
+  Marta Prada, mprada@purdue.edu
+  Purdue University-W. Lafayette
+===================================
+

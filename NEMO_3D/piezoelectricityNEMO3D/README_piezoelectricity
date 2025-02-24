@@ -1,0 +1,87 @@
+Shaikh S. Ahmed
+Purdue University
+-----------------
+
+This file explains in detail how to calculate the piezoelectric impact on the electronic structure in quantum dots.
+The whole calculation is done in THREE steps. 
+
+STEP-1.... Calculation of the atomistic strain tensors by NEMO 3-D. Three files MUST be generated in this step: (a) 'strain' for all the atoms (b) 'strain_cation' for only cations (c) 'atom_position' file. 
+
+STEP-2.... Once you have these three files, you are ready to run the poisson3d solver to calculate the piezoelectric potential induced in the crystal. The poisson3d solver generates many files (e.g. strain profiles, pieozoelectric charges, axes, potential profiles in 1-, 2- and 3- dimensions etc) for plotting and data analysing purposes. However, you only need a SINGLE file for the next step. The name of the file is 'potential' (without the apostrophes).
+
+STEP-3.... Now that you have the piezoelectric potential file generated, you are ready to plug-in that file into the NEMO 3-D input deck and calculate the piezoelectricity-modified electronic structure of the crystal under study.
+
+------------------
+(NOTE: We are assuming that the executables for poisson3d and nemo3d are already built. If you want to build the poisson3d.ex yourself, please do the following, (we are assuming that you are using Lear at purdue as of August 26, 2007):
+
+$ cd poissonNEMO3D/build
+$ module load mpich64-1.2.7p1-intel/9.1.045
+In the 'Makefile', please turn on the "BUILD_TYPE = intel9_64_mpi_intelfast"
+
+On hamlet
+$ cd poissonNEMO3D/build
+$ module load mpich/intel/90025
+In the 'Makefile', turn on the "BUILD_TYPE = intel9_32_mpi_intelfast" 
+------------------
+
+------------------------------------------
+Here is the detail calculation procedure:
+------------------------------------------
+From this directory, at the command prompt $, enter:
+
+$ cd test_NEMO3D_piezo
+ 
+$ cp ../examples/qdot_dome.xml .
+
+The inputs CalcStr and CalcElDisp in this input qdot_pyramid.xml file must be set 'true'. For other Execution and Output parameters please use the values as they are in the example file.
+
+Assuming that you have already built an executable for nemo3d package (nemo3d.ex) which is located in the nemo3d/bin directory within the NEMO 3-D distribution please do these now to run a quantum dot (for example pyramidal shape) file.
+
+$ ./submit_files_NEMO3D.sh pbs_template_NEMO3D.pbs 8 qdot_dome.xml 
+This command will run NEMO 3-D and compute the strain tensors in the system under study. submit_files_NEMO3D.sh is a shell script that submits a PBS job in the parallel environment here. It creates a data folder strain_files.d/8.d where all the outputs in STEP-1 are generated. 8 is the number of processors you are requesting for. If you want to change the directory name, you have to change it in the submit_files_NEMO3D file. A very important point to note is the link to NEMO 3-D executable file (nemo3d.ex) in the pbs_template.pbs file. The path should be absolute (not relative) and double-checked. This is STEP-1 as mentioned above.
+
+When the run is completed, let us move to STEP-2 which is the piezoelectric potential computation.
+
+$ cp ../poissonNEMO3D/examples/input_poisson3d .
+
+Let us copy the THREE required files to this folder for convenience.
+$ cp /strain_files/8.d/qdot_dome.nd_aType_0 .
+$ cp /strain_files/8.d/strain3d .
+$ cp /strain_files/8.d/strain3d_cation .
+
+We have to change the file formats to ASCII now. An format changing executable (fmtdat.ex) must be created prior to doing this. 
+ 
+$ ln -s ../../nemo3d/bin/nemo3d.ex fmtdat.ex
+$ ./fmtdat.ex -a2 qdot_dome.nd_aType_0 
+
+Now open the files one at a time in a suitable editor (vi/emacs) and delete the header portions if any. Now we will rename the files for convenience.
+
+$ mv strain3d strain3d_dome
+$ mv strain3d_cation strain3d_cation_dome
+$ mv qdot_dome.nd_aType_0_ascii atom_dome
+
+Now we would execute the Poisson solver.
+$ ./submit_files_POISSON3D.sh pbs_template_POISSON3D.pbs strain3d_dome strain3d_cation_dome atom_dome input_poisson3d
+
+This should create a folder potential.d where all the results from the poisson solver will be stored. You need the 'potential' file in particular for the next step.   
+
+   
+Now that we have the 'potential' file generated, let us move to STEP-3.
+First we have to change the input xml file a bit. We must read in the potential file.
+
+$ cp qdot_dome.xml qdot_dome_piezo.xml
+
+Open this new file (qdot_dome_piezo.xml) and go to Potential File tag. Within the <value> tags use the atomistic potential file that you just created in the previous step. So it should look like <value>potential</value>. For faster convergence, you can use the strain file previously created. In the file find 'File for Initial Guess' string and use the 'strain3d_dome' file with its full absolute path in the value tag (please see the qdot_dome_piezo.xml file). Save the file. Now you have to run NEMO 3-D once again with this external potential file incorporated.
+
+$ cp potential.d/potential .
+ 
+$ ./submit_files_piezo_NEMO3D.sh pbs_template_piezo_NEMO3D.pbs 8 qdot_dome_piezo.xml 
+This command will run NEMO 3-D again and compute the modified electronic structure. It creates a data folder piezo_files.d/8.d where all the outputs from STEP-3 are generated.  
+
+
+
+
+
+
+
+ 

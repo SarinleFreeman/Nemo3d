@@ -1,0 +1,46 @@
+# *****************************************************************************
+# The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D
+# PostProcessing package.
+# Copyright (C) 2002 California Institute of Technology (Caltech)
+#
+# This application is free software, which you can redistribute and/or modify
+# under the terms of the GNU Lesser General Public License as published by the
+# Free Software Foundation; either version 2.1 of the License, or (at your
+# option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; see the file COPYING. If not, write to the
+# Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330,
+# Boston, MA  02111-1307  USA
+#
+# For additional information, please contact
+#   Seungwon Lee (Seungwon.Lee@jpl.nasa.gov)
+#
+# Written by:  Seungwon Lee
+# *****************************************************************************
+
+
+# This is a dipole-moment table for As/Ga/In atoms.
+# The unit of the dipole moment is nm.
+
+num_atom_type 3
+num_atom_pair 4
+
+atom_pair 0 1
+atom_pair 1 0
+atom_pair 0 2
+atom_pair 2 0
+
+dipole_onsite_s_Z_pz	 	0.0759	0.0960	0.1109 
+dipole_onsite_ss_Z_pz 	 	0.0124	0.0167	0.0197
+dipole_onsite_px_Z_dzx     	0.0043	0.0105	0.0101
+dipole_onsite_px_Z_dxx_yy       0.0075	0.0181  0.0175
+dipole_onsite_px_X_d3zz_rr      0.0025  0.0061  0.0058	
+dipole_onsite_pz_Z_d3zz_rr 	0.0050	0.0121	0.0117
+

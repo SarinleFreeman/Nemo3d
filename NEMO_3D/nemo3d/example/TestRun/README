@@ -1,0 +1,63 @@
+=============================================================
+              TESTRUN FOR NEMO_3D
+=============================================================
+
+1. Files:
+---------
+NEMO_3D/build/make.inc
+NEMO_3D/build/Makefile
+NEMO_3D/nemo3d/example/TestRun/
+NEMO_3D/nemo3d/example/TestRun/README
+NEMO_3D/nemo3d/example/TestRun/Makefile
+NEMO_3D/nemo3d/example/TestRun/Si_Bulk.old_nd_Ek
+NEMO_3D/nemo3d/example/TestRun/CdSe_Nanocrystal.old_nd_Ek
+NEMO_3D/nemo3d/example/TestRun/InGaAs_QD.old_nd_Ek
+NEMO_3D/nemo3d/example/TestRun/InGaAs_CoupledQD.old_nd_Ek
+NEMO_3D/nemo3d/example/TestRun/inputs/
+NEMO_3D/nemo3d/example/TestRun/inputs/Si_Bulk.xml
+NEMO_3D/nemo3d/example/TestRun/inputs/CdSe_Nanocrystal.xml
+NEMO_3D/nemo3d/example/TestRun/inputs/InGaAs_QD.xml
+NEMO_3D/nemo3d/example/TestRun/inputs/InGaAs_CoupledQD.xml
+
+2. Howto:
+---------
+2.1. Change to the NEMO_3D/build/ directory, 
+	$cd ~/My_path_to_NEMO_3D/NEMO_3D/build/
+
+2.2. Make the test, just type
+	$make test
+
+3. Output:
+----------
+The tests can take about 15mins to be finished. 
+
+3.1. OK: If everything is OK, then the eigenvaules in 
+     NEMO_3D/nemo3d/example/TestRun/inputs/*.nd_Ek_ascii
+     will be the same as the old ones, 
+     NEMO_3D/nemo3d/example/TestRun/*.old_nd_Ek.
+     One gets in the output: 
+     ===== NEMO_3D TEST MADE: CONGRATULLATIONS! test OK ==== 
+
+3.2. NOT OK: If the executable is producing a different output, 
+     you will see in the output a warning message: 
+     ===== NEMO_3D TEST MADE:  WARNING: Your new executable is 
+     producing DIFFERENT OUTPUT than before!!! ===== 	 
+     -Check differences between old and new eigenvalues in
+      NEMO_3D/nemo3d/example/TestRun/*.difs	
+     -Check the output from NEMO_3D: that is dumped in *.out
+
+4. Clean:
+---------
+To repeat the test, just type from the NEMO_3D/build/ directory:
+	$make clean_test
+to run again all the input files, just type from the NEMO_3D/build/ 
+directory:
+	$make cleanall_test
+
+===============================================================
+Marta Prada
+Purdue University
+West Lafayette, IN 47907 USA
+email: prada.me@gmail.com
+===============================================================
+

@@ -1,0 +1,3 @@
+Lanczos benchmark
+ - 100 Lanczos iterations
+ - Elongated domain by factor of 4 from "benchmark" directory

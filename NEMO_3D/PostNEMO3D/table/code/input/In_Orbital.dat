@@ -1,0 +1,17 @@
+0  0   3     1.25
+1  1   3     1.25
+
+# Structure of input file
+# Only the first two lines are read.
+# The first line defines one wavefunction psi_1(r1)
+# The second line defines the other wavefunction psi_2(r2)
+# Coulomb integral psi_1(r1)*psi_1(r1)*(1/|r1-r2|)* psi_2(r2)*psi_2(r2) is calculated.
+
+# Each column represents l, m, power and exponent, respectively.
+# l: the angular momentum, s orbital (l=0), p orbital (l=1), d orbital (l=2)
+# m: index to define the different orbitals in a given l 
+# please check the code (lines 9-24 in CoulombIntegral.cpp) to see how each m is define depending on l
+# note that m is not the quantum number of Lz operator.
+# power: power factor in Slater orbital [ a in r^a exp(-br) ]
+# exponent: exponent factor in Slater orbital [ b in r^a exp(-br) ]
+

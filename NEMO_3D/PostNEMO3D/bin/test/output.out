@@ -1,0 +1,1895 @@
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+/usr/rmt_share/scratch96/r/rrahman/code4/NEMO_3D/PostNEMO3D/bin/nemo3d-x86_64-linux_intel9_64_mpi_intelfast.ex
+mpirun -np 16 -machinefile machinefile.txt /usr/rmt_share/scratch96/r/rrahman/code4/NEMO_3D/PostNEMO3D/bin/nemo3d-x86_64-linux_intel9_64_mpi_intelfast.ex silicon4.xml
+xxxxxxxxxxxxxxxx
+Process [1]/16:  activated
+
+Process [2]/16:  activated
+
+Process [3]/16:  activated
+
+Process [5]/16:  activated
+
+Process [4]/16:  activated
+
+Process [11]/16:  activated
+
+Process [13]/16:  activated
+
+Process [9]/16:  activated
+
+Process [12]/16:  activated
+
+Process [7]/16:  activated
+
+Process [6]/16:  activated
+
+Process [14]/16:  activated
+
+Process [15]/16:  activated
+
+Process [10]/16:  activated
+
+Process [8]/16:  activated
+
+Process [16]/16:  activated
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+===========================================
+   NEMO-3D
+===========================================
+
+Initial check: reading version # from file silicon4.xml
+
+Currently using version ID '0.19' (line 24 ofsilicon4.xmlfile)
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+Parsing input file:  'silicon4.xml' ('silicon4.xml')
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+********************************************************** 
+****************!!! INVALID INPUT !!!********************* 
+********************************************************** 
+---------------------------------------------------------- 
+********************************************************** 
+* ======================================================== 
+* The version of the input file you are using is invalid 
+* (%s) and probably outdated. You should update your  
+* input to version %s.  
+*  
+* One can update the grammar to the latest version by 
+* using the script: 
+ 
+$HOME_NEMO3D/nemo3d/misc/update-nemo3d-input.pl %s 
+
+* with your input deck (%s) as an argument; then 
+* it will be overwritten and updated to version %s. 
+*  
+* Please see the commented lines at the top for usage 
+* instructions.  After applying the script one should 
+* carefully examine the newly generated input to make sure 
+* there are no unintended alterations to the physics or to 
+* the execution flow.
+* ======================================================== 
+********************************************************** 
+0.180.19silicon4.xmlsilicon4.xml0.19
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+   * parsing successful
+   * writing to file 'silicon4.nd_xmlparse'
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+
+Performing consistency check on input file...
+
+Matching shape materials with material database:
+   Discovered a shape:
+      Shape material is monoatomic.
+
+Summarizing Material List:
+   Material #0:  Si + Si  cations={ 7 }  anions={ 7 }
+
+Tilt_dir = [1 0 0]
+NaddALZ = 0
+
+ tilt_dir = [1 0 0] NaddALZ = 0
+
+
+Nxx = 20 Nyy = 20
+
+No 'step_roughness' file in the current directory.
+NO step roughness introduced
+
+Set up final tight-binding data structures:   WARNING:  using cation energy shift as default
+   Initializing strain parameters for (SiSi)
+Processing physical structures:
+Memory usage:active: 1.0593 MB;max active: 1.0593 MB;freed: 0 MB;total: 1.0593 MB; after geo_struct Allocate
+
+   [BOX] -------------------------
+      material:  SiSi
+      will have cell granularity 
+      will use this shape for strain and electronic calculation
+      requested dimensions:  11   11   11   
+      adjusted dimensions:  10.7261   10.7261   10.7261   
+      cell index boundaries:  {  [1,21);  [1,21);  [1,21) }
+         * number of Si atoms = 64000
+         * total number of atoms = 64000
+Memory usage:active: 2.24448 MB;max active: 2.24448 MB;freed: 0.129304 MB;total: 2.37379 MB; after geo_struct Allocate_NOSTRAIN
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+
+Hamiltonian offsets and structure are now set:   * total number of atoms = 64000   * Hamiltonian dimension = 640000
+Perform MPI segment Inititalization
+Memory usage:active: 3.25992 MB;max active: 3.26118 MB;freed: 1.22867 MB;total: 4.4886 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.25992 MB;max active: 3.26118 MB;freed: 0.972656 MB;total: 4.23258 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 0.972656 MB;total: 4.4886 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+Memory usage:active: 3.51594 MB;max active: 3.5172 MB;freed: 1.22867 MB;total: 4.74461 MB; setup_hamiltonian: After setup of setup_crystal_structure
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+Memory usage:active: 3.25992 MB;max active: 3.54795 MB;freed: 2.86098 MB;total: 6.12091 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.25992 MB;max active: 3.45194 MB;freed: 1.16467 MB;total: 4.4246 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.16467 MB;total: 4.68061 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+
+no removal of strain-only atoms neededMemory usage:active: 3.32397 MB;max active: 3.54795 MB;freed: 2.86098 MB;total: 6.18495 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.32397 MB;max active: 3.45194 MB;freed: 1.16467 MB;total: 4.48864 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.16467 MB;total: 4.74466 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.51594 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 4.93663 MB; setup_hamiltonian: After strain calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+Memory usage:active: 3.57999 MB;max active: 3.70796 MB;freed: 1.42069 MB;total: 5.00068 MB; setup_hamiltonian: adjusting memory for electronic structure calculation 
+breakpoint
+second check
+mpi_n3d_id=14
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.16467 MB;total: 5.32071 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=12
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=13
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=11
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=15
+mpi_n3d_masterid=0
+Memory usage:active: 3.90002 MB;max active: 3.90002 MB;freed: 1.16467 MB;total: 5.06469 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=9
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=2
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+Reading SQD_V ... ok
+breakpoint
+second check
+breakpoint
+breakpoint
+second check
+mpi_n3d_id=8
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=3
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+breakpoint
+second check
+mpi_n3d_id=5
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+mpi_n3d_id=7
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+second check
+mpi_n3d_id=1
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=10
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=6
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+breakpoint
+second check
+mpi_n3d_id=4
+mpi_n3d_masterid=0
+Memory usage:active: 4.15604 MB;max active: 4.15604 MB;freed: 1.42069 MB;total: 5.57672 MB; setup_hamiltonian: end of function 
+mpi_n3d_id=0
+mpi_n3d_masterid=0
+Memory usage:active: 3.90002 MB;max active: 3.90025 MB;freed: 23.148 MB;total: 27.048 MB; setup_hamiltonian: end of function 
+What is d->inputfile? silicon4.xml
+Writing atom type to 'silicon4.nd_aType_0'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+Writing neighbor info to 'silicon4.nd_nbrIndx'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+Writing neighbor info to 'silicon4.nd_phaseInfo'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.45272 MB;total: 5.60887 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.45272 MB;total: 6.40888 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.45272 MB;total: 9.2376 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 3.90013 MB;max active: 4.02804 MB;freed: 1.45272 MB;total: 5.35285 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.70015 MB;max active: 4.70015 MB;freed: 1.45272 MB;total: 6.15287 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.39447 MB;max active: 7.39447 MB;freed: 1.45272 MB;total: 8.84719 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 4.15615 MB;max active: 4.28405 MB;freed: 1.70874 MB;total: 5.86488 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.95616 MB;max active: 4.95616 MB;freed: 1.70874 MB;total: 6.6649 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; allocated auxiliary vectors in lanczos_driver
+
+Finished with set-up of data structures.
+
+
+Memory usage:active: 3.90013 MB;max active: 4.09204 MB;freed: 25.5969 MB;total: 29.497 MB; beginning of lanczos_driver 
+************
+**************** from here on all memory should be distributed
+
+Memory usage:active: 4.70015 MB;max active: 4.70015 MB;freed: 25.5969 MB;total: 30.297 MB; allocated ev in lanczos_driver
+
+Memory usage:active: 7.39463 MB;max active: 7.39463 MB;freed: 25.5969 MB;total: 32.9915 MB; allocated auxiliary vectors in lanczos_driver
+
+Memory usage:active: 7.39463 MB;max active: 7.39463 MB;freed: 25.5969 MB;total: 32.9915 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.39447 MB;max active: 7.39447 MB;freed: 1.45272 MB;total: 8.84719 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.77848 MB;max active: 7.77848 MB;freed: 1.70874 MB;total: 9.48722 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.70874 MB;total: 9.49362 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 7.78488 MB;max active: 7.78488 MB;freed: 1.45272 MB;total: 9.2376 MB; after lanczos_initialize in lanczos_driver
+
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=7 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=3 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 13.7714 MB;max active: 13.7714 MB;freed: 1.45272 MB;total: 15.2242 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.4798 MB;max active: 14.4798 MB;freed: 1.45272 MB;total: 15.9325 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=15 memory estimate Hamiltonian storage: 25.8773 MB Natom=4000 Natom_surface=978
+Memory usage:active: 40.3573 MB;max active: 40.3573 MB;freed: 1.45272 MB;total: 41.81 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.45272 MB;total: 15.6146 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.45272 MB;total: 16.3229 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=14 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.45272 MB;total: 42.2009 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=13 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=6 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+-----------------------------------------------
+  beginning Lanczos iteration
+-----------------------------------------------
+# of matrix-vector multiplies: 0
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=11 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 13.7716 MB;max active: 13.7716 MB;freed: 25.5969 MB;total: 39.3685 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=4 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=5 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=10 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=8 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 14.4799 MB;max active: 14.4799 MB;freed: 25.5969 MB;total: 40.0768 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=0 memory estimate Hamiltonian storage: 25.8773 MB Natom=4000 Natom_surface=977
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=9 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 40.3574 MB;max active: 40.3574 MB;freed: 25.5969 MB;total: 65.9543 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1555 MB;max active: 14.1555 MB;freed: 1.70874 MB;total: 15.8642 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8638 MB;max active: 14.8638 MB;freed: 1.70874 MB;total: 16.5725 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=12 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=217
+Memory usage:active: 40.7417 MB;max active: 40.7417 MB;freed: 1.70874 MB;total: 42.4505 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.1619 MB;max active: 14.1619 MB;freed: 1.70874 MB;total: 15.8706 MB; before Allocation of Hamiltonian Storage - Hmult_spds_col_prep_store 
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=1 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+Memory usage:active: 14.8702 MB;max active: 14.8702 MB;freed: 1.70874 MB;total: 16.5789 MB; Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+mpi_id=2 memory estimate Hamiltonian storage: 25.8778 MB Natom=4000 Natom_surface=178
+Memory usage:active: 40.7482 MB;max active: 40.7482 MB;freed: 1.70874 MB;total: 42.4569 MB; After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlendeComplex::Initialize
+CPU 0  up_diag 7821  low_diag 6182
+CPU 15  up_diag 7821  low_diag 6182
+Iteration count = 100 of 100000 maximum
+# of matrix-vector multiplies: 100
+Iteration count = 200 of 100000 maximum
+# of matrix-vector multiplies: 200
+Iteration count = 300 of 100000 maximum
+# of matrix-vector multiplies: 300
+Iteration count = 400 of 100000 maximum
+# of matrix-vector multiplies: 400
+Iteration count = 500 of 100000 maximum
+# of matrix-vector multiplies: 500
+Iteration count = 600 of 100000 maximum
+# of matrix-vector multiplies: 600
+Iteration count = 700 of 100000 maximum
+# of matrix-vector multiplies: 700
+Iteration count = 800 of 100000 maximum
+# of matrix-vector multiplies: 800
+Iteration count = 900 of 100000 maximum
+# of matrix-vector multiplies: 900
+Iteration count = 1000 of 100000 maximum
+# of matrix-vector multiplies: 1000
+Iteration count = 1100 of 100000 maximum
+# of matrix-vector multiplies: 1100
+Iteration count = 1200 of 100000 maximum
+# of matrix-vector multiplies: 1200
+Iteration count = 1300 of 100000 maximum
+# of matrix-vector multiplies: 1300
+Iteration count = 1400 of 100000 maximum
+# of matrix-vector multiplies: 1400
+Iteration count = 1500 of 100000 maximum
+# of matrix-vector multiplies: 1500
+Iteration count = 1600 of 100000 maximum
+# of matrix-vector multiplies: 1600
+Iteration count = 1700 of 100000 maximum
+# of matrix-vector multiplies: 1700
+Iteration count = 1800 of 100000 maximum
+# of matrix-vector multiplies: 1800
+Iteration count = 1900 of 100000 maximum
+# of matrix-vector multiplies: 1900
+Iteration count = 2000 of 100000 maximum
+# of matrix-vector multiplies: 2000
+Iteration count = 2100 of 100000 maximum
+# of matrix-vector multiplies: 2100
+Iteration count = 2200 of 100000 maximum
+# of matrix-vector multiplies: 2200
+Iteration count = 2300 of 100000 maximum
+# of matrix-vector multiplies: 2300
+Iteration count = 2400 of 100000 maximum
+# of matrix-vector multiplies: 2400
+Iteration count = 2500 of 100000 maximum
+# of matrix-vector multiplies: 2500
+Iteration count = 2600 of 100000 maximum
+# of matrix-vector multiplies: 2600
+Iteration count = 2700 of 100000 maximum
+# of matrix-vector multiplies: 2700
+Iteration count = 2800 of 100000 maximum
+# of matrix-vector multiplies: 2800
+Iteration count = 2900 of 100000 maximum
+# of matrix-vector multiplies: 2900
+Iteration count = 3000 of 100000 maximum
+# of matrix-vector multiplies: 3000
+Iteration count = 3100 of 100000 maximum
+# of matrix-vector multiplies: 3100
+Iteration count = 3200 of 100000 maximum
+# of matrix-vector multiplies: 3200
+   eigenvalue candidate #0:   1.169998744481774
+    E = 1.169999e+00  dE_min = 6.366019e-13
+Iteration count = 3300 of 100000 maximum
+# of matrix-vector multiplies: 3300
+Iteration count = 3400 of 100000 maximum
+# of matrix-vector multiplies: 3400
+Iteration count = 3500 of 100000 maximum
+# of matrix-vector multiplies: 3500
+Iteration count = 3600 of 100000 maximum
+# of matrix-vector multiplies: 3600
+Iteration count = 3700 of 100000 maximum
+# of matrix-vector multiplies: 3700
+Iteration count = 3800 of 100000 maximum
+# of matrix-vector multiplies: 3800
+Iteration count = 3900 of 100000 maximum
+# of matrix-vector multiplies: 3900
+Iteration count = 4000 of 100000 maximum
+# of matrix-vector multiplies: 4000
+Iteration count = 4100 of 100000 maximum
+# of matrix-vector multiplies: 4100
+Iteration count = 4200 of 100000 maximum
+# of matrix-vector multiplies: 4200
+Iteration count = 4300 of 100000 maximum
+# of matrix-vector multiplies: 4300
+Iteration count = 4400 of 100000 maximum
+# of matrix-vector multiplies: 4400
+Iteration count = 4500 of 100000 maximum
+# of matrix-vector multiplies: 4500
+Iteration count = 4600 of 100000 maximum
+# of matrix-vector multiplies: 4600
+Iteration count = 4700 of 100000 maximum
+# of matrix-vector multiplies: 4700
+   eigenvalue candidate #1:   1.182920892630005
+    E = 1.182921e+00  dE_min = 6.368239e-13
+Iteration count = 4800 of 100000 maximum
+# of matrix-vector multiplies: 4800
+Iteration count = 4900 of 100000 maximum
+# of matrix-vector multiplies: 4900
+Iteration count = 5000 of 100000 maximum
+# of matrix-vector multiplies: 5000
+Iteration count = 5100 of 100000 maximum
+# of matrix-vector multiplies: 5100
+Iteration count = 5200 of 100000 maximum
+# of matrix-vector multiplies: 5200
+Iteration count = 5300 of 100000 maximum
+# of matrix-vector multiplies: 5300
+Iteration count = 5400 of 100000 maximum
+# of matrix-vector multiplies: 5400
+Iteration count = 5500 of 100000 maximum
+# of matrix-vector multiplies: 5500
+Iteration count = 5600 of 100000 maximum
+# of matrix-vector multiplies: 5600
+Iteration count = 5700 of 100000 maximum
+# of matrix-vector multiplies: 5700
+   eigenvalue candidate #2:   1.170023419106230
+    E = 1.170023e+00  dE_min = 7.163159e-13
+Iteration count = 5800 of 100000 maximum
+# of matrix-vector multiplies: 5800
+Iteration count = 5900 of 100000 maximum
+# of matrix-vector multiplies: 5900
+Iteration count = 6000 of 100000 maximum
+# of matrix-vector multiplies: 6000
+Iteration count = 6100 of 100000 maximum
+# of matrix-vector multiplies: 6100
+Iteration count = 6200 of 100000 maximum
+# of matrix-vector multiplies: 6200
+Iteration count = 6300 of 100000 maximum
+# of matrix-vector multiplies: 6300
+Iteration count = 6400 of 100000 maximum
+# of matrix-vector multiplies: 6400
+   eigenvalue candidate #3:   1.182781601073480
+    E = 1.182782e+00  dE_min = 3.979039e-13
+Lanczos_1st = 9.62 Lanczos_rest = 643187.96
+
+time_lanczos_iter_all = 191.438
+CPU 0 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.434
+CPU 1 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.441
+CPU 3 expected Broadcast of eigenvalues
+CPU 0 received Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.438
+CPU 7 expected Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+Eigenvalue: 1.16999874e+00  in 3201 iterations
+Eigenvalue: 1.17002342e+00  in 5701 iterations
+Eigenvalue: 1.18278160e+00  in 6401 iterations
+Eigenvalue: 1.18292089e+00  in 4701 iterations
+before eigenvectr 4
+Memory usage:active: 37.9616 MB;max active: 42.3458 MB;freed: 2706.88 MB;total: 2744.84 MB; before the nml_dcm_new
+
+time_lanczos_iter_all = 191.434
+CPU 4 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.438
+CPU 6 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.438
+CPU 8 expected Broadcast of eigenvalues
+CPU 4 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+CPU 6 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+
+time_lanczos_iter_all = 191.438
+CPU 11 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.438
+CPU 12 expected Broadcast of eigenvalues
+CPU 12 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+
+time_lanczos_iter_all = 191.434
+CPU 15 expected Broadcast of eigenvalues
+CPU 15 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 37.9614 MB;max active: 40.3619 MB;freed: 9.80863 MB;total: 47.7701 MB; before the nml_dcm_new
+Memory usage:active: 40.5216 MB;max active: 40.5216 MB;freed: 9.80863 MB;total: 50.3302 MB; after the nml_dcm_new
+
+time_lanczos_iter_all = 191.434
+CPU 14 expected Broadcast of eigenvalues
+CPU 14 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.2789 MB;total: 48.6281 MB; before the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.2789 MB;total: 51.1882 MB; after the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+Memory usage:active: 40.5217 MB;max active: 42.3458 MB;freed: 2706.88 MB;total: 2747.4 MB; after the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+CPU 8 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+CPU 1 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+
+time_lanczos_iter_all = 191.434
+CPU 2 expected Broadcast of eigenvalues
+CPU 2 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+
+time_lanczos_iter_all = 191.434
+CPU 5 expected Broadcast of eigenvalues
+
+time_lanczos_iter_all = 191.438
+CPU 13 expected Broadcast of eigenvalues
+CPU 13 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+
+time_lanczos_iter_all = 191.438
+CPU 9 expected Broadcast of eigenvalues
+CPU 9 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+CPU 7 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+
+time_lanczos_iter_all = 191.438
+CPU 10 expected Broadcast of eigenvalues
+CPU 5 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+CPU 11 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+CPU 10 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3491 MB;max active: 40.7496 MB;freed: 10.535 MB;total: 48.8841 MB; before the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+CPU 3 received Broadcast of eigenvalues
+before rsort value[0]=1.169998744481774e+00  in iterations 3201
+before rsort value[1]=1.182920892630005e+00  in iterations 4701
+before rsort value[2]=1.170023419106230e+00  in iterations 5701
+before rsort value[3]=1.182781601073480e+00  in iterations 6401
+after rsort
+after rsort value[0]=1.169998744481774e+00  in iterations 3201
+after rsort value[1]=1.170023419106230e+00  in iterations 5701
+after rsort value[2]=1.182781601073480e+00  in iterations 6401
+after rsort value[3]=1.182920892630005e+00  in iterations 4701
+before eigenvectr 4
+Memory usage:active: 38.3429 MB;max active: 40.7433 MB;freed: 10.5124 MB;total: 48.8553 MB; before the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+Memory usage:active: 40.9093 MB;max active: 40.9093 MB;freed: 10.535 MB;total: 51.4442 MB; after the nml_dcm_new
+Memory usage:active: 40.903 MB;max active: 40.903 MB;freed: 10.5124 MB;total: 51.4154 MB; after the nml_dcm_new
+CPU 2 expected Broadcast of eigenvectors
+CPU 11 expected Broadcast of eigenvectors
+CPU 14 expected Broadcast of eigenvectors
+CPU 6 expected Broadcast of eigenvectors
+CPU 5 expected Broadcast of eigenvectors
+CPU 13 expected Broadcast of eigenvectors
+CPU 15 expected Broadcast of eigenvectors
+CPU 3 expected Broadcast of eigenvectors
+CPU 1 expected Broadcast of eigenvectors
+CPU 10 expected Broadcast of eigenvectors
+CPU 8 expected Broadcast of eigenvectors
+CPU 12 expected Broadcast of eigenvectors
+CPU 7 expected Broadcast of eigenvectors
+CPU 4 expected Broadcast of eigenvectors
+CPU 9 expected Broadcast of eigenvectors
+CPU 0 starting Broadcast of eigenvectors
+CPU 0 finished Broadcast of eigenvectors
+Repeat Lanczos Iterations and construct eigenvectors
+iteration:
+0 of 6401 max
+CPU 1 received Broadcast of eigenvectors
+CPU 4 received Broadcast of eigenvectors
+CPU 6 received Broadcast of eigenvectors
+CPU 13 received Broadcast of eigenvectors
+CPU 12 received Broadcast of eigenvectors
+CPU 8 received Broadcast of eigenvectors
+CPU 14 received Broadcast of eigenvectors
+CPU 15 received Broadcast of eigenvectors
+CPU 7 received Broadcast of eigenvectors
+CPU 3 received Broadcast of eigenvectors
+CPU 2 received Broadcast of eigenvectors
+CPU 9 received Broadcast of eigenvectors
+CPU 10 received Broadcast of eigenvectors
+CPU 5 received Broadcast of eigenvectors
+CPU 11 received Broadcast of eigenvectors
+# of matrix-vector multiplies: 6500
+100 of 6401 max
+# of matrix-vector multiplies: 6600
+200 of 6401 max
+# of matrix-vector multiplies: 6700
+300 of 6401 max
+# of matrix-vector multiplies: 6800
+400 of 6401 max
+# of matrix-vector multiplies: 6900
+500 of 6401 max
+# of matrix-vector multiplies: 7000
+600 of 6401 max
+# of matrix-vector multiplies: 7100
+700 of 6401 max
+# of matrix-vector multiplies: 7200
+800 of 6401 max
+# of matrix-vector multiplies: 7300
+900 of 6401 max
+# of matrix-vector multiplies: 7400
+1000 of 6401 max
+# of matrix-vector multiplies: 7500
+1100 of 6401 max
+# of matrix-vector multiplies: 7600
+1200 of 6401 max
+# of matrix-vector multiplies: 7700
+1300 of 6401 max
+# of matrix-vector multiplies: 7800
+1400 of 6401 max
+# of matrix-vector multiplies: 7900
+1500 of 6401 max
+# of matrix-vector multiplies: 8000
+1600 of 6401 max
+# of matrix-vector multiplies: 8100
+1700 of 6401 max
+# of matrix-vector multiplies: 8200
+1800 of 6401 max
+# of matrix-vector multiplies: 8300
+1900 of 6401 max
+# of matrix-vector multiplies: 8400
+2000 of 6401 max
+# of matrix-vector multiplies: 8500
+2100 of 6401 max
+# of matrix-vector multiplies: 8600
+2200 of 6401 max
+# of matrix-vector multiplies: 8700
+2300 of 6401 max
+# of matrix-vector multiplies: 8800
+2400 of 6401 max
+# of matrix-vector multiplies: 8900
+2500 of 6401 max
+# of matrix-vector multiplies: 9000
+2600 of 6401 max
+# of matrix-vector multiplies: 9100
+2700 of 6401 max
+# of matrix-vector multiplies: 9200
+2800 of 6401 max
+# of matrix-vector multiplies: 9300
+2900 of 6401 max
+# of matrix-vector multiplies: 9400
+3000 of 6401 max
+# of matrix-vector multiplies: 9500
+3100 of 6401 max
+# of matrix-vector multiplies: 9600
+3200 of 6401 max
+# of matrix-vector multiplies: 9700
+3300 of 6401 max
+# of matrix-vector multiplies: 9800
+3400 of 6401 max
+# of matrix-vector multiplies: 9900
+3500 of 6401 max
+# of matrix-vector multiplies: 10000
+3600 of 6401 max
+# of matrix-vector multiplies: 10100
+3700 of 6401 max
+# of matrix-vector multiplies: 10200
+3800 of 6401 max
+# of matrix-vector multiplies: 10300
+3900 of 6401 max
+# of matrix-vector multiplies: 10400
+4000 of 6401 max
+# of matrix-vector multiplies: 10500
+4100 of 6401 max
+# of matrix-vector multiplies: 10600
+4200 of 6401 max
+# of matrix-vector multiplies: 10700
+4300 of 6401 max
+# of matrix-vector multiplies: 10800
+4400 of 6401 max
+# of matrix-vector multiplies: 10900
+4500 of 6401 max
+# of matrix-vector multiplies: 11000
+4600 of 6401 max
+# of matrix-vector multiplies: 11100
+4700 of 6401 max
+# of matrix-vector multiplies: 11200
+4800 of 6401 max
+# of matrix-vector multiplies: 11300
+4900 of 6401 max
+# of matrix-vector multiplies: 11400
+5000 of 6401 max
+# of matrix-vector multiplies: 11500
+5100 of 6401 max
+# of matrix-vector multiplies: 11600
+5200 of 6401 max
+# of matrix-vector multiplies: 11700
+5300 of 6401 max
+# of matrix-vector multiplies: 11800
+5400 of 6401 max
+# of matrix-vector multiplies: 11900
+5500 of 6401 max
+# of matrix-vector multiplies: 12000
+5600 of 6401 max
+# of matrix-vector multiplies: 12100
+5700 of 6401 max
+# of matrix-vector multiplies: 12200
+5800 of 6401 max
+# of matrix-vector multiplies: 12300
+5900 of 6401 max
+# of matrix-vector multiplies: 12400
+6000 of 6401 max
+# of matrix-vector multiplies: 12500
+6100 of 6401 max
+# of matrix-vector multiplies: 12600
+6200 of 6401 max
+# of matrix-vector multiplies: 12700
+6300 of 6401 max
+# of matrix-vector multiplies: 12800
+6400 of 6401 max
+Done with Iterations and construction of eigenvectors
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+----------------------
+Found 4 eigvalues
+----------------------
+
+writing wave function to 'silicon4.nd_evec_1'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing wave function to 'silicon4.nd_evec_2'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing wave function to 'silicon4.nd_evec_3'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing wave function to 'silicon4.nd_evec_4'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing probability density to 'silicon4.nd_wf_1'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing probability density to 'silicon4.nd_wf_2'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing probability density to 'silicon4.nd_wf_3'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+writing probability density to 'silicon4.nd_wf_4'
+   RECV:  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15  
+
+state 0 Eigval 1.169999e+00 Ritzval 1.169535e+00 residual 1.133798e-02 (Eigval-Ritz)/Eigval 3.966472e-04 norm 9.518298e-01
+state 1 Eigval 1.170023e+00 Ritzval 1.170014e+00 residual 3.452690e-04 (Eigval-Ritz)/Eigval 7.657299e-06 norm 9.990050e-01
+state 2 Eigval 1.182782e+00 Ritzval 1.182782e+00 residual 6.034244e-13 (Eigval-Ritz)/Eigval 6.382849e-15 norm 1.000000e+00
+state 3 Eigval 1.182921e+00 Ritzval 1.182667e+00 residual 1.488213e-02 (Eigval-Ritz)/Eigval 2.144647e-04 norm 8.338439e-01
+ 
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 15 ------------------
+cpu:  15 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:  15 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=116.1	  multiply_tot=174.1
+cpu:  15 COMM1:         sendrec= 51.0	 allred= 91.6	 barrier= 59.8	 bcast= 46.5	 send=  0.4	 receive=  0.0
+cpu:  15 COMM2:      matmult_sendrecv =   0.0
+cpu:  15 STRAIN:       0.0
+cpu:  15 LANCZ:      392.0
+cpu:  15 RAYLEIGH:     0.0
+cpu:  15 PARPACK:      0.0
+Memory usage:active: 37.5614 MB;max active: 40.7265 MB;freed: 16.4661 MB;total: 54.0275 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 13 ------------------
+cpu:  13 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:  13 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=132.7	  multiply_tot=256.6
+cpu:  13 COMM1:         sendrec=111.5	 allred= 64.7	 barrier= 47.8	 bcast=  5.0	 send=  0.4	 receive=  0.0
+cpu:  13 COMM2:      matmult_sendrecv =   0.0
+cpu:  13 STRAIN:       0.0
+cpu:  13 LANCZ:      392.0
+cpu:  13 RAYLEIGH:     0.0
+cpu:  13 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  1 ------------------
+cpu:   1 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   1 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=135.7	  multiply_tot=196.9
+cpu:   1 COMM1:         sendrec= 45.8	 allred=115.4	 barrier= 51.7	 bcast=  2.9	 send=  0.3	 receive=  0.0
+cpu:   1 COMM2:      matmult_sendrecv =   0.0
+cpu:   1 STRAIN:       0.0
+cpu:   1 LANCZ:      392.0
+cpu:   1 RAYLEIGH:     0.0
+cpu:   1 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  6 ------------------
+cpu:   6 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.1
+cpu:   6 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=142.3	  multiply_tot=232.6
+cpu:   6 COMM1:         sendrec= 75.5	 allred= 62.0	 barrier= 61.8	 bcast= 10.5	 send=  0.3	 receive=  0.0
+cpu:   6 COMM2:      matmult_sendrecv =   0.0
+cpu:   6 STRAIN:       0.0
+cpu:   6 LANCZ:      392.0
+cpu:   6 RAYLEIGH:     0.0
+cpu:   6 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+Memory usage:active: 34.9546 MB;max active: 40.7265 MB;freed: 19.0729 MB;total: 54.0275 MB; after clean-up
+Memory usage:active: 34.9546 MB;max active: 40.7265 MB;freed: 19.0729 MB;total: 54.0275 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 11 ------------------
+cpu:  11 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:  11 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=134.9	  multiply_tot=209.0
+cpu:  11 COMM1:         sendrec= 61.1	 allred= 65.4	 barrier= 52.5	 bcast= 41.1	 send=  0.4	 receive=  0.0
+cpu:  11 COMM2:      matmult_sendrecv =   0.0
+cpu:  11 STRAIN:       0.0
+cpu:  11 LANCZ:      392.0
+cpu:  11 RAYLEIGH:     0.0
+cpu:  11 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 14 ------------------
+cpu:  14 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:  14 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=140.9	  multiply_tot=222.3
+cpu:  14 COMM1:         sendrec= 67.0	 allred= 61.9	 barrier= 61.5	 bcast= 19.7	 send=  0.4	 receive=  0.0
+cpu:  14 COMM2:      matmult_sendrecv =   0.0
+cpu:  14 STRAIN:       0.0
+cpu:  14 LANCZ:      392.0
+cpu:  14 RAYLEIGH:     0.0
+cpu:  14 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 16.9364 MB;total: 54.8855 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  3 ------------------
+cpu:   3 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   3 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=132.8	  multiply_tot=233.7
+cpu:   3 COMM1:         sendrec= 87.8	 allred= 85.6	 barrier= 48.5	 bcast=  2.2	 send=  0.3	 receive=  0.0
+cpu:   3 COMM2:      matmult_sendrecv =   0.0
+cpu:   3 STRAIN:       0.0
+cpu:   3 LANCZ:      392.0
+cpu:   3 RAYLEIGH:     0.0
+cpu:   3 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  2 ------------------
+cpu:   2 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.1
+cpu:   2 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=133.4	  multiply_tot=206.3
+cpu:   2 COMM1:         sendrec= 59.4	 allred=115.9	 barrier= 48.5	 bcast=  0.9	 send=  0.3	 receive=  0.0
+cpu:   2 COMM2:      matmult_sendrecv =   0.0
+cpu:   2 STRAIN:       0.0
+cpu:   2 LANCZ:      392.0
+cpu:   2 RAYLEIGH:     0.0
+cpu:   2 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  7 ------------------
+cpu:   7 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   7 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=133.8	  multiply_tot=237.6
+cpu:   7 COMM1:         sendrec= 90.3	 allred= 64.3	 barrier= 54.0	 bcast= 14.3	 send=  0.3	 receive=  0.0
+cpu:   7 COMM2:      matmult_sendrecv =   0.0
+cpu:   7 STRAIN:       0.0
+cpu:   7 LANCZ:      392.0
+cpu:   7 RAYLEIGH:     0.0
+cpu:   7 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 12 ------------------
+cpu:  12 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:  12 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=141.4	  multiply_tot=244.1
+cpu:  12 COMM1:         sendrec= 88.0	 allred= 64.1	 barrier= 54.0	 bcast=  2.9	 send=  0.4	 receive=  0.0
+cpu:  12 COMM2:      matmult_sendrecv =   0.0
+cpu:  12 STRAIN:       0.0
+cpu:  12 LANCZ:      392.0
+cpu:  12 RAYLEIGH:     0.0
+cpu:  12 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  5 ------------------
+cpu:   5 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   5 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=135.1	  multiply_tot=221.7
+cpu:   5 COMM1:         sendrec= 72.4	 allred= 63.4	 barrier= 50.7	 bcast= 31.4	 send=  0.3	 receive=  0.0
+cpu:   5 COMM2:      matmult_sendrecv =   0.0
+cpu:   5 STRAIN:       0.0
+cpu:   5 LANCZ:      392.0
+cpu:   5 RAYLEIGH:     0.0
+cpu:   5 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.5432 MB;total: 54.8855 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.5432 MB;total: 54.8855 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  4 ------------------
+cpu:   4 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.1
+cpu:   4 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=135.2	  multiply_tot=229.9
+cpu:   4 COMM1:         sendrec= 79.1	 allred= 83.9	 barrier= 51.8	 bcast=  0.7	 send=  0.3	 receive=  0.0
+cpu:   4 COMM2:      matmult_sendrecv =   0.0
+cpu:   4 STRAIN:       0.0
+cpu:   4 LANCZ:      392.0
+cpu:   4 RAYLEIGH:     0.0
+cpu:   4 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  8 ------------------
+cpu:   8 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   8 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=143.6	  multiply_tot=248.1
+cpu:   8 COMM1:         sendrec= 89.2	 allred= 61.9	 barrier= 53.7	 bcast=  1.6	 send=  0.3	 receive=  0.0
+cpu:   8 COMM2:      matmult_sendrecv =   0.0
+cpu:   8 STRAIN:       0.0
+cpu:   8 LANCZ:      392.0
+cpu:   8 RAYLEIGH:     0.0
+cpu:   8 PARPACK:      0.0
+Memory usage:active: 37.9428 MB;max active: 41.1079 MB;freed: 17.1699 MB;total: 55.1127 MB; before clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; after clean-up
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU  9 ------------------
+cpu:   9 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.2
+cpu:   9 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=141.2	  multiply_tot=245.9
+cpu:   9 COMM1:         sendrec= 90.2	 allred= 54.2	 barrier= 54.8	 bcast= 10.8	 send=  0.4	 receive=  0.0
+cpu:   9 COMM2:      matmult_sendrecv =   0.0
+cpu:   9 STRAIN:       0.0
+cpu:   9 LANCZ:      392.0
+cpu:   9 RAYLEIGH:     0.0
+cpu:   9 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+[LANCZOS] TOTAL TIME SPENT ON ALLREDUCE = 0.00
+------------------  CPU 10 ------------------
+cpu:  10 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  4.1
+cpu:  10 MATRIX:       h3ddia=  0.0	 h3doff=  0.1	 multiply_nocom=137.2	  multiply_tot=239.7
+cpu:  10 COMM1:         sendrec= 87.7	 allred= 54.9	 barrier= 54.7	 bcast= 17.9	 send=  0.3	 receive=  0.0
+cpu:  10 COMM2:      matmult_sendrecv =   0.0
+cpu:  10 STRAIN:       0.0
+cpu:  10 LANCZ:      392.0
+cpu:  10 RAYLEIGH:     0.0
+cpu:  10 PARPACK:      0.0
+Memory usage:active: 37.9491 MB;max active: 41.1142 MB;freed: 17.1925 MB;total: 55.1415 MB; before clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; after clean-up
+Memory usage:active: 35.3423 MB;max active: 41.1142 MB;freed: 19.7993 MB;total: 55.1415 MB; End of nemo3d
+Memory usage:active: 35.336 MB;max active: 41.1079 MB;freed: 19.7767 MB;total: 55.1127 MB; End of nemo3d
+
+
+------------------  CPU  0 ------------------
+cpu:   0 TOTAL:        total=400.7	 setup=  4.4	 strain=  0.0 electronics=395.3 fileio=  3.4
+cpu:   0 MATRIX:       h3ddia=  0.0	 h3doff=  0.0	 multiply_nocom=118.6	  multiply_tot=173.1
+cpu:   0 COMM1:         sendrec= 46.7	 allred=145.5	 barrier= 24.8	 bcast=  0.5	 send=  0.0	 receive=  0.2
+cpu:   0 COMM2:      matmult_sendrecv =   0.0
+cpu:   0 STRAIN:       0.0
+cpu:   0 LANCZ:      392.0
+cpu:   0 RAYLEIGH:     0.0
+cpu:   0 PARPACK:      0.0
+Memory usage:active: 37.5615 MB;max active: 42.3458 MB;freed: 2758.22 MB;total: 2795.78 MB; before clean-up
+Memory usage:active: 34.9547 MB;max active: 42.3458 MB;freed: 2760.82 MB;total: 2795.78 MB; after clean-up
+
+Exiting NEMO-3D
+===========================================
+Memory usage:active: 34.9547 MB;max active: 42.3458 MB;freed: 2760.82 MB;total: 2795.78 MB; End of nemo3d

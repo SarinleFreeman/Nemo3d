@@ -1,0 +1,1231 @@
+#!/bin/sh
+#
+############################################
+# Script to compile nemo for Unix Machines #
+# modified CFD-ACEU make script            #
+# (c) CFD Research Corporation             #
+############################################
+
+#### Please define XRTHOME as an environmental variable
+#### if you need to compile the Motif version of the code.
+
+SOURCE_DIR="../src"
+DIRS="incl"
+
+DIRS_INC=" "
+for j in $DIRS
+do
+  DIRS_INC="$DIRS_INC -I$SOURCE_DIR/$j"
+done
+
+export SOURCE_DIR
+export DIRS
+
+# Get build host
+BUILDHOST=`uname -n`
+COPY="/bin/cp"
+MOVE="/bin/mv"
+REMOVE="/bin/rm"
+AR1="ar"
+AR1_FLAGS="ruv "  # Trailing blank is necessary!
+EXT="o"
+MOD="mod"
+EXECL="aceun"
+export COPY
+export EXT
+export MOD
+export MOVE
+export REMOVE
+export BUILDHOST
+export EXECL
+
+# Get operating system info
+OSNAME=`uname -s`
+OSNAMEwinnt=`uname -s`
+OSREL=`uname -r`
+MAKEUTIL="make"
+# Handle Cygnus tools
+if [ $OSNAME = "CYGWIN32/NT" ]
+then
+  OSNAME="Windows_NT"
+  MAKEUTIL="nmake"
+fi
+if [ $OSNAME = "Windows_NT" ]
+then
+  if [ $PROCESSOR_ARCHITECTURE = "ALPHA" ]
+  then
+    OSNAME="Windows_NT_Alpha"
+	MAKEUTIL="nmake"
+  fi
+fi
+
+# Handle CRAY idiosyncracies
+uname_a=`uname -a`
+if [ `echo "$uname_a" | fgrep -c "CRAY"` -eq 1 ]
+then
+  OSNAME=Cray
+fi
+
+export OSNAME OSREL
+# System flags
+
+
+# MPI stuff
+if [ -z "$MPICH_HOME" ]; then
+  MPICH_HOME=/hosts/coolie/usr3/libs/mpi
+fi
+
+# Default flags
+EXECTABLE="run3d"
+MEM_TRACK=1
+PARALLEL=0
+FAKEMPI=0
+NONSHARED=0
+MPI=0
+DBG=0
+ALT=0
+ALT2=0
+LIC="U"
+PFLG=""
+MIPS1=0
+n32=0
+LOG=0
+INST=0
+INSTTEST=0
+ECHO=0
+PURIFY=0
+BEM=0
+NORAD=0
+R12K=0
+R10K=0
+TIMING=0
+
+CC="cc"
+CPP="cc"
+YACC="yacc"
+YFLAGS="-d -v -l"
+LDO="-o"
+LD="ld"
+OFLGS=""
+
+DOPTION=""
+MPILIBS=""
+NEMOINCL="-I../../nemo_ham/src/mat -I../../nemo/src/incl"
+NEMOLIBS="-lmat_nemo -lmat_nemo_ham -l_nemo_f90 -lio_nemo -lmath_nemo -lutil_nemo "
+NEMOLIBS="-lmat_nemo -lmat_nemo_ham -lio_nemo -lmath_nemo -lutil_nemo "
+
+export MAKEUTIL
+export TARGET1
+export TARGETT
+export INC_FILE
+export MDICE_INCLUDE
+export YACC
+export YFLAGS
+
+# Parse arguments
+for arg in $*
+do
+case $arg in
+'run3d')
+  EXECUTABLE="run3d"
+  ;;
+'with1D'|'with1d')
+  DOPTION="-DINCLUDE_NEMO1D_DATABASE"
+  NEMOLIBS="-lmatdb_nemo -ldb_nemo -lmat_nemo -lmat_nemo_ham -l_nemo_f90 -lio_nemo -lmath_nemo -lutil_nemo "
+  ;;
+'fmtdat')
+  EXECUTABLE="fmtdat"
+  ;;
+'matmul_test')
+  EXECUTABLE="matmul_test"
+  ;;
+'ivectorvector_test')
+  EXECUTABLE="ivectorvector_test"
+  DOPTION="-DIVECTVECTR_TEST"
+  ;;
+'i3matrix_test')
+  EXECUTABLE="i3matrix_test"
+  DOPTION="-DI3MATRIX_TEST"
+  ;;
+'rmatrixrvector_test')
+  EXECUTABLE="rmatrixrvector_test"
+  DOPTION="-DRMATRIXRVECTOR_TEST"
+  ;;
+'mem_track_off')
+  MEM_TRACK=0
+  ;;
+'parallel'|'PARALLEL')
+  PARALLEL=1
+  ;;
+'fakempi'|'FAKEMPI')
+  FAKEMPI=1
+  PARALLEL=0
+  ;;
+'nonshared'|'NONSHARED')
+  NONSHARED=1
+  ;;
+'shared'|'SHARED')
+  NONSHARED=0
+  ;;
+'debug'|'DEBUG'|'d'|'D')
+  DBG=1
+  ;;
+'alt'|'ALT')
+  ALT=1
+  ;;
+'alt2'|'ALT2')
+  ALT2=1
+  ;;
+'purify'|'PURIFY'|'pure'|'PURE')
+  PURIFY=1
+  ;;
+'notiming'|'NOTIMING')
+  TIMING=0
+  ;;
+'timing'|'TIMING')
+  TIMING=1
+  ;;
+'clean'|'CLEAN')
+  $MAKEUTIL -f makefile_mk clean
+  exit
+  ;;
+'realclean'|'REALCLEAN')
+  $MAKEUTIL -s realclean
+  exit
+  ;;
+'profile'|'PROFILE'|'prof'|'PROF'|'p'|'P')
+  PFLG="-pg"
+  ;;
+'n32'|'N32')
+  n32=1
+  ;;
+'r4k')
+  n32=1
+  r4k=1
+  ;;
+'tar')
+  $MAKEUTIL -f makefile_mk -s tar
+  exit
+  ;;
+'log')
+  LOG=1
+  ;;
+'install')
+  INST=1
+  ;;
+'installtest')
+  INSTTEST=1
+  ;;
+'r12k')
+  R12K=1
+  ;;
+'r10k')
+  R10K=1
+  ;;
+'library'|'LIBRARY'|'lib'|'LIB')
+  LIBRARY=1
+  ;;
+'echo'|'ECHO')
+  ECHO=1
+  ;;
+'help'|'HELP'|'h'|'H')
+  echo "Build script invocation:"
+  echo " "
+  echo "  $0 clean       to clean object files"
+  echo "  $0 tar         to create source tar file"
+  echo "  $0 options...  to build executable"
+  echo " "
+  echo "  Supported options are:"
+  echo "    run3d         build batch version (default)"
+  echo "    debug        build debug version (default)"
+  echo "    profile      Build for profiling"
+  echo "    log          silent build, logging errors to file"
+  echo "    parallel     build parallel-capable version"
+  echo "    fakempi      build a parallel version of the code without the MPI library, just stubs"
+  echo "    mem_track_off eliminate custom memory tracking in malloc"
+  echo " "
+  exit
+  ;;
+*)
+  echo "Bad option: $arg"
+  echo "Use $0 help for options"
+  exit
+  ;;
+esac
+done
+
+        PURE=""
+	if [ $PURIFY = "1" ]; then
+	 MEM_TRACK=0
+         PURE="purify"
+	fi
+
+
+	if [ $FAKEMPI = "1" ]
+	then
+	OPTIONS="-DMPI3d -DFAKE_MPI $OPTIONS"
+	fi
+
+	if [ $PARALLEL = "1" ]
+	then
+	OPTIONS="-DMPI3d $OPTIONS"
+	fi
+
+	if [ $MEM_TRACK = "0" ]
+	then
+	OPTIONS="-DNO_MEMORY_TRACKING $OPTIONS"
+	fi
+
+	if [ $TIMING = "1" ]
+	then
+	OPTIONS="-DMPI_TIMING_TOTAL -DMPI_TIMING_TOP -DMPI_TIMING $OPTIONS"
+	fi
+
+ 	CPP_F_FLAGS="$OPTIONS"
+ 	CPP_C_FLAGS="$NEMOINCL $OPTIONS"
+ 	OFLAGS="$PFLG"
+ 	FFLAGS="$PFLG"
+ 	CFLAGS="$DOPTION $DIRS_INC $PFLG"
+
+
+# Set variables based on OS
+case $OSNAME in
+
+##### Silicon Graphics Irix 5.x #####
+'IRIX')
+	# Compiler flags
+	MACHINE="iris"
+	CPP="/usr/lib/cpp"
+	CPP_F_FLAGS="-C -P -D_IRIX53_ -DIRIX $CPP_F_FLAGS"
+	CPP_C_FLAGS="-D_IRIX53_ -DIRIX $CPP_C_FLAGS"
+	if [ $n32 = "1" ]; then
+	  F77="f90"
+	  F90="f90"
+	  LINKER="$PURE /usr/bin/cc"
+	  F90FLG="$DIRS_INC -freeform"
+	  F77FLG=""
+	  MPI_ARCH=IRIXN32
+	else
+	  CPP_F_FLAGS="-D_NAG_ $CPP_F_FLAGS"
+	  CPP_C_FLAGS="-D_NAG_ $CPP_C_FLAGS"
+	  F90="/usr/local/bin/f95"
+	  F77="$F90"
+	  LINKER="/usr/bin/cc"
+	  F90FLG="$DIRS_INC -free -mismatch_all -byte_kinds"
+	  F77FLG=""
+	  MPI_ARCH=IRIX
+	fi
+	MOD="mod"
+
+	if [ $GUI = "1" ]; then
+	  CPP_C_FLAGS="$CPP_C_FLAGS -DNEW_XRT"
+	fi
+
+	MPICH_HOME="$MPICH_HOME/build/$MPI_ARCH/ch_p4"
+	MPI_INCS="-I$MPICH_HOME/include"
+	if [ $NATIVEMPI -eq 1 ]; then
+	  MPI_INCS=""
+	fi
+	CFDRCINCS="$CFDRCINCS $MPI_INCS"
+
+	  CFLAGS="$CFLAGS -woff 1048 "
+
+	if [ $n32 = "1" ]; then
+	  FFLAGS="-n32 $FFLAGS"
+	  CFLAGS="-n32 $CFLAGS"
+	  OFLAGS="-n32 $OFLAGS"
+	fi
+
+	if [ $DBG = "1" ]; then
+	  FFLAGS="-g $FFLAGS -DEBUG:div_check -TARG:exc_min=Z"
+	  CFLAGS="-g $CFLAGS -DEBUG:div_check -TARG:exc_min=Z"
+	  OFLAGS="-g $OFLAGS"
+	  NEMOLIBSDIR="-L../negf_irix_debug"
+	else
+	  FFLAGS="-O3 $FFLAGS "
+	  CFLAGS="-O3 $CFLAGS "
+	  OFLAGS=" "
+	  NEMOLIBSDIR="-L../negf_irix_fast"
+	fi
+
+	# Libraries
+
+	if [ $PARALLEL -eq 1 ]; then
+	  MPILIBS="-L$MPICH_HOME/lib -lmpich"
+	else
+	 MPILIBS=""
+	fi
+	if [ $NATIVEMPI -eq 1 ]; then
+	 MPILIBS="-lmpi"
+	fi
+
+	ARPACK="/usr/people/gekco/local/lib"
+	FLIBS_LINK="$(ARPACK)/libarpack_IRIX_n32.a -lcomplib.sgimath -lftn90 -lftn -lc -lm"
+
+	if [ $GUI = "1" ]; then
+	 MOTIFLIBS="-lXpm -lXm -lXt -lX11"
+	 XRTLIBS="/usr/local/xrthome/lib/libxrtm.a /usr/local/xrthome/lib/libxrttable.a /usr/local/xrthome/lib/libxrt3d.a"
+	else
+	 MOTIFLIBS=" "
+	 XRTLIBS=" "
+	fi
+
+	LIBS="$LCK $LLIBDIRS $LLIBS"
+	LIBS="$LIBS $NEMOLIBSDIR $NEMOLIBS $FLIBS_LINK $MPILIBS $XRTLIBS -lm"
+
+	AR1_FLAGS="ruvl "
+	AR2="ar tsl"
+	;;
+
+##### Silicon Graphics Irix 6.x #####
+'IRIX64')
+	# Compiler flags
+	F77="f90"
+	F90="f90"
+	LINKER="/usr/bin/cc"
+	CPP_F_FLAGS="-C -P -DIRIX64 $CPP_F_FLAGS"
+	CPP_C_FLAGS="-DIRIX64 $CPP_C_FLAGS"
+	CPP="/usr/lib/cpp"
+	MACHINE="iris"
+	F90FLG="$DIRS_INC -freeform"
+	F77FLG=""
+	LDFLGS=""
+	MOD="mod"
+	MAKEUTIL="gmake -j 1"
+ 	if [ $n32 = "1" ]; then
+          LINKER="$PURE $LINKER"
+	fi
+
+	RFLAG=""
+	if [ $R12K = "1" ]; then
+	  RFLAG=-r12000 -Ofast=ip27 -IPA
+	fi
+	if [ $R10K = "1" ]; then
+	  RFLAG=-r10000
+	fi
+
+	# Debug or Optimization
+	if [ $DBG = "1" ]; then
+	  NEMOLIBSDIR="-L../negf_irix_debug"
+ 	 if [ $n32 = "1" ]; then
+	  OPTIONS="-DNO_MEMORY_TRACKING $OPTIONS"
+	  FFLAGS="-g -n32 -mips4 $FFLAGS"
+	  CFLAGS="-g -n32 -mips4 -DEBUG:div_check -TARG:exc_min=ZV $CFLAGS"
+	  OFLAGS="-g $OFLAGS"
+	  FLIBS_LINK="-lcomplib.sgimath -lfortran -lftn90 -lftn -lc -lm"
+	 else
+	  FFLAGS="-g -64 $FFLAGS"
+	  CFLAGS="-g -64 -D_64BIT -DEBUG:error=1164 $CFLAGS"
+	  OFLAGS="-g $OFLAGS"
+	  FLIBS_LINK="-B dynamic -lcomplib.sgimath -lfortran -lc -64 -lm"
+	 fi
+	else
+	  NEMOLIBSDIR="-L../negf_irix_fast"
+ 	 if [ $n32 = "1" ]; then
+ 	   if [ $r4k = "1" ]; then
+	    OPTIONS="-DNO_MEMORY_TRACKING $OPTIONS"
+	    FFLAGS="-n32 -TARG:platform=ip22_4k -O2  $FFLAGS"
+	    CFLAGS="-n32 -TARG:platform=ip22_4k -O2  $CFLAGS"
+	    OFLAGS="$OFLAGS"
+	    FLIBS_LINK="-lcomplib.sgimath -lfortran -lftn90 -lftn -lc -lm"
+	   else
+	    OPTIONS="-DNO_MEMORY_TRACKING $OPTIONS"
+	    FFLAGS="-n32 -mips4 -O3 -OPT:alias=restrict:fast_complex=on $RFLAG $FFLAGS"
+	    LDFLAGS=""
+#	    CFLAGS="-n32 -mips4 -woff 1048 -O3 -OPT:const_copy_limit=12000 -fullwarn -r10000 -Ofast=ip27 -IPA $CFLAGS"
+#	    OFLAGS="-IPA $OFLAGS"
+
+#	    CFLAGS="-n32 -mips4 -woff 1048 -O3 -OPT:const_copy_limit=12000 -fullwarn -r10000 $CFLAGS"
+	    CFLAGS="-n32 -mips4 -O3 -OPT:const_copy_limit=12000 -fullwarn $RFLAG $CFLAGS"
+#           eigensyst.c must not be compiled with O3 find a special solution here!!
+
+#	    CFLAGS="-n32 -mips4 -woff 1048 -O2 -fullwarn $CFLAGS"
+#	    CFLAGS="-n32 -mips4  -O1 -fullwarn $CFLAGS"
+	    OFLAGS="$RFLAG $OFLAGS"
+	    FLIBS_LINK="-lcomplib.sgimath -lfortran -lftn90 -lftn -lc -lm"
+          fi
+	 else
+	  FFLAGS="-64 -O3 -OPT:alias=restrict:fast_complex=on $RFLAG $FFLAGS"
+	  CFLAGS="-64 -D_64BIT -O3 -OPT:const_copy_limit=12000 -fullwarn $RFLAG $CFLAGS"
+	  OFLAGS="$OFLAGS"
+	  FLIBS_LINK="-B dynamic -lcomplib.sgimath -lfortran -lc -64 -lm"
+	 fi
+	fi
+
+	if [ $PARALLEL = "1" ]; then
+	  FLIBS_LINK="$FLIBS_LINK -lmpi"
+	fi
+
+
+	
+	LIBS="$NEMOLIBSDIR $NEMOLIBS $MPILIBS $FLIBS_LINK"
+	NLIBS="$LIBS"
+
+	AR2="ar ts"
+
+	;;
+
+##### Digital Equiment Corp. #####
+'OSF1')
+	# Compiler flags
+	F77="f90"
+	F90="/usr/bin/f90"
+	LINKER="$PURE /usr/bin/cc"
+	CPP="cpp"
+	CPP_F_FLAGS="-C -P -D_DEC_ -DOSF1 -D_64BIT $CPP_F_FLAGS"
+	CPP_C_FLAGS="-D_DEC_ -DOSF1 -D_64BIT $CPP_C_FLAGS"
+	MACHINE="dec"
+	F90FLG="$DIRS_INC -free -fpe1 -std -warn argument_checking"
+	F77FLG="$DIRS_INC -fixed -f77"
+	LDFLGS="-non_shared"
+	MOD="mod"
+
+	MPI_ARCH=alpha
+	MPICH_HOME="$MPICH_HOME/build/$MPI_ARCH/ch_p4"
+	MPI_INCS="-I$MPICH_HOME/include"
+	CFDRCINCS="$CFDRCINCS $MPI_INCS"
+
+	# Debug or Optimization
+	if [ $DBG = "1" ]; then
+	 FFLAGS="-C -g -non_shared $FFLAGS"
+	 CFLAGS="-g -D_DEC_ -DOSF1 $CFLAGS"
+	 OFLAGS="-C -g"
+	 FLIBS_LINK="-L/proj4/pjs/lapack -llapack -lblas -lfor -lFutil -lm"
+	else
+	 FFLAGS="-O5 -non_shared $FFLAGS"
+	 CFLAGS="-O -D_DEC_ -DOSF1 $CFLAGS"
+	 OFLAGS="-O5 "
+	 FLIBS_LINK="-L/proj4/pjs/lapack -llapack -lblas -lfor -lFutil -lm"
+	fi
+
+	# Libraries
+
+        if [ $PARALLEL -eq 1 ]; then
+          MPILIBS="-L$MPICH_HOME/lib -lmpich"
+        else
+          MPILIBS=""
+        fi
+
+
+
+#	LIBS="$XRTLIBS -lm $MOTIFLIBS $MPILIBS $FLIBS_LINK"
+#	LIBS="$XRTLIBS $FLIBS_LINK $MOTIFLIBS $MPILIBS"
+	LIBS="$XRTLIBS $MOTIFLIBS $FLIBS_LINK $MPILIBS"
+
+	NLIBS="$LIBS"
+
+	AR2="ranlib"
+
+	;;
+
+##### LINUX #####
+'Linux')
+	# Compiler flags
+	MACHINE="linux"
+
+
+	ABSOFT="/home/packages/absoft"
+	F90="$ABSOFT/bin/f90"
+	F77="$F90"
+	LINKER="$PURE cc"
+	F90FLG="$DIRS_INC "
+	F77FLG="$DIRS_INC "
+	MPI_ARCH=LINUX
+	MAKEUTIL="gmake -j2"
+
+
+	MOD="mod"
+
+
+	MPICH_HOME="$MPICH_HOME/build/$MPI_ARCH/ch_p4"
+	MPI_INCS="-I$MPICH_HOME/include"
+
+
+	# Debug or Optimization
+	if [ $ALT2 = "1" ]; then
+           MATHOBS_LINUX="zggbak_f.o zggbal_f.o zhgeqz_f.o ztgevc_f.o zgghrd_f.o zgegv_f.o mathmisc_LinuxHyglac_f.o mathmisc_LinuxHyglac_f90.o"
+
+          LF="/usr/local/lf9555"
+          F90="$LF/bin/lf95"
+          F77="$LF/bin/lf95"
+	  CC="cc"
+	  if [ $PARALLEL = "1" ]; then
+	    CC="/usr/local/mpich-w-g77/bin/mpicc"
+	    LINKER="$PURE /usr/local/mpich-w-g77/bin/mpicc"
+	  fi
+
+	  if [ $DBG = "1" ]; then
+	   FFLAGS="-g $FFLAGS"
+	   CFLAGS="-g -DFORTRAN_UNDERSCORE -DFORTRAN90_UNDERSCORE -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   OFLAGS="-g -static $OFLAGS"
+	   OFLAGS="-g $OFLAGS"
+	  else
+	   FFLAGS="-O $FFLAGS"
+	   CFLAGS="-O2 -DFORTRAN_UNDERSCORE -DFORTRAN90_UNDERSCORE -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   OFLAGS=" -static"
+#	   OFLAGS=""
+	  fi
+	  ARPACK="/usr/people/gekco/local/lib"
+#	  FLIBS_LINK="-L/home/gekco/local/lib -llapack -lblas /usr/local/lib/libvast90.a /usr/lib/gcc-lib/i386-glibc20-linux/egcs-2.90.29/libf2c.a"
+          FLIBS_LINK="-L/home/gekco/local/lib -llapack_fujitsu -lblas_fujitsu -L$LF/lib -lfj9i6 -lfj9f6 -lfj9e6 -lm"
+        else
+	if [ $ALT = "1" ]; then
+          MATHOBS_LINUX="zggbak_f.o zggbal_f.o zhgeqz_f.o ztgevc_f.o zgghrd_f.o zgegv_f.o mathmisc_LinuxHyglac_f.o"
+
+	  FFC="/usr/local/FFC"
+	  FFC="/home/packages/FFC"
+	  F90="$FFC/bin/f90"
+	  F77="$FFC/bin/f90"
+	  CC="$FFC/bin/fcc"
+	  LINKER="$PURE $CC"
+	  LINKER="$PURE gcc"
+
+	  if [ $PARALLEL = "1" ]; then
+	  if [ $NONSHARED = "1" ]; then
+	    CC="/home/packages/mpich-1.2.1/fujitsu.ns/bin/mpicc"
+	  else
+	    CC="/home/packages/mpich-1.2.0/fujitsu/bin/mpicc"
+	    CC="/home/packages/mpich-1.2.1/fujitsu/bin/mpicc"
+	    CC="mpicc"
+	  fi
+	    LINKER="$PURE /home/packages/mpich-1.2.0/fujitsu/bin/mpicc"
+	    LINKER="$PURE mpicc"
+#	    CC="/home/packages/mpich-1.2.0/fujitsu.ns/bin/mpicc"
+#	    LINKER="$PURE /home/packages/mpich-1.2.0/fujitsu.ns/bin/mpicc"
+	  fi
+
+	  if [ $DBG = "1" ]; then
+	   NEMOLIBSDIR="-L../negf_fujitsu_debug"
+	   FFLAGS="-g $FFLAGS"
+	   CFLAGS="-g -DFORTRAN_UNDERSCORE -DFORTRAN90_UNDERSCORE -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   OFLAGS="-g -static $OFLAGS"
+	   OFLAGS="-g -static -lefence $OFLAGS"
+	  else
+	   NEMOLIBSDIR="-L../negf_fujitsu_fast"
+	   FFLAGS="+O4 $FFLAGS"
+	   CFLAGS="-O3 -DFORTRAN_UNDERSCORE -DFORTRAN90_UNDERSCORE -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   CFLAGS="-O1 -DFORTRAN_UNDERSCORE -DFORTRAN90_UNDERSCORE -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   OFLAGS=" -static $OFLAGS"
+	   OFLAGS="-static -lefence"
+	  fi
+	  ARPACK="/usr/people/gekco/local/lib"
+#	  FLIBS_LINK="-L/home/gekco/local/lib /home/fabiano/ARPACK/parpack_MPI-LINUXfj.a /home/fabiano/ARPACK/libarpack_LINUXfj.a -llapack_fujitsu -lblas_fujitsu -L$FFC/lib -lfj9i6 -lfj9f6 -lfj9e6 -lm"
+	  FLIBS_LINK="-L/home/gekco/local/lib  -llapack_fujitsu -lblas_fujitsu -L$FFC/lib -lfj9i6 -lfj9f6 -lfj9e6 -lm"
+        else
+#         ALT=0
+	  if [ $PARALLEL = "1" ]; then
+ 	  if [ $NONSHARED = "1" ]; then
+	    CC=" /home/packages/mpich-1.2.1/absoft.ns/bin/mpicc"
+	    CC=" /home/packages/mpich-1.2.0/absoft.ns/bin/mpicc"
+	    CC="mpicc"
+	  else
+	    CC=" /home/packages/mpich-1.2.1/absoft/bin/mpicc"
+	    CC=" /home/packages/mpich-1.2.0/absoft/bin/mpicc"
+	    CC="mpicc"
+          fi
+	    LINKER="$PURE $CC"
+	  fi
+
+          MATHOBS_LINUX="zggbak_f.o zggbal_f.o zhgeqz_f.o ztgevc_f.o zgghrd_f.o zgegv_f.o mathmisc_LinuxHyglac_f.o"
+
+	  if [ $DBG = "1" ]; then
+	   NEMOLIBSDIR="-L../negf_absoft_debug"
+	   FFLAGS="-g $FFLAGS"
+#	   CFLAGS="-g -DLinux -DNO_MEMORY_TRACKING $CFLAGS"
+#	   CFLAGS="-g -DLinux -DNO_MEMORY_TRACKING -pedantic-errors -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wuninitialized $CFLAGS"
+#  use for cleaning up the code on Linux Box
+#	   CFLAGS="-O -DLinux -pedantic-errors -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wuninitialized -Wunused $CFLAGS"
+#	   CFLAGS="-g -DLinux  $CFLAGS"
+#	   CFLAGS="-g -DLinux -pedantic-errors -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wunused $CFLAGS"
+	   CFLAGS="-g -DLinux -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wunused $CFLAGS"
+	   OFLAGS="-g -lefence $OFLAGS"
+	  else
+	   NEMOLIBSDIR="-L../negf_absoft_fast"
+	   FFLAGS="+O5 $FFLAGS"
+#	   CFLAGS="-O -DLinux -pedantic-errors -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wuninitialized -Wunused $CFLAGS"
+#	   CFLAGS="-O3 -DLinux -pedantic-errors -Wimplicit-function-declaration -Wmissing-prototypes -Wmissing-declarations -Wreturn-type -Wstrict-prototypes -Wswitch -pedantic -Wuninitialized -Wunused $CFLAGS"
+	   CFLAGS="-O3 -DLinux $CFLAGS"
+	   OFLAGS="-static -lefence "
+	  fi
+	  ARPACK="/usr/people/gekco/local/lib"
+	  FLIBS_LINK="-L/home/gekco/local/lib -llapack_absoft -lblas_absoft -L$ABSOFT/lib -lf77math -lf90math -lfio -lm"
+
+	fi
+	fi
+
+
+	# Libraries
+        # why does everything point to ALPHA for the LINUX? - dmf
+#	if [ $PARALLEL -eq 1 ]; then
+#	 MPILIBS="-L$MPICH_HOME/lib -lmpich"
+#	else
+#	 MPILIBS=""
+#	fi
+#  -L/usr/i386-glibc20-linux/lib -lstdc++
+
+	LIBS="$LCK $LLIBDIRS $LLIBS"
+
+	LIBS="$LIBS $NEMOLIBSDIR $NEMOLIBS $FLIBS_LINK $MPILIBS -lm "
+
+	AR1_FLAGS="ruvl "
+	AR2="ranlib"
+
+	NLIBS="$LIBS"
+
+
+
+	export MATHOBS_LINUX
+
+	;;
+
+
+##### Hewlett Packard #####
+'HP-UX')
+	# Compiler flags
+	F77="f90"
+	F90="f90"
+	LINKER="$PURE /bin/cc"
+	CC="/bin/cc"
+	CPP_F_FLAGS="-DHPUX $CPP_F_FLAGS"
+	CPP_C_FLAGS="-DHPUX $CPP_C_FLAGS"
+	MACHINE="hp"
+	F90FLG=""
+	F77FLG=""
+	MAKEUTIL="gmake -j8"
+#	MAKEUTIL="make"
+
+	# Debug or Optimization
+	if [ $DBG = "1" ]; then
+	  FFLAGS="-c -g -G -u -DHPUX $FFLAGS"
+	  CFLAGS="-c -g -z -Aa -DHPUX $CFLAGS"
+	  OFLAGS="-g $OFLAGS"
+	  FLIBS_LINK="-L/usr/local/lib -L/opt/fortran90/lib -L/opt/fortran/lib -llapack -lblas -lU77  -lF90 -lfsys -lcl -lvec -lcps -lm"
+	else
+	  FFLAGS="-c +O3 +Oaggressive +Onolimit +Ofltacc +Oinfo +Oreport=all  +Ovectorize $FFLAGS"
+	  CFLAGS="-c -Aa -DHPUX +O3 +Oaggressive  +Onolimit +Ofltacc +Oinfo $CFLAGS"
+	  OFLAGS="$OFLAGS $OFLAGS"
+	  FLIBS_LINK="-Wl,-L/opt/mlib/lib/pa2.0parallel -lveclib -llapack -L/usr/local/lib -L/opt/fortran/lib -L/opt/fortran90/lib -lU77 -lF90 -lfsys -lcl -lcps -lm"
+	fi
+
+	# Libraries
+        if [ $PARALLEL -eq 1 ]; then
+          MPILIBS="-L$MPICH_HOME/lib -lmpich"
+        else
+          MPILIBS=""
+        fi
+
+	AR2="ar ts"
+	LIBS="$XRTLIBS $MOTIFLIBS $MPILIBS $FLIBS_LINK"
+	NLIBS="$LIBS"
+
+	;;
+
+##### International Business Machines #####
+'AIX')
+
+	# Compiler 
+	F77="xlf90"
+	F90="xlf90"
+	LINKER="$PURE cc"
+        CPP="/usr/ccs/lib/cpp"
+	CPP_F_FLAGS="-C -P -D_IBM_ -DAIX $CPP_F_FLAGS"
+	CPP_C_FLAGS="-D_IBM_ -DAIX $CPP_C_FLAGS"
+	MACHINE="ibm"
+	F90FLG="$DIRS_INC -qhalt=E -qcharlen=1024"
+	F77FLG="-qfixed"
+	OPCFG="-F$td/usr/lpp/xlfcmp/inst_root/etc/xlf.cfg"
+	LDFLGS="$OPCFG -bnso -bI:/usr/lib/syscalls.exp -L$(td)/usr/lib -tcp"
+	OPT="$OPCFG -tcp"
+	OPTA="-B$td/usr/lpp/xlf/bin/ -L$td/usr/lib"
+#	INC_FILE="dependency_AIX"
+	INC_FILE="dependencies"
+	MOD="mod"
+
+	MPI_ARCH=rs6000
+	MPICH_HOME="$MPICH_HOME/build/$MPI_ARCH/ch_p4"
+	MPI_INCS="-I$MPICH_HOME/include"
+	CFDRCINCS="$CFDRCINCS $MPI_INCS"
+
+	# Debug or Optimization
+	if [ $DBG = "1" ]
+	then
+	FFLAGS="-g $OPT $OPTA -C $FFLAGS"
+	CFLAGS="-g  -D_IBM_ -DAIX $CFLAGS"
+	OFLAGS="-g $OFLAGS"
+	else
+	FFLAGS="$OPT $OPTA $FFLAGS"
+	CFLAGS="-O -D_IBM_ -DAIX $CFLAGS"
+#	OFLAGS=""
+	fi
+
+	# Licensing
+	if [ $LIC = "U" ]
+	then
+		LCK="/hosts/ibm2/proj/license/local/check_license_dum.o"
+		LINCDIRS=""
+		LLIBDIRS=""
+		LLIBS=""
+	elif [ $LIC = "L" ]
+	then
+		CPP_F_FLAGS="$CPP_F_FLAGS -DLIC"
+		CPP_C_FLAGS="$CPP_C_FLAGS -DLIC"
+		LCK="/hosts/ibm2/proj/license/distribution/check_license.o"
+		LINCDIRS=""
+		LLIBDIRS="-L/hosts/ibm2/proj/license/distribution"
+		LLIBS="-lp"
+	elif [ $LIC = "N" ]
+	then
+		CPP_F_FLAGS="$CPP_F_FLAGS -DLIC"
+		CPP_C_FLAGS="$CPP_C_FLAGS -DLIC"
+		LCK="/hosts/ibm2/proj/license/distribution/check_license.o"
+		LINCDIRS=""
+		LLIBDIRS="-L/hosts/ibm2/proj/license/distribution"
+		LLIBS="-lp"
+	fi
+
+	# Libraries
+        if [ $PARALLEL -eq 1 ]; then
+          MPILIBS="-L$MPICH_HOME/lib -lmpich"
+        else
+          MPILIBS=""
+        fi
+
+	if [ $NORAD = "1" ]
+	then
+	RADLIB=""
+	GCCLIBS=""
+	fi
+
+	if [ $DTFT = "1" ]
+	then
+	LIBS="$LCK $LLIBDIRS $LLIBS $CFDRCLIBS/IBM/libDTFT.a $MPILIBS"
+        elif [ $DTFO = "1" ]
+        then
+	LIBS="$LCK $LLIBDIRS $LLIBS $CFDRCLIBS/IBM/libDTFO.a $MPILIBS"
+	else
+	LIBS="$LCK $LLIBDIRS $LLIBS $CFDRCLIBS/IBM/libDTF.a $MPILIBS"
+	fi
+	NLIBS="$LIBS"
+
+	# Where to install the release and test versions
+	INSTALLDIR="/hosts/water/proj/install/ibm/INTERNAL/bin"
+	INSTALLTESTDIR="/hosts/water/proj/install/ibm/INTERNALT/bin"
+	ARCHIVEDIR="/hosts/water/proj/install/ibm/ARCHIVE"
+
+        $INSTALLDIR/$TARGET1 -v > version.info
+        version=`grep CFD-ACEU version.info | sed 's/ CFD-ACEU V//' | sed 's/ DTF.*//'`
+#        echo "$version"
+        export version
+
+	AR2="ranlib"
+	PRELIBDIR="/hosts/piglet/proj/ace/bin"
+	;;
+
+##### SUN Microsystems #####
+'SunOS')
+
+	F77="f77"
+	F90="f90"
+	LINKER="$PURE cc"
+	CPP="/usr/ccs/lib/cpp"
+	MACHINE="sun"
+	MOD="mod"
+
+	#if [ $BUILDHOST = 'speedy' ]; then
+	if [ $OSREL = '5.4' ]; then
+	 CPP_F_FLAGS="-p -P -D_SUN_ -DSunOS -D_64BIT $CPP_F_FLAGS"
+	 CPP_C_FLAGS="-D_SUN_ -DSunOS -D_64BIT $CPP_C_FLAGS"
+	 F90FLG="$DIRS_INC -D_SUN_ -DSunOS -f free"
+	 F77FLG="$DIRS_INC -D_SUN_ -DSunOS -f fixed -f77"
+	 LDFLGS="-non_shared"
+	else
+	 CPP_F_FLAGS="-p -P -D_SUN_ -DSunOS -D_SUN_COMPILER_ $CPP_F_FLAGS"
+	 CPP_C_FLAGS="-D_SUN_ -DSunOS -D_SUN_COMPILER_ $CPP_C_FLAGS"
+	 F90FLG="$DIRS_INC -D_SUN_ -DSunOS"
+	 F77FLG="$DIRS_INC -D_SUN_ -DSunOS -fixed"
+	fi
+
+	MPI_ARCH=solaris
+	MPICH_HOME="$MPICH_HOME/build/$MPI_ARCH/ch_p4"
+	MPI_INCS="-I$MPICH_HOME/include"
+	CFDRCINCS="$CFDRCINCS $MPI_INCS"
+	
+	LAPACK_DIR="/proj/aceun/nemo_stuff"
+	# Debug or Optimization
+	if [ $DBG = "1" ]; then
+	 FFLAGS="-g $FFLAGS"
+	 CFLAGS="-g $CFLAGS"
+	 OFLAGS="-g $OFLAGS"
+	 FLIBS_LINK="-L$LAPACK_DIR/lapack -llapack -lblas -lM77 -lF77 -lf90 -lm -lsunmath"
+	elif [ $OSREL = '5.4' ]; then
+	 FFLAGS="-O 3  $FFLAGS"
+	 CFLAGS="-O 3  $CFLAGS"
+#	 OFLAGS=""
+	 FLIBS_LINK="-z muldefs -B static -lfast -L$LAPACK_DIR/lapack -llapack -lblas -lM77 -lF77 -lf90 -lm -lsunmath"
+	else
+	 FFLAGS="-O3  $FFLAGS"
+	 CFLAGS="-O3  $CFLAGS"
+	 OFLAGS="-nolib $OFLAGS"
+	 FLIBS_LINK="-z muldefs -B static -lfast -L$LAPACK_DIR/lapack -llapack -lblas -lM77 -lF77 -lf90 -lm -lsunmath"
+	fi
+
+	# Libraries
+
+	if [ $PARALLEL -eq 1 ]; then
+	 MPILIBS="-L$MPICH_HOME/lib -lmpich"
+	 else
+	 MPILIBS=""
+	fi
+ 
+ 
+	if [ $GUI = "1" ]; then
+	 MOTIFLIBS="-L/usr/dt/lib -L/usr/openwin/lib -lnsl -lXpm -lXm -lXt -lX11"
+	 XRTLIBS="-L$XRTHOME/lib -lxrtm -lxrttable -lxrt3d"
+	 CPP_C_FLAGS="$CPP_C_FLAGS -DNEW_XRT"
+	 CFLAGS="$CFLAGS -I/usr/openwin/include -I/usr/dt/include -I/opt/SUNWmotif/include -I$(XRTHOME)/include"
+	else
+	 MOTIFLIBS=" "
+	 XRTLIBS=" "
+	fi
+ 
+	LIBS="$XRTLIBS $MOTIFLIBS $MPILIBS $FLIBS_LINK"
+	NLIBS="$LIBS"
+ 
+	AR2="ar ts"
+	LD="/usr/ccs/bin/ld"
+	;;
+
+##### Windows NT OS  #####
+'Windows_NT')
+        # Compiler
+        F90="f90.exe /DMPI_TCP"
+	F77="f77.exe"
+        LINKER="$PURE link.exe"
+	EXT="obj"
+	MOD="mod"
+	MACHINE="wintel"
+        # Compiler flags
+        CC="cl"
+        CPP="fpp.exe"
+	CPP_F_FLAGS="/ansi /DLinux /Dwindows /DWINNT /Dintel_mc /extend_source 120"
+	CPP_C_FLAGS="/Dwindows /DWINNT /Dintel_mc"
+        LNKDIR="\\\\\\\\coolie\\\usr3\\\libs\\\lib\\\NT"
+        MPIINCDIR="\\\\\\\\coolie\\\usr3\\\libs\\\include\\\NT_MPIpro"
+        XNETLIBDIR="D:\\\ace\\\license"
+        LNKDIR2="D:\\\ace\\\license\\\license\\\Release"
+	perl ./build_depend -o obj -l lib -p -I G:/libs/include/NT_MPIpro
+
+	COPY="cp"
+	MOVE="mv"
+	REMOVE="rm"
+	LDO=""
+	EXECL="/out:aceun.exe"
+	TARGET1="CFD-ACEUA.exe"
+	export TARGET1
+	export EXECL
+	export COPY
+	export MOVE
+	export REMOVE
+
+        SFLG="-Dwindows /DWINNT -DLinux -Dintel_mc -P -fixed -DLIC"
+	FPPFLGS="$SFLG"
+
+	if [ $NORAD = "1" ]
+	then
+	deflib=""
+	else
+	deflib="/NODEFAULTLIB"
+	fi
+
+        # Debug or Optimization
+        if [ $DBG = "1" ]
+        then
+          INTDIR=".\\"
+          OUTDIR=".\\"
+          LDFLGS="$deflib /nologo /debug /subsystem:console /machine:I386"
+          OFLG="-DDEBUG $OFLAGS"
+          LDBG="/debug:full /optimize:0 /pdbfile:$INTDIR\\\DF50.pdb"
+          LPDB="/pdb:$OUTDIR\\\aceun.pdb"
+          LDBG2=""
+        else
+          INTDIR=".\\"
+          OUTDIR=".\\"
+#          OFLG=""
+          LDFLGS="$deflib /nologo /subsystem:console /machine:I386"
+          LDBG="/debug:no /optimize:2"
+          LDBG2="/debug:full /optimize:0"
+          LPDB=""
+        fi
+
+        CFLG="/compile_only /free /nologo /include:..\\\src\\\base /nologo $LDBG /warn:nofileopt  /include:$MPIINCDIR"
+        CFLG2="/compile_only /c /include:..\\\src\\\base /nologo $LDBG2 /warn:nofileopt /module: $OUTDIR /object:$OUTDIR /include:$MPIINCDIR"
+	export INTDIR
+	export OUTDIR
+
+        #  System libraries
+
+        # Assumes coolie:/usr3 is mounted on local drive G:
+	if [ $DTFT = "1" ]
+	then
+        DTFLIBS="$LNKDIR\\\dtft.lib"
+        elif [ $DTFO = "1" ]
+        then
+        DTFLIBS="$LNKDIR\\\dtfo.lib"
+	else
+        DTFLIBS="$LNKDIR\\\dtf.lib"
+	fi
+
+        MPILIBS=""
+
+	#no s-to-s radiation
+        if [ $NORAD = "1" ]
+        then
+	  	CPP_F_FLAGS="$CPP_F_FLAGS /D_NORAD_"
+	  	CPP_C_FLAGS="$CPP_C_FLAGS /D_NORAD_"
+		RADLIBS=""
+          	SLIBS="dformt.lib oldnames.lib kernel32.lib user32.lib gdi32.lib"
+        else
+        	RADLIBS="$LNKDIR/BspRad.lib"
+          	SLIBS="dformt.lib dfport.lib dfconsol.lib libcmt.lib libcpmt.lib oldnames.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib"
+        fi
+
+        LIBS="$SLIBS $DTFLIBS $MPILIBS $RADLIBS $LLIBS $LPDB /stack:12000000" 
+	FFLAGS="$CFLG $PFLG $OFLG $FFLAGS"
+	FFLAGS2="$CFLG2 $PFLG $OFLG"
+	AR1="link.exe"
+	AR1_FLAGS="-lib /nologo /out:"
+	;;
+
+#### Windows NT Alpha #####
+'Windows_NT_Alpha')
+        # Compiler
+        F90="C:\progra~1\DevStudio\DF\bin\df.exe /DMPI_TCP"
+        F77="$F90"
+        LINKER="$PURE link.exe"
+	EXECL="/out:aceun.exe"
+	MACHINE="windec"
+	TARGET1="CFD-ACEUA.exe"
+	EXT="obj"
+	MOD="mod"
+
+        # Compiler flags
+        SFLG="-D"$OSNAME
+        CC="cl"
+        CPP="C:\progra~1\DevStudio\DF\bin\fpp.exe"
+	CPP_F_FLAGS="/ansi /DLinux /Dwindows /DWINNT /Ddec_alpha_mc /extend_source 120"
+	CPP_C_FLAGS="/Dwindows /DWINNT /Ddec_alpha_mc"
+	COPY="cp"
+	MOVE="mv"
+	REMOVE="rm"
+	LDO=""
+	export TARGET1
+	export EXT
+	export COPY
+	export MOVE
+	export REMOVE
+	export EXECL
+        LNKDIR="\\\coolie/usr3/libs/lib/NT_Alpha"
+
+	if [ $NORAD = "1" ]
+	then
+	deflib=""
+	else
+	deflib="/NODEFAULTLIB"
+	fi
+
+	LDBG2="/debug:no /optimize:0"
+
+	perl ./build_depend -o obj -l lib -p -I G:/libs/include/NT_MPIpro
+
+        # Debug or Optimization
+        if [ $DBG = "1" ]
+        then
+          INTDIR=".\\"
+          OUTDIR=".\\"
+          OFLG="-DDEBUG"
+          LDBG="/fpe:1 /debug:full /optimize:0"
+          LPDB="/pdbfile:$OUTDIR\\DF50.pdb"
+          LPDB2="/pdb:$OUTDIR\\aceun.pdb"
+          LDFLGS="$deflib /nologo /debug /subsystem:console /machine:ALPHA"
+        else
+          INTDIR=".\\"
+          OUTDIR=".\\"
+          OFLG=""
+          LDBG="/fpe:1 /debug:no /optimize:2"
+          LPDB=""
+          LPDB2=""
+          if [ $prfl = "1" ]
+          then
+          LDFLGS="$deflib /nologo /profile /subsystem:console /machine:AL
+PHA"
+          else
+          LDFLGS="$deflib /nologo /subsystem:console /machine:ALPHA"
+          fi
+        fi
+	export INTDIR
+	export OUTDIR
+
+        MPIINCDIR="\\\coolie/usr3/libs/include/NT_MPIpro"
+        CFLG="/nologo /free /include:..\src\base /compile_only /module:$OUTDIR /object:$OUTDIR /warn:nofileopt $LDBG $LPDB"
+        CFLG2="/nologo /include:$INTDIR /compile_only /module:$OUTDIR /object:$OUTDIR /warn:nofileopt $LDBG2 $LPDB /include:$MPIINCDIR"
+
+        #  System libraries
+
+        # DTF Library  Assumes coolie:/usr3 is mounted on local drive G:
+	if [ $DTFT = "1" ]
+	then
+        DTFLIBS="$LNKDIR/dtft.lib"
+        elif [ $DTFO = "1" ]
+        then
+        DTFLIBS="$LNKDIR/dtfo.lib"
+	else
+        DTFLIBS="$LNKDIR/dtf.lib"
+	fi
+
+        MPILIBS=""
+
+	#no s-to-s radiation
+        if [ $NORAD = "1" ]
+        then
+	  	CPP_F_FLAGS="$CPP_F_FLAGS /D_NORAD_"
+	  	CPP_C_FLAGS="$CPP_C_FLAGS /D_NORAD_"
+		RADLIBS=""
+          	SLIBS="dfor.lib oldnames.lib kernel32.lib user32.lib gdi32.lib"
+        else
+        	RADLIBS="$LNKDIR/BspRad.lib"
+          	SLIBS="dfor.lib dfport.lib dfconsol.lib libcmt.lib libcpmt.lib oldnames.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib"
+        fi
+
+        LIBS="$SLIBS $DTFLIBS $MPILIBS $RADLIBS $LLIBS $LPDB2 /stack:12000000" 
+	FFLAGS="$CFLG $PFLG $OFLG $FFLAGS"
+	FFLAGS2="$CFLG2 $PFLG $OFLG"
+	AR1="link.exe"
+	AR1_FLAGS="-lib /nologo /out:"
+	;;
+
+##### Unknown #####
+*)
+	echo "Unknown Operating System: $OSNAME"
+	;;
+esac
+
+# Preprocessor flags (defined above as -D$OSNAME)
+
+# Linker flags
+LD_FLAGS="$LDFLGS $OFLAGS $LDO"
+F90_FLAGS="$F90FLG $FFLAGS -c "
+F77_FLAGS="$F77FLG $FFLAGS -c "
+F90_FLAGS2="$F90FLG $FFLAGS -c $FPPFLAGS"
+
+export LIC_FLAGS
+export CPP_F_FLAGS
+export CPP_C_FLAGS
+export CFLAGS
+export F90_FLAGS
+export F90_FLAGS2
+export F77_FLAGS
+export LD_FLAGS
+export MACHINE
+export LINKER
+export CPP
+export CC
+export YACC
+export YFLAGS
+
+# Library directories
+LIBDIRS="$LLIBDIRS"
+export LIBDIRS
+
+# Linked libraries
+export LIBS
+export NLIBS
+export FLIBS_LINK
+#
+
+# Export stuff needed for the make file
+export INSTALLDIR
+export ARCHIVEDIR
+export INSTALLTESTDIR
+export F90
+export F77
+export AR1
+export AR1_FLAGS
+export AR2
+export PRELIBDIR
+export LD
+export INC_FILE
+export MOD
+
+if [ $ECHO = "1" ]
+then
+echo "BUIDLHOST:  " $BUILDHOST
+echo "OSNAME, OSREL:  " $OSNAME $OSREL
+echo "LD__LIBRARY_PATH $LD_LIBRARY_PATH"
+echo "CPP_F_FLAGS:  " $CPP_F_FLAGS
+echo "CPP_C_FLAGS:  " $CPP_C_FLAGS
+echo "CFLAGS:  " $CFLAGS
+echo "F90_FLAGS:  " $F90_FLAGS
+echo "F77_FLAGS:  " $F77_FLAGS
+echo "LD_FLAGS:  " $LD_FLAGS
+echo "MACHINE:  " $MACHINE
+echo "CPP:  " $CPP
+echo "CC:  " $CC
+
+echo "LIBDIRS:  " $LIBDIRS
+echo "LIBS:  " $LIBS
+echo "FLIBS_LINK:  " $FLIBS_LINK
+echo "NLIBS:  " $NLIBS
+echo "INSTALLDIR:  " $INSTALLDIR
+echo $INSTALLTESTDIR
+echo "F90:  " $F90
+echo $AR1
+echo $AR2
+echo $PRELIBDIR
+echo "LD:  " $LD
+
+fi
+# Install this build as the DELIVERY version
+  if [ $INST = "1" ]; then
+   if [ $OSNAMEwinnt = "Windows_NT" ]; then
+     $MAKEUTIL -f makefile_mk_nt install
+   else
+    $MAKEUTIL -f makefile_mk install
+   fi
+  else
+   if [ $DBG = "1" ]; then
+     if [ $OSNAMEwinnt = "Windows_NT" ]; then
+       $MAKEUTIL -f makefile_mk_nt $EXECUTABLE
+     else
+       $MAKEUTIL -f makefile_mk $EXECUTABLE
+     fi
+   else
+
+     # Install this build as the in-house test version
+     if [ $INSTTEST = "1" ]; then
+       if [ $OSNAMEwinnt = "Windows_NT" ]; then
+         $MAKEUTIL -f makefile_mk_nt installtest
+       else
+         $MAKEUTIL -f makefile_mk installtest
+       fi
+     else
+
+       # Build, logging errors to file
+       if [ $LOG = "1" ]; then
+         echo "*** Build on $OSNAME version $OSREL LIC=$LIC ***" > ERRORS-$OSNAME-$LIC
+         if [ $OSNAMEwinnt = "Windows_NT" ]; then
+           $MAKEUTIL -s -f makefile_mk_nt $EXECUTABLE 2>> ERRORS-$OSNAME-$LIC
+         else
+           $MAKEUTIL -s -f makefile_mk $EXECUTABLE 2>> ERRORS-$OSNAME-$LIC
+         fi
+
+       # Build verbose
+       else
+         if [ $OSNAMEwinnt = "Windows_NT" ]; then
+           $MAKEUTIL -f makefile_mk_nt $EXECUTABLE
+         else
+           $MAKEUTIL -f makefile_mk $EXECUTABLE
+         fi
+       fi
+     fi
+   fi
+  fi

@@ -1,0 +1,20 @@
+#!/bin/tcsh
+#PBS -me -l nodes=4:ppn=8,walltime=1:00:00
+#PBS -q ncn
+#PBS -o output.out
+#PBS -e output.err
+# name of the executable goes on next line
+set executable="/usr/rmt_share/scratch96/r/rrahman/many_donor/Basis_reduce/3P/nemo3d-x86_64-linux_intel9_64_mpi_intelfast.ex"
+echo $executable
+
+cd $PBS_O_WORKDIR
+
+set machinefile=`basename $PBS_NODEFILE`
+cp $PBS_NODEFILE  machinefile.txt
+
+module load mpich-intel64/9.1.045
+
+set cmd="mpirun -np 32 -machinefile machinefile.txt $executable silicon4.xml"
+echo $cmd 
+$cmd
+

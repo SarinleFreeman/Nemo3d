@@ -1,0 +1,563 @@
+module sctracemin_functions
+    use tracemin_types
+    !use minimum_residual
+    implicit none 
+    contains
+ 
+
+    subroutine test_zgtracemin(M,ai,Y,E,R,rank,np,comm,info) 
+      type(zmatrix)                                 :: M
+      type(alginfo),                  intent(inout) :: ai    !structure containing different info for the algorithm 
+      double complex,  dimension(:,:),intent(inout) :: Y     !neig eigenvectros of our matrix
+      double precision,dimension(:),  intent(inout) :: E     !neig eigenvalues of our matrix
+      double complex,  dimension(:,:),intent(inout) :: R     !residual of the solution 
+      integer,                        intent(in)    :: rank  !rank of the processor (in sequential version not used)
+      integer,                        intent(in)    :: np    !number of processors  (in sequential version not used)
+      integer,                        intent(in)    :: comm  !MPI communicator
+      integer,                        intent(inout) :: info  !variable that reports errors
+      !auxiliary variables for the zgtracemin routine
+      double complex,  dimension(:,:),allocatable   :: Q     !temporary variable, when matrix-vector multiply is requested it is Q=M*Q where M= A or B
+      double complex,  dimension(:,:),allocatable   :: Qt    !temporary variable, with dimensions of transpose of Qt
+      double complex,  dimension(:,:),allocatable   :: H     !temporary variable, contains Y'*A*Y
+      double complex,  dimension(:,:),allocatable   :: Hloc  !temporary variable, contains Y'*A*Y
+      double complex,  dimension(:),  allocatable   :: Zwork !temporary array of size 2*neig-1 by 1
+      double precision,dimension(:),  allocatable   :: RWork !temporary array of size 3*neig-2 by 1
+      integer,         dimension(:),  allocatable   :: IWork !temporary array of size neig
+      !auxiliary variables for the map_chebyshev_shift routine
+      double complex,  dimension(:,:),allocatable   :: S     !temporary variable 
+      double complex,  dimension(:,:),allocatable   :: Vn    !temporary variable
+      double complex,  dimension(:,:),allocatable   :: Vp    !temporary variable
+      double complex,  dimension(:,:),allocatable   :: T     !temporary variable
+      !simple variables
+      integer                                       :: neig,n,i,j,mcsinfo,ix,iy
+      double precision                              :: alfa, gamma, invDii, dmiu      
+      double complex                                :: zdotc 
+      !qmr
+      double complex,  dimension(:,:),allocatable   :: Vecs
+      integer,         dimension(:),  allocatable   :: infoqmr
+
+
+      neig= ai%neig
+      n   = M%sizem  
+      gamma =  min(TWO/((ai%c-ai%a)*(ai%c-ai%b)), TWO/((ai%d-ai%a)*(ai%d-ai%b)))
+      !write(*,*) 'allocate temporary variables needed by zgtracemin'
+      allocate(Q    (n,neig))
+      allocate(Qt   (neig,n))
+      allocate(H    (neig,neig)) 
+      allocate(Hloc    (neig,neig)) 
+      allocate(ZWork(max(2*neig-1,1)))
+      allocate(RWork(max(3*neig-2,1)))
+      allocate(IWork(neig))   
+      !allocate temporary variables needed by map_chebyshev
+      allocate(S    (n,neig))
+      allocate(Vn   (n,neig))
+      allocate(Vp   (n,neig))
+      allocate(T    (n,neig)) 
+
+      !write(*,*) 'perform the map_chebyshev_shift multiply'
+      call zcopy(neig*n,Y,1,Q,1) 
+      call zcopy(neig*n,Q,1,S,1)
+      call cshmv(M,Q,Vn,neig)
+      do j=1,4*ai%k
+         call map_chebyshev_shift(n,0,neig,Vn,Q,R,Vp,S,ai%k,gamma,ai%a,ai%b,j,mcsinfo)
+         if (mcsinfo == 0) then
+            !write(*,*) '--- map chebyshev shift done ---'
+            exit
+         end if
+         if ((mcsinfo == 1) .OR. (mcsinfo == 2)) then
+            call cshmv(M,Vn,T,neig)
+            call zcopy(neig*n,T,1,Vn,1)
+         end if
+         if (mcsinfo < 0) then
+            write(*,*) '--- Error in the map chebyshev shift ---'
+            info = mcsinfo
+            exit
+         end if
+      end do
+
+      !write(*,*) 'start zgtracemin'
+      do i=1,4*ai%maxi !every iteration requires two matrix-vector multiplies (the algorithm will stop when needed by itself)
+         call zgtracemin(n,neig,Y,E,Q,Qt,H,Hloc,ZWork,RWork,IWork,R,ai%tol,ai%maxi,i,0,rank,np,comm,info)
+         if (info == 0) then
+            write(*,*) '--- Algorithm Converged --- (iteration =',i/2,')'
+            exit
+         end if         
+         if ((info == 1) .OR. (info == 2)) then
+            !perform map_chebyshev_shift multiply 
+            call zcopy(neig*n,Q,1,S,1)
+            call cshmv(M,Q,Vn,neig)
+            do j=1,4*ai%k
+               call map_chebyshev_shift(n,0,neig,Vn,Q,R,Vp,S,ai%k,gamma,ai%a,ai%b,j,mcsinfo)
+               if (mcsinfo == 0) then   
+                  write(*,*) '--- map chebyshev shift done ---',i
+                  exit
+               end if
+               if ((mcsinfo == 1) .OR. (mcsinfo == 2)) then
+                  call cshmv(M,Vn,T,neig)
+                  call zcopy(neig*n,T,1,Vn,1)
+               end if
+               if (mcsinfo < 0) then
+                 write(*,*) '--- Error in the map chebyshev shift ---'
+                 info = mcsinfo
+                 exit 
+               end if
+            end do
+         end if
+         if (info == 3) then
+            write(*,*) '--- Algorithm reached maximum # of iterations --- (iteration =',i/2,')'
+            exit
+         end if
+         if (info < 0) then
+            write(*,*) '--- Error in the zgtracemin routine --- (iteration =',i/2,'; info =',info,')'
+            exit 
+         end if
+      end do
+      ai%maxi=i/2 
+
+      !A orthonormalize Y
+      !compute Omega
+      call zgemm('C','N',neig,neig,n,ZONE,Y,n,Y,n,ZZERO,H,neig)
+      !compute H=Omega^-1/2 * X'*A*X * Omega^-1/2
+      do i=1,neig
+         alfa = ONE/dsqrt(dble(H(i,i)))
+         call zscal(n,dcmplx(alfa,ZERO),Y(1,i),1) 
+      end do
+      call cshmv(M,Y,T,neig)
+      call zgemm('C','N',neig,neig,n,ZONE,Y,n,T,n,ZZERO,H,neig)
+      !find eigenvectors of H
+      call zheev('V','L',neig,H,neig,E,ZWork,max(2*neig-1,1),RWork,info)
+      !write(*,*) 'eigenvalues of H are (should match matrix eigs)', E 
+      !form new Y by multiplying scaled Y by eigenvectors of H
+      call zgemm('N','N',n,neig,neig,ZONE,Y,n,H,neig,ZZERO,Q,n)
+      call zcopy(n*neig,Q,1,Y,1)
+
+      !find the eigenvalues lambda using lambda=x'*A*x/x'*x where x is the eigenvector and symbol "'" is conjugate transpose
+      call cshmv(M,Y,T,neig)
+      do i=1,neig
+         E(i)=dble(zdotc(n,Y(1,i),1,T(1,i),1))/dble(zdotc(n,Y(1,i),1,Y(1,i),1))
+      end do
+      !write(*,*) 'E', E
+      !write(*,*) 'Y',Y 
+
+      !perform refinement of eigenpairs
+      !FIRST ATTEMPT
+      !write(*,*) 'E',E
+      !write(*,*) 'Y',Y
+      !do j=1,1
+      !call cshmv(M,Y,T,neig)                                     !T is Z=A*Y
+      !call zcopy(n*neig,T,1,Q,1)
+      !call zcopy(n*neig,T,1,S,1)      
+      !do i=1,neig
+      !   invDii = E(i)/(E(i)-ONE)
+      !   call zscal(n,dcmplx(invDii,ZERO),S(1,i),1)              !S is inv(D)*Z where dii= 1 - 1/lambda
+      !   call zscal(n,dcmplx(MONE/E(i),ZERO),Q(1,i),1)
+      !   call zaxpy(n,ZONE,Y(1,i),1,Q(1,i),1)                    !Q is resiual
+      !   write(*,*) 'R=Q:', Q(:,i)
+
+      !   dmiu = MONE*(dble(zdotc(n,S(1,i),1,Q(1,i),1))/dble(zdotc(n,S(1,i),1,T(1,i),1)))         
+      !   write(*,*) 'dmiu', dmiu
+
+
+      !   call zscal(n,dcmplx(MONE*invDii*dmiu,ZERO),T(1,i),1)    !T is deltamu*Z
+      !   call zaxpy(n,dcmplx(MONE*invDii),Q(1,i),1,T(1,i),1)
+      !   write(*,*) 'T', T(:,i)
+
+      !   E(i) = ONE/((ONE/E(i)) + dmiu)
+      !   call zaxpy(n,ZONE,T(1,i),1,Y(1,i),1)
+      !end do
+      !end do
+
+      !SECOND ATTEMPT
+      !allocate(infoqmr(4))
+      !infoqmr(1)=0
+      !infoqmr(2)=0
+      !infoqmr(3)=0
+      !infoqmr(4)=0
+      !allocate(Vecs(n,8))
+      !Vecs(1:n,1:6)=ZZERO
+      !call cshmv(M,Y,T,neig)
+      !write(*,*) 'T',T
+      !do i=1,neig
+         !call zcopy(n,T(1,i),1,Vecs(1,2),1)
+         !call zaxpy(n,dcmplx(MONE*E(i),ZERO),Y(1,i),1,Vecs(1,2),1)
+         !call zgemm('C','N',neig,1,n,ZONE,Y,n,Vecs(1,2),n,ZZERO,H(1,1),neig)  !only first vector of H is used
+         !call zgemm('N','N',n,1,neig,ZMONE,Y,n,H(1,1),neig,ZZERO,Q(1,1),n)    !only first vector of Q/H is used
+         !call zaxpy(n,ZONE,Q(1,1),1,Vecs(1,2),1)                              !Vecs(:,2) contains the residual
+         !infoqmr(2)=0         
+         !do j=1,11 
+         !   write(*,*) '---->it',j            
+         !   call zucpx(n,n,10,Vecs,ai%tol,infoqmr)
+         !   write(*,*) 'infoqmr', infoqmr
+         !   if ((infoqmr(2) == 1) .OR. (infoqmr(2) == 2)) then               
+         !      ix = infoqmr(3)
+         !      iy = infoqmr(4)
+               !write(*,*) 'ix',ix,'iy',iy
+               !write(*,*) 'Vix',Vecs(:,ix)
+
+         !      call zgemm('C','N',neig,1,n,ZONE,Y,n,Vecs(1,ix),n,ZZERO,H(1,1),neig) !only first vector of H is used
+         !      call zgemm('N','N',n,1,neig,ZONE,Y,n,H(1,1),neig,ZZERO,Q(1,1),n)     !only first vector of Q/H is used
+         !      call zaxpy(n,ZMONE,Vecs(1,ix),1,Q(1,1),1)                            !Vecs(:,iy) contains the residual
+         !      write(*,*) 'Q',Q(:,1)
+
+         !      if (infoqmr(2) == 1) then
+         !         write(*,*) 'multiply'
+         !         call cshmv(M,Q,Vecs(:,iy:iy),1)
+         !      else
+         !         write(*,*) 'multiply transpose'
+         !         call cshmvt(M,Q,Vecs(:,iy:iy),1)
+         !      end if
+         !      write(*,*) 'a Viy',Vecs(:,iy)
+         !      call zaxpy(n,dcmplx(MONE*E(i),ZERO),Q(1,1),1,Vecs(1,iy),1)
+               !write(*,*) 'a Viy',Vecs(:,iy)
+
+         !      call zgemm('C','N',neig,1,n,ZONE,Y,n,Vecs(1,iy),n,ZZERO,H(1,1),neig) !only first vector of H is used
+         !      call zgemm('N','N',n,1,neig,ZMONE,Y,n,H(1,1),neig,ZZERO,Q(1,1),n)    !only first vector of Q/H is used
+         !      call zaxpy(n,ZONE,Q(1,1),1,Vecs(1,iy),1)                             !Vecs(:,iy) contains the residual
+               !write(*,*) 'd Viy',Vecs(:,iy)
+         !   else
+         !      if (infoqmr(1) == 0) then
+         !         write(*,*) 'converged'
+         !      else
+         !         write(*,*) 'error'
+         !         exit
+         !      end if
+         !   end if
+         !end do
+         !write(*,*) 'Vecs', Vecs(:,1)
+         !call zaxpy(n,ZONE,Vecs(1,1),1,Y(1,i),1) !!!update the eigenvector i
+      !end do
+      !deallocate(Vecs)
+      !deallocate(infoqmr)
+      !call cshmv(M,Y,T,neig)
+      !do i=1,neig
+      !   E(i)=dble(zdotc(n,Y(1,i),1,T(1,i),1))/dble(zdotc(n,Y(1,i),1,Y(1,i),1))
+      !end do
+
+      !deallocate temporary variables
+      deallocate(Q)
+      deallocate(Qt)
+      deallocate(H)
+	  deallocate(Hloc)
+      deallocate(ZWork)
+      deallocate(RWork)
+      deallocate(IWork)
+      deallocate(S)
+      deallocate(Vn)
+      deallocate(Vp) 
+    end subroutine test_zgtracemin
+ 
+    !We want to find p smallest eigenpairs of generalized eigenvalue problem I*x=lambda*A*x with Hermitian positive definite A.
+    !The routine below is an implementation of generalized tracemin algorithm using complex arithmetic for the above problem. 
+    !It uses reverse communication and needs to be called in an outside loop, the algorithm will stop if it converged or if it did maxi iterations.
+    !The algorithm assumes that the first time its is called Q=B*Y, info=1 and that nobody touches Y,E,Q,Qt,H,info between successive calls (unless requested through info)  
+    subroutine zgtracemin(n,neig,Y,E,Q,Qt,H,Hloc,ZWork,RWork,IWork,R,tol,maxi,ncall,nloc,rank,np,comm,info)
+      integer,                        intent(in)   :: n      !order of the matrix 
+      integer,                        intent(in)   :: neig   !number of eigenvalues we want to know
+      double complex,  dimension(:,:),intent(inout):: Y      !neig eigenvectros of our matrix      
+      double precision,dimension(:),  intent(inout):: E      !neig eigenvalues of our matrix 
+      double complex,  dimension(:,:),intent(inout):: Q      !temporary variable, when matrix-vector multiply is requested it is Q=M*Q where M= A or B
+      double complex,  dimension(:,:),intent(inout):: Qt     !temporary variable, with dimensions of transpose of Q
+      double complex,  dimension(:,:),intent(inout):: H      !temporary variable, contains Y'*A*Y
+      double complex,  dimension(:,:),intent(inout):: Hloc   !temporary variable, contains Y'*A*Y
+      double complex,  dimension(:),  intent(in)   :: Zwork  !temporary array of size 2*neig-1 by 1
+      double precision,dimension(:),  intent(in)   :: RWork  !temporary array of size 3*neig-2 by 1
+      integer,         dimension(:),  intent(in)   :: IWork  !temporary array of size neig 
+      double complex,  dimension(:,:),intent(out)  :: R      !vector containing the residual = Y-lambda*B*Y
+      double precision,               intent(in)   :: tol    !required tolerance    
+      integer,                        intent(in)   :: maxi   !maximum number of iterations
+      integer,                        intent(in)   :: ncall  !number of calls to the routine so far (every iteration takes two calls, starts with 1) 
+      integer,                        intent(in)   :: nloc   !number of elements of a vector on the current processor
+      integer,                        intent(in)   :: rank   !rank of the processor (in sequential version not used)
+      integer,                        intent(in)   :: np     !number of processors  (in sequential version not used)
+      integer,                        intent(in)   :: comm   !MPI communicator
+      integer,                        intent(inout):: info   !on exit 0  - done, 
+                                                             !        1,2- perform matrix vector multiply Q=B*Q
+                                                             !        3  - maximum number of iterations reached
+                                                             !        <0 - error    
+      integer                                      :: locinfo!used to report LAPACK errors  
+      integer                                      :: i, converged
+      double precision                             :: alfa, dznrm2 
+
+
+      if ((info == 1) .OR. (ncall == 1)) then
+         !compute residual of current set of eigenvectors Y and eigenvalues E
+         call zcopy(n*neig,Q,1,R,1)
+         converged = TRUE
+         do i=1,neig 
+            call zscal(n,dcmplx(E(i),ZERO),R(1,i),1)   
+            call zaxpy(n,ZMONE,Y(1,i),1,R(1,i),1)
+            call zscal(n,ZMONE,R(1,i),1) 
+            if (tol < dznrm2(n,R(1,i),1)) then
+               converged = FALSE
+            end if 
+         end do
+         if ((converged == TRUE) .OR. (ncall > 2*maxi)) then
+            if (converged == TRUE) then
+               info=0
+            else
+               info=3
+            end if
+            return
+         else
+            !Step 2 - B-orthonormalization (the assumption is that the first time routine is called Q=B*Y)   
+            !write(*,*) '--- info1 ---'
+            call zgemm('C','N',neig,neig,n,ZONE,Y,n,Q,n,ZZERO,H,neig)
+            call zheev('V','L',neig,H,neig,E,ZWork,max(2*neig-1,1),RWork,locinfo)
+            if (locinfo /= 0) then
+               write(*,*) 'Error in LAPACK function zheev (info = ',locinfo,') - step 2 of tracemin' 
+               info = locinfo 
+               return
+            end if
+            do i=1,neig
+               alfa = ONE/dsqrt(E(i))
+               call zscal(neig,dcmplx(alfa,ZERO),H(1,i),1) !notice that B is hermitian positive definite (and Y is complex), so eigenvalues of H=Y'*B*Y must be real 
+            end do
+            call zgemm('N','N',n,neig,neig,ZONE,Y,n,H,neig,ZZERO,Q,n)
+            call zcopy(n*neig,Q,1,Y,1)
+            !Step 3 - form H
+            call zgemm('C','N',neig,neig,n,ZONE,Y,n,Q,n,ZZERO,H,neig)
+            !Step 4 - find eigenvalues of H
+            call zheev('V','L',neig,H,neig,E,ZWork,max(2*neig-1,1),RWork,locinfo)
+            if (locinfo /= 0) then
+               write(*,*) 'Error in LAPACK function zheev (info = ',locinfo,') - step 3 of tracemin'
+               info = locinfo
+               return 
+            end if
+            !Step 5 - form Y that is section of A*x=lambda*B*x       
+            call zgemm('N','N',n,neig,neig,ZONE,Y,n,H,neig,ZZERO,Q,n)
+            info = 2
+            return          
+         end if
+      end if
+
+      if (info == 2) then
+         !Step 6 - update Y
+         call zcopy(n*neig,Q,1,Y,1)
+         call zgemm('C','N',neig,neig,n,ZONE,Y,n,Q,n,ZZERO,H,neig)
+         !in principle you could use hermitian positive definite solve, but there is no option to transpose the matrix there 
+         Qt=transpose(Q)                
+         call zgetrf(neig,neig,H,neig,IWork,locinfo)
+         if (locinfo /= 0) then
+            write(*,*) 'Error in LAPACK function zgetrf (info = ',locinfo,') - step 6 of tracemin'
+            info = locinfo
+            return
+         end if
+         call zgetrs('T',neig,n,H,neig,IWork,Qt,neig,locinfo)
+         if (locinfo /= 0) then
+            write(*,*) 'Error in LAPACK function zgetrs (info = ',locinfo,') - step 6 of tracemin'
+            info = locinfo
+            return
+         end if
+         Q=transpose(Qt)                    
+         call zcopy(n*neig,Q,1,Y,1)
+         info = 1         
+         return
+      end if
+
+    end subroutine zgtracemin
+
+    
+    !The below routine performs a map Q(x)=1-gamma*(x-a)*(x-b) then applies chebyshev polynomial to it and finally shifts by 2.
+    !It also assumes that nobody touched none of the parameters between successive calls (unless requested to do so through info).
+    subroutine map_chebyshev_shift(n,nloc,nrhs,Vn,Vc,Vch,Vp,S,k,gamma,a,b,ncall,info)
+      integer,                        intent(in)    :: n         !order of the matrix 
+      integer,                        intent(in)    :: nloc      !number of elements on the current processor
+      integer,                        intent(in)    :: nrhs      !number of vectors
+      double complex, dimension(:,:), intent(inout) :: Vn        !set of p new vectors             (input: vector B*U)
+      double complex, dimension(:,:), intent(inout) :: Vc        !set of p current vectors         (input: vector U by which we are multiplying,output: result of multiply) 
+      double complex, dimension(:,:), intent(inout) :: Vch       !B times set of p current vectors 
+      double complex, dimension(:,:), intent(inout) :: Vp        !temporary array for set of p current vectors
+      double complex, dimension(:,:), intent(inout) :: S         !set of original vectors used to perform the shift (input: copy of vector U, never modified in the routine)
+      integer,                        intent(in)    :: k         !degree of chebyshev polynomial 
+      double precision,               intent(in)    :: gamma     !parameter used in the mapping Q(x)=1-gamma*(x-a)*(x-b)
+      double precision,               intent(in)    :: a         !left bound of the interval containing p desired eigenvalues 
+      double precision,               intent(in)    :: b         !right bound of the interval containing p desired eigenvalues
+      integer,                        intent(in)    :: ncall     !number of times routine was called (every iteration takes two calls, starts with 1)
+      integer,                        intent(inout) :: info      !on exit 0  - done
+                                                                 !        1,2- compute Vn=B*Vn  
+                                                                 !        <0- error 
+    
+      
+      if (ncall > 2*k) then
+         info=0
+         call zaxpy(n*nrhs,ZTWO,S,1,Vc,1)
+         return 
+      else
+         if ((info ==  1) .OR. (ncall == 1)) then 
+            call zaxpy(n*nrhs,dcmplx(MONE*b,ZERO),Vc,1,Vn,1)
+            call zcopy(n*nrhs,Vn,1,Vch,1)
+            info=2 
+            return  
+         end if
+         if (info == 2) then
+            call zaxpy(n*nrhs,dcmplx(MONE*a,ZERO),Vch,1,Vn,1)
+            if (ncall == 2) then 
+               call zscal(n*nrhs,dcmplx(MONE*gamma,ZERO),Vn,1)
+               call zaxpy(n*nrhs,ZONE,Vc,1,Vn,1)
+            else
+               call zscal(n*nrhs,dcmplx(MTWO*gamma,ZERO),Vn,1)
+               call zaxpy(n*nrhs,ZTWO,Vc,1,Vn,1)
+               call zaxpy(n*nrhs,ZMONE,Vp,1,Vn,1)
+            end if
+           
+            call zcopy(n*nrhs,Vc,1,Vp,1)
+            call zcopy(n*nrhs,Vn,1,Vc,1)
+            info=1
+            return 
+         end if
+      end if
+    end subroutine map_chebyshev_shift
+
+    subroutine extract_eigenpairs(Y,E,neig,nloc,H,Hloc,ZWork,RWork,T,rank,comm,info)
+      double complex,  dimension(:,:),intent(inout) :: Y     !eigenvectors   
+      double precision,dimension(:),  intent(inout) :: E     !eigenvalues
+      integer,                        intent(in)    :: neig  !number of eiegnpairs    
+      integer,                        intent(in)    :: nloc  !number of vector elements on each processor
+      double complex,  dimension(:,:),intent(inout) :: H     !temporary array of size neig by neig                                                                    
+      double complex,  dimension(:,:),intent(inout) :: Hloc  !temporary array of size neig by neig
+      double complex,  dimension(:),  intent(inout) :: Zwork !temporary array of size 2*neig-1 by 1
+      double precision,dimension(:),  intent(inout) :: RWork !temporary array of size 3*neig-2 by 1
+      double complex,  dimension(:,:),intent(inout) :: T     !on second call T=A*Y
+      integer,                        intent(in)    :: rank  !rank of the current processor
+      integer,                        intent(in)    :: comm  !MPI communicator
+      integer,                        intent(inout) :: info  !on entry first is one then is two, on exit reports errors 
+      double precision                              :: alfa
+      integer                                       :: i,mpierror
+      
+      if (info == 1) then
+         !compute Omega   
+         call zgemm('C','N',neig,neig,nloc,ZONE,Y,nloc,Y,nloc,ZZERO,H,neig)
+         !call MPI_Allreduce (Hloc(1:neig*neig,1), H(1:neig*neig,1), neig*neig, MPI_DOUBLE_COMPLEX, MPI_SUM, MPI_COMM_WORLD, mpierror)
+         !compute H=Omega^-1/2 * X'*A*X * Omega^-1/2 
+         do i=1,neig
+            alfa = ONE/dsqrt(dble(H(i,i)))
+            call zscal(nloc,dcmplx(alfa,ZERO),Y(1,i),1)
+         end do
+
+         !return to do the outside multiply
+         info=2
+         return
+      end if
+      !call pcfmv(M,Y,T,neig,nloc,ne,rank,np)
+      if (info == 2) then
+         call zgemm('C','N',neig,neig,nloc,ZONE,Y,nloc,T,nloc,ZZERO,H,neig)
+         !call MPI_Allreduce (Hloc(1:neig*neig,1), H(1:neig*neig,1), neig*neig, MPI_DOUBLE_COMPLEX, MPI_SUM, MPI_COMM_WORLD, mpierror)
+         !find eigenvectors of H
+         call zheev('V','L',neig,H,neig,E,ZWork,max(2*neig-1,1),RWork,info)
+         !form new Y by multiplying scaled Y by eigenvectors of H   
+         call zgemm('N','N',nloc,neig,neig,ZONE,Y,nloc,H,neig,ZZERO,T,nloc)
+         call zcopy(nloc*neig,T,1,Y,1)
+         
+         !done
+         info=0
+         return
+      end if
+
+      if ((info /= 1) .AND. (info /=2)) then
+         write(*,*) rank,'ERROR: info is not 1, neither 2'
+         return
+      end if
+    end subroutine extract_eigenpairs
+
+    !complex sparse hermitian matrix vector multiply
+    subroutine cshmv(M,p,q,nrhs)
+      type(zmatrix),                  intent(in)    :: M         !matrix
+      double complex, dimension(:,:), intent(in)    :: p         !set of vectors p
+      double complex, dimension(:,:), intent(out)   :: q         !set of vectors q
+      integer,                        intent(in)    :: nrhs      !number of vectors
+      integer                                       :: i,k,r,c
+      double complex                                :: v
+      
+
+      q(1:M%sizem,1:nrhs)=ZZERO
+      do k=1,M%rsize
+         r = M%row(k)
+         c = M%column(k)
+         v = M%coefficient(k)
+         do i=1,nrhs
+            q(r,i) = q(r,i) + v*p(c,i)
+            if (r /= c) then
+               q(c,i) = q(c,i) + dconjg(v)*p(r,i)
+            end if
+         end do
+         !alternative way of doing the above loops
+         !call zaxpy(nrhs,v,p(c,1),M%sizem,q(r,1),M%sizem)
+         !if (r /= c) then
+         !  call zaxpy(nrhs,dconjg(v),p(r,1),M%sizem,q(c,1),M%sizem)
+         !end if
+      end do
+
+    end subroutine cshmv
+
+    !complex sparse hermitian matrix vector multiply by transpose of the matrix M
+    subroutine cshmvt(M,p,q,nrhs)
+      type(zmatrix),                  intent(in)    :: M         !matrix
+      double complex, dimension(:,:), intent(in)    :: p         !set of vectors p
+      double complex, dimension(:,:), intent(out)   :: q         !set of vectors q
+      integer,                        intent(in)    :: nrhs      !number of vectors
+      integer                                       :: i,k,r,c
+      double complex                                :: v
+
+
+      q(1:M%sizem,1:nrhs)=ZZERO
+      do k=1,M%rsize
+         c = M%row(k)
+         r = M%column(k)
+         v = M%coefficient(k)
+         do i=1,nrhs
+            q(r,i) = q(r,i) + v*p(c,i)
+            if (r /= c) then
+               q(c,i) = q(c,i) + dconjg(v)*p(r,i)
+            end if
+         end do
+         !alternative way of doing the above loops
+         !call zaxpy(nrhs,v,p(c,1),M%sizem,q(r,1),M%sizem)
+         !if (r /= c) then
+         !  call zaxpy(nrhs,dconjg(v),p(r,1),M%sizem,q(c,1),M%sizem)
+         !end if
+      end do
+    end subroutine cshmvt
+
+    subroutine read_matrix_from_file(M, ai)
+      type(zmatrix),   intent(inout) :: M                 !matrix
+      type(alginfo),   intent(inout) :: ai                !structure containing different info needed by the algorithm
+      integer                        :: fdescriptorA      !file descriptor
+      character(len=256)             :: fpartitionA       !file name
+      integer                        :: k
+      double precision               :: rp, ip, shift 
+      
+      fpartitionA='matrixA.in'
+      fdescriptorA=11        
+      
+      !write(*,*) 'read matrix A'
+      open(fdescriptorA,file=fpartitionA,status='old')
+      read(fdescriptorA,*) M%rsize, M%sizem, M%bsize, shift, ai%neig, ai%a, ai%b, ai%c, ai%d, ai%k, ai%maxi, ai%tol
+      !write(*,*) M%rsize, M%sizem, M%bsize, shift, ai%neig, ai%a, ai%b, ai%c, ai%d, ai%k, ai%maxi, ai%tol
+      ai%a = ai%a + shift
+      ai%b = ai%b + shift
+      ai%c = ai%c + shift
+      ai%d = ai%d + shift
+      
+      !this allocation has to be done here since before we don't know M%rsize
+      allocate(M%row(1:M%rsize))
+      allocate(M%column(1:M%rsize))
+      allocate(M%coefficient(1:M%rsize))
+
+      !assuming the input file values are in the following format: "i j (a,b)"
+      !do k=1,M%rsize
+      !   read(fdescriptorA,*) M%row(k), M%column(k), M%coefficient(k)
+      !end do
+      !assuming the input file values are in the following format: "i j a b"
+      do k=1,M%rsize
+         read(fdescriptorA,*) M%row(k), M%column(k), rp, ip 
+         if (M%row(k) == M%column(k)) then
+            M%coefficient(k) = dcmplx(rp+shift,ip)
+         else
+            M%coefficient(k) = dcmplx(rp,ip)
+         end if
+      end do
+      
+      close(fdescriptorA)
+    end subroutine read_matrix_from_file
+    
+end module sctracemin_functions

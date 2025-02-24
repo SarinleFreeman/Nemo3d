@@ -1,0 +1,21 @@
+#!/bin/sh
+# run [processors [blocks [values [maxitr]]]]
+processors=5
+blocks=4
+values=18
+maxitr=65536
+if [ 0 -lt $# ]; then
+  processors=$1;
+  if [ 1 -lt $# ]; then
+    blocks=$2;
+    if [ 2 -lt $# ]; then
+      values=$3;
+      if [ 3 -lt $# ]; then
+        maxitr=$4;
+        fi
+      fi
+    fi
+  fi
+date
+echo time mpirun -np $processors -nolocal pexample $blocks $values $maxitr
+time mpirun -np $processors -nolocal pexample $blocks $values $maxitr

@@ -1,0 +1,4 @@
+#
+cp patches_AIX/XMLString.cpp   ../xerces-c-src2_1_0/src/xercesc/util/XMLString.cpp
+cp patches_AIX/second.f        ../ARPACK/UTIL/second.f
+cp patches_AIX/Makefile        ./

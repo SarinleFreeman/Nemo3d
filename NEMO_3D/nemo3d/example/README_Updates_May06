@@ -1,0 +1,116 @@
+==================================
+Updates May '06: Input Decks v0.18
+==================================
+
+* New materials added:
+  --------------------
+
+   material_14: AlAs
+   material_15: InSi
+   material_16: SiAs
+   material_17: SiP
+   material_18: PSi
+   material_19: P
+
+* Corrected 20bands parameteres:
+  ------------------------------
+
+  Corrected mb_pv according to literature (20-bands) [Phys. Rev. B 66, 125207 
+  (2002)]:
+  Si 
+  GaAs 
+  InAs 
+  NOTE: InAs and GaAs, both mb_pv AND mb_strain corrected!
+
+* New Solvers (ResFind):
+  ----------------------
+
+  Block Lanczos, PCTracemin and PQTracemin, with corresponding options in the 
+  BLanczos, PCTracemin_solver and PQTracemin_solver -> 
+  -> look for "ResFind" variable and for keywords 'PCTracemin, PQTracemin and 
+  BLanczos'
+  NOTE: some of the parameters have been re-ordered, Erange is now among the
+  options corresponding to Block Lanczos and Lanczos. 
+
+
+* Options for dumping out the nd_rAtom files:
+  -------------------------------------------
+  AtomPos option changed to new 3 options, where user can choose to get the 
+  rAtom file in equilibrium, after or before strain calculations -> 
+  -> look for keywords "AtomPos" in the .xml file.
+
+
+* E_range:
+  --------
+  Before this was a general option, now it is inside the Lanczos and Block 
+  Lanczos options.
+  /Bad news/: when you update your input deck, the Erange is NOT the one you
+  previously have, so you'd need to CHANGE IT BY HAND ->  
+  -> look for Erange variable.
+
+
+* Include impurities: 
+  -------------------
+  Possibility to include impurities (up to 3 for now) and choose the exact
+  position where you want them -> 
+  -> look for keyword "ImpNumber".
+
+
+* Enable Efield: 
+  --------------
+  In opt.ExecParam.Phys, look for "EfieldON", below one can add the x, y, z 
+  components -> 
+  -> look for keyword "EfieldON", "Ex", "Ey", "Ez"  (Implemented by Rajib, 
+  rrahman@purdue.edu).
+
+
+* Dump Efield/donor file:
+  -----------------------
+  User can choose to dump in a file the donor potential and/or applied potential
+  (perhaps this needs to be polished in ham3d_final.c...)->
+  -> look for keyword "donor_file" and "electric_file". 
+
+
+* 3D Visualization:
+  -----------------
+  Write output files of dx-format for 3D visualization, if boolean 
+  Visualization_3D is set up to 'true'
+  -> look for keyword "Visualization_3D" (Implemented by Hoon Ryu, 
+  ryu2@purdue.edu). 
+
+
+* Strain:
+  ------
+  Possibility to dump out the displacemens for atoms of ONLY the strain domain, 
+  by setting boolean "StrainElOnly" to true, in file type '.nd_disp_small'. 
+  -> look for keyword "StrainElOnly".
+  Likewise, the "TensionOutput" boolean to true will cause the strain tensor to 
+  be printed out in a file of type '.nd_exx', '.nd_exy', etc. 
+  -> look for keyword "TensionOutput".
+
+
+* Tilted QWs: 
+  -----------
+  (Not implemented yet): hkl gives the direction of the tilt with respect to the
+  main crystallographic indexes: thus, (1 1 0) is a rotation of 45^\DEG in the 
+  XY plane ->
+  -> look for keyword "hkl"  
+
+*******************************************************************************
+  NOTE: If you have an old input deck (Version = 0.17), you'll need to
+  update it to Version 0.18, using the script "update-nemo3d-input.pl",
+  which can be found in ~/My_path_to_NEMO_3D/NEMO_3D/nemo3d/misc/:
+
+  > (PATH_TO_UPDATES)/update-nemo3d-input.pl my_input_deck.xml
+
+  where eg. (PATH_TO_UPDATES) = ~/My_path_to_NEMO_3D/NEMO_3D/nemo3d/misc/
+  Then, you'll get as an output, your file 'my_input_deck.xm" OVERWRITTEN:
+  take this into account, if you want to re-use it!
+*******************************************************************************
+
+
+===================================
+  Marta Prada, mprada@purdue.edu
+  Purdue University-W. Lafayette
+===================================
+

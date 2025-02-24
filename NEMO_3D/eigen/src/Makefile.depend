@@ -1,0 +1,41 @@
+../obj/x86_64_intel20_64_openmpi_gadi/cmacopt.o: ../src/cmacopt.c /usr/include/stdc-predef.h ../include/cmacopt.h \
+ ../../nml/include/nml_dcvector.h ../../nml/include/nml_dvector.h \
+ ../../nml/include/nml_dscalar.h ../../nml/include/nml_global.h \
+ ../../nml/include/nml_dcscalar.h ../../nml/include/rvector.h \
+ ../../nml/include/vector.h ../../nml/include/cvector.h \
+ ../../nml/include/complex.h
+../obj/x86_64_intel20_64_openmpi_gadi/io.o: ../src/io.c /usr/include/stdc-predef.h ../include/io.h
+../obj/x86_64_intel20_64_openmpi_gadi/lanczos.o: ../src/lanczos.c /usr/include/stdc-predef.h ../include/lanczos.h \
+ ../include/io.h ../include/mpi_local.h ../include/mpi_fake.h \
+ ../../nml/include/nml_dcvector.h ../../nml/include/nml_dvector.h \
+ ../../nml/include/nml_dscalar.h ../../nml/include/nml_global.h \
+ ../../nml/include/nml_dcscalar.h ../../nml/include/nml_ivector.h \
+ ../../nml/include/nml_iscalar.h ../../nml/include/nml_dcmatrix.h \
+ ../../nml/include/nml_dmatrix.h ../../nml/include/nml_d3bands.h \
+ ../../nml/include/matrix.h ../../nml/include/vector.h \
+ ../../nemo3d/src/base/MPI_Timing.h
+../obj/x86_64_intel20_64_openmpi_gadi/lanczos_blk.o: ../src/lanczos_blk.c /usr/include/stdc-predef.h \
+ ../include/lanczos_blk.h ../include/io.h ../include/lanczos.h \
+ ../include/mpi_local.h ../include/mpi_fake.h ../../nml/include/nml_dcvector.h \
+ ../../nml/include/nml_dvector.h ../../nml/include/nml_dscalar.h \
+ ../../nml/include/nml_global.h ../../nml/include/nml_dcscalar.h \
+ ../../nml/include/nml_ivector.h ../../nml/include/nml_iscalar.h \
+ ../../nml/include/nml_dcmatrix.h ../../nml/include/nml_dmatrix.h \
+ ../../nml/include/nml_d3bands.h ../../nml/include/matrix.h \
+ ../../nml/include/vector.h
+../obj/x86_64_intel20_64_openmpi_gadi/macopt.o: ../src/macopt.c /usr/include/stdc-predef.h ../include/macopt.h \
+ ../include/mpi_local.h ../include/mpi_fake.h ../../nml/include/nml_dvector.h \
+ ../../nml/include/nml_dscalar.h ../../nml/include/nml_global.h
+../obj/x86_64_intel20_64_openmpi_gadi/macopt_par.o: ../src/macopt_par.c /usr/include/stdc-predef.h \
+ ../include/macopt_par.h ../include/macopt.h ../include/mpi_local.h \
+ ../include/mpi_fake.h ../../nml/include/nml_dvector.h \
+ ../../nml/include/nml_dscalar.h ../../nml/include/nml_global.h \
+ ../../nemo3d/src/base/MPI_Timing.h
+../obj/x86_64_intel20_64_openmpi_gadi/mpi_fake.o: ../src/mpi_fake.c /usr/include/stdc-predef.h ../include/mpi_fake.h
+../obj/x86_64_intel20_64_openmpi_gadi/ritz.o: ../src/ritz.c /usr/include/stdc-predef.h ../include/ritz.h \
+ ../include/io.h ../include/mpi_local.h ../include/mpi_fake.h ../include/macopt.h \
+ ../../nml/include/nml_dvector.h ../../nml/include/nml_dscalar.h \
+ ../../nml/include/nml_global.h ../include/macopt_par.h \
+ ../../nml/include/nml_dcvector.h ../../nml/include/nml_dcscalar.h \
+ ../include/cmacopt.h ../../nml/include/rvector.h ../../nml/include/vector.h \
+ ../../nml/include/cvector.h ../../nml/include/complex.h

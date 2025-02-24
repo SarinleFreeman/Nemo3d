@@ -1,0 +1,82 @@
+# *****************************************************************************
+# The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D
+# PostProcessing package.
+# Copyright (C) 2002 California Institute of Technology (Caltech)
+#
+# This application is free software, which you can redistribute and/or modify
+# under the terms of the GNU Lesser General Public License as published by the
+# Free Software Foundation; either version 2.1 of the License, or (at your
+# option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; see the file COPYING. If not, write to the
+# Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330,
+# Boston, MA  02111-1307  USA
+#
+# For additional information, please contact
+#   Seungwon Lee (Seungwon.Lee@jpl.nasa.gov)
+#
+# Written by:  Seungwon Lee
+# *****************************************************************************
+
+
+#This is a Coulomb-exchange table for As/Ga/In/Al atoms.
+#The unit of Coulomb and exchange integrals is eV.
+
+num_atom_type 4
+num_atom_pair 6
+
+dielectric_constant 12.7401
+
+atom_pair 0 1
+atom_pair 1 0
+atom_pair 0 2
+atom_pair 2 0
+atom_pair 0 3
+atom_pair 3 0
+
+coulomb_onsite_ss_ss		2.18	1.78	1.62	2.06
+coulomb_onsite_ss_s 		2.71	2.21	2.01	2.58 
+coulomb_onsite_ss_p 		2.72	2.21	2.00	2.58	 
+coulomb_onsite_ss_d 		1.79	1.67	1.46	2.17
+coulomb_onsite_s_s		9.96	7.91	6.84	8.18
+coulomb_onsite_s_p  		9.99	7.92	6.79	8.18
+coulomb_onsite_s_d  		1.98	1.98	1.70	3.00
+coulomb_onsite_p_p_homo        10.91	8.52	7.41	8.84
+coulomb_onsite_p_p_hetero  	9.56	7.56	6.51	7.85
+coulomb_onsite_p_d  		2.00	2.00	1.71	2.93
+coulomb_onsite_d_d  		1.61	1.61	1.37	2.50
+
+exchange_onsite_ss_s 		0.00	0.00	0.00	0.00 
+exchange_onsite_ss_p 		0.00	0.00	0.00	0.00
+exchange_onsite_ss_d 		0.00	0.00	0.00	0.00
+exchange_onsite_s_p  	        2.45	1.93	1.65	1.95
+exchange_onsite_s_d  		0.00	0.00	0.00	0.00
+exchange_onsite_px_py  		0.68	0.52	0.46	0.53	
+exchange_onsite_p_d  		0.00	0.00	0.00	0.00
+exchange_onsite_d_d  		0.00	0.00	0.00	0.00
+
+exchange_offsite_ss_ss		0.00 	0.00	0.00	0.00	0.00	0.00 
+exchange_offsite_ss_s  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_ss_p  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_ss_d  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_s_ss  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_s_s  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_s_p  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_s_d  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_p_ss 		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_p_s  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_p_p  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_p_d  		0.00 	0.00	0.00 	0.00	0.00	0.00
+exchange_offsite_d_ss 		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_d_s  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_d_p  		0.00 	0.00	0.00	0.00	0.00	0.00
+exchange_offsite_d_d  		0.00 	0.00	0.00	0.00	0.00	0.00
+
+
