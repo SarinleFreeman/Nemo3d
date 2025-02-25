@@ -33,23 +33,24 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/geopointvectorvector.h,v 1.3 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/geopointvectorvector.h,v 1.3 2004/10/27 19:43:10
+gekco Exp $
 *****************************************************************************/
-
 
 #ifndef GEOPOINTVECTRVECTR_H
 #define GEOPOINTVECTRVECTR_H
 
+#include "geopointvector.h"
 #include "io_utils.h"
 #include "nml_global.h"
-#include "geopointvector.h"
 
 typedef geopointvectr *geopointvectrvectr;
 
 geopointvectrvectr Geopointvectrvectr(int n);
-void rm_geopointvectrvectr (geopointvectrvectr *I_ptr);
-void rm_geopointvectrvectr_shellonly (geopointvectrvectr *I_ptr);
-int add_elem_geopointvectrvectr(geopointvectr data_vec, int pos, geopointvectrvectr hold_vectr);
+void rm_geopointvectrvectr(geopointvectrvectr *I_ptr);
+void rm_geopointvectrvectr_shellonly(geopointvectrvectr *I_ptr);
+int add_elem_geopointvectrvectr(geopointvectr data_vec, int pos,
+                                geopointvectrvectr hold_vectr);
 
 geopoint min_gp_geopointvectrvectr(geopointvectrvectr gpvv);
 geopoint max_gp_geopointvectrvectr(geopointvectrvectr gpvv);

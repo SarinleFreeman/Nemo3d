@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/util_memory.c,v 1.3 2004/10/27 19:43:10 gekco Exp $
+$Header: /repo/nemo3d/src/util/util_memory.c,v 1.3 2004/10/27 19:43:10 gekco Exp
+$
 *****************************************************************************/
 
 #if 0
@@ -71,7 +72,4 @@ void n3d_free(void *p) {
     return;
 }
 
-
-
 #endif
-

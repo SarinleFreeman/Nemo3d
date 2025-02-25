@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/run3d_mpi.h,v 1.7 2007/09/19 20:53:26 stevenclark Exp $ 
+$Header: /repo/nemo3d/src/base/run3d_mpi.h,v 1.7 2007/09/19 20:53:26 stevenclark
+Exp $
 *****************************************************************************/
 
 #ifndef RUN3D_MPI_H
@@ -49,19 +50,19 @@ $Header: /repo/nemo3d/src/base/run3d_mpi.h,v 1.7 2007/09/19 20:53:26 stevenclark
 #undef SEEK_END
 #endif
 #include <mpi.h>
-#define Allreduce_MPI_sp(pa,pb,c,d,e,f) MPI_Allreduce(pa,pb,c,d,e,f)
+#define Allreduce_MPI_sp(pa, pb, c, d, e, f) MPI_Allreduce(pa, pb, c, d, e, f)
 #ifdef UNSET_SEEK
 /* #include <stdio.h> */
 /* The possibilities for the third argument to `fseek'.
    These values should not be changed.  */
 #ifndef SEEK_SET
-#define SEEK_SET	0	/* Seek from beginning of file.  */
+#define SEEK_SET 0 /* Seek from beginning of file.  */
 #endif
 #ifndef SEEK_CUR
-#define SEEK_CUR	1	/* Seek from current position.  */
+#define SEEK_CUR 1 /* Seek from current position.  */
 #endif
 #ifndef SEEK_END
-#define SEEK_END	2	/* Seek from end of file.  */
+#define SEEK_END 2 /* Seek from end of file.  */
 #endif
 #endif
 
@@ -69,10 +70,15 @@ $Header: /repo/nemo3d/src/base/run3d_mpi.h,v 1.7 2007/09/19 20:53:26 stevenclark
 
 #include "mpi_fake.h"
 #ifdef NoGnuStatementExpre
-void Allreduce_MPI_sp(double *pa,double *pb, int count, MPI_Datatype datatype, MPI_Op Operation, MPI_Comm comm);
+void Allreduce_MPI_sp(double *pa, double *pb, int count, MPI_Datatype datatype,
+                      MPI_Op Operation, MPI_Comm comm);
 #else
-#define Allreduce_MPI_sp(pa,pb,c,d,e,f) \
-        ({int iLOC; for(iLOC=0; iLOC<(c); iLOC++) (pb)[iLOC]=(pa)[iLOC];})
+#define Allreduce_MPI_sp(pa, pb, c, d, e, f)                                   \
+  ({                                                                           \
+    int iLOC;                                                                  \
+    for (iLOC = 0; iLOC < (c); iLOC++)                                         \
+      (pb)[iLOC] = (pa)[iLOC];                                                 \
+  })
 #endif
 
 #endif /* (defined MPI3d && !defined FAKE_MPI) */
@@ -97,7 +103,6 @@ _IS_DEF double time_bcast;
 #include "MPI_Timing.h"
 #endif /* MPI_TIMING */
 
-#define MPI_rc_distr   23001
-
+#define MPI_rc_distr 23001
 
 #endif /* RUN3D_MPI_H */

@@ -33,9 +33,9 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/mpi_def_local.h,v 1.5 2003/10/08 16:18:47 hook Exp $
+$Header: /repo/nemo3d/src/util/mpi_def_local.h,v 1.5 2003/10/08 16:18:47 hook
+Exp $
 *****************************************************************************/
-
 
 #ifndef MPI_DEF_LOCAL_H
 #define MPI_DEF_LOCAL_H
@@ -46,27 +46,23 @@ extern int mpi_n3d_id;
 extern int mpi_n3d_masterid;
 extern int mpi_n3d_numprocs;
 
-
 // -------------------------------------------------------
 // stuff that may be used later
 // -------------------------------------------------------
 
-class mpiCommClass 
-{
-   int mpi_Root;
-   int mpi_ID;
-   int mpi_Nproc;
+class mpiCommClass {
+  int mpi_Root;
+  int mpi_ID;
+  int mpi_Nproc;
 
-   int mpi_left, mpi_right;
-   
-   
- public:
-   mpiCommClass();
+  int mpi_left, mpi_right;
 
-   mpiCommClass(bool);
+public:
+  mpiCommClass();
+
+  mpiCommClass(bool);
 };
 
 extern mpiCommClass mpiComm;
-
 
 #endif /* MPI_DEF_LOCAL_H */

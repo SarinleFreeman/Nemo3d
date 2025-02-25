@@ -39,19 +39,20 @@ $Header: /repo/nemo3d/src/math/c3tensor.h,v 1.4 2004/10/27 19:43:10 gekco Exp $
 #ifndef C3TENSOR_H
 #define C3TENSOR_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include "util_messages.h"
+#include "complex.h"
 #include "nml_global.h"
 #include "tensor.h"
-#include "complex.h"
+#include "util_messages.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef complex ***c3tensor;
 
-c3tensor C3tensor(int dimRowLow, int dimRowHigh, int dimColLow, int dimColHigh, int dimDepthLow, int dimDepthHigh);
+c3tensor C3tensor(int dimRowLow, int dimRowHigh, int dimColLow, int dimColHigh,
+                  int dimDepthLow, int dimDepthHigh);
 void rm_c3tensor(c3tensor *ptrC3t, int dimRowLow);
-c3tensor check_c3tensor(c3tensor c3t, int d1l, int d1h, int d2l, int d2h, int d3l, int d3h);
+c3tensor check_c3tensor(c3tensor c3t, int d1l, int d1h, int d2l, int d2h,
+                        int d3l, int d3h);
 
 #endif /* C3TENSOR_H */
-

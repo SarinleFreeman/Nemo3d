@@ -33,22 +33,22 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/util_command_BX.h,v 1.2 2003/10/08 16:18:54 hook Exp $
+$Header: /repo/nemo3d/src/util/util_command_BX.h,v 1.2 2003/10/08 16:18:54 hook
+Exp $
 *****************************************************************************/
 
 #ifndef UTIL_COMMAND_BX_H
 #define UTIL_COMMAND_BX_H
 
-#include "util_argv_B.h"
-#include "mpi_def_local.h"
 #include "Boolean.h"
-
+#include "mpi_def_local.h"
+#include "util_argv_B.h"
 
 typedef struct {
-   char  *	input;
-   Boolean 	silent;
-   Boolean 	verbose;
-   char  *      debuglaunch;
+  char *input;
+  Boolean silent;
+  Boolean verbose;
+  char *debuglaunch;
 } CMD_OPTIONS;
 
 extern argv_t args[];

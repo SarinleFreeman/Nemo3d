@@ -33,21 +33,19 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/cvector_lib.h,v 1.3 2004/10/27 19:43:10 gekco Exp $
+$Header: /repo/nemo3d/src/math/cvector_lib.h,v 1.3 2004/10/27 19:43:10 gekco Exp
+$
 *****************************************************************************/
-
 
 #ifndef CVECTOR_LIB_H
 #define CVECTOR_LIB_H 1
 
-
-#include <vector.h>
-#include <cvector.h>
-#include <complex.h>
+#include "nml_global.h"
 #include "realtype.h"
 #include "util_messages.h"
-#include "nml_global.h"
-
+#include <complex.h>
+#include <cvector.h>
+#include <vector.h>
 
 typedef cvectr *coperator;
 
@@ -56,10 +54,7 @@ cvectr cp_cvectr_dim(cvectr, cvectr, int);
 int crandvectr(cvectr);
 complex cvectrmul(cvectr, cvectr);
 
-
 /* Used by "~/DEVELOP/3dnemo-C++/math/math3d.c" */
-void cp_carray2carray (complex* caSource, complex* caTarget, int arraySize);
-
+void cp_carray2carray(complex *caSource, complex *caTarget, int arraySize);
 
 #endif /* CVECTOR_LIB_H */
-

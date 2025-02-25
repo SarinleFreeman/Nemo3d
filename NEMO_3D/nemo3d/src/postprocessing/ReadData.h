@@ -33,11 +33,12 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/ReadData.h,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/ReadData.h,v 1.1 2004/08/26 21:28:07
+swlee Exp $
 *****************************************************************************/
 
 #ifndef _read_data_h
-#define _read_data_h 
+#define _read_data_h
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,13 +50,14 @@ $Header: /repo/nemo3d/src/postprocessing/ReadData.h,v 1.1 2004/08/26 21:28:07 sw
 #include "mpi_fake.h"
 #endif
 
-#include "cvector_lib.h" 
-#include "io_utils.h"
+#include "cvector_lib.h"
 #include "fileformat.h"
+#include "io_utils.h"
 
-void read_natoms_norbitals(const char*, int*, int*);
-void read_wavefunction_only(const char*, int, int, complex**);
-void read_data_for_postprocessing(const char*, int, const int*, int, const int*,
-                                  complex**, complex**, int**, int**, int**, double** );
+void read_natoms_norbitals(const char *, int *, int *);
+void read_wavefunction_only(const char *, int, int, complex **);
+void read_data_for_postprocessing(const char *, int, const int *, int,
+                                  const int *, complex **, complex **, int **,
+                                  int **, int **, double **);
 
 #endif

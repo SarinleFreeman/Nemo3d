@@ -1,0 +1,9 @@
+<map id="geo_struct::InitializeForHyperChem" name="geo_struct::InitializeForHyperChem">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,47,163,88"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#ada8eeb3e24ce0188ad4a4b476a1333ca" title=" " alt="" coords="211,5,407,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,48,232,32,233,37,164,53"/>
+<area shape="rect" id="Node000003" href="$class_cell.html#a26e536b6aa5ca11b4b57c8013f41dae3" title=" " alt="" coords="214,55,404,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,65,199,65,199,70,163,70"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ab8be4bb1798dc4c9091fd01141307604" title=" " alt="" coords="234,104,384,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,82,233,98,232,103,162,87"/>
+</map>

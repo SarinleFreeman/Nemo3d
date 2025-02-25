@@ -39,44 +39,39 @@ $Header: /repo/nemo3d/src/top/serv3d.c,v 1.5 2005/05/27 17:34:33 marek Exp $
 #include "serv3d.h"
 
 int Server3D(qd_struct d) {
-  int run_loop=1;
-  char* line=NULL;
+  int run_loop = 1;
+  char *line = NULL;
 
-  while (run_loop){
+  while (run_loop) {
     line = get_line(stdin);
-    if (!strlcmp(line,"STOPserver")){
+    if (!strlcmp(line, "STOPserver")) {
       break;
-    }
-    else if (!strlcmp(line,"DOsim_io")){
+    } else if (!strlcmp(line, "DOsim_io")) {
       d->I_N3D->sptr = IO_Tcl_Server(d->I_N3D->sptr, d->I_N3D_sptr_Store);
     }
     /*    else if (!strlcmp(line,"DOstruct_io")){
-	  d->I_N3D->sptr = IO_Tcl_Server(d->I_Dev->sptr, d->I_Dev_sptr_Store);
-	  }
+          d->I_N3D->sptr = IO_Tcl_Server(d->I_Dev->sptr, d->I_Dev_sptr_Store);
+          }
     */
-    else if (!strlcmp(line,"SAVEinput")){
+    else if (!strlcmp(line, "SAVEinput")) {
       i_save_shell(d, d->inputfile, 1, &d->Abort_result);
-    }
-    else{
+    } else {
       printf("Received an unknown command.\n"
-	     "Known Commands:\n"
-	     "STOPserver, DOsim_io, SAVEinput,\n");
+             "Known Commands:\n"
+             "STOPserver, DOsim_io, SAVEinput,\n");
     }
-
-
   }
 
   return 0;
 }
 
-
 int main(int argc, char *argv[]) {
   char *inputfile;
-  int Abort_result=0;
+  int Abort_result = 0;
   int i, num;
   real dx, min, max, *target;
-  qd_struct d=NULL;
-  StructDescript_ptr sptr_store=NULL;
+  qd_struct d = NULL;
+  StructDescript_ptr sptr_store = NULL;
 
   /*T Process any command-line arguments. T*/
   /*T_FUNCTION{argv_process,argv_B.c} T*/
@@ -84,7 +79,6 @@ int main(int argc, char *argv[]) {
 
   if (!argv_check())
     exit(1);
-
 
   /*T Create memory for the central simulation structure. T*/
   d = new QD_struct;
@@ -94,12 +88,9 @@ int main(int argc, char *argv[]) {
   /* Assign the input filename from the command line options. T*/
   d->inputfile = copy_str(CmdOptions.input);
 
-
-  dx=.5;
+  dx = .5;
 
   i_read(d->inputfile, d, &Abort_result);
-
-
 
 #ifdef OLDSERVER
   d->I_N3D->sptr = IO_Tcl_Server(d->I_N3D->sptr, d->I_N3D_sptr_Store);
@@ -113,7 +104,3 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
-
-
-
-

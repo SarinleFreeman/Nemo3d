@@ -1,0 +1,473 @@
+\doxysection{geo\+\_\+struct.\+h}
+\hypertarget{geo__struct_8h_source}{}\label{geo__struct_8h_source}\index{base/geo\_struct.h@{base/geo\_struct.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/geo\_struct.h,v\ 1.36\ 2008/07/23\ 16:47:30\ nkharche\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ GEO\_STRUCT\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ GEO\_STRUCT\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MEMORY\_SAVE\_NEWSTRUCT}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ DISPL\_SINGLE\_PRECISION}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ELIMINATE\_SSMAP\ }\textcolor{comment}{//\ Comment\ this\ line\ for\ tilting\ the\ crystal.}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <ivector.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <rvector.h>}\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ and\ ZB\_111\ */}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <rmatrix.h>}\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ and\ ZB\_111\ */}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants__nemo_8h}{constants\_nemo.h}}"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}b2tensor.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}s2tensor.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}i2tensor.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}i3tensor.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}r3tensor.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}f3tensor.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}i3matrix.h"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}nml\_global.h"{}}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}Cell.h"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mat__def_8h}{mat\_def.h}}"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}top\_struct.H"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}MaterialHandle.h"{}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\_struct}}\ }
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ \ \textcolor{keywordtype}{int}\ periodicity;}
+\DoxyCodeLine{00086\ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \textcolor{keywordtype}{int}\ unitcelldivide;}
+\DoxyCodeLine{00091\ \ \ \ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#ifdef\ \ MEMORY\_SAVE\_NEWSTRUCT}}
+\DoxyCodeLine{00093\ \ \ \ b2tensor\ surfaceInfo;}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#else\ \ \ \ }\textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ \ \ \ i2tensor\ surfaceInfo;}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ \ \ }\textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \textcolor{keywordtype}{void}\ set\_geo\_struct(}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ periodicity,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\_Cell}},\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}},\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}},\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}},\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\_xmax}},\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\_ymax}},\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\_zmax}},}
+\DoxyCodeLine{00120\ \textcolor{comment}{/*\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00121\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ivectr\ tiltdir,}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx,\ \textcolor{keywordtype}{int}\ dy,\ \textcolor{keywordtype}{int}\ dz,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ is\_tilted,}
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int\ NaddALY,}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ NaddALZ,}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ adjThicknessY,}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ adjThicknessZ,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ delta\_step,}
+\DoxyCodeLine{00129\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ adjustedLenX,}}
+\DoxyCodeLine{00130\ \textcolor{comment}{/*\ End:\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}},}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\_y}},}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}},}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ unitcelldivide,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell}{Cell}}\&\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}},}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i3tensor\ \mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\_\_cell}},\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\_\_ijk}},\ }
+\DoxyCodeLine{00138\ \#ifdef\ \ MEMORY\_SAVE\_NEWSTRUCT}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}},\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ s2tensor\ \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}},\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}},\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b2tensor\ surfaceInfo,\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}},}
+\DoxyCodeLine{00144\ \#\textcolor{keywordflow}{else}\ \ \ \textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ \ */}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}},\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}},\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}},\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ surfaceInfo,\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}},}
+\DoxyCodeLine{00150\ \#endif\ \ \textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ */}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\_m\_2\_offset\_ham\_tot}},\ }
+\DoxyCodeLine{00152\ \#ifdef\ DISPL\_SINGLE\_PRECISION}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f3tensor\ \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}}
+\DoxyCodeLine{00154\ \#\textcolor{keywordflow}{else}\ \textcolor{comment}{/*\ DISPL\_SINGLE\_PRECISION\ */}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r3tensor\ \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}}
+\DoxyCodeLine{00156\ \#endif\ \textcolor{comment}{/*\ DISPL\_SINGLE\_PRECISION\ */}}
+\DoxyCodeLine{00157\ \#ifndef\ ELIMINATE\_SSMAP}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ i3matrix\ ssmap\ \ \ \ \textcolor{comment}{/*\ Note\ that\ the\ comma\ before\ i3matrix\ is\ not\ a\ bug!\ */}}
+\DoxyCodeLine{00159\ \#endif\ \textcolor{comment}{/*\ ELIMINATE\_SSMAP\ */}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\ }
+\DoxyCodeLine{00162\ \ \ \ }
+\DoxyCodeLine{00163\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00164\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\_Cell}};\ \ \ \ \ }
+\DoxyCodeLine{00165\ \ \ \ \textcolor{comment}{/*\ MEMCHECKmods\ \ \ */}}
+\DoxyCodeLine{00166\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a6befbfb31879728a4cf322531ff08244}{Nx\_Cell}};\ \ \ \ }
+\DoxyCodeLine{00167\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a181dddadf5ce0470503b63c21ac5cdc0}{Ny\_Cell}};\ \ \ \ }
+\DoxyCodeLine{00168\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_ab8a97f21612985525a191b23ddc99d51}{Nz\_Cell}};\ \ \ \ }
+\DoxyCodeLine{00169\ \ \ \ \textcolor{comment}{/*\ MEMCHECKmods\ \ \ */}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}};\ \ }
+\DoxyCodeLine{00172\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}};\ \ }
+\DoxyCodeLine{00173\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}};\ \ }
+\DoxyCodeLine{00174\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\_xmax}};\ \ }
+\DoxyCodeLine{00175\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\_ymax}};\ \ }
+\DoxyCodeLine{00176\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\_zmax}};\ \ }
+\DoxyCodeLine{00177\ \textcolor{comment}{/*\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00178\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ivectr\ tiltdir;}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dx;\ \textcolor{keywordtype}{int}\ dy;\ \textcolor{keywordtype}{int}\ dz;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ is\_tilted;}
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int\ NaddALY;}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ NaddALZ;}
+\DoxyCodeLine{00183\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ adjThicknessY;}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ adjThicknessZ;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i2tensor\ delta\_step;}
+\DoxyCodeLine{00186\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ adjustedLenX;}}
+\DoxyCodeLine{00187\ \textcolor{comment}{/*\ End:\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00188\ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}};\ \ }
+\DoxyCodeLine{00189\ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\_y}};\ \ }
+\DoxyCodeLine{00190\ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}};\ \ }
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}};}
+\DoxyCodeLine{00196\ \ \ \ i3tensor\ \mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\_\_cell}};\ }
+\DoxyCodeLine{00198\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\_\_ijk}};\ }
+\DoxyCodeLine{00201\ \ \ \ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#ifdef\ \ MEMORY\_SAVE\_NEWSTRUCT}}
+\DoxyCodeLine{00203\ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}};\ }
+\DoxyCodeLine{00204\ \ \ \ s2tensor\ \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}};\ }
+\DoxyCodeLine{00205\ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}};\ }
+\DoxyCodeLine{00206\ \ \ \ b2tensor\ \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}};\ }
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#else\ \ \ }\textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00208\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}};}
+\DoxyCodeLine{00212\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}};\ }
+\DoxyCodeLine{00218\ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}};}
+\DoxyCodeLine{00226\ \ \ \ }
+\DoxyCodeLine{00227\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}};}
+\DoxyCodeLine{00234\ \ \ \ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#endif\ \ \ }\textcolor{comment}{/*\ MEMORY\_SAVE\_NEWSTRUCT\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00236\ \ \ \ i2tensor\ \mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\_m\_2\_offset\_ham\_tot}};}
+\DoxyCodeLine{00245\ \ \ \ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#ifdef\ DISPL\_SINGLE\_PRECISION}}
+\DoxyCodeLine{00247\ \ \ \ f3tensor\ \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}\ ;}
+\DoxyCodeLine{00255\ \ \ \ }
+\DoxyCodeLine{00256\ \ \ \ f3tensor\ \mbox{\hyperlink{classgeo__struct_a5ee28f9556a7b6a43731b3adf4cbfbba}{l\_m\_2\_atomdsp\_onedomain}}\ ;\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ DISPL\_SINGLE\_PRECISION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00259\ \ \ \ r3tensor\ \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}\ ;}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DISPL\_SINGLE\_PRECISION\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#ifndef\ ELIMINATE\_SSMAP}}
+\DoxyCodeLine{00264\ \ \ \ i3matrix\ ssmap;}
+\DoxyCodeLine{00267\ \ \ \ }
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ELIMINATE\_SSMAP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ }
+\DoxyCodeLine{00271\ \ \ \ \mbox{\hyperlink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\_struct}}()\ :\ periodicity(0),\ \ unitcelldivide(0),\ surfaceInfo(NULL),\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\_Cell}}(0),\ \mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}}(0),\ \mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}}(0),\ \mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}}(0),\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\_xmax}}(0),\ \mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\_ymax}}(0),\ \mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\_zmax}}(0),\ }
+\DoxyCodeLine{00274\ \textcolor{comment}{/*\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00275\ \textcolor{comment}{/*tiltdir(NULL),*/}\ dx(0),\ dy(0),\ dz(0),\ is\_tilted(0),\ \textcolor{comment}{/*NaddALY(0),*/}\ NaddALZ(0),\textcolor{comment}{/*\ adjThicknessY(0),*/}\ adjThicknessZ(0),\ delta\_step(NULL),\textcolor{comment}{/*adjustedLenX(0),*/}}
+\DoxyCodeLine{00276\ \textcolor{comment}{/*\ End:\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00277\ \mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}}(0),\ \mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\_y}}(0),\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}}(0),\ \mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\_\_cell}}(NULL),\ \mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\_\_ijk}}(NULL),\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}}(NULL),\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}}(NULL),\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}}(NULL),\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}}(NULL),\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\_m\_2\_offset\_ham\_tot}}(NULL),\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}(NULL)}
+\DoxyCodeLine{00285\ \#ifndef\ ELIMINATE\_SSMAP}
+\DoxyCodeLine{00286\ \ \ \ \ \ ,\ ssmap(NULL)\ \ \ \ \ \ \ \textcolor{comment}{/*\ Note\ that\ the\ comma\ before\ ssmap\ is\ NOT\ a\ bug!\ */}\ }
+\DoxyCodeLine{00287\ \#endif\ \textcolor{comment}{/*\ ELIMINATE\_SSMAP\ */}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \{;\}\ \ \ }
+\DoxyCodeLine{00290\ \ \ \ }
+\DoxyCodeLine{00291\ \ \ \ \mbox{\hyperlink{classgeo__struct_ab6c04a4c4355175f72f1104e2b6bd7aa}{geo\_struct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\_struct}}\ \&g)\ \{\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ set\_geo\_struct(g.periodicity,\ g.\mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\_Cell}},\ g.\mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}},\ g.\mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}},\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}},\ g.\mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\_xmax}},\ g.\mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\_ymax}},\ g.\mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\_zmax}},\ }
+\DoxyCodeLine{00294\ \textcolor{comment}{/*\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00295\ \textcolor{comment}{/*g.tiltdir,*/}\ g.dx,\ g.dy,\ g.dz,\ g.is\_tilted,\textcolor{comment}{/*\ g.NaddALY,*/}\ g.NaddALZ,\textcolor{comment}{/*\ g.adjThicknessY,*/}\ g.adjThicknessZ,\ g.delta\_step,\textcolor{comment}{/*g.adjustedLenX,*/}}
+\DoxyCodeLine{00296\ \textcolor{comment}{/*\ End:\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}},\ g.\mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\_y}},\ g.\mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}},\ g.unitcelldivide,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}},\ g.\mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\_\_cell}},\ g.\mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\_\_ijk}},\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}},\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}},\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}},\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.surfaceInfo,\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}},\ \ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\_m\_2\_offset\_ham\_tot}},\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}}
+\DoxyCodeLine{00306\ \#ifndef\ ELIMINATE\_SSMAP}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ g.ssmap\ \ \ \ \ \ \textcolor{comment}{/*\ the\ comma\ is\ NOT\ a\ bug!\ */}}
+\DoxyCodeLine{00308\ \#endif\ \textcolor{comment}{/*\ ELIMINATE\_SSMAP\ \ */}}
+\DoxyCodeLine{00309\ );}
+\DoxyCodeLine{00310\ \ \ \ \}}
+\DoxyCodeLine{00312\ \ \ \ }
+\DoxyCodeLine{00313\ \ \ \ \mbox{\hyperlink{classgeo__struct}{geo\_struct}}\&\ operator\ =(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeo__struct}{geo\_struct}}\ \&g)\ \{\ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ set\_geo\_struct(g.periodicity,\ g.\mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\_Cell}},\ g.\mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}},\ g.\mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}},\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}},\ g.\mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\_xmax}},\ g.\mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\_ymax}},\ g.\mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\_zmax}},\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{/*\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00317\ \textcolor{comment}{/*g.tiltdir,*/}\ g.dx,\ g.dy,\ g.dz,\ g.is\_tilted,\textcolor{comment}{/*g.NaddALY,*/}\ g.NaddALZ,\ \textcolor{comment}{/*adjThicknessY,*/}\ g.adjThicknessZ,\ g.delta\_step,\textcolor{comment}{/*g.adjustedLenX,*/}}
+\DoxyCodeLine{00318\ \textcolor{comment}{/*\ End:\ Additional\ variables\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}},\ g.\mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\_y}},\ g.\mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}},\ g.unitcelldivide,}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}},\ g.\mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\_\_cell}},\ g.\mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\_\_ijk}},\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}},\ }
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{ShapeType}},\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{isDiffNbr}},\ }
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.surfaceInfo,\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\_strain\_only}},\ \ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\_m\_2\_offset\_ham\_tot}},\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g.\mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\_m\_2\_atomdsp}}}
+\DoxyCodeLine{00328\ \#ifndef\ ELIMINATE\_SSMAP}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ g.ssmap\ \ \ \ \ \ \textcolor{comment}{/*\ the\ comma\ is\ NOT\ a\ bug!\ */}}
+\DoxyCodeLine{00330\ \#endif\ \textcolor{comment}{/*\ ELIMINATE\_SSMAP\ \ */}}
+\DoxyCodeLine{00331\ );}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00334\ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_aef1f7af5712141df37f494d342755dae}{Allocate}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keyword}{const}\ Cell\&);\ }
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{comment}{/*\ Additional\ functions\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00340\ \textcolor{comment}{//\ \ \ void\ readTiltParams(int,int);\ /*\ tilt\_fix\ */}}
+\DoxyCodeLine{00341\ \ \ \ \textcolor{keywordtype}{void}\ readStepRoughness(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});\ \textcolor{comment}{/*\ tilt\_fix\ */}}
+\DoxyCodeLine{00342\ \ \ \ \textcolor{keywordtype}{void}\ calc\_tilt\_params();}
+\DoxyCodeLine{00343\ \textcolor{comment}{/*\ End:\ Additional\ functions\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00344\ \ \ \ }
+\DoxyCodeLine{00345\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ade5ab16b317b624e3b6f1a153fb5db53}{Allocate\_NOSTRAIN}}(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keyword}{const}\ Cell\&);\ \ }
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_afe407157f6d247f2b8a35c696dc268fa}{InitializeFromInputFile}}(\textcolor{keyword}{const}\ top\_struct\&\ opt);}
+\DoxyCodeLine{00355\ \ \ \ }
+\DoxyCodeLine{00356\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ac118014dcbd9d139344039a0da104f69}{Deallocate}}();}
+\DoxyCodeLine{00358\ \ \ \ \ }
+\DoxyCodeLine{00359\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809}{zero}}();\ }
+\DoxyCodeLine{00361\ \ \ \ \mbox{\hyperlink{classgeo__struct_ae4fac347181afeb7dbce9c29e943c740}{\string~geo\_struct}}()\ \{\ \mbox{\hyperlink{classgeo__struct_ac118014dcbd9d139344039a0da104f69}{Deallocate}}();\ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ac870b75f1dc53df12380c338da0cf8ba}{InvalidateStrainOnly}}();}
+\DoxyCodeLine{00366\ \ \ \ }
+\DoxyCodeLine{00367\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a2c189669d3d8062d1f5aca7b836baa59}{Reduce}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classgeo__struct}{geo\_struct}}\ *\textcolor{keyword}{const}\ di);}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \textcolor{keywordtype}{void}\ isNbrOut(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{bool}\ *\_isNotInXnegtv,\ \ \textcolor{keywordtype}{bool}\ *\_isNotInXpostv,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *\_isNotInYnegtv,\ \textcolor{keywordtype}{bool}\ *\_isNotInYpostv,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *\_isNotInZnegtv,\ \textcolor{keywordtype}{bool}\ *\_isNotInZpostv);\ \textcolor{comment}{/*\ Additional\ function\ to\ tilt\ the\ lattice\ */}}
+\DoxyCodeLine{00377\ \ \ \ }
+\DoxyCodeLine{00378\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a75d274959e0c507b019c55e0a98daedd}{SupercellReInit}}();}
+\DoxyCodeLine{00382\ \ \ \ }
+\DoxyCodeLine{00383\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a8ea01752f72bff2103e0270985e7531b}{get\_cindx\_tilted}}(\textcolor{keywordtype}{int}\ l,\textcolor{keywordtype}{int}\ m,\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a24a071fee3d4e59a4df428e2d4b02587}{fill\_is\_DiffNeighbor}}();}
+\DoxyCodeLine{00390\ \ \ \ }
+\DoxyCodeLine{00391\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ae17f923331e78002dc7841387a7078d3}{FindSurfaceAtoms}}();}
+\DoxyCodeLine{00395\ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a1beba273642243e4f7c57bcb51bef85f}{isInvalidPeriodicity}}();}
+\DoxyCodeLine{00400\ \ \ \ }
+\DoxyCodeLine{00401\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603}{remove\_few\_bonded\_atoms}}(\textcolor{keywordtype}{int}\ bond\_to\_remove);}
+\DoxyCodeLine{00408\ \ \ \ }
+\DoxyCodeLine{00409\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{classgeo__struct_a9c6f22b3916504196ea0e4633a1bef20}{remove\_other\_surface\_species}}();}
+\DoxyCodeLine{00415\ \ \ \ }
+\DoxyCodeLine{00416\ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{classgeo__struct_af1f3fb99ac117765aa76cac8ba646a54}{remove\_user\_defined\_atoms}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00419\ \ \ \ }
+\DoxyCodeLine{00420\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_aa3f4bdaa30364df921f7bee07e8bb61f}{adjust\_for\_periodic\_bc}}();}
+\DoxyCodeLine{00424\ \ \ \ }
+\DoxyCodeLine{00425\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a049cbf824e67ad25da1d98720c1b0f8e}{remap\_periodic\_bc}}\ ();}
+\DoxyCodeLine{00427\ \ \ \ }
+\DoxyCodeLine{00428\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a410f8d053a9efeb98682eea7a0f06018}{FillFirstShape}}(\textcolor{keyword}{const}\ Shape\_struct\&\ shape,\ \textcolor{keyword}{const}\ top\_struct\&\ opt,}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ vector<MaterialHandle>\&);}
+\DoxyCodeLine{00442\ \ \ \ }
+\DoxyCodeLine{00443\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ac15c939203584a626a23fda82935c079}{FillShape}}(\textcolor{keyword}{const}\ Shape\_struct\&,\ \textcolor{keyword}{const}\ vector<MaterialHandle>\&,\ \textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00453\ \ \ \ }
+\DoxyCodeLine{00454\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a893f7c69fe72ff4ac7c0b8b346910112}{InitializeForHyperChem}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ inputfile);}
+\DoxyCodeLine{00456\ \ \ \ }
+\DoxyCodeLine{00457\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_abe465ed63581caf44c2017836f6d708b}{changeLattConst}}(real\ ax,\ real\ ay,\ real\ az);}
+\DoxyCodeLine{00465\ \ \ \ }
+\DoxyCodeLine{00466\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a3b849487c52a5eedda4e8a59c10aa341}{updateOnlyLattConst}}(real\ ax,\ real\ ay,\ real\ az);}
+\DoxyCodeLine{00472\ \ \ \ }
+\DoxyCodeLine{00473\ \ \ \ \textcolor{comment}{//\ short\ functions\ that\ will\ be\ inlined}}
+\DoxyCodeLine{00474\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_ada8eeb3e24ce0188ad4a4b476a1333ca}{AtomsPerCellMax}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.N\_MaxAtomCell;\}}
+\DoxyCodeLine{00476\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a1a5e927faad7993224906aaa92894891}{NeighborsMax}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.N\_MaxNeighbor;\}}
+\DoxyCodeLine{00478\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_ab8be4bb1798dc4c9091fd01141307604}{Neighbors}}(\textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.N\_Neighbor[m];\}}
+\DoxyCodeLine{00481\ \ \ \ real*\ \mbox{\hyperlink{classgeo__struct_a5d95e790130a53080f958323f2c68f2b}{PositionInCell}}(\textcolor{keywordtype}{int}\ atom)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.CellAtom\_2\_ijk[atom];\ \}}
+\DoxyCodeLine{00486\ \ \ \ real\ \ \mbox{\hyperlink{classgeo__struct_ae54e4c7d9f7bbcaefa927b387f21d728}{PositionInCell}}(\textcolor{keywordtype}{int}\ atom,\ \textcolor{keywordtype}{int}\ dir)\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.CellAtom\_2\_ijk[atom][dir];\ \}}
+\DoxyCodeLine{00493\ \ \ \ }
+\DoxyCodeLine{00494\ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2}{NbrCell}}(\textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.nnmap[m][n];\ \}}
+\DoxyCodeLine{00500\ \ \ \ }
+\DoxyCodeLine{00501\ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{classgeo__struct_aeb649a918299ba956d6ffe6b3fd490d8}{NbrCell}}(\textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ d)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.nnmap[m][n][d];\ \}}
+\DoxyCodeLine{00506\ \ \ \ }
+\DoxyCodeLine{00507\ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classgeo__struct_a901c0aad6175cb12f08b5dfbf62b4c4a}{SP3\_hybrid}}\ (\textcolor{keywordtype}{int}\ Za,\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\textcolor{keyword}{\ const\ }}
+\DoxyCodeLine{00508\ \textcolor{keyword}{\ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.SP3\_hybrid[Za][i][j];\}}
+\DoxyCodeLine{00513\ \ \ \ }
+\DoxyCodeLine{00514\ \ \ \ \textcolor{comment}{/*\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00515\ \ \ \ \textcolor{keywordtype}{double}\ get\_T\_rot(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00516\ \textcolor{keyword}{\ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.T\_rot[i][j];\}}
+\DoxyCodeLine{00517\ \ \ \ \textcolor{comment}{/*\ End\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \textcolor{comment}{/*\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00520\ \ \ \ \textcolor{keywordtype}{double}\ get\_a\_latt\_rot\_norm\ (\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00521\ \textcolor{keyword}{\ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.a\_latt\_rot\_norm[i];\}}
+\DoxyCodeLine{00522\ \textcolor{comment}{/*\ End\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \ \textcolor{keywordtype}{bool}\ isCellZB\_110()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.IsCellZB\_110;\ \}\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00526\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ad282b6cd9285849367c5171a334ae038}{isCellZB\_110\_small}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.IsCellZB\_110\_small;\ \}\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00528\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ad0cd52c1fdb0ae7ec5dcbcf15020dd9f}{isCellZB\_111}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.IsCellZB\_111;\ \}\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00530\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a9d348e3974c59b89132c3b8769193a8f}{isCellUserDef}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.IsCellUserDef;\ \}\ \textcolor{comment}{/*\ Added\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00532\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_afd23aa1d3cdb5ab4f400e55ea2d209ad}{isCellWurtzite}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.IsCellWurtzite;\ \}}
+\DoxyCodeLine{00534\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ac094521fd1e5a1324816c419714490eb}{isPeriodicX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 1;\ \}}
+\DoxyCodeLine{00536\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a7c06f3f97eca1a66a748d1ed3cffe6b5}{isPeriodicY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 2;\ \}}
+\DoxyCodeLine{00538\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71}{isPeriodicZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 4;\ \}}
+\DoxyCodeLine{00540\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_aa68ef02dd3e81ccc9eb1312da2e49c9c}{isPeriodicXYZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (periodicity\ \&\ 7)\ ==\ 7;\ \}}
+\DoxyCodeLine{00542\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_acf4d7512d8530bf8e8850f7f28243407}{hasPeriodicity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 7;\ \}}
+\DoxyCodeLine{00544\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_abd153d4eb2c318e4d54c225fbc485c6b}{StrainIsPeriodicX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 8;\ \}}
+\DoxyCodeLine{00546\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a51918bc037f432371a25af5bfe98b959}{StrainIsPeriodicY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 16;\ \}}
+\DoxyCodeLine{00548\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ad306e100405b006213dab2eb46541081}{StrainIsPeriodicZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 32;\ \}}
+\DoxyCodeLine{00550\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a9b0c523a4ee5f157613956189d41bfd8}{StrainIsPeriodicXYZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (periodicity\ \&\ 56)\ ==\ 56;\ \}}
+\DoxyCodeLine{00552\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_acd1d67b3c60dc68dadb23d0817a7fd7b}{StrainHasPeriodicity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 56;\ \}}
+\DoxyCodeLine{00554\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b}{ElIsPeriodicX}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 64;\ \}}
+\DoxyCodeLine{00556\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7}{ElIsPeriodicY}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 128;\ \}}
+\DoxyCodeLine{00558\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5}{ElIsPeriodicZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 256;\ \}}
+\DoxyCodeLine{00560\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a85823078517802a8848dd2c93a423865}{ElIsPeriodicXYZ}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (periodicity\ \&\ 448)\ ==\ 448;\ \}}
+\DoxyCodeLine{00562\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a25007e7ecf346d51180e3daae31b2dec}{ElHasPeriodicity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ periodicity\ \&\ 448;\ \}}
+\DoxyCodeLine{00564\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a9c4e476cbbae379387cced6aae324f65}{zeroPeriodicity}}()\ \{\ periodicity=(periodicity>>3)<<3;\ \}}
+\DoxyCodeLine{00567\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a4a68a270510bcc3e88f4b186c5c13aca}{setPeriodicityToEl}}()\ }
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \{\ \mbox{\hyperlink{classgeo__struct_a9c4e476cbbae379387cced6aae324f65}{zeroPeriodicity}}();\ \ periodicity\ +=\ (periodicity\ \&\ 448)>>6;\ \}}
+\DoxyCodeLine{00570\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a76d66023e0339f08c71bee19bc491553}{setPeriodicityToStrain}}()\ }
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \{\ \mbox{\hyperlink{classgeo__struct_a9c4e476cbbae379387cced6aae324f65}{zeroPeriodicity}}();\ \ periodicity\ +=\ (periodicity\ \&\ 56)>>3;\ \}}
+\DoxyCodeLine{00573\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a9fca1b009510c4e17be54b265fbb91a7}{isCation}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ new\ data\ storage\ can\ crash\ on\ the\ dereferencing\ of\ the\ casted\ data\ */}}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \textcolor{comment}{/*\ It\ appears\ to\ crash\ on\ the\ new\ gcc\ compilers\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \textcolor{comment}{/*\ const\ int\&\ AtomType\_lm\ =\ AtomType[l][m];\ */}}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ AtomType\_lm\ =\ \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{AtomType}}[l][m];}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a2f1a20db70bae3cd1af38e268989f83c}{EL\_As}}\ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a9a751ebeba1cf3ecf64a1dd76a2824c3}{EL\_Sb}}\ }
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_ab15a41af8d0b5c7011a7ae7420e6af0c}{EL\_Se}}\ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a98ee3b5c1067f21dc35eace8f655d7cb}{EL\_N}}\ }
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a24301debad0737ba250f2610baa8696a}{EL\_O}}\ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a92b2fddeb7262f8f585e290ba22cd979}{EL\_P}}}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a5c6ee81ebb70b9eef8797867b691f28b}{EL\_S}}\ )}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (AtomType\_lm==\mbox{\hyperlink{mat__def_8h_a195431995ecc864b95b3762ea21c1e6b}{EL\_Si}}\ ||\ AtomType\_lm==\mbox{\hyperlink{mat__def_8h_ad2f691f7ab16e7fb39f22d63056f2919}{EL\_Ge}})}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (2*m\ <\ this-\/>\mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}.AtomsPerCellMax())\ ?\ true\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00587\ \ \ \ \}}
+\DoxyCodeLine{00599\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a178c048f3fb713f1c3d0cec699cbd388}{isOnSurface}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 1;\ \}}
+\DoxyCodeLine{00604\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_ab8b2ba306c0d1fd1c1ce80fbd1c9d364}{isOnSurfaceIgnoreBC}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 2;\ \}}
+\DoxyCodeLine{00609\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a68276bc35487baeb29f08e64b627e185}{isInX\_min}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 4;\ \}}
+\DoxyCodeLine{00614\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa}{isInX\_max}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 8;\ \}}
+\DoxyCodeLine{00619\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a624774376775723b904155044e0d5b10}{isInY\_min}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 16;\ \}}
+\DoxyCodeLine{00624\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a44d992999dcfba81239e3636da8a5e15}{isInY\_max}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 32;\ \}}
+\DoxyCodeLine{00629\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c}{isInZ\_min}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 64;\ \}}
+\DoxyCodeLine{00634\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classgeo__struct_a2b90046ac87766625320d59339448207}{isInZ\_max}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ surfaceInfo[l][m]\ \&\ 128;\ \}}
+\DoxyCodeLine{00639\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classgeo__struct_a5436c66646f481c8c7e7b6dd793809d7}{phaseInfoForNemo1D}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ dCell\ =\ \mbox{\hyperlink{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2}{NbrCell}}(m,n);}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ phaseInfo=0;}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a68276bc35487baeb29f08e64b627e185}{isInX\_min}}(l,m)\ \&\&\ dCell[0]==-\/1\ )\ \ }
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b}{ElIsPeriodicX}}()\ ?\ 01\ :\ 0100);}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa}{isInX\_max}}(l,m)\ \&\&\ dCell[0]==\ 1\ )\ \ }
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b}{ElIsPeriodicX}}()\ ?\ 02\ :\ 0200);}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a624774376775723b904155044e0d5b10}{isInY\_min}}(l,m)\ \&\&\ dCell[1]==-\/1\ )\ \ }
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7}{ElIsPeriodicY}}()\ ?\ 04\ :\ 0400);}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a44d992999dcfba81239e3636da8a5e15}{isInY\_max}}(l,m)\ \&\&\ dCell[1]==\ 1\ )\ \ }
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7}{ElIsPeriodicY}}()\ ?\ 010\ :\ 01000);}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c}{isInZ\_min}}(l,m)\ \&\&\ dCell[2]==-\/1\ )\ \ }
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5}{ElIsPeriodicZ}}()\ ?\ 020\ :\ 02000);}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a2b90046ac87766625320d59339448207}{isInZ\_max}}(l,m)\ \&\&\ dCell[2]==\ 1\ )\ \ }
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ phaseInfo\ |=\ (\mbox{\hyperlink{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5}{ElIsPeriodicZ}}()\ ?\ 040\ :\ 04000);}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ phaseInfo;}
+\DoxyCodeLine{00657\ \ \ \ \}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1}{phaseBloch}}(real\ kxL,\ real\ kyL,\ real\ kzL,\ \textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ real\ phase\ =\ 0.0;}
+\DoxyCodeLine{00686\ \ \ \ \textcolor{keywordflow}{if}\ (!is\_tilted)\ \{\ \textcolor{comment}{/*\ Calculate\ Bloch\ phase\ as\ follows\ when\ lattice\ is\ NOT\ tilted\ */}}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ dCell\ =\ \mbox{\hyperlink{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2}{NbrCell}}(m,n);}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a68276bc35487baeb29f08e64b627e185}{isInX\_min}}(l,m)\ \&\&\ dCell[0]==-\/1\ )\ \ phase\ -\/=\ kxL;}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa}{isInX\_max}}(l,m)\ \&\&\ dCell[0]==\ 1\ )\ \ phase\ +=\ kxL;}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a624774376775723b904155044e0d5b10}{isInY\_min}}(l,m)\ \&\&\ dCell[1]==-\/1\ )\ \ phase\ -\/=\ kyL;}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a44d992999dcfba81239e3636da8a5e15}{isInY\_max}}(l,m)\ \&\&\ dCell[1]==\ 1\ )\ \ phase\ +=\ kyL;}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c}{isInZ\_min}}(l,m)\ \&\&\ dCell[2]==-\/1\ )\ \ phase\ -\/=\ kzL;}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \mbox{\hyperlink{classgeo__struct_a2b90046ac87766625320d59339448207}{isInZ\_max}}(l,m)\ \&\&\ dCell[2]==\ 1\ )\ \ phase\ +=\ kzL;}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ if\ !is\_tilted\ */}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \ \ \ \textcolor{keywordflow}{if}\ (is\_tilted)\ \{\ \textcolor{comment}{/*\ Calculate\ Bloch\ phase\ as\ follows\ when\ lattice\ is\ tilted\ */}}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \textcolor{comment}{/*\ Initialize\ all\ booleans\ to\ false\ */}}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInXnegtv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInXpostv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInYnegtv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInYpostv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInZnegtv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_isNotInZpostv\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ isNbrOut(l,\ m,\ n,\ \&\_isNotInXnegtv,\ \&\_isNotInXpostv,\ \&\_isNotInYnegtv,}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\_isNotInYpostv,\ \&\_isNotInZnegtv,\ \&\_isNotInZpostv);}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInXnegtv)\ \ \{}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ phase\ -\/=\ kxL;}
+\DoxyCodeLine{00710\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ if(isPeriodicY())\ phase\ -\/=\ ((double)dy/(double)dx)*kxL;}}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71}{isPeriodicZ}}())\ phase\ -\/=\ (((double)dz*\mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}})/((double)dx*\mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}}))*kzL;\ \ \ \textcolor{comment}{/*\ Modified\ for\ ZB\_111:\ scaled\ by\ lattice\ constants\ */}}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInXpostv)\ \ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ phase\ +=\ kxL;}
+\DoxyCodeLine{00715\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ if(isPeriodicY())\ phase\ +=\ ((double)dy/(double)dx)*kxL;}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71}{isPeriodicZ}}())\ phase\ +=\ (((double)dz*\mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\_z}})/((double)dx*\mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\_x}}))*kzL;\ \ \ \textcolor{comment}{/*\ Modified\ for\ ZB\_111:\ scaled\ by\ lattice\ constants\ */}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInYnegtv)\ \ \{\ phase\ -\/=\ kyL;\ \}}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInYpostv)\ \ \{\ phase\ +=\ kyL;\ \}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInZnegtv)\ \ \{\ phase\ -\/=\ kzL;\ \}}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_isNotInZpostv)\ \ \{\ phase\ +=\ kzL;\ \}}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \}\ \textcolor{comment}{/*\ if\ is\_tilted\ */}}
+\DoxyCodeLine{00723\ }
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/\mbox{\hyperlink{constants__nemo_8h_a0c233fcb94ea9f05596b48427095806e}{Pi}}\ *\ (phase\ -\/\ 2*int(0.5*phase));}
+\DoxyCodeLine{00725\ \ \ \ \}}
+\DoxyCodeLine{00740\ \ \ \ }
+\DoxyCodeLine{00741\ \ \ \ real\ \mbox{\hyperlink{classgeo__struct_a0411b239cbcc3d23379f7d874ba45398}{phasePeriodic}}(real\ kxL,\ real\ kyL,\ real\ kzL,\ }
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\_nbr,\ \textcolor{keywordtype}{int}\ j\_nbr,\ \textcolor{keywordtype}{int}\ k\_nbr)\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ real\ phase\ =\ 0.0;}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\_nbr\ <\ this-\/>\mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\_xmin}})\ \ phase\ -\/=\ kxL;}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\_nbr\ >\ this-\/>cell\_xmax)\ \ phase\ +=\ kxL;}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\_nbr\ <\ this-\/>\mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\_ymin}})\ \ phase\ -\/=\ kyL;}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (j\_nbr\ >\ this-\/>cell\_ymax)\ \ phase\ +=\ kyL;}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\_nbr\ <\ this-\/>\mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\_zmin}})\ \ phase\ -\/=\ kzL;}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\_nbr\ >\ this-\/>cell\_zmax)\ \ phase\ +=\ kzL;}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/\mbox{\hyperlink{constants__nemo_8h_a0c233fcb94ea9f05596b48427095806e}{Pi}}\ *\ (phase\ -\/\ 2*int(0.5*phase));}
+\DoxyCodeLine{00751\ \ \ \ \}}
+\DoxyCodeLine{00765\ \ \ \ }
+\DoxyCodeLine{00766\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_a9a7e24b2429ec7736f209b7d711322a2}{getPosition\_unstrained}}(real*\ pos,\ real\ unstrnd\_latt,\ \textcolor{keywordtype}{int}\ Zcell,\ \textcolor{keywordtype}{int}\ Zatom);\ }
+\DoxyCodeLine{00773\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6}{getPosition\_strained}}(real*\ pos,\ \textcolor{keywordtype}{int}\ Zcell,\ \textcolor{keywordtype}{int}\ Zatom);}
+\DoxyCodeLine{00779\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_ad2e9533c389f759d16ed606bd26132e9}{getPosition\_equilibrium}}(real*\ pos,\ \textcolor{keywordtype}{int}\ Zcell,\ \textcolor{keywordtype}{int}\ Zatom);\ }
+\DoxyCodeLine{00782\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classgeo__struct_aafaaed85dafd354d439ce5c9d1026fa0}{getRelativePosVec}}(real*\ nnv0,\ real*\ nnv,\ real\ unstrnd\_latt,\ }
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c1,\ \textcolor{keywordtype}{int}\ a1,\ \textcolor{keywordtype}{int}\ c2,\ \textcolor{keywordtype}{int}\ a2,\ \textcolor{keywordtype}{int}\ neighbor);}
+\DoxyCodeLine{00805\ \ \ \ \textcolor{keyword}{friend}\ ostream\&\ operator<<(ostream\&\ o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classgeo__struct}{geo\_struct}}\&\ g);}
+\DoxyCodeLine{00806\ \};}
+\DoxyCodeLine{00807\ }
+\DoxyCodeLine{00808\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,1787 @@
+\doxysection{geo\+\_\+struct Class Reference}
+\hypertarget{classgeo__struct}{}\label{classgeo__struct}\index{geo\_struct@{geo\_struct}}
+
+
+describes geometry of device.  
+
+
+
+
+{\ttfamily \#include $<$geo\+\_\+struct.\+h$>$}
+
+
+
+Collaboration diagram for geo\+\_\+struct\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{classgeo__struct__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\+\_\+struct}} ()
+\item 
+\mbox{\hyperlink{classgeo__struct_ab6c04a4c4355175f72f1104e2b6bd7aa}{geo\+\_\+struct}} (const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \&g)
+\item 
+\Hypertarget{classgeo__struct_a3b406caacf430f4130429289805436cb}\label{classgeo__struct_a3b406caacf430f4130429289805436cb} 
+\mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \& {\bfseries operator=} (const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \&g)
+\item 
+void \mbox{\hyperlink{classgeo__struct_aef1f7af5712141df37f494d342755dae}{Allocate}} (int, int, int, int, int, const \mbox{\hyperlink{class_cell}{Cell}} \&)
+\item 
+\Hypertarget{classgeo__struct_a970cb71af23a68f9589dc3bbb1e86a42}\label{classgeo__struct_a970cb71af23a68f9589dc3bbb1e86a42} 
+void {\bfseries read\+Step\+Roughness} (int, int)
+\item 
+\Hypertarget{classgeo__struct_a104b56ca82d21f762aa1204434825a70}\label{classgeo__struct_a104b56ca82d21f762aa1204434825a70} 
+void {\bfseries calc\+\_\+tilt\+\_\+params} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_ade5ab16b317b624e3b6f1a153fb5db53}{Allocate\+\_\+\+NOSTRAIN}} (int, int, int, int, int, const \mbox{\hyperlink{class_cell}{Cell}} \&)
+\item 
+void \mbox{\hyperlink{classgeo__struct_afe407157f6d247f2b8a35c696dc268fa}{Initialize\+From\+Input\+File}} (const top\+\_\+struct \&opt)
+\item 
+void \mbox{\hyperlink{classgeo__struct_ac118014dcbd9d139344039a0da104f69}{Deallocate}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809}{zero}} ()
+\item 
+\mbox{\hyperlink{classgeo__struct_ae4fac347181afeb7dbce9c29e943c740}{\texorpdfstring{$\sim$}{\string~}geo\+\_\+struct}} ()
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ac870b75f1dc53df12380c338da0cf8ba}{Invalidate\+Strain\+Only}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a2c189669d3d8062d1f5aca7b836baa59}{Reduce}} (const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \texorpdfstring{$\ast$}{*}const di)
+\item 
+\Hypertarget{classgeo__struct_ab80efe9e995943f6c3321f173518504b}\label{classgeo__struct_ab80efe9e995943f6c3321f173518504b} 
+void {\bfseries is\+Nbr\+Out} (int l, int m, int n, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Xnegtv, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Xpostv, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Ynegtv, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Ypostv, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Znegtv, bool \texorpdfstring{$\ast$}{*}\+\_\+is\+Not\+In\+Zpostv)
+\item 
+void \mbox{\hyperlink{classgeo__struct_a75d274959e0c507b019c55e0a98daedd}{Supercell\+Re\+Init}} ()
+\item 
+int \mbox{\hyperlink{classgeo__struct_a8ea01752f72bff2103e0270985e7531b}{get\+\_\+cindx\+\_\+tilted}} (int l, int m, int n)
+\item 
+void \mbox{\hyperlink{classgeo__struct_a24a071fee3d4e59a4df428e2d4b02587}{fill\+\_\+is\+\_\+\+Diff\+Neighbor}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_ae17f923331e78002dc7841387a7078d3}{Find\+Surface\+Atoms}} ()
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a1beba273642243e4f7c57bcb51bef85f}{is\+Invalid\+Periodicity}} ()
+\item 
+int \mbox{\hyperlink{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603}{remove\+\_\+few\+\_\+bonded\+\_\+atoms}} (int bond\+\_\+to\+\_\+remove)
+\item 
+int \mbox{\hyperlink{classgeo__struct_a9c6f22b3916504196ea0e4633a1bef20}{remove\+\_\+other\+\_\+surface\+\_\+species}} ()
+\item 
+int \mbox{\hyperlink{classgeo__struct_af1f3fb99ac117765aa76cac8ba646a54}{remove\+\_\+user\+\_\+defined\+\_\+atoms}} (void)
+\item 
+void \mbox{\hyperlink{classgeo__struct_aa3f4bdaa30364df921f7bee07e8bb61f}{adjust\+\_\+for\+\_\+periodic\+\_\+bc}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a049cbf824e67ad25da1d98720c1b0f8e}{remap\+\_\+periodic\+\_\+bc}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a410f8d053a9efeb98682eea7a0f06018}{Fill\+First\+Shape}} (const Shape\+\_\+struct \&shape, const top\+\_\+struct \&opt, const vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ \&)
+\item 
+void \mbox{\hyperlink{classgeo__struct_ac15c939203584a626a23fda82935c079}{Fill\+Shape}} (const Shape\+\_\+struct \&, const vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ \&, bool)
+\item 
+void \mbox{\hyperlink{classgeo__struct_a893f7c69fe72ff4ac7c0b8b346910112}{Initialize\+For\+Hyper\+Chem}} (const char \texorpdfstring{$\ast$}{*}inputfile)
+\item 
+void \mbox{\hyperlink{classgeo__struct_abe465ed63581caf44c2017836f6d708b}{change\+Latt\+Const}} (real ax, real ay, real az)
+\item 
+void \mbox{\hyperlink{classgeo__struct_a3b849487c52a5eedda4e8a59c10aa341}{update\+Only\+Latt\+Const}} (real ax, real ay, real az)
+\item 
+int \mbox{\hyperlink{classgeo__struct_ada8eeb3e24ce0188ad4a4b476a1333ca}{Atoms\+Per\+Cell\+Max}} () const
+\item 
+int \mbox{\hyperlink{classgeo__struct_a1a5e927faad7993224906aaa92894891}{Neighbors\+Max}} () const
+\item 
+int \mbox{\hyperlink{classgeo__struct_ab8be4bb1798dc4c9091fd01141307604}{Neighbors}} (int m) const
+\item 
+real \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgeo__struct_a5d95e790130a53080f958323f2c68f2b}{Position\+In\+Cell}} (int atom)
+\item 
+real \mbox{\hyperlink{classgeo__struct_ae54e4c7d9f7bbcaefa927b387f21d728}{Position\+In\+Cell}} (int atom, int dir)
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2}{Nbr\+Cell}} (int m, int n)
+\item 
+int \mbox{\hyperlink{classgeo__struct_aeb649a918299ba956d6ffe6b3fd490d8}{Nbr\+Cell}} (int m, int n, int d) const
+\item 
+double \mbox{\hyperlink{classgeo__struct_a901c0aad6175cb12f08b5dfbf62b4c4a}{SP3\+\_\+hybrid}} (int Za, int i, int j) const
+\item 
+\Hypertarget{classgeo__struct_a1489e9571561e71cbab213adef7e3b2e}\label{classgeo__struct_a1489e9571561e71cbab213adef7e3b2e} 
+double {\bfseries get\+\_\+\+T\+\_\+rot} (int i, int j) const
+\item 
+\Hypertarget{classgeo__struct_a2f4a8b2059616e0ee084abf21370b4e3}\label{classgeo__struct_a2f4a8b2059616e0ee084abf21370b4e3} 
+double {\bfseries get\+\_\+a\+\_\+latt\+\_\+rot\+\_\+norm} (int i) const
+\item 
+\Hypertarget{classgeo__struct_aebec9388e0ad05669c436708e1fad5df}\label{classgeo__struct_aebec9388e0ad05669c436708e1fad5df} 
+bool {\bfseries is\+Cell\+ZB\+\_\+110} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ad282b6cd9285849367c5171a334ae038}{is\+Cell\+ZB\+\_\+110\+\_\+small}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ad0cd52c1fdb0ae7ec5dcbcf15020dd9f}{is\+Cell\+ZB\+\_\+111}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a9d348e3974c59b89132c3b8769193a8f}{is\+Cell\+User\+Def}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_afd23aa1d3cdb5ab4f400e55ea2d209ad}{is\+Cell\+Wurtzite}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ac094521fd1e5a1324816c419714490eb}{is\+PeriodicX}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a7c06f3f97eca1a66a748d1ed3cffe6b5}{is\+PeriodicY}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71}{is\+PeriodicZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_aa68ef02dd3e81ccc9eb1312da2e49c9c}{is\+Periodic\+XYZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_acf4d7512d8530bf8e8850f7f28243407}{has\+Periodicity}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_abd153d4eb2c318e4d54c225fbc485c6b}{Strain\+Is\+PeriodicX}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a51918bc037f432371a25af5bfe98b959}{Strain\+Is\+PeriodicY}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ad306e100405b006213dab2eb46541081}{Strain\+Is\+PeriodicZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a9b0c523a4ee5f157613956189d41bfd8}{Strain\+Is\+Periodic\+XYZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_acd1d67b3c60dc68dadb23d0817a7fd7b}{Strain\+Has\+Periodicity}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b}{El\+Is\+PeriodicX}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7}{El\+Is\+PeriodicY}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5}{El\+Is\+PeriodicZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a85823078517802a8848dd2c93a423865}{El\+Is\+Periodic\+XYZ}} () const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a25007e7ecf346d51180e3daae31b2dec}{El\+Has\+Periodicity}} () const
+\item 
+void \mbox{\hyperlink{classgeo__struct_a9c4e476cbbae379387cced6aae324f65}{zero\+Periodicity}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a4a68a270510bcc3e88f4b186c5c13aca}{set\+Periodicity\+To\+El}} ()
+\item 
+void \mbox{\hyperlink{classgeo__struct_a76d66023e0339f08c71bee19bc491553}{set\+Periodicity\+To\+Strain}} ()
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a9fca1b009510c4e17be54b265fbb91a7}{is\+Cation}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a178c048f3fb713f1c3d0cec699cbd388}{is\+On\+Surface}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_ab8b2ba306c0d1fd1c1ce80fbd1c9d364}{is\+On\+Surface\+Ignore\+BC}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a68276bc35487baeb29f08e64b627e185}{is\+In\+X\+\_\+min}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa}{is\+In\+X\+\_\+max}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a624774376775723b904155044e0d5b10}{is\+In\+Y\+\_\+min}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a44d992999dcfba81239e3636da8a5e15}{is\+In\+Y\+\_\+max}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c}{is\+In\+Z\+\_\+min}} (int l, int m) const
+\item 
+bool \mbox{\hyperlink{classgeo__struct_a2b90046ac87766625320d59339448207}{is\+In\+Z\+\_\+max}} (int l, int m) const
+\item 
+int \mbox{\hyperlink{classgeo__struct_a5436c66646f481c8c7e7b6dd793809d7}{phase\+Info\+For\+Nemo1D}} (int l, int m, int n)
+\begin{DoxyCompactList}\small\item\em functional description only. Don\textquotesingle{}t understand physical meaning quite well. \end{DoxyCompactList}\item 
+real \mbox{\hyperlink{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1}{phase\+Bloch}} (real kxL, real kyL, real kzL, int l, int m, int n)
+\begin{DoxyCompactList}\small\item\em Don\textquotesingle{}t understand physical meaning quite well. \end{DoxyCompactList}\item 
+real \mbox{\hyperlink{classgeo__struct_a0411b239cbcc3d23379f7d874ba45398}{phase\+Periodic}} (real kxL, real kyL, real kzL, int i\+\_\+nbr, int j\+\_\+nbr, int k\+\_\+nbr)
+\begin{DoxyCompactList}\small\item\em Don\textquotesingle{}t understand physical meaning quite well. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgeo__struct_a9a7e24b2429ec7736f209b7d711322a2}{get\+Position\+\_\+unstrained}} (real \texorpdfstring{$\ast$}{*}pos, real unstrnd\+\_\+latt, int Zcell, int Zatom)
+\item 
+void \mbox{\hyperlink{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6}{get\+Position\+\_\+strained}} (real \texorpdfstring{$\ast$}{*}pos, int Zcell, int Zatom)
+\item 
+void \mbox{\hyperlink{classgeo__struct_ad2e9533c389f759d16ed606bd26132e9}{get\+Position\+\_\+equilibrium}} (real \texorpdfstring{$\ast$}{*}pos, int Zcell, int Zatom)
+\item 
+void \mbox{\hyperlink{classgeo__struct_aafaaed85dafd354d439ce5c9d1026fa0}{get\+Relative\+Pos\+Vec}} (real \texorpdfstring{$\ast$}{*}nnv0, real \texorpdfstring{$\ast$}{*}nnv, real unstrnd\+\_\+latt, int c1, int a1, int c2, int a2, int neighbor)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}{N\+\_\+\+Cell}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a6befbfb31879728a4cf322531ff08244}{Nx\+\_\+\+Cell}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a181dddadf5ce0470503b63c21ac5cdc0}{Ny\+\_\+\+Cell}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_ab8a97f21612985525a191b23ddc99d51}{Nz\+\_\+\+Cell}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}{cell\+\_\+xmin}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}{cell\+\_\+ymin}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}{cell\+\_\+zmin}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}{cell\+\_\+xmax}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}{cell\+\_\+ymax}}
+\item 
+int \mbox{\hyperlink{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}{cell\+\_\+zmax}}
+\item 
+\Hypertarget{classgeo__struct_aaf908721cd54f4e58746351e7113c3c8}\label{classgeo__struct_aaf908721cd54f4e58746351e7113c3c8} 
+int {\bfseries dx}
+\item 
+\Hypertarget{classgeo__struct_a1b4b947efe0ab27e424d8dfd71b13c2b}\label{classgeo__struct_a1b4b947efe0ab27e424d8dfd71b13c2b} 
+int {\bfseries dy}
+\item 
+\Hypertarget{classgeo__struct_ae4db52bdc36e0b241a0e88e547e2a313}\label{classgeo__struct_ae4db52bdc36e0b241a0e88e547e2a313} 
+int {\bfseries dz}
+\item 
+\Hypertarget{classgeo__struct_a90e19cf6e3c988bca57c4b200a89ff20}\label{classgeo__struct_a90e19cf6e3c988bca57c4b200a89ff20} 
+int {\bfseries is\+\_\+tilted}
+\item 
+\Hypertarget{classgeo__struct_ab716adc53c6ce9b15d4212f42aa4f9b9}\label{classgeo__struct_ab716adc53c6ce9b15d4212f42aa4f9b9} 
+int {\bfseries Nadd\+ALZ}
+\item 
+\Hypertarget{classgeo__struct_aa13d0dffe16af696d1f60710bdd08792}\label{classgeo__struct_aa13d0dffe16af696d1f60710bdd08792} 
+double {\bfseries adj\+ThicknessZ}
+\item 
+\Hypertarget{classgeo__struct_ac9aef83502045a77b347c81190b16f17}\label{classgeo__struct_ac9aef83502045a77b347c81190b16f17} 
+i2tensor {\bfseries delta\+\_\+step}
+\item 
+real \mbox{\hyperlink{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}{lattice\+\_\+x}}
+\item 
+real \mbox{\hyperlink{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}{lattice\+\_\+y}}
+\item 
+real \mbox{\hyperlink{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}{lattice\+\_\+z}}
+\item 
+\mbox{\hyperlink{class_cell}{Cell}} \mbox{\hyperlink{classgeo__struct_a897993d981cf06cc60088ea295295013}{cellgeom}}
+\item 
+i3tensor \mbox{\hyperlink{classgeo__struct_a396a478da64f73e76196b96404640988}{ijk\+\_\+\+\_\+cell}}
+\item 
+i2tensor \mbox{\hyperlink{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}{cell\+\_\+\+\_\+ijk}}
+\item 
+b2tensor \mbox{\hyperlink{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}{Atom\+Type}}
+\item 
+s2tensor \mbox{\hyperlink{classgeo__struct_a058de4ea568d533214879280fb135241}{Shape\+Type}}
+\item 
+b2tensor \mbox{\hyperlink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{is\+Diff\+Nbr}}
+\item 
+b2tensor \mbox{\hyperlink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\+\_\+strain\+\_\+only}}
+\item 
+i2tensor \mbox{\hyperlink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot}}
+\item 
+f3tensor \mbox{\hyperlink{classgeo__struct_a64aef2068a69098563dce92151d7e88f}{l\+\_\+m\+\_\+2\+\_\+atomdsp}}
+\item 
+f3tensor \mbox{\hyperlink{classgeo__struct_a5ee28f9556a7b6a43731b3adf4cbfbba}{l\+\_\+m\+\_\+2\+\_\+atomdsp\+\_\+onedomain}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgeo__struct_a61d5addabd38922cdac97a3803a5db8b}\label{classgeo__struct_a61d5addabd38922cdac97a3803a5db8b} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&o, const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \&g)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+describes geometry of device. 
+
+contains all information necessary to describe physical properties of the device. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgeo__struct_a654046600a86961b14880e4aba86c80e}\index{geo\_struct@{geo\_struct}!geo\_struct@{geo\_struct}}
+\index{geo\_struct@{geo\_struct}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{geo\_struct()}{geo\_struct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_a654046600a86961b14880e4aba86c80e} 
+geo\+\_\+struct\+::geo\+\_\+struct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor; all data get initialized to 0 or NULL. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a654046600a86961b14880e4aba86c80e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ab6c04a4c4355175f72f1104e2b6bd7aa}\index{geo\_struct@{geo\_struct}!geo\_struct@{geo\_struct}}
+\index{geo\_struct@{geo\_struct}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{geo\_struct()}{geo\_struct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_ab6c04a4c4355175f72f1104e2b6bd7aa} 
+geo\+\_\+struct\+::geo\+\_\+struct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \&}]{g}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+overrided constructor; all data get initialized to parameter values. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classgeo__struct_ab6c04a4c4355175f72f1104e2b6bd7aa_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ae4fac347181afeb7dbce9c29e943c740}\index{geo\_struct@{geo\_struct}!````~geo\_struct@{\texorpdfstring{$\sim$}{\string~}geo\_struct}}
+\index{````~geo\_struct@{\texorpdfstring{$\sim$}{\string~}geo\_struct}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}geo\_struct()}{\string~geo\_struct()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ae4fac347181afeb7dbce9c29e943c740} 
+geo\+\_\+struct\+::\texorpdfstring{$\sim$}{\string~}geo\+\_\+struct (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ae4fac347181afeb7dbce9c29e943c740_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgeo__struct_aa3f4bdaa30364df921f7bee07e8bb61f}\index{geo\_struct@{geo\_struct}!adjust\_for\_periodic\_bc@{adjust\_for\_periodic\_bc}}
+\index{adjust\_for\_periodic\_bc@{adjust\_for\_periodic\_bc}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{adjust\_for\_periodic\_bc()}{adjust\_for\_periodic\_bc()}}
+{\footnotesize\ttfamily \label{classgeo__struct_aa3f4bdaa30364df921f7bee07e8bb61f} 
+void geo\+\_\+struct\+::adjust\+\_\+for\+\_\+periodic\+\_\+bc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+This function records the periodic boundary coupling information into the super cell map. if neighbor cell does\textquotesingle{}t exist in real, we create virtual cell and set the index such that periodic boundary condition is virtually satisfied. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_aa3f4bdaa30364df921f7bee07e8bb61f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_aef1f7af5712141df37f494d342755dae}\index{geo\_struct@{geo\_struct}!Allocate@{Allocate}}
+\index{Allocate@{Allocate}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Allocate()}{Allocate()}}
+{\footnotesize\ttfamily \label{classgeo__struct_aef1f7af5712141df37f494d342755dae} 
+void geo\+\_\+struct\+::\+Allocate (\begin{DoxyParamCaption}\item[{int}]{N\+\_\+\+Cell}{, }\item[{int}]{Nx}{, }\item[{int}]{Ny}{, }\item[{int}]{Nz}{, }\item[{int}]{veryfirst}{, }\item[{const \mbox{\hyperlink{class_cell}{Cell}} \&}]{cellgeom}{}\end{DoxyParamCaption})}
+
+Allocate memories and Set initial values to the structure. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_aef1f7af5712141df37f494d342755dae_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ade5ab16b317b624e3b6f1a153fb5db53}\index{geo\_struct@{geo\_struct}!Allocate\_NOSTRAIN@{Allocate\_NOSTRAIN}}
+\index{Allocate\_NOSTRAIN@{Allocate\_NOSTRAIN}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Allocate\_NOSTRAIN()}{Allocate\_NOSTRAIN()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ade5ab16b317b624e3b6f1a153fb5db53} 
+void geo\+\_\+struct\+::\+Allocate\+\_\+\+NOSTRAIN (\begin{DoxyParamCaption}\item[{int}]{N\+\_\+\+Cell}{, }\item[{int}]{Nx}{, }\item[{int}]{Ny}{, }\item[{int}]{Nz}{, }\item[{int}]{veryfirst}{, }\item[{const \mbox{\hyperlink{class_cell}{Cell}} \&}]{cellgeom}{}\end{DoxyParamCaption})}
+
+Allocate memories and Set initial values to the structure. But variables for strain calculation, (i.\+e\+: 3D array l\+\_\+m\+\_\+2\+\_\+atomdsp) is not initialized here Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classgeo__struct_ade5ab16b317b624e3b6f1a153fb5db53_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ada8eeb3e24ce0188ad4a4b476a1333ca}\index{geo\_struct@{geo\_struct}!AtomsPerCellMax@{AtomsPerCellMax}}
+\index{AtomsPerCellMax@{AtomsPerCellMax}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{AtomsPerCellMax()}{AtomsPerCellMax()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ada8eeb3e24ce0188ad4a4b476a1333ca} 
+int geo\+\_\+struct\+::\+Atoms\+Per\+Cell\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Maximum \# of atoms a cell can have. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ada8eeb3e24ce0188ad4a4b476a1333ca_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_abe465ed63581caf44c2017836f6d708b}\index{geo\_struct@{geo\_struct}!changeLattConst@{changeLattConst}}
+\index{changeLattConst@{changeLattConst}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{changeLattConst()}{changeLattConst()}}
+{\footnotesize\ttfamily \label{classgeo__struct_abe465ed63581caf44c2017836f6d708b} 
+void geo\+\_\+struct\+::change\+Latt\+Const (\begin{DoxyParamCaption}\item[{real}]{ax}{, }\item[{real}]{ay}{, }\item[{real}]{az}{}\end{DoxyParamCaption})}
+
+Update lattice constants and calculate corresponding displacement. This function could be quite useful if you want to use periodic BC for an electronic calculation with a more sensible choice of lattice constant used for the strain calculation. 
+\begin{DoxyParams}{Parameters}
+{\em ax} & lattice constant in x-\/direction \\
+\hline
+{\em ay} & lattice constant in y-\/direction \\
+\hline
+{\em az} & lattice constant in z-\/direction \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_abe465ed63581caf44c2017836f6d708b_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ac118014dcbd9d139344039a0da104f69}\index{geo\_struct@{geo\_struct}!Deallocate@{Deallocate}}
+\index{Deallocate@{Deallocate}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Deallocate()}{Deallocate()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ac118014dcbd9d139344039a0da104f69} 
+void geo\+\_\+struct\+::\+Deallocate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Deallocate all the memory. Will be used in destructor. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ac118014dcbd9d139344039a0da104f69_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a25007e7ecf346d51180e3daae31b2dec}\index{geo\_struct@{geo\_struct}!ElHasPeriodicity@{ElHasPeriodicity}}
+\index{ElHasPeriodicity@{ElHasPeriodicity}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ElHasPeriodicity()}{ElHasPeriodicity()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a25007e7ecf346d51180e3daae31b2dec} 
+bool geo\+\_\+struct\+::\+El\+Has\+Periodicity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if electronic calculation is periodic in any direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b}\index{geo\_struct@{geo\_struct}!ElIsPeriodicX@{ElIsPeriodicX}}
+\index{ElIsPeriodicX@{ElIsPeriodicX}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ElIsPeriodicX()}{ElIsPeriodicX()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b} 
+bool geo\+\_\+struct\+::\+El\+Is\+PeriodicX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if electronic calculation is periodic in x-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a69b5974c5fc2983ab846347229eaf91b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a85823078517802a8848dd2c93a423865}\index{geo\_struct@{geo\_struct}!ElIsPeriodicXYZ@{ElIsPeriodicXYZ}}
+\index{ElIsPeriodicXYZ@{ElIsPeriodicXYZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ElIsPeriodicXYZ()}{ElIsPeriodicXYZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a85823078517802a8848dd2c93a423865} 
+bool geo\+\_\+struct\+::\+El\+Is\+Periodic\+XYZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if electronic calculation is periodic in xyz-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7}\index{geo\_struct@{geo\_struct}!ElIsPeriodicY@{ElIsPeriodicY}}
+\index{ElIsPeriodicY@{ElIsPeriodicY}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ElIsPeriodicY()}{ElIsPeriodicY()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7} 
+bool geo\+\_\+struct\+::\+El\+Is\+PeriodicY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if electronic calculation is periodic in y-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a9a4347fb11d0544823e8e12ec11311f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5}\index{geo\_struct@{geo\_struct}!ElIsPeriodicZ@{ElIsPeriodicZ}}
+\index{ElIsPeriodicZ@{ElIsPeriodicZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ElIsPeriodicZ()}{ElIsPeriodicZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5} 
+bool geo\+\_\+struct\+::\+El\+Is\+PeriodicZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if electronic calculation is periodic in z-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a1e16c787ac89e437a0132f59bb656fe5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a24a071fee3d4e59a4df428e2d4b02587}\index{geo\_struct@{geo\_struct}!fill\_is\_DiffNeighbor@{fill\_is\_DiffNeighbor}}
+\index{fill\_is\_DiffNeighbor@{fill\_is\_DiffNeighbor}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{fill\_is\_DiffNeighbor()}{fill\_is\_DiffNeighbor()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a24a071fee3d4e59a4df428e2d4b02587} 
+void geo\+\_\+struct\+::fill\+\_\+is\+\_\+\+Diff\+Neighbor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Fill the 2D array \doxylink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{geo\+\_\+struct\+::is\+Diff\+Nbr} which is used in the hamiltonian construction to check whether or not the parameter vector needs to be averaged over different neighbors. \begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}{geo\+\_\+struct\+::is\+Diff\+Nbr} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a24a071fee3d4e59a4df428e2d4b02587_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a410f8d053a9efeb98682eea7a0f06018}\index{geo\_struct@{geo\_struct}!FillFirstShape@{FillFirstShape}}
+\index{FillFirstShape@{FillFirstShape}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{FillFirstShape()}{FillFirstShape()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a410f8d053a9efeb98682eea7a0f06018} 
+void geo\+\_\+struct\+::\+Fill\+First\+Shape (\begin{DoxyParamCaption}\item[{const Shape\+\_\+struct \&}]{shape}{, }\item[{const top\+\_\+struct \&}]{opt}{, }\item[{const vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ \&}]{s\+Mat\+List}{}\end{DoxyParamCaption})}
+
+this function constructs geometric information such as cell\+\_\+ijk, cell\+\_\+(x,y,z)(min,max) for this structure. This function is operated on each shape defined in the input xml file. After excution, it calls \doxylink{classgeo__struct_ac15c939203584a626a23fda82935c079}{geo\+\_\+struct\+::\+Fill\+Shape}. This, should be seen as sorts of preparation for \textquotesingle{}real\textquotesingle{} filling of structure. 
+\begin{DoxyParams}{Parameters}
+{\em shape} & This will give information of shape of each structure defined as "{}\+Shape\+Name"{} in input deck. \\
+\hline
+{\em opt} & This has information of crystal structure type \\
+\hline
+{\em mat} & vector of objects of \doxylink{class_material_handle}{Material\+Handle} class. It has various information of materials. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+class Shape\+\_\+struct 
+
+class top\+\_\+struct 
+
+class \doxylink{class_material_handle}{Material\+Handle} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+This function is defined in nemo3d/base/src/ham3d.\+c 
+\end{DoxyWarning}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a410f8d053a9efeb98682eea7a0f06018_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ac15c939203584a626a23fda82935c079}\index{geo\_struct@{geo\_struct}!FillShape@{FillShape}}
+\index{FillShape@{FillShape}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{FillShape()}{FillShape()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ac15c939203584a626a23fda82935c079} 
+void geo\+\_\+struct\+::\+Fill\+Shape (\begin{DoxyParamCaption}\item[{const Shape\+\_\+struct \&}]{shape}{, }\item[{const vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ \&}]{s\+Mat\+List}{, }\item[{bool}]{has\+\_\+cell\+\_\+granularity}{}\end{DoxyParamCaption})}
+
+Loops over unitcells \& atoms. assigns atom types if atom is in the shape. To check this, Is\+Not\+In\+Shape function is used. 
+\begin{DoxyParams}{Parameters}
+{\em shape} & This will give information of shape of each structure defined as "{}\+Shape\+Name"{} in input deck. \\
+\hline
+{\em mat} & vector of objects of \doxylink{class_material_handle}{Material\+Handle} class. It has various information of materials. \\
+\hline
+{\em granularity} & If 1, the shape has granularity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+class Shape\+\_\+struct 
+
+class \doxylink{class_material_handle}{Material\+Handle} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+This function is defined in nemo3d/base/src/ham3d.\+c 
+\end{DoxyWarning}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ac15c939203584a626a23fda82935c079_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ac15c939203584a626a23fda82935c079_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ae17f923331e78002dc7841387a7078d3}\index{geo\_struct@{geo\_struct}!FindSurfaceAtoms@{FindSurfaceAtoms}}
+\index{FindSurfaceAtoms@{FindSurfaceAtoms}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{FindSurfaceAtoms()}{FindSurfaceAtoms()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ae17f923331e78002dc7841387a7078d3} 
+void geo\+\_\+struct\+::\+Find\+Surface\+Atoms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+scan all atoms in structure and chedck if an atom is on the surface of the structure. It fills geo\+\_\+struct\+::surface\+Info. \begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ae17f923331e78002dc7841387a7078d3_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a8ea01752f72bff2103e0270985e7531b}\index{geo\_struct@{geo\_struct}!get\_cindx\_tilted@{get\_cindx\_tilted}}
+\index{get\_cindx\_tilted@{get\_cindx\_tilted}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{get\_cindx\_tilted()}{get\_cindx\_tilted()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a8ea01752f72bff2103e0270985e7531b} 
+int geo\+\_\+struct\+::get\+\_\+cindx\+\_\+tilted (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+Determine the unit cell number of neighbor n of atom (l,m) when lattice is tilted Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{classgeo__struct_a8ea01752f72bff2103e0270985e7531b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a8ea01752f72bff2103e0270985e7531b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ad2e9533c389f759d16ed606bd26132e9}\index{geo\_struct@{geo\_struct}!getPosition\_equilibrium@{getPosition\_equilibrium}}
+\index{getPosition\_equilibrium@{getPosition\_equilibrium}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{getPosition\_equilibrium()}{getPosition\_equilibrium()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad2e9533c389f759d16ed606bd26132e9} 
+void geo\+\_\+struct\+::get\+Position\+\_\+equilibrium (\begin{DoxyParamCaption}\item[{real \texorpdfstring{$\ast$}{*}}]{pos}{, }\item[{int}]{Zcell}{, }\item[{int}]{Zatom}{}\end{DoxyParamCaption})}
+
+calculate atomic position in equillibrium \begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6}{geo\+\_\+struct\+::get\+Position\+\_\+strained} for description of parameters and returned value. 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad2e9533c389f759d16ed606bd26132e9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6}\index{geo\_struct@{geo\_struct}!getPosition\_strained@{getPosition\_strained}}
+\index{getPosition\_strained@{getPosition\_strained}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{getPosition\_strained()}{getPosition\_strained()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6} 
+void geo\+\_\+struct\+::get\+Position\+\_\+strained (\begin{DoxyParamCaption}\item[{real \texorpdfstring{$\ast$}{*}}]{pos}{, }\item[{int}]{Zcell}{, }\item[{int}]{Zatom}{}\end{DoxyParamCaption})}
+
+Calculate strain effect and get new position of current atom. 
+\begin{DoxyParams}{Parameters}
+{\em pos} & array that will have current atomic position info. \\
+\hline
+{\em Zcell} & cell index \\
+\hline
+{\em Zatom} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position vector. pos\mbox{[}0\mbox{]},pos\mbox{[}1\mbox{]},pos\mbox{[}2\mbox{]} will have current atomic position in x,y,z respectively. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad6272018ab3dc22a3121bca6ad7f81d6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a9a7e24b2429ec7736f209b7d711322a2}\index{geo\_struct@{geo\_struct}!getPosition\_unstrained@{getPosition\_unstrained}}
+\index{getPosition\_unstrained@{getPosition\_unstrained}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{getPosition\_unstrained()}{getPosition\_unstrained()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9a7e24b2429ec7736f209b7d711322a2} 
+void geo\+\_\+struct\+::get\+Position\+\_\+unstrained (\begin{DoxyParamCaption}\item[{real \texorpdfstring{$\ast$}{*}}]{pos}{, }\item[{real}]{unstrnd\+\_\+latt}{, }\item[{int}]{Zcell}{, }\item[{int}]{Zatom}{}\end{DoxyParamCaption})}
+
+Calculate atomic position using unstrained lattice constant. 
+\begin{DoxyParams}{Parameters}
+{\em pos} & array that will have current atomic position info. \\
+\hline
+{\em unstrnd\+\_\+latt} & lattice constant without strain effect. \\
+\hline
+{\em Zcell} & cell index \\
+\hline
+{\em Zatom} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position vector. pos\mbox{[}0\mbox{]},pos\mbox{[}1\mbox{]},pos\mbox{[}2\mbox{]} will have current atomic position in x,y,z respectively. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a9a7e24b2429ec7736f209b7d711322a2_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_aafaaed85dafd354d439ce5c9d1026fa0}\index{geo\_struct@{geo\_struct}!getRelativePosVec@{getRelativePosVec}}
+\index{getRelativePosVec@{getRelativePosVec}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{getRelativePosVec()}{getRelativePosVec()}}
+{\footnotesize\ttfamily \label{classgeo__struct_aafaaed85dafd354d439ce5c9d1026fa0} 
+void geo\+\_\+struct\+::get\+Relative\+Pos\+Vec (\begin{DoxyParamCaption}\item[{real \texorpdfstring{$\ast$}{*}}]{nnv0}{, }\item[{real \texorpdfstring{$\ast$}{*}}]{nnv}{, }\item[{real}]{unstrnd\+\_\+latt}{, }\item[{int}]{c1}{, }\item[{int}]{a1}{, }\item[{int}]{c2}{, }\item[{int}]{a2}{, }\item[{int}]{neighbor}{}\end{DoxyParamCaption})}
+
+get the relative position vector between two atoms.
+\begin{DoxyItemize}
+\item Function first will calculate relative atomic position of a1,a2 in a unit cell. If neigbor atom of a2 and atom a2 are in the same unit cell, result is simply the relative posion of atom a1 to atom a2 in a unit cell. Otherwise, function will add +1 or -\/1 to the result, which becomes then relative position of atom a1 in a unitcell to atom a2 in the neighbor unitcell. Normalized result will be converted in a unit of unstraind lattice constant and stored in nnv0.
+\item In unstrained environment, all the relative positions of atom X\textquotesingle{}s are same in any unitcells. But once strain starts to affect the structure, the displacements of atoms X due to strain become different with different indice of unitcell. Therefore, we need to get displacement with consideration of cell index of each unit cell. The result in a strained-\/structure will be saved in nnv. ~\newline
+
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em nnv0} & will have the result in an unstrained structure. \\
+\hline
+{\em nnv} & will have the result in a strain effect. \\
+\hline
+{\em unstrnd\+\_\+latt} & lattice constant in an unstarined structure. \\
+\hline
+{\em c1} & cell index 1 \\
+\hline
+{\em a1} & atomic index 1 \\
+\hline
+{\em c2} & cell index 2 \\
+\hline
+{\em a2} & atomic index 2 \\
+\hline
+{\em neighbor} & neighbor index of atom a2 (in unitcell c2) \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_aafaaed85dafd354d439ce5c9d1026fa0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_acf4d7512d8530bf8e8850f7f28243407}\index{geo\_struct@{geo\_struct}!hasPeriodicity@{hasPeriodicity}}
+\index{hasPeriodicity@{hasPeriodicity}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{hasPeriodicity()}{hasPeriodicity()}}
+{\footnotesize\ttfamily \label{classgeo__struct_acf4d7512d8530bf8e8850f7f28243407} 
+bool geo\+\_\+struct\+::has\+Periodicity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if the structure is periodic in any direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_acf4d7512d8530bf8e8850f7f28243407_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a893f7c69fe72ff4ac7c0b8b346910112}\index{geo\_struct@{geo\_struct}!InitializeForHyperChem@{InitializeForHyperChem}}
+\index{InitializeForHyperChem@{InitializeForHyperChem}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{InitializeForHyperChem()}{InitializeForHyperChem()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a893f7c69fe72ff4ac7c0b8b346910112} 
+void geo\+\_\+struct\+::\+Initialize\+For\+Hyper\+Chem (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{inputfile}{}\end{DoxyParamCaption})}
+
+@\+See Cell\+::\+Intialize\+For\+Hyper\+Chem(const char\texorpdfstring{$\ast$}{*} inputfile) Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a893f7c69fe72ff4ac7c0b8b346910112_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_afe407157f6d247f2b8a35c696dc268fa}\index{geo\_struct@{geo\_struct}!InitializeFromInputFile@{InitializeFromInputFile}}
+\index{InitializeFromInputFile@{InitializeFromInputFile}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{InitializeFromInputFile()}{InitializeFromInputFile()}}
+{\footnotesize\ttfamily \label{classgeo__struct_afe407157f6d247f2b8a35c696dc268fa} 
+void geo\+\_\+struct\+::\+Initialize\+From\+Input\+File (\begin{DoxyParamCaption}\item[{const top\+\_\+struct \&}]{opt}{}\end{DoxyParamCaption})}
+
+Information such as lattice constant and periodicity should be directly read from input xml code. This information comes to top\+\_\+struct and is saved in dev\+\_\+struct, which is a member class of top\+\_\+struct. This function allocate such information to \doxylink{classgeo__struct}{geo\+\_\+struct}. \begin{DoxySeeAlso}{See also}
+top\+\_\+struct\+::top\+\_\+struct() 
+
+dev\+\_\+struct\+::dev\+\_\+struct() 
+\end{DoxySeeAlso}
+\Hypertarget{classgeo__struct_ac870b75f1dc53df12380c338da0cf8ba}\index{geo\_struct@{geo\_struct}!InvalidateStrainOnly@{InvalidateStrainOnly}}
+\index{InvalidateStrainOnly@{InvalidateStrainOnly}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{InvalidateStrainOnly()}{InvalidateStrainOnly()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ac870b75f1dc53df12380c338da0cf8ba} 
+bool geo\+\_\+struct\+::\+Invalidate\+Strain\+Only (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Exclude atoms in so-\/called strain-\/only region for electonic caculation Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ac870b75f1dc53df12380c338da0cf8ba_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a9fca1b009510c4e17be54b265fbb91a7}\index{geo\_struct@{geo\_struct}!isCation@{isCation}}
+\index{isCation@{isCation}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isCation()}{isCation()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9fca1b009510c4e17be54b265fbb91a7} 
+bool geo\+\_\+struct\+::is\+Cation (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given an atom, returns boolean indicating whether atom is a cation. As, Sb are automatically treated as anions. Else, if atom index is in the upper half of allowed indices treat as anion. Consider everything else to be a cation. 
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index. \\
+\hline
+{\em m} & atom index within cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\+\_\+struct()} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+TRUE/\+FALSE if atom is a cation/anion 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The determination of anion/cation is a bit of a kludge right now. See implementation details. 
+\end{DoxyWarning}
+\Hypertarget{classgeo__struct_a9d348e3974c59b89132c3b8769193a8f}\index{geo\_struct@{geo\_struct}!isCellUserDef@{isCellUserDef}}
+\index{isCellUserDef@{isCellUserDef}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isCellUserDef()}{isCellUserDef()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9d348e3974c59b89132c3b8769193a8f} 
+bool geo\+\_\+struct\+::is\+Cell\+User\+Def (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\texorpdfstring{$<$}{<} \begin{DoxyReturn}{Returns}
+true if the crystal structure is ZB\+\_\+111. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a9d348e3974c59b89132c3b8769193a8f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_afd23aa1d3cdb5ab4f400e55ea2d209ad}\index{geo\_struct@{geo\_struct}!isCellWurtzite@{isCellWurtzite}}
+\index{isCellWurtzite@{isCellWurtzite}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isCellWurtzite()}{isCellWurtzite()}}
+{\footnotesize\ttfamily \label{classgeo__struct_afd23aa1d3cdb5ab4f400e55ea2d209ad} 
+bool geo\+\_\+struct\+::is\+Cell\+Wurtzite (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\texorpdfstring{$<$}{<} \begin{DoxyReturn}{Returns}
+true if the crystal structure is Cell\+User\+Def. 
+
+true if the crystal structure is Wurtzite. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_afd23aa1d3cdb5ab4f400e55ea2d209ad_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ad282b6cd9285849367c5171a334ae038}\index{geo\_struct@{geo\_struct}!isCellZB\_110\_small@{isCellZB\_110\_small}}
+\index{isCellZB\_110\_small@{isCellZB\_110\_small}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isCellZB\_110\_small()}{isCellZB\_110\_small()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad282b6cd9285849367c5171a334ae038} 
+bool geo\+\_\+struct\+::is\+Cell\+ZB\+\_\+110\+\_\+small (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\texorpdfstring{$<$}{<} \begin{DoxyReturn}{Returns}
+true if the crystal structure is ZB\+\_\+110. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad282b6cd9285849367c5171a334ae038_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ad0cd52c1fdb0ae7ec5dcbcf15020dd9f}\index{geo\_struct@{geo\_struct}!isCellZB\_111@{isCellZB\_111}}
+\index{isCellZB\_111@{isCellZB\_111}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isCellZB\_111()}{isCellZB\_111()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad0cd52c1fdb0ae7ec5dcbcf15020dd9f} 
+bool geo\+\_\+struct\+::is\+Cell\+ZB\+\_\+111 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\texorpdfstring{$<$}{<} \begin{DoxyReturn}{Returns}
+true if the crystal structure is ZB\+\_\+110\+\_\+small. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad0cd52c1fdb0ae7ec5dcbcf15020dd9f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a1beba273642243e4f7c57bcb51bef85f}\index{geo\_struct@{geo\_struct}!isInvalidPeriodicity@{isInvalidPeriodicity}}
+\index{isInvalidPeriodicity@{isInvalidPeriodicity}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInvalidPeriodicity()}{isInvalidPeriodicity()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a1beba273642243e4f7c57bcb51bef85f} 
+bool geo\+\_\+struct\+::is\+Invalid\+Periodicity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+checks if periodicity is valid in the structure. If structure was formed such that periodicity is valid, will return true. Otherwise return false. \begin{DoxyReturn}{Returns}
+true if structure is periodic. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a1beba273642243e4f7c57bcb51bef85f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa}\index{geo\_struct@{geo\_struct}!isInX\_max@{isInX\_max}}
+\index{isInX\_max@{isInX\_max}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInX\_max()}{isInX\_max()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa} 
+bool geo\+\_\+struct\+::is\+In\+X\+\_\+max (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of maximum x of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a4c58f9fc13b4662753e35be7d04ebdfa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a68276bc35487baeb29f08e64b627e185}\index{geo\_struct@{geo\_struct}!isInX\_min@{isInX\_min}}
+\index{isInX\_min@{isInX\_min}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInX\_min()}{isInX\_min()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a68276bc35487baeb29f08e64b627e185} 
+bool geo\+\_\+struct\+::is\+In\+X\+\_\+min (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of minimum x of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a68276bc35487baeb29f08e64b627e185_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a44d992999dcfba81239e3636da8a5e15}\index{geo\_struct@{geo\_struct}!isInY\_max@{isInY\_max}}
+\index{isInY\_max@{isInY\_max}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInY\_max()}{isInY\_max()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a44d992999dcfba81239e3636da8a5e15} 
+bool geo\+\_\+struct\+::is\+In\+Y\+\_\+max (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of maximum y of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a44d992999dcfba81239e3636da8a5e15_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a624774376775723b904155044e0d5b10}\index{geo\_struct@{geo\_struct}!isInY\_min@{isInY\_min}}
+\index{isInY\_min@{isInY\_min}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInY\_min()}{isInY\_min()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a624774376775723b904155044e0d5b10} 
+bool geo\+\_\+struct\+::is\+In\+Y\+\_\+min (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of minimum y of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a624774376775723b904155044e0d5b10_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a2b90046ac87766625320d59339448207}\index{geo\_struct@{geo\_struct}!isInZ\_max@{isInZ\_max}}
+\index{isInZ\_max@{isInZ\_max}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInZ\_max()}{isInZ\_max()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a2b90046ac87766625320d59339448207} 
+bool geo\+\_\+struct\+::is\+In\+Z\+\_\+max (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of maximum z of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a2b90046ac87766625320d59339448207_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c}\index{geo\_struct@{geo\_struct}!isInZ\_min@{isInZ\_min}}
+\index{isInZ\_min@{isInZ\_min}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isInZ\_min()}{isInZ\_min()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c} 
+bool geo\+\_\+struct\+::is\+In\+Z\+\_\+min (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on the position of minimum z of this structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a91fbad9996dfbc378b7c11edca83ce8c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a178c048f3fb713f1c3d0cec699cbd388}\index{geo\_struct@{geo\_struct}!isOnSurface@{isOnSurface}}
+\index{isOnSurface@{isOnSurface}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isOnSurface()}{isOnSurface()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a178c048f3fb713f1c3d0cec699cbd388} 
+bool geo\+\_\+struct\+::is\+On\+Surface (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on surface of the structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a178c048f3fb713f1c3d0cec699cbd388_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ab8b2ba306c0d1fd1c1ce80fbd1c9d364}\index{geo\_struct@{geo\_struct}!isOnSurfaceIgnoreBC@{isOnSurfaceIgnoreBC}}
+\index{isOnSurfaceIgnoreBC@{isOnSurfaceIgnoreBC}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isOnSurfaceIgnoreBC()}{isOnSurfaceIgnoreBC()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ab8b2ba306c0d1fd1c1ce80fbd1c9d364} 
+bool geo\+\_\+struct\+::is\+On\+Surface\+Ignore\+BC (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if atom(l,m) is on surface of the structure with closed BC. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::surface\+Info 
+\end{DoxySeeAlso}
+\Hypertarget{classgeo__struct_ac094521fd1e5a1324816c419714490eb}\index{geo\_struct@{geo\_struct}!isPeriodicX@{isPeriodicX}}
+\index{isPeriodicX@{isPeriodicX}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isPeriodicX()}{isPeriodicX()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ac094521fd1e5a1324816c419714490eb} 
+bool geo\+\_\+struct\+::is\+PeriodicX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if structure is periodic in x-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ac094521fd1e5a1324816c419714490eb_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_aa68ef02dd3e81ccc9eb1312da2e49c9c}\index{geo\_struct@{geo\_struct}!isPeriodicXYZ@{isPeriodicXYZ}}
+\index{isPeriodicXYZ@{isPeriodicXYZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isPeriodicXYZ()}{isPeriodicXYZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_aa68ef02dd3e81ccc9eb1312da2e49c9c} 
+bool geo\+\_\+struct\+::is\+Periodic\+XYZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if the structure periodic in xyz-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a7c06f3f97eca1a66a748d1ed3cffe6b5}\index{geo\_struct@{geo\_struct}!isPeriodicY@{isPeriodicY}}
+\index{isPeriodicY@{isPeriodicY}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isPeriodicY()}{isPeriodicY()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a7c06f3f97eca1a66a748d1ed3cffe6b5} 
+bool geo\+\_\+struct\+::is\+PeriodicY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if structure is periodic in y-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a7c06f3f97eca1a66a748d1ed3cffe6b5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71}\index{geo\_struct@{geo\_struct}!isPeriodicZ@{isPeriodicZ}}
+\index{isPeriodicZ@{isPeriodicZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isPeriodicZ()}{isPeriodicZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71} 
+bool geo\+\_\+struct\+::is\+PeriodicZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if structure is periodic in z-\/direction. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a4edd6762ec0b227af0e9518ee3d4aa71_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2}\index{geo\_struct@{geo\_struct}!NbrCell@{NbrCell}}
+\index{NbrCell@{NbrCell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{NbrCell()}{NbrCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2} 
+int \texorpdfstring{$\ast$}{*} geo\+\_\+struct\+::\+Nbr\+Cell (\begin{DoxyParamCaption}\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & atomic index \\
+\hline
+{\em n} & neighbor index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns position vector of cell where n-\/th neighbor of m-\/th atom in this cell is belonged. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Cell\+::nnmap 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a555d4644dae184bb4a77314cb9add0a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_aeb649a918299ba956d6ffe6b3fd490d8}\index{geo\_struct@{geo\_struct}!NbrCell@{NbrCell}}
+\index{NbrCell@{NbrCell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{NbrCell()}{NbrCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_aeb649a918299ba956d6ffe6b3fd490d8} 
+int geo\+\_\+struct\+::\+Nbr\+Cell (\begin{DoxyParamCaption}\item[{int}]{m}{, }\item[{int}]{n}{, }\item[{int}]{d}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & atomic index \\
+\hline
+{\em n} & neighbor index \\
+\hline
+{\em d} & direction. 0 for x, 1 for y, 2 for z and 3 for the actual index of atom. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position in the selected direction. Nbr(m,n,3) returns atomic index. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_ab8be4bb1798dc4c9091fd01141307604}\index{geo\_struct@{geo\_struct}!Neighbors@{Neighbors}}
+\index{Neighbors@{Neighbors}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Neighbors()}{Neighbors()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ab8be4bb1798dc4c9091fd01141307604} 
+int geo\+\_\+struct\+::\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+actual \# of neighbors this atom has. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ab8be4bb1798dc4c9091fd01141307604_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a1a5e927faad7993224906aaa92894891}\index{geo\_struct@{geo\_struct}!NeighborsMax@{NeighborsMax}}
+\index{NeighborsMax@{NeighborsMax}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{NeighborsMax()}{NeighborsMax()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a1a5e927faad7993224906aaa92894891} 
+int geo\+\_\+struct\+::\+Neighbors\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Maximum \# of bonds that an atom can have. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a1a5e927faad7993224906aaa92894891_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1}\index{geo\_struct@{geo\_struct}!phaseBloch@{phaseBloch}}
+\index{phaseBloch@{phaseBloch}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{phaseBloch()}{phaseBloch()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1} 
+real geo\+\_\+struct\+::phase\+Bloch (\begin{DoxyParamCaption}\item[{real}]{kxL}{, }\item[{real}]{kyL}{, }\item[{real}]{kzL}{, }\item[{int}]{l}{, }\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Don\textquotesingle{}t understand physical meaning quite well. 
+
+Seems that this function shifts phase by some constant value if neighbor cell is outside real structure. According to the bloch theorm, kxL,kyL,kzL should be integer multiple of 2PI. But this function multiply PI before returning its final phase value. Therefore kxL,kyL,kzL here have a little different value from what we understand from books. Need more study to understand what \textquotesingle{}real value\textquotesingle{} of these are.
+
+
+\begin{DoxyParams}{Parameters}
+{\em kxL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. \\
+\hline
+{\em kyL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. \\
+\hline
+{\em kzL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. ~\newline
+\\
+\hline
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+{\em n} & neighbor index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+amount of phase shift. can\textquotesingle{}t understand equation for conversion exactly. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a5436c66646f481c8c7e7b6dd793809d7}\index{geo\_struct@{geo\_struct}!phaseInfoForNemo1D@{phaseInfoForNemo1D}}
+\index{phaseInfoForNemo1D@{phaseInfoForNemo1D}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{phaseInfoForNemo1D()}{phaseInfoForNemo1D()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a5436c66646f481c8c7e7b6dd793809d7} 
+int geo\+\_\+struct\+::phase\+Info\+For\+Nemo1D (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+functional description only. Don\textquotesingle{}t understand physical meaning quite well. 
+
+Calculate and allocate value of Phase\+Info. It determines phase\+Info as follows.
+\begin{DoxyItemize}
+\item Relative x location of neighbor atom is -\/1 and current atom is on xmin (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in x direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 01
+\item Electronic calculation is not periodic in x direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 0100
+\end{DoxyItemize}
+\item Relative x location of neighbor atom is 1 and current atom is on xmax (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in x direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 02
+\item Electronic calculation is not periodic in x direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 0200
+\end{DoxyItemize}
+\item Relative y location of neighbor atom is -\/1 and current atom is on ymin (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in y direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 04
+\item Electronic calculation is not periodic in y direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 04
+\end{DoxyItemize}
+\item Relative y location of neighbor atom is 1 and current atom is on ymax (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in y direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 010
+\item Electronic calculation is not periodic in y direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 01000
+\end{DoxyItemize}
+\item Relative z location of neighbor atom is -\/1 and current atom is on zmin (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in z direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 020
+\item Electronic calculation is not periodic in z direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 02000
+\end{DoxyItemize}
+\item Relative z location of neighbor atom is 1 and current atom is on zmax (cell) of structure
+\begin{DoxyItemize}
+\item Electronic calculation is periodic in z direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 040
+\item Electronic calculation is not periodic in z direction \+: Phase\+Info = (Phase\+Info) \texorpdfstring{$\vert$}{|} 04000
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & cell index \\
+\hline
+{\em m} & atomic index \\
+\hline
+{\em n} & neighbor index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+phase information. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a5436c66646f481c8c7e7b6dd793809d7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a0411b239cbcc3d23379f7d874ba45398}\index{geo\_struct@{geo\_struct}!phasePeriodic@{phasePeriodic}}
+\index{phasePeriodic@{phasePeriodic}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{phasePeriodic()}{phasePeriodic()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a0411b239cbcc3d23379f7d874ba45398} 
+real geo\+\_\+struct\+::phase\+Periodic (\begin{DoxyParamCaption}\item[{real}]{kxL}{, }\item[{real}]{kyL}{, }\item[{real}]{kzL}{, }\item[{int}]{i\+\_\+nbr}{, }\item[{int}]{j\+\_\+nbr}{, }\item[{int}]{k\+\_\+nbr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Don\textquotesingle{}t understand physical meaning quite well. 
+
+What this function does is exactly same (functionally) as that \doxylink{classgeo__struct_a13125fddfe45852a50969f78eb7a37b1}{geo\+\_\+struct\+::phase\+Bloch} does. But while phas\+Bloch function shifts phase with use of (cindx, aindx, nindx), this does so with use of (i,j,k) of neighbor cell.
+
+
+\begin{DoxyParams}{Parameters}
+{\em kxL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. \\
+\hline
+{\em kyL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. \\
+\hline
+{\em kzL} & not sure exactly. Seems that phase shift in x-\/direction between two adjacent unit-\/cell. ~\newline
+\\
+\hline
+{\em i\+\_\+nbr} & i of neighber cell \\
+\hline
+{\em j\+\_\+nbr} & j of neighbor cell \\
+\hline
+{\em k\+\_\+nbr} & k of neighbor cell \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+amount of phase shift. can\textquotesingle{}t understand equation for conversion exactly. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a5d95e790130a53080f958323f2c68f2b}\index{geo\_struct@{geo\_struct}!PositionInCell@{PositionInCell}}
+\index{PositionInCell@{PositionInCell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{PositionInCell()}{PositionInCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_a5d95e790130a53080f958323f2c68f2b} 
+real \texorpdfstring{$\ast$}{*} geo\+\_\+struct\+::\+Position\+In\+Cell (\begin{DoxyParamCaption}\item[{int}]{atom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em atom} & atomic index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position vector of this atom in the cell cellgeom. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_cell}{Cell}\+:Cell\+Atom\+\_\+2\+\_\+ijk 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a5d95e790130a53080f958323f2c68f2b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ae54e4c7d9f7bbcaefa927b387f21d728}\index{geo\_struct@{geo\_struct}!PositionInCell@{PositionInCell}}
+\index{PositionInCell@{PositionInCell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{PositionInCell()}{PositionInCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classgeo__struct_ae54e4c7d9f7bbcaefa927b387f21d728} 
+real geo\+\_\+struct\+::\+Position\+In\+Cell (\begin{DoxyParamCaption}\item[{int}]{atom}{, }\item[{int}]{dir}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em atom} & atomic index \\
+\hline
+{\em dir} & direction. 0 for x, 1 for y and 2 for z. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position of selected direction of this atom in the cell cellgeom. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_cell}{Cell}\+:Cell\+Atom\+\_\+2\+\_\+ijk 
+\end{DoxySeeAlso}
+\Hypertarget{classgeo__struct_a2c189669d3d8062d1f5aca7b836baa59}\index{geo\_struct@{geo\_struct}!Reduce@{Reduce}}
+\index{Reduce@{Reduce}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Reduce()}{Reduce()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a2c189669d3d8062d1f5aca7b836baa59} 
+void geo\+\_\+struct\+::\+Reduce (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \texorpdfstring{$\ast$}{*}const}]{di}{}\end{DoxyParamCaption})}
+
+Allocate space for \doxylink{classgeo__struct}{geo\+\_\+struct} and copies information from parameter. It copies \doxylink{classgeo__struct_a396a478da64f73e76196b96404640988}{geo\+\_\+struct\+::ijk\+\_\+\+\_\+cell}, geo\+\_\+struct\+::\+Atoptype, \doxylink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{geo\+\_\+struct\+::atom\+\_\+strain\+\_\+only} and geo\+\_\+struct\+::cell\+\_\+(x,y,z)(min,max). 
+\begin{DoxyParams}{Parameters}
+{\em di} & object of class \doxylink{classgeo__struct}{geo\+\_\+struct} which has geometric information to be used here. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\+\_\+struct\+::geo\+\_\+struct()} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a2c189669d3d8062d1f5aca7b836baa59_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a049cbf824e67ad25da1d98720c1b0f8e}\index{geo\_struct@{geo\_struct}!remap\_periodic\_bc@{remap\_periodic\_bc}}
+\index{remap\_periodic\_bc@{remap\_periodic\_bc}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{remap\_periodic\_bc()}{remap\_periodic\_bc()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a049cbf824e67ad25da1d98720c1b0f8e} 
+void geo\+\_\+struct\+::remap\+\_\+periodic\+\_\+bc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+readjusts ijk\+\_\+cell to reflect periodic BC. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a049cbf824e67ad25da1d98720c1b0f8e_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603}\index{geo\_struct@{geo\_struct}!remove\_few\_bonded\_atoms@{remove\_few\_bonded\_atoms}}
+\index{remove\_few\_bonded\_atoms@{remove\_few\_bonded\_atoms}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{remove\_few\_bonded\_atoms()}{remove\_few\_bonded\_atoms()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603} 
+int geo\+\_\+struct\+::remove\+\_\+few\+\_\+bonded\+\_\+atoms (\begin{DoxyParamCaption}\item[{int}]{bond\+\_\+to\+\_\+remove}{}\end{DoxyParamCaption})}
+
+Function scans through the whole structure and removes atoms that have only a certain set of bonds. if "{}bond\+\_\+to\+\_\+remove"{} is set to 0, we will remove all the atoms that have no neighbors. if "{}bond\+\_\+to\+\_\+remove"{} is set to 1 we will remove the atoms that have only a single neighbor. The function returns the number of removed atoms. 
+\begin{DoxyParams}{Parameters}
+{\em bond\+\_\+to\+\_\+remove} & \# of bonds which the atoms that will be deleted has \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\# of removed atoms. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classgeo__struct_ad91354b0cfdd1ee43ca8ab3a80b33603_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a9c6f22b3916504196ea0e4633a1bef20}\index{geo\_struct@{geo\_struct}!remove\_other\_surface\_species@{remove\_other\_surface\_species}}
+\index{remove\_other\_surface\_species@{remove\_other\_surface\_species}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{remove\_other\_surface\_species()}{remove\_other\_surface\_species()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9c6f22b3916504196ea0e4633a1bef20} 
+int geo\+\_\+struct\+::remove\+\_\+other\+\_\+surface\+\_\+species (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function scans through the whole structure and removes a certain species of atoms from the surface. If the structure\textquotesingle{}s periodic condition is open and the type of atom on the surface is one of EL\+\_\+\+As, EL\+\_\+\+Sb, EL\+\_\+\+Se and EL\+\_\+\+Ge, the atom will be removed from the surface. \begin{DoxyReturn}{Returns}
+\# of deleted atoms from the surface of structure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{mat__def_8h}{mat\+\_\+def.\+h} for more information about material types 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a9c6f22b3916504196ea0e4633a1bef20_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_af1f3fb99ac117765aa76cac8ba646a54}\index{geo\_struct@{geo\_struct}!remove\_user\_defined\_atoms@{remove\_user\_defined\_atoms}}
+\index{remove\_user\_defined\_atoms@{remove\_user\_defined\_atoms}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{remove\_user\_defined\_atoms()}{remove\_user\_defined\_atoms()}}
+{\footnotesize\ttfamily \label{classgeo__struct_af1f3fb99ac117765aa76cac8ba646a54} 
+int geo\+\_\+struct\+::remove\+\_\+user\+\_\+defined\+\_\+atoms (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+remove user-\/defined atoms. Criteria is defined with use of set of \mbox{[}cell index\mbox{]}\mbox{[}atom index\mbox{]}. \begin{DoxyReturn}{Returns}
+\# of removed atoms 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_af1f3fb99ac117765aa76cac8ba646a54_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a4a68a270510bcc3e88f4b186c5c13aca}\index{geo\_struct@{geo\_struct}!setPeriodicityToEl@{setPeriodicityToEl}}
+\index{setPeriodicityToEl@{setPeriodicityToEl}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{setPeriodicityToEl()}{setPeriodicityToEl()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a4a68a270510bcc3e88f4b186c5c13aca} 
+void geo\+\_\+struct\+::set\+Periodicity\+To\+El (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Make periodicity of structure same as that of electric calculation. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a4a68a270510bcc3e88f4b186c5c13aca_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a76d66023e0339f08c71bee19bc491553}\index{geo\_struct@{geo\_struct}!setPeriodicityToStrain@{setPeriodicityToStrain}}
+\index{setPeriodicityToStrain@{setPeriodicityToStrain}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{setPeriodicityToStrain()}{setPeriodicityToStrain()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a76d66023e0339f08c71bee19bc491553} 
+void geo\+\_\+struct\+::set\+Periodicity\+To\+Strain (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Make periodicity of structure same as that of strain calculation. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a76d66023e0339f08c71bee19bc491553_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a901c0aad6175cb12f08b5dfbf62b4c4a}\index{geo\_struct@{geo\_struct}!SP3\_hybrid@{SP3\_hybrid}}
+\index{SP3\_hybrid@{SP3\_hybrid}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{SP3\_hybrid()}{SP3\_hybrid()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a901c0aad6175cb12f08b5dfbf62b4c4a} 
+double geo\+\_\+struct\+::\+SP3\+\_\+hybrid (\begin{DoxyParamCaption}\item[{int}]{Za}{, }\item[{int}]{i}{, }\item[{int}]{j}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em Za} & atomic index \\
+\hline
+{\em i} & row \# of matrix. \\
+\hline
+{\em j} & colomn \# of matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+component at (i,j) of a matrix which transforms initial basis (S,Px,Py,Px) to the set of hybridized orbital SP3. (i.\+e\+: weighted combination of initial basis.) 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_acd1d67b3c60dc68dadb23d0817a7fd7b}\index{geo\_struct@{geo\_struct}!StrainHasPeriodicity@{StrainHasPeriodicity}}
+\index{StrainHasPeriodicity@{StrainHasPeriodicity}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{StrainHasPeriodicity()}{StrainHasPeriodicity()}}
+{\footnotesize\ttfamily \label{classgeo__struct_acd1d67b3c60dc68dadb23d0817a7fd7b} 
+bool geo\+\_\+struct\+::\+Strain\+Has\+Periodicity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if strain calculation is periodic in any direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_abd153d4eb2c318e4d54c225fbc485c6b}\index{geo\_struct@{geo\_struct}!StrainIsPeriodicX@{StrainIsPeriodicX}}
+\index{StrainIsPeriodicX@{StrainIsPeriodicX}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{StrainIsPeriodicX()}{StrainIsPeriodicX()}}
+{\footnotesize\ttfamily \label{classgeo__struct_abd153d4eb2c318e4d54c225fbc485c6b} 
+bool geo\+\_\+struct\+::\+Strain\+Is\+PeriodicX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if strain calculation is periodic in x-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a9b0c523a4ee5f157613956189d41bfd8}\index{geo\_struct@{geo\_struct}!StrainIsPeriodicXYZ@{StrainIsPeriodicXYZ}}
+\index{StrainIsPeriodicXYZ@{StrainIsPeriodicXYZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{StrainIsPeriodicXYZ()}{StrainIsPeriodicXYZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9b0c523a4ee5f157613956189d41bfd8} 
+bool geo\+\_\+struct\+::\+Strain\+Is\+Periodic\+XYZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if strain calculation is periodic in xyz-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a51918bc037f432371a25af5bfe98b959}\index{geo\_struct@{geo\_struct}!StrainIsPeriodicY@{StrainIsPeriodicY}}
+\index{StrainIsPeriodicY@{StrainIsPeriodicY}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{StrainIsPeriodicY()}{StrainIsPeriodicY()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a51918bc037f432371a25af5bfe98b959} 
+bool geo\+\_\+struct\+::\+Strain\+Is\+PeriodicY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if strain calculation is periodic in y-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_ad306e100405b006213dab2eb46541081}\index{geo\_struct@{geo\_struct}!StrainIsPeriodicZ@{StrainIsPeriodicZ}}
+\index{StrainIsPeriodicZ@{StrainIsPeriodicZ}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{StrainIsPeriodicZ()}{StrainIsPeriodicZ()}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad306e100405b006213dab2eb46541081} 
+bool geo\+\_\+struct\+::\+Strain\+Is\+PeriodicZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+1 if strain calculation is periodic in z-\/direction. 
+\end{DoxyReturn}
+\Hypertarget{classgeo__struct_a75d274959e0c507b019c55e0a98daedd}\index{geo\_struct@{geo\_struct}!SupercellReInit@{SupercellReInit}}
+\index{SupercellReInit@{SupercellReInit}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{SupercellReInit()}{SupercellReInit()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a75d274959e0c507b019c55e0a98daedd} 
+void geo\+\_\+struct\+::\+Supercell\+Re\+Init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Initialize the super cell coupling map, which contains three indices ssmap\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}\mbox{[}k\mbox{]}. i\&j index an atome\textquotesingle{}s unit cell and atom repectively. k is a nearest neighbor\textquotesingle{}s index for the atom indexed by i\&j. The mapping is to a unit cell. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a75d274959e0c507b019c55e0a98daedd_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a3b849487c52a5eedda4e8a59c10aa341}\index{geo\_struct@{geo\_struct}!updateOnlyLattConst@{updateOnlyLattConst}}
+\index{updateOnlyLattConst@{updateOnlyLattConst}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{updateOnlyLattConst()}{updateOnlyLattConst()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a3b849487c52a5eedda4e8a59c10aa341} 
+void geo\+\_\+struct\+::update\+Only\+Latt\+Const (\begin{DoxyParamCaption}\item[{real}]{ax}{, }\item[{real}]{ay}{, }\item[{real}]{az}{}\end{DoxyParamCaption})}
+
+Update lattice constants only with given parameters. 
+\begin{DoxyParams}{Parameters}
+{\em ax} & lattice constant in x-\/direction \\
+\hline
+{\em ay} & lattice constant in y-\/direction \\
+\hline
+{\em az} & lattice constant in z-\/direction \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809}\index{geo\_struct@{geo\_struct}!zero@{zero}}
+\index{zero@{zero}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{zero()}{zero()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809} 
+void geo\+\_\+struct\+::zero (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Set all member variables to zero. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a7450a7f5a8ad11fe7cb210b08ac9c809_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgeo__struct_a9c4e476cbbae379387cced6aae324f65}\index{geo\_struct@{geo\_struct}!zeroPeriodicity@{zeroPeriodicity}}
+\index{zeroPeriodicity@{zeroPeriodicity}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{zeroPeriodicity()}{zeroPeriodicity()}}
+{\footnotesize\ttfamily \label{classgeo__struct_a9c4e476cbbae379387cced6aae324f65} 
+void geo\+\_\+struct\+::zero\+Periodicity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+set the first 3 bits of periodicity to zero. This invalidate structural periodicity. \begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::periodicity 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgeo__struct_a9c4e476cbbae379387cced6aae324f65_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}\index{geo\_struct@{geo\_struct}!atom\_strain\_only@{atom\_strain\_only}}
+\index{atom\_strain\_only@{atom\_strain\_only}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{atom\_strain\_only}{atom\_strain\_only}}
+{\footnotesize\ttfamily \label{classgeo__struct_a46991903096e0c75f505f716cf24ba5b} 
+b2tensor geo\+\_\+struct\+::atom\+\_\+strain\+\_\+only}
+
+\begin{DoxySeeAlso}{See also}
+i2tensor \doxylink{classgeo__struct_a46991903096e0c75f505f716cf24ba5b}{atom\+\_\+strain\+\_\+only} 
+\end{DoxySeeAlso}
+\Hypertarget{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44}\index{geo\_struct@{geo\_struct}!AtomType@{AtomType}}
+\index{AtomType@{AtomType}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{AtomType}{AtomType}}
+{\footnotesize\ttfamily \label{classgeo__struct_ad740df3e6ad912af4ce1ae54188e6e44} 
+b2tensor geo\+\_\+struct\+::\+Atom\+Type}
+
+see i2tensor Atom\+Type \Hypertarget{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928}\index{geo\_struct@{geo\_struct}!cell\_\_ijk@{cell\_\_ijk}}
+\index{cell\_\_ijk@{cell\_\_ijk}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_\_ijk}{cell\_\_ijk}}
+{\footnotesize\ttfamily \label{classgeo__struct_a73d92c184f3fb4ae46cfc462baa5f928} 
+i2tensor geo\+\_\+struct\+::cell\+\_\+\+\_\+ijk}
+
+Integer 2D array. If index of a cell is indx, cell\+\_\+ijk\mbox{[}indx\mbox{]}\mbox{[}0\mbox{]} returns i, cell\mbox{[}indx\mbox{]}\mbox{[}1\mbox{]} returns j and cell\mbox{[}indx\mbox{]}\mbox{[}2\mbox{]} returns k. \Hypertarget{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2}\index{geo\_struct@{geo\_struct}!cell\_xmax@{cell\_xmax}}
+\index{cell\_xmax@{cell\_xmax}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_xmax}{cell\_xmax}}
+{\footnotesize\ttfamily \label{classgeo__struct_a4dbca8416b642c8f2c14203a6d548cc2} 
+int geo\+\_\+struct\+::cell\+\_\+xmax}
+
+Maximum value of index in x direction \Hypertarget{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec}\index{geo\_struct@{geo\_struct}!cell\_xmin@{cell\_xmin}}
+\index{cell\_xmin@{cell\_xmin}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_xmin}{cell\_xmin}}
+{\footnotesize\ttfamily \label{classgeo__struct_a5c14943acb8e520ea53f2ad8f13f8eec} 
+int geo\+\_\+struct\+::cell\+\_\+xmin}
+
+Minimum value of index in x direction \Hypertarget{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4}\index{geo\_struct@{geo\_struct}!cell\_ymax@{cell\_ymax}}
+\index{cell\_ymax@{cell\_ymax}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_ymax}{cell\_ymax}}
+{\footnotesize\ttfamily \label{classgeo__struct_a56ec37e78ed301cc7c8c302876d278a4} 
+int geo\+\_\+struct\+::cell\+\_\+ymax}
+
+Maximum value of index in y direction \Hypertarget{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac}\index{geo\_struct@{geo\_struct}!cell\_ymin@{cell\_ymin}}
+\index{cell\_ymin@{cell\_ymin}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_ymin}{cell\_ymin}}
+{\footnotesize\ttfamily \label{classgeo__struct_a2aa6f386f424e701b416e88cf44e50ac} 
+int geo\+\_\+struct\+::cell\+\_\+ymin}
+
+Minimum value of index in y direction \Hypertarget{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff}\index{geo\_struct@{geo\_struct}!cell\_zmax@{cell\_zmax}}
+\index{cell\_zmax@{cell\_zmax}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_zmax}{cell\_zmax}}
+{\footnotesize\ttfamily \label{classgeo__struct_ab986cc1bfc00cdb0b04e400eb72750ff} 
+int geo\+\_\+struct\+::cell\+\_\+zmax}
+
+Maximum value of index in z direction \Hypertarget{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641}\index{geo\_struct@{geo\_struct}!cell\_zmin@{cell\_zmin}}
+\index{cell\_zmin@{cell\_zmin}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_zmin}{cell\_zmin}}
+{\footnotesize\ttfamily \label{classgeo__struct_a02fdfc32b0e6915d2dc7c8934e7dd641} 
+int geo\+\_\+struct\+::cell\+\_\+zmin}
+
+Minimum value of index in z direction \Hypertarget{classgeo__struct_a897993d981cf06cc60088ea295295013}\index{geo\_struct@{geo\_struct}!cellgeom@{cellgeom}}
+\index{cellgeom@{cellgeom}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{cellgeom}{cellgeom}}
+{\footnotesize\ttfamily \label{classgeo__struct_a897993d981cf06cc60088ea295295013} 
+\mbox{\hyperlink{class_cell}{Cell}} geo\+\_\+struct\+::cellgeom}
+
+\doxylink{class_cell}{Cell} information. \begin{DoxySeeAlso}{See also}
+\doxylink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell\+::\+Cell()} 
+\end{DoxySeeAlso}
+\Hypertarget{classgeo__struct_a396a478da64f73e76196b96404640988}\index{geo\_struct@{geo\_struct}!ijk\_\_cell@{ijk\_\_cell}}
+\index{ijk\_\_cell@{ijk\_\_cell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ijk\_\_cell}{ijk\_\_cell}}
+{\footnotesize\ttfamily \label{classgeo__struct_a396a478da64f73e76196b96404640988} 
+i3tensor geo\+\_\+struct\+::ijk\+\_\+\+\_\+cell}
+
+Integer 3D array. ijk\+\_\+cell\mbox{[}i\mbox{]}\mbox{[}j\mbox{]}\mbox{[}k\mbox{]} returns the index of cell whose relative location of unitcell is (i,j,k) \Hypertarget{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf}\index{geo\_struct@{geo\_struct}!isDiffNbr@{isDiffNbr}}
+\index{isDiffNbr@{isDiffNbr}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{isDiffNbr}{isDiffNbr}}
+{\footnotesize\ttfamily \label{classgeo__struct_afb4d1888896accb769bcc1faef0fa2cf} 
+b2tensor geo\+\_\+struct\+::is\+Diff\+Nbr}
+
+see i2tensor is\+Diff\+Nbr \Hypertarget{classgeo__struct_a64aef2068a69098563dce92151d7e88f}\index{geo\_struct@{geo\_struct}!l\_m\_2\_atomdsp@{l\_m\_2\_atomdsp}}
+\index{l\_m\_2\_atomdsp@{l\_m\_2\_atomdsp}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{l\_m\_2\_atomdsp}{l\_m\_2\_atomdsp}}
+{\footnotesize\ttfamily \label{classgeo__struct_a64aef2068a69098563dce92151d7e88f} 
+f3tensor geo\+\_\+struct\+::l\+\_\+m\+\_\+2\+\_\+atomdsp}
+
+3D float array. displacement info of atomic positions caused from strain calculation.
+\begin{DoxyItemize}
+\item l\+\_\+m\+\_\+2\+\_\+atomdsp\mbox{[}cidx\mbox{]}\mbox{[}aidx\mbox{]}\mbox{[}d\mbox{]}
+\begin{DoxyItemize}
+\item displacement in x-\/axis when d=1
+\item displacement in y-\/axis when d=2
+\item displacement in z-\/axis when d=3
+\end{DoxyItemize}
+\item If DISPL\+\_\+\+SINGLE\+\_\+\+PRESISTION isn\textquotesingle{}t defined, real type array will be used. 
+\end{DoxyItemize}\Hypertarget{classgeo__struct_a5ee28f9556a7b6a43731b3adf4cbfbba}\index{geo\_struct@{geo\_struct}!l\_m\_2\_atomdsp\_onedomain@{l\_m\_2\_atomdsp\_onedomain}}
+\index{l\_m\_2\_atomdsp\_onedomain@{l\_m\_2\_atomdsp\_onedomain}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{l\_m\_2\_atomdsp\_onedomain}{l\_m\_2\_atomdsp\_onedomain}}
+{\footnotesize\ttfamily \label{classgeo__struct_a5ee28f9556a7b6a43731b3adf4cbfbba} 
+f3tensor geo\+\_\+struct\+::l\+\_\+m\+\_\+2\+\_\+atomdsp\+\_\+onedomain}
+
+Displacement info in one domain. Will not be used if DISPL\+\_\+\+SINGLE\+\_\+\+PRESISTION isn\textquotesingle{}t defined. \Hypertarget{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}\index{geo\_struct@{geo\_struct}!l\_m\_2\_offset\_ham\_tot@{l\_m\_2\_offset\_ham\_tot}}
+\index{l\_m\_2\_offset\_ham\_tot@{l\_m\_2\_offset\_ham\_tot}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{l\_m\_2\_offset\_ham\_tot}{l\_m\_2\_offset\_ham\_tot}}
+{\footnotesize\ttfamily \label{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666} 
+i2tensor geo\+\_\+struct\+::l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot}
+
+Offset index for atom whose (cell index = l, atomic index = m). Wave function array in NEMO3D usually has extremely large size. (i.\+e \+: number of basis \texorpdfstring{$\ast$}{*} number of atoms in unit cell \texorpdfstring{$\ast$}{*} number of unitcell) Therefore, when we want to access wave function array using a single index (l,m), it could be extremely difficult to calculate correspondent index. l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot\mbox{[}cindx\mbox{]}\mbox{[}aindx\mbox{]} has offset index of the atom with cell index of cindx and atomic index of aindex, therefore we can access wave function array by using simple index such as (l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot\mbox{[}l\mbox{]}\mbox{[}m\mbox{]} + i), where i is number of i-\/th basis. \Hypertarget{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334}\index{geo\_struct@{geo\_struct}!lattice\_x@{lattice\_x}}
+\index{lattice\_x@{lattice\_x}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{lattice\_x}{lattice\_x}}
+{\footnotesize\ttfamily \label{classgeo__struct_aa61af4dd6b9741c26bec969b8662c334} 
+real geo\+\_\+struct\+::lattice\+\_\+x}
+
+Lattice constant in x direction for a cubic cell \Hypertarget{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d}\index{geo\_struct@{geo\_struct}!lattice\_y@{lattice\_y}}
+\index{lattice\_y@{lattice\_y}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{lattice\_y}{lattice\_y}}
+{\footnotesize\ttfamily \label{classgeo__struct_a2c896dcf8fadc06eef7ee07a04d0811d} 
+real geo\+\_\+struct\+::lattice\+\_\+y}
+
+Lattice constant in y direction for a cubic cell \Hypertarget{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5}\index{geo\_struct@{geo\_struct}!lattice\_z@{lattice\_z}}
+\index{lattice\_z@{lattice\_z}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{lattice\_z}{lattice\_z}}
+{\footnotesize\ttfamily \label{classgeo__struct_a2d38526e21b8491a446f6b415bb7dcd5} 
+real geo\+\_\+struct\+::lattice\+\_\+z}
+
+Lattice constant in z direction for a cubic cell \Hypertarget{classgeo__struct_a14e616a5737ac6375714b6d43f599a98}\index{geo\_struct@{geo\_struct}!N\_Cell@{N\_Cell}}
+\index{N\_Cell@{N\_Cell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{N\_Cell}{N\_Cell}}
+{\footnotesize\ttfamily \label{classgeo__struct_a14e616a5737ac6375714b6d43f599a98} 
+int geo\+\_\+struct\+::\+N\+\_\+\+Cell}
+
+Number of cells in device. \Hypertarget{classgeo__struct_a6befbfb31879728a4cf322531ff08244}\index{geo\_struct@{geo\_struct}!Nx\_Cell@{Nx\_Cell}}
+\index{Nx\_Cell@{Nx\_Cell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Nx\_Cell}{Nx\_Cell}}
+{\footnotesize\ttfamily \label{classgeo__struct_a6befbfb31879728a4cf322531ff08244} 
+int geo\+\_\+struct\+::\+Nx\+\_\+\+Cell}
+
+Number of cells in x-\/direction. \Hypertarget{classgeo__struct_a181dddadf5ce0470503b63c21ac5cdc0}\index{geo\_struct@{geo\_struct}!Ny\_Cell@{Ny\_Cell}}
+\index{Ny\_Cell@{Ny\_Cell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Ny\_Cell}{Ny\_Cell}}
+{\footnotesize\ttfamily \label{classgeo__struct_a181dddadf5ce0470503b63c21ac5cdc0} 
+int geo\+\_\+struct\+::\+Ny\+\_\+\+Cell}
+
+Number of cells in y-\/direction. \Hypertarget{classgeo__struct_ab8a97f21612985525a191b23ddc99d51}\index{geo\_struct@{geo\_struct}!Nz\_Cell@{Nz\_Cell}}
+\index{Nz\_Cell@{Nz\_Cell}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{Nz\_Cell}{Nz\_Cell}}
+{\footnotesize\ttfamily \label{classgeo__struct_ab8a97f21612985525a191b23ddc99d51} 
+int geo\+\_\+struct\+::\+Nz\+\_\+\+Cell}
+
+Number of cells in z-\/direction. \Hypertarget{classgeo__struct_a058de4ea568d533214879280fb135241}\index{geo\_struct@{geo\_struct}!ShapeType@{ShapeType}}
+\index{ShapeType@{ShapeType}!geo\_struct@{geo\_struct}}
+\doxysubsubsection{\texorpdfstring{ShapeType}{ShapeType}}
+{\footnotesize\ttfamily \label{classgeo__struct_a058de4ea568d533214879280fb135241} 
+s2tensor geo\+\_\+struct\+::\+Shape\+Type}
+
+see i2tensor Shape\+Type 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+base/geo\+\_\+struct.\+h\item 
+base/geo\+\_\+struct.\+c\item 
+base/ham3d.\+c\end{DoxyCompactItemize}

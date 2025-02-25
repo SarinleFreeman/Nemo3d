@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/db_old/nemo_mb_models.h,v 1.1 2004/02/16 03:36:56 gekco Exp $
+$Header: /repo/nemo3d/src/db_old/nemo_mb_models.h,v 1.1 2004/02/16 03:36:56
+gekco Exp $
 *****************************************************************************/
 
 #ifndef NEMO_MB_MODELS_H
@@ -41,43 +42,33 @@ $Header: /repo/nemo3d/src/db_old/nemo_mb_models.h,v 1.1 2004/02/16 03:36:56 gekc
 #ifdef DATABASE_CODE_FRAGMENT_TO_BE_FIXED_LATER
 
 #ifndef LIMIT_THEORY
-#include "mat_tokens.h"
-#include "mat_struct.h"
 #include "Boolean.h"
-#include "util_stringops.h"
+#include "mat_struct.h"
+#include "mat_tokens.h"
 #include "util_messages.h"
-
+#include "util_stringops.h"
 
 const int SideBands = 1;
 
 Boolean isIndependentSingleBand(char *);
 
 int setMBModelParam(
-                      char  *band_model,
-                      int   *param_n,           /* Number of associated multiband parameters. */
-                      char **model,
-                      int   *bdim,             /* Block dimension of the bulk Hamiltonian. */
-                      int   *band_inc,         /* Number of incoming bands. */
-                      int   *nbr,              /* Number of neighbors. */
-                      int   *abdim,            /* Block dimension for the RGF algorithm. */
-                      int   *spin_orbit,       /* spin orbit coupling */
-                      int   *spin_degeneracy,
-                      int   *sigma_singular    /* singular tight binding boundary condition. */
-		      );
+    char *band_model,
+    int *param_n,            /* Number of associated multiband parameters. */
+    char **model, int *bdim, /* Block dimension of the bulk Hamiltonian. */
+    int *band_inc,           /* Number of incoming bands. */
+    int *nbr,                /* Number of neighbors. */
+    int *abdim,              /* Block dimension for the RGF algorithm. */
+    int *spin_orbit,         /* spin orbit coupling */
+    int *spin_degeneracy,
+    int *sigma_singular /* singular tight binding boundary condition. */
+);
 
 semiMaterial adjustMBParamPointer(semiMaterial sm);
 
 semiMaterial initMBSemiMaterial(semiMaterial sm);
 
 #endif /* LIMIT_THEORY */
-#endif  /* DATABASE_CODE_FRAGMENT_TO_BE_FIXED_LATER  */
+#endif /* DATABASE_CODE_FRAGMENT_TO_BE_FIXED_LATER  */
 
 #endif /* NEMO_MB_MODELS_H */
-
-
-
-
-
-
-
-

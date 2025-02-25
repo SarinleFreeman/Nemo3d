@@ -1,0 +1,264 @@
+\doxysection{Cell Class Reference}
+\hypertarget{class_cell}{}\label{class_cell}\index{Cell@{Cell}}
+
+
+Represents a single unit cell.  
+
+
+
+
+{\ttfamily \#include $<$Cell.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}} ()
+\item 
+\mbox{\hyperlink{class_cell_a51f477d8039e209153054228a5792b0c}{Cell}} (const \mbox{\hyperlink{class_cell}{Cell}} \&c)
+\item 
+\Hypertarget{class_cell_a7159cd870e201a45ea84a3fdfa9e6581}\label{class_cell_a7159cd870e201a45ea84a3fdfa9e6581} 
+\mbox{\hyperlink{class_cell}{Cell}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_cell}{Cell}} \&c)
+\item 
+void \mbox{\hyperlink{class_cell_aa348a4ac1eb132d87ef0130f7c4cb022}{Initialize}} (const top\+\_\+struct \&opt)
+\item 
+void \mbox{\hyperlink{class_cell_a26e536b6aa5ca11b4b57c8013f41dae3}{Initialize\+For\+Hyper\+Chem}} (const char \texorpdfstring{$\ast$}{*}inputfile)
+\item 
+int \mbox{\hyperlink{class_cell_aa5229fb01d84bae0d8a394e1af32749e}{Atoms\+Per\+Cell\+Max}} () const
+\item 
+int \mbox{\hyperlink{class_cell_ae16b5730d2348d0bf187cfe38e59ce58}{Neighbors\+Max}} () const
+\item 
+int \mbox{\hyperlink{class_cell_a86e5e2ac4e8a4eef47738e6a30d66332}{Neighbors}} (int m) const
+\item 
+real \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_cell_a708e8b6773a5670fd148358d0aa51fee}{Position\+In\+Cell}} (int atom)
+\item 
+real \mbox{\hyperlink{class_cell_a7f7d3e7c60b5271fd867caf3b8a0f496}{Position\+In\+Cell}} (int atom, int d)
+\item 
+int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_cell_aac9a7b28ba26498ebab2f72b59a949fe}{Nbr\+Cell}} (int m, int n)
+\item 
+int \mbox{\hyperlink{class_cell_adab67e39be82d2f47d09183751a96d5c}{Nbr\+Cell}} (int m, int n, int d)
+\item 
+void \mbox{\hyperlink{class_cell_aa0f4575d436c74c57b326c7c9a4a0081}{Deallocate}} ()
+\item 
+\mbox{\hyperlink{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{\texorpdfstring{$\sim$}{\string~}\+Cell}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_cell_aabc91ca8ec982df9fd01b74169efb6a3}\label{class_cell_aabc91ca8ec982df9fd01b74169efb6a3} 
+class {\bfseries geo\+\_\+struct}
+\item 
+\Hypertarget{class_cell_af2d2c1ec9691ea68cce83738b32bfe9d}\label{class_cell_af2d2c1ec9691ea68cce83738b32bfe9d} 
+ostream \& {\bfseries operator$<$$<$} (ostream \&o, const \mbox{\hyperlink{class_cell}{Cell}} \&c)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single unit cell. 
+
+This class encapsulates data relevant to a single cell, including its topology, neighbor information, and equilibrium (unstrained) atomic positions within the cell. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cell_a394510643e8664cf12b5efaf5cb99f71}\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_cell_a394510643e8664cf12b5efaf5cb99f71} 
+Cell\+::\+Cell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_cell_a394510643e8664cf12b5efaf5cb99f71_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_a51f477d8039e209153054228a5792b0c}\index{Cell@{Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_cell_a51f477d8039e209153054228a5792b0c} 
+Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_cell}{Cell}} \&}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+overrided constructor Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_cell_a51f477d8039e209153054228a5792b0c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}\index{Cell@{Cell}!````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}}
+\index{````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Cell()}{\string~Cell()}}
+{\footnotesize\ttfamily \label{class_cell_a9fa559f7a28e2b4336c6879ca09304d8} 
+Cell\+::\texorpdfstring{$\sim$}{\string~}\+Cell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+destructor Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_cell_a9fa559f7a28e2b4336c6879ca09304d8_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cell_aa5229fb01d84bae0d8a394e1af32749e}\index{Cell@{Cell}!AtomsPerCellMax@{AtomsPerCellMax}}
+\index{AtomsPerCellMax@{AtomsPerCellMax}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{AtomsPerCellMax()}{AtomsPerCellMax()}}
+{\footnotesize\ttfamily \label{class_cell_aa5229fb01d84bae0d8a394e1af32749e} 
+int Cell\+::\+Atoms\+Per\+Cell\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Max \# of atoms that current cell can have 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_cell_aa5229fb01d84bae0d8a394e1af32749e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_aa0f4575d436c74c57b326c7c9a4a0081}\index{Cell@{Cell}!Deallocate@{Deallocate}}
+\index{Deallocate@{Deallocate}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Deallocate()}{Deallocate()}}
+{\footnotesize\ttfamily \label{class_cell_aa0f4575d436c74c57b326c7c9a4a0081} 
+void Cell\+::\+Deallocate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Cleanup function that will be used in destructor Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_cell_aa0f4575d436c74c57b326c7c9a4a0081_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_aa348a4ac1eb132d87ef0130f7c4cb022}\index{Cell@{Cell}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily \label{class_cell_aa348a4ac1eb132d87ef0130f7c4cb022} 
+void Cell\+::\+Initialize (\begin{DoxyParamCaption}\item[{const top\+\_\+struct \&}]{opt}{}\end{DoxyParamCaption})}
+
+Initialize nnmap, N\+\_\+\+Max\+Atom\+Cell, N\+\_\+\+Maxneighbor, N\+\_\+\+Neighbor, Cell\+Atom\+\_\+2\+\_\+ijk and SP3\+\_\+hybrid (in the case of Wurtzite). ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em opt} & it offers information of type of crystal structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+top\+\_\+struct\+::top\+\_\+struct() 
+\end{DoxySeeAlso}
+this-\/\texorpdfstring{$>$}{>}a\+\_\+latt\+\_\+rot\+\_\+norm\mbox{[}j\mbox{]};Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{class_cell_aa348a4ac1eb132d87ef0130f7c4cb022_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_a26e536b6aa5ca11b4b57c8013f41dae3}\index{Cell@{Cell}!InitializeForHyperChem@{InitializeForHyperChem}}
+\index{InitializeForHyperChem@{InitializeForHyperChem}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{InitializeForHyperChem()}{InitializeForHyperChem()}}
+{\footnotesize\ttfamily \label{class_cell_a26e536b6aa5ca11b4b57c8013f41dae3} 
+void Cell\+::\+Initialize\+For\+Hyper\+Chem (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{inputfile}{}\end{DoxyParamCaption})}
+
+This function parses a hyperchem file for atomic locations, \# of neighbers and total \# of atomes in current cell. 
+\begin{DoxyParams}{Parameters}
+{\em inputfile} & name of input file \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_cell_a26e536b6aa5ca11b4b57c8013f41dae3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_cell_aac9a7b28ba26498ebab2f72b59a949fe}\index{Cell@{Cell}!NbrCell@{NbrCell}}
+\index{NbrCell@{NbrCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{NbrCell()}{NbrCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_cell_aac9a7b28ba26498ebab2f72b59a949fe} 
+int \texorpdfstring{$\ast$}{*} Cell\+::\+Nbr\+Cell (\begin{DoxyParamCaption}\item[{int}]{m}{, }\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & index of current atom \\
+\hline
+{\em n} & index of neighbor atom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position vector of the cell where n-\/th neighbor atom of m-\/th atom in current cell belongs. 
+\end{DoxyReturn}
+\Hypertarget{class_cell_adab67e39be82d2f47d09183751a96d5c}\index{Cell@{Cell}!NbrCell@{NbrCell}}
+\index{NbrCell@{NbrCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{NbrCell()}{NbrCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_cell_adab67e39be82d2f47d09183751a96d5c} 
+int Cell\+::\+Nbr\+Cell (\begin{DoxyParamCaption}\item[{int}]{m}{, }\item[{int}]{n}{, }\item[{int}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & index of current atom \\
+\hline
+{\em n} & index of neighbor atom \\
+\hline
+{\em d} & data index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+each element of nnmap\mbox{[}d\mbox{]}. (d=0,1,2,3) correspond to (x,y,z,atomic index of the neighbor). 
+\end{DoxyReturn}
+\Hypertarget{class_cell_a86e5e2ac4e8a4eef47738e6a30d66332}\index{Cell@{Cell}!Neighbors@{Neighbors}}
+\index{Neighbors@{Neighbors}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{Neighbors()}{Neighbors()}}
+{\footnotesize\ttfamily \label{class_cell_a86e5e2ac4e8a4eef47738e6a30d66332} 
+int Cell\+::\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{m}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & index of current atom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Actual \# of neighbor atoms that m-\/th atom of this cell has 
+\end{DoxyReturn}
+\Hypertarget{class_cell_ae16b5730d2348d0bf187cfe38e59ce58}\index{Cell@{Cell}!NeighborsMax@{NeighborsMax}}
+\index{NeighborsMax@{NeighborsMax}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{NeighborsMax()}{NeighborsMax()}}
+{\footnotesize\ttfamily \label{class_cell_ae16b5730d2348d0bf187cfe38e59ce58} 
+int Cell\+::\+Neighbors\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+Max \# of neighbor atoms that an atom in this cell can have 
+\end{DoxyReturn}
+\Hypertarget{class_cell_a708e8b6773a5670fd148358d0aa51fee}\index{Cell@{Cell}!PositionInCell@{PositionInCell}}
+\index{PositionInCell@{PositionInCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{PositionInCell()}{PositionInCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_cell_a708e8b6773a5670fd148358d0aa51fee} 
+real \texorpdfstring{$\ast$}{*} Cell\+::\+Position\+In\+Cell (\begin{DoxyParamCaption}\item[{int}]{atom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em atom} & index of current atom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+position vector of m-\/th atom of this cell has. 
+\end{DoxyReturn}
+\Hypertarget{class_cell_a7f7d3e7c60b5271fd867caf3b8a0f496}\index{Cell@{Cell}!PositionInCell@{PositionInCell}}
+\index{PositionInCell@{PositionInCell}!Cell@{Cell}}
+\doxysubsubsection{\texorpdfstring{PositionInCell()}{PositionInCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_cell_a7f7d3e7c60b5271fd867caf3b8a0f496} 
+real Cell\+::\+Position\+In\+Cell (\begin{DoxyParamCaption}\item[{int}]{atom}{, }\item[{int}]{d}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em atom} & index of current atom \\
+\hline
+{\em d} & data index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+each component of Cell\+\_\+2\+\_\+ijk\mbox{[}atom\mbox{]}. (d=0,1,2) correspond to (x,y,z) respectively. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+base/Cell.\+h\item 
+base/Cell.\+c\end{DoxyCompactItemize}

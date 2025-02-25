@@ -1,0 +1,15 @@
+<map id="geo_struct::isPeriodicY" name="geo_struct::isPeriodicY">
+<area shape="rect" id="Node000001" title=" " alt="" coords="500,108,656,133"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#aa3f4bdaa30364df921f7bee07e8bb61f" title=" " alt="" coords="290,5,415,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="537,102,451,61,415,48,416,43,453,57,540,98"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a8ea01752f72bff2103e0270985e7531b" title=" " alt="" coords="279,71,426,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="484,111,426,103,426,98,485,106"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a049cbf824e67ad25da1d98720c1b0f8e" title=" " alt="" coords="253,136,452,161"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="485,135,453,139,452,133,484,129"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a75d274959e0c507b019c55e0a98daedd" title=" " alt="" coords="263,185,442,210"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="536,143,453,176,416,187,415,182,451,171,534,138"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ae17f923331e78002dc7841387a7078d3" title=" " alt="" coords="6,54,204,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,85,204,79,205,74,264,80"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a1beba273642243e4f7c57bcb51bef85f" title=" " alt="" coords="5,104,205,129"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="264,103,205,109,205,103,264,97"/>
+</map>

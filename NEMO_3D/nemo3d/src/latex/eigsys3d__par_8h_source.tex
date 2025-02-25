@@ -1,0 +1,93 @@
+\doxysection{eigsys3d\+\_\+par.\+h}
+\hypertarget{eigsys3d__par_8h_source}{}\label{eigsys3d__par_8h_source}\index{base/eigsys3d\_par.h@{base/eigsys3d\_par.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/eigsys3d\_par.h,v\ 1.15\ 2008/06/03\ 07:48:10\ hoonryu\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ EIGSYS3D\_PAR\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ EIGSYS3D\_PAR\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <complex.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <rvector.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}io\_utils.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}nml\_global.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}lanczos.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}lanczos\_blk.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}cmatrix\_nonsym.h"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}h\_cvectr\_mult.h"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{h__cmat__mult_8h}{h\_cmat\_mult.h}}"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}eigsys3d.h"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}ham\_local.h"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}rayleigh\_ritz.h"{}}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifdef\ MPI\_TIMING}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}MPI\_Timing.h"{}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ "{}arpack\_driver.h"{}}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ "{}parpack\_driver.h"{}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#if\ (defined\ USE\_TRACEMIN\_PAR\ ||\ defined\ USE\_TRACEMIN\_SER)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#include\ "{}ctracemin\_driver.h"{}}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{qtracemin__driver_8h}{qtracemin\_driver.h}}"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#if\ (!defined\ MPI3d\ \&\&\ defined\ FAKE\_MPI)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#include\ "{}mpi\_fake.h"{}}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (defined\ MPI3d\ \&\&\ !defined\ FAKE\_MPI)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{int}\ lanczos\_initialize(qd\_struct\ d);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{int}\ lanczos\_driver(qd\_struct\ d);}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{int}\ h\_eigval\_spds\ (\ qd\_struct\ d,\ real\ emin,\ real\ emax\ );}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ compute\_electronic\_structure(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ verify\_ham(\ qd\_struct\ d);}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ verify\_ham\_col(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ col0,\ \textcolor{keywordtype}{int}\ colf);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ generate\_wave\_vectors(\ qd\_struct\ d,\ rmatrix\ *kr,\ \textcolor{keywordtype}{int}*\ Nk\ );}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EIGSYS3D\_PAR\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -33,23 +33,22 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/i3matrix.h,v 1.3 2004/10/27 19:43:10 gekco Exp $                
+$Header: /repo/nemo3d/src/math/i3matrix.h,v 1.3 2004/10/27 19:43:10 gekco Exp $
 *****************************************************************************/
 
 #ifndef I3MATRIX_H
 #define I3MATRIX_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <vector.h>
 
+#include "math_vdim.h"
 #include "nml_global.h"
 #include "realtype.h"
-#include "math_vdim.h"
 #include "util_memory.h"
-
 
 typedef int ***i3matrix;
 
@@ -60,4 +59,3 @@ void rm_i3matrix(i3matrix *t_ptr);
 i3matrix check_i3matrix(i3matrix, int n1, int n2, int n3);
 
 #endif
-

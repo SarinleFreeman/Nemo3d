@@ -33,9 +33,9 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/constants_nemo.h,v 1.3 2007/07/24 17:56:36 lee509 Exp $
+$Header: /repo/nemo3d/src/base/constants_nemo.h,v 1.3 2007/07/24 17:56:36 lee509
+Exp $
 *****************************************************************************/
-
 
 #ifndef CONSTANTS_NEMO_H
 #define CONSTANTS_NEMO_H 1
@@ -46,17 +46,16 @@ $Header: /repo/nemo3d/src/base/constants_nemo.h,v 1.3 2007/07/24 17:56:36 lee509
  *  \brief Constants used in nemo3d module
  */
 
-#define HBAR_MASSFACTOR  0.0381001
+#define HBAR_MASSFACTOR 0.0381001
 /*! \define Mass factor: 0.038
  */
 
-#define Kboltzmann       8.61733E-5
+#define Kboltzmann 8.61733E-5
 /*! \define Boltzmann Constant: 8.61733e-5 eV/K
  */
 
-#define Pi               3.1415926535897932384626433
+#define Pi 3.1415926535897932384626433
 /*! \define Pi: 3.14...
  */
 
 #endif /* CONSTANTS_NEMO_H */
-

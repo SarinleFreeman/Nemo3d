@@ -33,9 +33,9 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/mpi_def_local.c,v 1.6 2003/10/08 16:18:46 hook Exp $
+$Header: /repo/nemo3d/src/util/mpi_def_local.c,v 1.6 2003/10/08 16:18:46 hook
+Exp $
 *****************************************************************************/
-
 
 #include "mpi_def_local.h"
 
@@ -55,19 +55,17 @@ int mpi_n3d_masterid = 0;
 
 mpiCommClass mpiComm;
 
-
 mpiCommClass::mpiCommClass() {
-   this->mpi_ID = 0;
-   this->mpi_Nproc = 1;
-   this->mpi_Root = 0;
+  this->mpi_ID = 0;
+  this->mpi_Nproc = 1;
+  this->mpi_Root = 0;
 }
 
-
 mpiCommClass::mpiCommClass(bool periodicX) {
-   mpi_Root = 0;
-   MPI_Comm_size(MPI_COMM_WORLD, &mpi_Nproc);
-   MPI_Comm_rank(MPI_COMM_WORLD, &mpi_ID);
+  mpi_Root = 0;
+  MPI_Comm_size(MPI_COMM_WORLD, &mpi_Nproc);
+  MPI_Comm_rank(MPI_COMM_WORLD, &mpi_ID);
 
-   mpi_left =  ( mpi_ID ? mpi_ID-1 : (periodicX ? mpi_Nproc-1 : -1) );
-   mpi_right = ( mpi_ID < mpi_Nproc-1 ? mpi_ID+1 : (periodicX ? 0 : -1) );
+  mpi_left = (mpi_ID ? mpi_ID - 1 : (periodicX ? mpi_Nproc - 1 : -1));
+  mpi_right = (mpi_ID < mpi_Nproc - 1 ? mpi_ID + 1 : (periodicX ? 0 : -1));
 }

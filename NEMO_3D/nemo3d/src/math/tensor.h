@@ -36,58 +36,47 @@ This product includes software developed by the Apache Software Foundation
 $Header: /repo/nemo3d/src/math/tensor.h,v 1.2 2003/10/08 16:18:21 hook Exp $
 *****************************************************************************/
 
-
 #ifndef TENSOR_H
 #define TENSOR_H 1
 
-
 #include <vector.h>
 
-
-
 const int NR_END = 0;
-
 
 /*
  * Macro returns the lower bound of a tensor's first dimension.
  * It accesses the address of the pointer minus one.
  */
-#define d_1l(p) *int_ptr((p-1))
+#define d_1l(p) *int_ptr((p - 1))
 
 /*
  * Macro returns the upper bound of a tensor's first dimension.
  * It accesses the address of the pointer minus two.
  */
-#define d_1h(p) *int_ptr((p-2))
-
-
+#define d_1h(p) *int_ptr((p - 2))
 
 /*
  * Macro returns the lower bound of a tensor's first dimension.
  * It accesses the address of the pointer minus three.
  */
-#define d_2l(p) *int_ptr((p-3))
+#define d_2l(p) *int_ptr((p - 3))
 
 /*
  * Macro returns the upper bound of a tensor's first dimension.
  * It accesses the address of the pointer minus four.
  */
-#define d_2h(p) *int_ptr((p-4))
-
-
+#define d_2h(p) *int_ptr((p - 4))
 
 /*
  * Macro returns the lower bound of a tensor's first dimension.
  * It accesses the address of the pointer minus five.
  */
-#define d_3l(p) *int_ptr((p-5))
+#define d_3l(p) *int_ptr((p - 5))
 
 /*
  * Macro returns the upper bound of a tensor's first dimension.
  * It accesses the address of the pointer minus six.
  */
-#define d_3h(p) *int_ptr((p-6))
-
+#define d_3h(p) *int_ptr((p - 6))
 
 #endif
-

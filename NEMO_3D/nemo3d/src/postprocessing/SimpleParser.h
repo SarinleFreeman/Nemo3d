@@ -33,25 +33,25 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/SimpleParser.h,v 1.2 2007/02/23 19:00:18 hoonryu Exp $
+$Header: /repo/nemo3d/src/postprocessing/SimpleParser.h,v 1.2 2007/02/23
+19:00:18 hoonryu Exp $
 *****************************************************************************/
 
 #ifndef _SIMPLEPARSER_H
 #define _SIMPLEPARSER_H
 
-#include <string>
-#include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <vector>
+#include <iostream>
 #include <list>
 #include <sstream>
+#include <string>
+#include <vector>
 using namespace std;
 
-char* readLine(char *s, int max, istream &fp);
-int getwords(vector<string>& slist, istream &fp);
-unsigned parsewords(char *inbuf, vector<string>& slist);
-unsigned parsewords(char *inbuf, list<string>& slist);
+char *readLine(char *s, int max, istream &fp);
+int getwords(vector<string> &slist, istream &fp);
+unsigned parsewords(char *inbuf, vector<string> &slist);
+unsigned parsewords(char *inbuf, list<string> &slist);
 
 #endif
-

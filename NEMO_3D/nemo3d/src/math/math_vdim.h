@@ -33,9 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/math_vdim.h,v 1.2 2003/10/08 16:18:04 hook Exp $ 
+$Header: /repo/nemo3d/src/math/math_vdim.h,v 1.2 2003/10/08 16:18:04 hook Exp $
 *****************************************************************************/
-
 
 #ifndef MATH_VDIM_H__
 #define MATH_VDIM_H__
@@ -43,35 +42,31 @@ $Header: /repo/nemo3d/src/math/math_vdim.h,v 1.2 2003/10/08 16:18:04 hook Exp $
 #include <vector.h>
 
 /*T_HEADER_SHORT{vdim1}
-  Returns the first dimension of a matrix. 
-  Macro that returns the address of a pointer reduced by {\em one} pointer step size. 
-  This macro uses in turn the macro \verb|*int_ptr| REFERENCE{int_ptr,vector.h}. T*/
-#define vdim1(p) *int_ptr((p-1))
-
-
-
+  Returns the first dimension of a matrix.
+  Macro that returns the address of a pointer reduced by {\em one} pointer step
+  size. This macro uses in turn the macro \verb|*int_ptr|
+  REFERENCE{int_ptr,vector.h}. T*/
+#define vdim1(p) *int_ptr((p - 1))
 
 /*T_HEADER_SHORT{vdim2}
-  Returns second dimension of a tensor. 
-  Macro that returns the address of a pointer reduced by {\em two} pointer step sizes. 
-  This macro uses in turn the macro \verb|*int_ptr| REFERENCE{int_ptr,vector.h}. T*/
-#define vdim2(p) *int_ptr((p-2))
-
-
-
+  Returns second dimension of a tensor.
+  Macro that returns the address of a pointer reduced by {\em two} pointer step
+  sizes. This macro uses in turn the macro \verb|*int_ptr|
+  REFERENCE{int_ptr,vector.h}. T*/
+#define vdim2(p) *int_ptr((p - 2))
 
 /*T_HEADER_SHORT{vdim3}
-  Returns the third dimension of a tensor. 
-  Macro that returns the address of a pointer reduced by {\em three} pointer step sizes. 
-  This macro uses in turn the macro \verb|*int_ptr| REFERENCE{int_ptr,vector.h}. T*/
-#define vdim3(p) *int_ptr((p-3))
+  Returns the third dimension of a tensor.
+  Macro that returns the address of a pointer reduced by {\em three} pointer
+  step sizes. This macro uses in turn the macro \verb|*int_ptr|
+  REFERENCE{int_ptr,vector.h}. T*/
+#define vdim3(p) *int_ptr((p - 3))
 
 /*T_HEADER_SHORT{vdim4}
-  Returns the third dimension of a tensor. 
-  Macro that returns the address of a pointer reduced by {\em three} pointer step sizes. 
-  This macro uses in turn the macro \verb|*int_ptr| REFERENCE{int_ptr,vector.h}. T*/
-#define vdim4(p) *int_ptr((p-4))
-
-
+  Returns the third dimension of a tensor.
+  Macro that returns the address of a pointer reduced by {\em three} pointer
+  step sizes. This macro uses in turn the macro \verb|*int_ptr|
+  REFERENCE{int_ptr,vector.h}. T*/
+#define vdim4(p) *int_ptr((p - 4))
 
 #endif

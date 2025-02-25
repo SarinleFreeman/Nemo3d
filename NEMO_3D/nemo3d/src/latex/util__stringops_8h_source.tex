@@ -1,0 +1,69 @@
+\doxysection{util\+\_\+stringops.\+h}
+\hypertarget{util__stringops_8h_source}{}\label{util__stringops_8h_source}\index{util/util\_stringops.h@{util/util\_stringops.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ JPL\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ file\ is\ part\ of}}
+\DoxyCodeLine{00006\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{This\ library\ is\ free\ software\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00009\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Library\ General\ Public\ License}}
+\DoxyCodeLine{00010\ \textcolor{comment}{as\ published\ by\ the\ Free\ Software\ Foundation;}}
+\DoxyCodeLine{00011\ \textcolor{comment}{either\ version\ 2,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00014\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty}}
+\DoxyCodeLine{00015\ \textcolor{comment}{of\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{See\ the\ GNU\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Library\ General\ Public\ License}}
+\DoxyCodeLine{00019\ \textcolor{comment}{along\ with\ this\ library.\ \ If\ not,\ write\ to\ the\ Free\ Software\ Foundation,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{Inc.,\ 675\ Mass\ Ave,\ Cambridge,\ MA\ 02139,\ USA.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}}
+\DoxyCodeLine{00022\ \textcolor{comment}{Written\ by\ Chris\ Bowen,\ Gerhard\ Klimeck,\ and\ Fabiano\ A.\ Oyafuso}}
+\DoxyCodeLine{00023\ \textcolor{comment}{}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/util/util\_stringops.h,v\ 1.3\ 2004/10/27\ 19:43:10\ gekco\ Exp\ \$\ }}
+\DoxyCodeLine{00026\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ UTIL\_STRINGOPS\_H}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ UTIL\_STRINGOPS\_H\ 1}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ str\_calloc\ \ calloc}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ str\_malloc\ \ malloc}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ str\_free\ \ \ \ free}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}system.h"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{char}\ \ \ *n3d\_strdup\_n(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{char}\ \ \ *n3d\_copy\_str\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{char}\ \ \ *n3d\_strcatz(\textcolor{keywordtype}{char}\ *,\ ...);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ \ \ \ \ n3d\_strcmp\_null\_check(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{char}\ \ \ *n3d\_FileNameGet(\textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \ \ \ n3d\_FileTypeSet(\textcolor{keywordtype}{char}\ **,\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ \ \ \ \ n3d\_StringListNum(\textcolor{keywordtype}{char}\ **);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{int}\ \ \ \ \ n3d\_StringListNum(\textcolor{keywordtype}{char}\ **);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{char}\ \ **n3d\_StringListAdd(\textcolor{keywordtype}{char}\ ***,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+
+\end{DoxyCode}

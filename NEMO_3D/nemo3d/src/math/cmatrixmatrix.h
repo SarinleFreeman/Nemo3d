@@ -33,18 +33,19 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/cmatrixmatrix.h,v 1.3 2004/10/27 19:43:10 gekco Exp $                
+$Header: /repo/nemo3d/src/math/cmatrixmatrix.h,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
 
 #ifndef Cmatrixmatrix_H
 #define Cmatrixmatrix_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include <complex.h>
 #include <cmatrix.h>
+#include <complex.h>
 
 #include "io_utils.h"
 #include "nml_global.h"
@@ -54,9 +55,9 @@ $Header: /repo/nemo3d/src/math/cmatrixmatrix.h,v 1.3 2004/10/27 19:43:10 gekco E
 typedef cmatrix **cmatrixmatrix;
 
 cmatrixmatrix Cmatrixmatrix(int d1, int d2);
-void rm_cmatrixmatrix(cmatrixmatrix *t_ptr) ;
-void rm_cmatrixmatrix_shell_only(cmatrixmatrix *t_ptr); 
-int add_elem_cmatrixmatrix(cmatrix data_matrix, int pos1, int pos2, cmatrixmatrix hold_matrix);
+void rm_cmatrixmatrix(cmatrixmatrix *t_ptr);
+void rm_cmatrixmatrix_shell_only(cmatrixmatrix *t_ptr);
+int add_elem_cmatrixmatrix(cmatrix data_matrix, int pos1, int pos2,
+                           cmatrixmatrix hold_matrix);
 
 #endif
-

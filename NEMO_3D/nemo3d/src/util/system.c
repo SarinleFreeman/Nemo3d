@@ -40,4 +40,3 @@ $Header: /repo/nemo3d/src/util/system.c,v 1.2 2003/10/08 16:18:48 hook Exp $
   Defines initial values of system variables. T*/
 
 #include "system.h"
-

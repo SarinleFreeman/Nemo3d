@@ -39,7 +39,6 @@ $Header: /repo/nemo3d/src/base/nemo3d_mpi.h,v 1.4 2003/10/08 16:16:54 hook Exp $
 #ifndef NEMO3D_MPI_H
 #define NEMO3d_MPI_H 1
 
-
 /*
  * for the embedding of NEMO 3D we need to have just the function definitions
  * at the top level defined.  Not the whole include path should be followed
@@ -50,23 +49,22 @@ $Header: /repo/nemo3d/src/base/nemo3d_mpi.h,v 1.4 2003/10/08 16:16:54 hook Exp $
 
 #include "eigsys3d.h"
 #include "eigsys3d_par.h"
-#include "math3d.h"
 #include "ham3d.h"
-#include "opt3d.h"
-#include "mat3d.h"
 #include "ham3d_final.h"
-#include "util_command_BX.h"
+#include "mat3d.h"
+#include "math3d.h"
+#include "opt3d.h"
 #include "qd_struct.h"
+#include "util_command_BX.h"
 
 #include "i_mat.h"
 #include "io_utils.h"
 
 #include "MPI_Timing.h"
 
-#endif  /* NEMO3D_DB */
+#endif /* NEMO3D_DB */
 
 void nemo3d_mpi_init(int argc, char *argv[]);
 void nemo3d_mpi_finalize(void);
-
 
 #endif /* NEMO3D_MPI_H */

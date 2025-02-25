@@ -36,29 +36,25 @@ This product includes software developed by the Apache Software Foundation
 $Header: /repo/nemo3d/src/math/fvector.h,v 1.2 2003/10/08 16:17:49 hook Exp $
 *****************************************************************************/
 
-
 #ifndef FVECTOR_H
 #define FVECTOR_H 1
 
 /* Operations for vectors with elements of type float */
- 
-#include <stdlib.h>
-#include <stdio.h>
+
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <vector.h>
 
 #include "util_memory.h"
 #include "util_messages.h"
 
-
 /* A vector with element type float */
 typedef float *fvectr;
 
-
-fvectr Fvectr ( int n );
-void rm_fvectr ( fvectr *v );
-fvectr check_fvectr (fvectr v, int n);
+fvectr Fvectr(int n);
+void rm_fvectr(fvectr *v);
+fvectr check_fvectr(fvectr v, int n);
 
 #endif
-

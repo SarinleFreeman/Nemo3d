@@ -33,25 +33,25 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/ivectorvector.h,v 1.3 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/ivectorvector.h,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
 
 #ifndef IVECTRVECTR_H
 #define IVECTRVECTR_H
 
-#include <rvector.h>
 #include <ivector.h>
+#include <rvector.h>
 
-#include "nml_global.h"
 #include "io_utils.h"
-
+#include "nml_global.h"
 
 /* Define ivectrvectr as a pointer to ivectr */
 typedef ivectr *ivectrvectr;
 
 ivectrvectr Ivectrvectr(int n);
-void rm_ivectrvectr (ivectrvectr *I_ptr);
-void rm_ivectrvectr_shellonly (ivectrvectr *I_ptr);
+void rm_ivectrvectr(ivectrvectr *I_ptr);
+void rm_ivectrvectr_shellonly(ivectrvectr *I_ptr);
 int add_elem_ivectrvectr(ivectr data_vec, int pos, ivectrvectr hold_vectr);
 
 #endif

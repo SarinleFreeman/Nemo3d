@@ -33,49 +33,41 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/strain3d.h,v 1.8 2005/01/14 20:24:39 marek Exp $ 
+$Header: /repo/nemo3d/src/base/strain3d.h,v 1.8 2005/01/14 20:24:39 marek Exp $
 *****************************************************************************/
 
 #ifndef STRAIN3D_H
 #define STRAIN3D_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
 #include "Boolean.h"
-#include "realtype.h"
-#include "io_utils.h"
-#include "util_stringops.h"
-#include "nml_global.h"
+#include "cmacopt.h"
 #include "constants_nemo.h"
-#include "qd_struct.h"
-#include "run3d_mpi.h"
+#include "i_3dout_files.h"
+#include "io_utils.h"
 #include "macopt.h"
 #include "macopt_par.h"
-#include "cmacopt.h"
-#include "i_3dout_files.h" 
+#include "nml_global.h"
+#include "qd_struct.h"
+#include "realtype.h"
+#include "run3d_mpi.h"
+#include "util_stringops.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "MPI_Timing.h"
 
-
-
-
 void min_estrain(qd_struct d);
-real calc_estrain( qd_struct d , rvectr p , rvectr rcvL, rvectr rcvR);
+real calc_estrain(qd_struct d, rvectr p, rvectr rcvL, rvectr rcvR);
 
 void initStrainComm(qd_struct d);
 
-void calc_estrain_macopt( rvectr p, int sz, rvectr xi, void *data, int itercount, real *onevalue );
+void calc_estrain_macopt(rvectr p, int sz, rvectr xi, void *data, int itercount,
+                         real *onevalue);
 
-void calc_estrain_cmacopt( cvectr p, cvectr xi, void *data );
+void calc_estrain_cmacopt(cvectr p, cvectr xi, void *data);
 
-int entryInRcvWithThisAtom(int cell , int atom , ivectr rcvEntries , int noAtomsPerCell ) ;
+int entryInRcvWithThisAtom(int cell, int atom, ivectr rcvEntries,
+                           int noAtomsPerCell);
 
 #endif
-
-
-
-
-
-
-

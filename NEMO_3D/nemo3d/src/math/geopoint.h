@@ -33,7 +33,7 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/geopoint.h,v 1.2 2003/10/08 16:17:50 hook Exp $ 
+$Header: /repo/nemo3d/src/math/geopoint.h,v 1.2 2003/10/08 16:17:50 hook Exp $
 *****************************************************************************/
 
 #ifndef GEOPOINT_H
@@ -41,9 +41,8 @@ $Header: /repo/nemo3d/src/math/geopoint.h,v 1.2 2003/10/08 16:17:50 hook Exp $
 
 #include "realtype.h"
 
-typedef struct GEOPOINT
-{ 
-    real x, y, z; 
+typedef struct GEOPOINT {
+  real x, y, z;
 } geopoint;
 
 #endif

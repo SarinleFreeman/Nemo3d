@@ -39,22 +39,22 @@ $Header: /repo/nemo3d/src/math/r3tensor.h,v 1.3 2004/10/27 19:43:10 gekco Exp $
 #ifndef R3TENSOR_H
 #define R3TENSOR_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "nml_global.h"
-#include "util_messages.h"
-#include "util_memory.h"
-#include "tensor.h"
 #include "realtype.h"
-
+#include "tensor.h"
+#include "util_memory.h"
+#include "util_messages.h"
 
 typedef real ***r3tensor;
 
-r3tensor R3tensor(int dimRowLow, int dimRowHigh, int dimColLow, int dimColHigh, int dimDepthLow, int dimDepthHigh);
+r3tensor R3tensor(int dimRowLow, int dimRowHigh, int dimColLow, int dimColHigh,
+                  int dimDepthLow, int dimDepthHigh);
 void rm_r3tensor(r3tensor *ptrR3t, int dimRowLow);
-r3tensor check_r3tensor(r3tensor r3t, int d1l, int d1h, int d2l, int d2h, int d3l, int d3h);
+r3tensor check_r3tensor(r3tensor r3t, int d1l, int d1h, int d2l, int d2h,
+                        int d3l, int d3h);
 
 #endif /* R3TENSOR_H */
-

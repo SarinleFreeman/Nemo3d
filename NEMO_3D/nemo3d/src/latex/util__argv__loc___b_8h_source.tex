@@ -1,0 +1,324 @@
+\doxysection{util\+\_\+argv\+\_\+loc\+\_\+\+B.\+h}
+\hypertarget{util__argv__loc___b_8h_source}{}\label{util__argv__loc___b_8h_source}\index{util/util\_argv\_loc\_B.h@{util/util\_argv\_loc\_B.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/util/util\_argv\_loc\_B.h,v\ 1.2\ 2003/10/08\ 16:18:52\ hook\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ Local\ defines\ for\ the\ argv\ module}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ Copyright\ 1995\ by\ Gray\ Watson}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ argv\ library.}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ Permission\ to\ use,\ copy,\ modify,\ and\ distribute\ this\ software\ for}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ any\ purpose\ and\ without\ fee\ is\ hereby\ granted,\ provided\ that\ the}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ above\ copyright\ notice\ and\ this\ permission\ notice\ appear\ in\ all}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ copies,\ and\ that\ the\ name\ of\ Gray\ Watson\ not\ be\ used\ in\ advertising}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ or\ publicity\ pertaining\ to\ distribution\ of\ the\ document\ or\ software}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ without\ specific,\ written\ prior\ permission.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ Gray\ Watson\ makes\ no\ representations\ about\ the\ suitability\ of\ the}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ software\ described\ herein\ for\ any\ purpose.\ \ It\ is\ provided\ "{}as\ is"{}}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ without\ express\ or\ implied\ warranty.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ The\ author\ may\ be\ contacted\ at\ gray.watson@letters.com}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ \$Id:\ util\_argv\_loc\_B.h,v\ 1.2\ 2003/10/08\ 16:18:52\ hook\ Exp\ \$}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ \_\_UTIL\_ARGV\_LOC\_B\_H\_\_}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ \_\_UTIL\_ARGV\_LOC\_B\_H\_\_}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}util\_argv\_B.h"{}}\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ to\ get\ the\ types\ */}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ some\ compilation\ options}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*\ to\ include\ RCS\ ids\ in\ the\ code\ */}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifndef\ INCLUDE\_RCS\_IDS}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ INCLUDE\_RCS\_IDS\ 1}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ global\ variable\ and\ procedure\ scoping\ for\ code\ readability}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#undef\ \ EXPORT}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ EXPORT}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#undef\ \ IMPORT}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ IMPORT\ \ \ \ \ \ extern}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#undef\ \ LOCAL}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ LOCAL\ \ \ \ \ \ \ static}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *\ generic\ constants}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00091\ \textcolor{comment}{/*\ special\ consideration\ for\ NULL.\ \ some\ compilers\ bitch\ if\ I\ redefine\ it\ */}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#ifndef\ NULL}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ NULL\ \ \ \ \ \ \ \ 0L}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#undef\ \ NULLC}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ NULLC\ \ \ \ \ \ \ '\(\backslash\)0'}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#undef\ \ MIN}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ MIN(a,b)\ \ \ \ ((a)\ <\ (b)\ ?\ (a)\ :\ (b))}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#undef\ NOERROR}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ NOERROR\ \ \ \ \ 0}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#undef\ ERROR}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ ERROR\ \ \ \ \ \ \ (-\/1)}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#undef\ STDIN}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ STDIN\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ *\ local\ argv\ defines}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ NO\_VALUE\ \ \ \ \ \ \ \ (-\/1)\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ no\ mandatory\ args\ value\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ ARRAY\_INCR\ \ \ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*\ increment\ by\ 10\ every\ 10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00117\ \textcolor{comment}{/*\ \#define\ SCREEN\_WIDTH\ \ \ \ \ 79\ \ */}\ \ \textcolor{comment}{/*\ width\ of\ screen\ till\ wrap\ */}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ SCREEN\_WIDTH\ \ \ \ \ \ \ \ 99\ \ \ \ \ \ }\textcolor{comment}{/*\ width\ of\ screen\ till\ wrap\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ BITS\_IN\_BYTE\ \ \ \ \ \ \ \ 8\ \ \ \ \ \ \ }\textcolor{comment}{/*\ bits\ in\ a\ byte\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ SPECIAL\_CHARS\ \ \ \ \ \ \ "{}e\(\backslash\)033\string^\string^\(\backslash\)"{}\(\backslash\)"{}''\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)n\(\backslash\)nr\(\backslash\)rt\(\backslash\)tb\(\backslash\)bf\(\backslash\)fa\(\backslash\)007"{}}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ DUMP\_SPACE\_BUF\ \ \ \ \ \ 128\ \ \ \ \ }\textcolor{comment}{/*\ space\ for\ memory\ dump\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ ARG\_MALLOC\_INCR\ \ \ \ \ 20\ \ \ \ \ \ }\textcolor{comment}{/*\ alloc\ in\ 10\ increments\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{/*\ internal\ flags\ set\ in\ the\ ar\_type\ field\ */}}
+\DoxyCodeLine{00125\ \textcolor{comment}{/*\ ARGV\_ARRAY\ is\ defined\ in\ argv.h\ */}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ ARGV\_FLAG\_USED\ \ \ \ \ \ (1\ <<\ 13)\ \ \ }\textcolor{comment}{/*\ if\ arg\ has\ been\ specified\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{comment}{/*\ error\ messages\ */}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ USAGE\_ERROR\_NAME\ \ \ \ "{}usage\ problem"{}}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ INTERNAL\_ERROR\_NAME\ "{}internal\ argv\ error"{}}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ settings\ to\ vary\ the\ output\ of\ the\ argument\ routines}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ PROGRAM\_NAME\ \ \ \ \ \ \ \ 256\ \ \ \ \ }\textcolor{comment}{/*\ max\ size\ of\ program\ name\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ EXIT\_CODE\ \ \ \ \ \ \ 1\ \ \ \ \ \ \ }\textcolor{comment}{/*\ argv\ exit\ code\ for\ errors\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{/*\ global\ env\ settings\ */}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ GLOBAL\_NAME\ \ \ \ \ "{}GLOBAL\_ARGV"{}\ \ \ }\textcolor{comment}{/*\ global\ argv\ env\ name\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ GLOBAL\_CLOSE\ \ \ \ \ \ \ \ "{}close="{}\ \ \ \ }\textcolor{comment}{/*\ close\ arg\ setting\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ GLOBAL\_ENV\ \ \ \ \ \ "{}env="{}\ \ \ \ \ \ }\textcolor{comment}{/*\ env\ setting\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\ \ \ \ \ \ \ \ "{}error="{}\ \ \ \ }\textcolor{comment}{/*\ error\ setting\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ GLOBAL\_MULTI\ \ \ \ \ \ \ \ "{}multi="{}\ \ \ \ }\textcolor{comment}{/*\ multi\ setting\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\ \ \ \ \ \ \ \ "{}usage="{}\ \ \ \ }\textcolor{comment}{/*\ usage\ setting\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ GLOBAL\_CLOSE\_DISABLE\ \ \ \ 1\ \ \ \ \ \ \ }\textcolor{comment}{/*\ disable\ close\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ GLOBAL\_CLOSE\_ENABLE\ 2\ \ \ \ \ \ \ }\textcolor{comment}{/*\ enable\ close\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ GLOBAL\_ENV\_NONE\ \ \ \ \ 3\ \ \ \ \ \ \ }\textcolor{comment}{/*\ no\ env\ processing\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ GLOBAL\_ENV\_BEFORE\ \ \ 4\ \ \ \ \ \ \ }\textcolor{comment}{/*\ process\ env\ before\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ GLOBAL\_ENV\_AFTER\ \ \ \ 5\ \ \ \ \ \ \ }\textcolor{comment}{/*\ process\ env\ after\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\_SEE\ \ \ \ 6\ \ \ \ \ \ \ }\textcolor{comment}{/*\ see\ messages\ (special)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\_SHORT\ \ 7\ \ \ \ \ \ \ }\textcolor{comment}{/*\ print\ short\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\_SHORTREM\ \ \ 8\ \ \ \ \ \ \ }\textcolor{comment}{/*\ short\ +\ remind\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\_LONG\ \ \ 9\ \ \ \ \ \ \ }\textcolor{comment}{/*\ long\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ GLOBAL\_USAGE\_ALL\ \ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*\ all\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ GLOBAL\_MULTI\_REJECT\ 11\ \ \ \ \ \ }\textcolor{comment}{/*\ reject\ multiple\ arg\ use\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ GLOBAL\_MULTI\_ACCEPT\ 12\ \ \ \ \ \ }\textcolor{comment}{/*\ accept\ multiple\ arg\ use\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_NONE\ \ \ 13\ \ \ \ \ \ }\textcolor{comment}{/*\ print\ only\ error\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_SEE\ \ \ \ GLOBAL\_USAGE\_SEE\ }\textcolor{comment}{/*\ error\ +\ see\ messages\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_SHORT\ \ GLOBAL\_USAGE\_SHORT\ }\textcolor{comment}{/*\ error\ +\ short\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_SHORTREM\ \ \ GLOBAL\_USAGE\_SHORTREM\ }\textcolor{comment}{/*\ err\ +\ short\ +\ remind*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_LONG\ \ \ GLOBAL\_USAGE\_LONG\ }\textcolor{comment}{/*\ err\ +\ long\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ GLOBAL\_ERROR\_ALL\ \ \ \ GLOBAL\_USAGE\_ALL\ }\textcolor{comment}{/*\ err\ +\ all\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{comment}{/*\ special\ argument\ definitions\ */}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ LAST\_ARG\ \ \ \ \ \ \ \ "{}-\/-\/"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ arg\ to\ mark\ end\ of\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ LONG\_PREFIX\ \ \ \ \ "{}-\/-\/"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ prefix\ for\ long\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ SHORT\_PREFIX\ \ \ \ \ \ \ \ "{}-\/"{}\ \ \ \ \ }\textcolor{comment}{/*\ prefix\ for\ short\ args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ UNKNOWN\_ARG\ \ \ \ \ "{}??"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ unknown\ argument\ output\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ ARG\_EQUALS\ \ \ \ \ \ '='\ \ \ \ \ }\textcolor{comment}{/*\ to\ assign\ value\ to\ option\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{comment}{/*\ how\ to\ produce\ the\ env\ var\ using\ sprintf\ and\ the\ argv\_program\ variable\ */}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ ENVIRON\_FORMAT\ \ \ \ \ \ "{}ARGV\_\%s"{}}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{comment}{/*\ special\ short-\/argument\ strings\ */}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ USAGE\_CHAR\_ARG\ \ \ \ \ \ '?'\ \ \ \ \ }\textcolor{comment}{/*\ default\ short-\/opt\ usage\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{comment}{/*\ special\ long-\/argument\ strings\ */}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ DISPLAY\_ARG\ \ \ \ \ "{}argv-\/display"{}\ \ }\textcolor{comment}{/*\ display\ arg\ variable\ vals\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ HELP\_ARG\ \ \ \ \ \ \ \ "{}help"{}\ \ \ \ \ \ }\textcolor{comment}{/*\ default\ help\ option\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ USAGE\_ARG\ \ \ \ \ \ \ "{}usage"{}\ \ \ \ \ }\textcolor{comment}{/*\ default\ usage\ option\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ USAGE\_SHORT\_ARG\ \ \ \ \ "{}usage-\/short"{}\ \ \ }\textcolor{comment}{/*\ default\ usage-\/short\ opt\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ USAGE\_LONG\_ARG\ \ \ \ \ \ "{}usage-\/long"{}\ \ \ \ }\textcolor{comment}{/*\ default\ usage-\/long\ opt\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ USAGE\_ALL\_ARG\ \ \ \ \ \ \ "{}usage-\/all"{}\ }\textcolor{comment}{/*\ default\ usage-\/all\ opt\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ VERSION\_ARG\ \ \ \ \ "{}version"{}\ \ \ }\textcolor{comment}{/*\ default\ version\ option\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{comment}{/*\ spacing\ on\ line\ for\ usage\ messages\ */}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ SHORT\_COLUMN\ \ \ \ \ \ \ \ 2\ \ \ }\textcolor{comment}{/*\ spaces\ to\ indent\ for\ short-\/args\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ LONG\_COLUMN\ \ \ \ \ 20\ \ }\textcolor{comment}{/*\ column\ for\ long\ options\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ COMMENT\_COLUMN\ \ \ \ \ \ 45\ \ }\textcolor{comment}{/*\ column\ for\ comments\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{/*\ some\ in-\/line\ "{}labels"{}\ for\ comments\ */}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ USAGE\_LABEL\ \ \ \ \ "{}Usage:\ "{}\ \ \ }\textcolor{comment}{/*\ usage\ message\ start\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ VERSION\_LABEL\ \ \ \ \ \ \ "{}=\ "{}\ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ default:no\ version\ prefix\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ LONG\_LABEL\ \ \ \ \ \ "{}or\ "{}\ \ \ \ \ \ \ }\textcolor{comment}{/*\ put\ before\ long-\/option\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ COMMENT\_LABEL\ \ \ \ \ \ \ "{}"{}\ \ \ \ \ \ }\textcolor{comment}{/*\ put\ before\ comments\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ ARRAY\_LABEL\ \ \ \ \ "{}\ array"{}\ \ \ \ }\textcolor{comment}{/*\ put\ after\ displayed\ type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ BOOL\_ARG\_LABEL\ \ \ \ \ \ "{}yes|no"{}\ \ \ \ }\textcolor{comment}{/*\ label\ for\ bool-\/arg\ arg\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{/*\ some\ sizeof\ defines\ */}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ SHORT\_PREFIX\_LENGTH\ (sizeof(SHORT\_PREFIX)\ -\/\ 1)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ LONG\_PREFIX\_LENGTH\ \ (sizeof(LONG\_PREFIX)\ -\/\ 1)}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ USAGE\_LABEL\_LENGTH\ \ (sizeof(USAGE\_LABEL)\ -\/\ 1)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ COMMENT\_LABEL\_LENGTH\ \ \ \ (sizeof(COMMENT\_LABEL)\ -\/\ 1)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ LONG\_LABEL\_LENGTH\ \ \ (sizeof(LONG\_LABEL)\ -\/\ 1)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ UNKNOWN\_ARG\_LENGTH\ \ (sizeof(UNKNOWN\_ARG)\ -\/\ 1)}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ BOOL\_ARG\_LENGTH\ \ \ \ \ (sizeof(BOOL\_ARG\_LABEL)\ -\/\ 1)}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ HAS\_ARG(type)\ \ \ (!\ (ARGV\_TYPE(type)\ ==\ ARGV\_BOOL\ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ARGV\_TYPE(type)\ ==\ ARGV\_BOOL\_NEG\ \(\backslash\)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ||\ ARGV\_TYPE(type)\ ==\ ARGV\_INCR))}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{comment}{/********************************\ argv\ types\ *********************************/}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{comment}{/*\ strcture\ defining\ argv\ types\ */}}
+\DoxyCodeLine{00222\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ at\_value;\ \ \ \ \ \ \ \textcolor{comment}{/*\ value\ of\ the\ type\ */}}
+\DoxyCodeLine{00224\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ *at\_name;\ \ \ \ \ \ \ \textcolor{comment}{/*\ name\ of\ the\ type\ */}}
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ at\_size;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ size\ of\ type\ */}}
+\DoxyCodeLine{00226\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ *at\_desc;\ \ \ \ \ \ \ \textcolor{comment}{/*\ description\ of\ the\ type\ */}}
+\DoxyCodeLine{00227\ \}\ \mbox{\hyperlink{structargv__type__t}{argv\_type\_t}};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ LOCAL\ \ \ \mbox{\hyperlink{structargv__type__t}{argv\_type\_t}}\ \ argv\_types[]\ =\ \{}
+\DoxyCodeLine{00230\ \ \ \{\ ARGV\_BOOL,\ \ \ \ \ \ \textcolor{stringliteral}{"{}flag"{}},\ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(char),}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}if\ option\ used,\ set\ variable\ to\ true"{}}\ \},}
+\DoxyCodeLine{00232\ \ \ \{\ ARGV\_BOOL\_NEG,\ \ \textcolor{stringliteral}{"{}negative\ flag"{}},\ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}if\ option\ used,\ set\ variable\ to\ false"{}}\ \},}
+\DoxyCodeLine{00234\ \ \ \{\ ARGV\_BOOL\_ARG,\ \ \textcolor{stringliteral}{"{}flag\ with\ arg"{}},\ \ \ \ \textcolor{keyword}{sizeof}(char),}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}like\ flag\ but\ you\ specify\ with\ yes/no\ argument"{}}\ \},}
+\DoxyCodeLine{00236\ \ \ \{\ ARGV\_CHAR,\ \ \ \ \ \ \textcolor{stringliteral}{"{}character"{}},\ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(char),}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}single\ character"{}}\ \},}
+\DoxyCodeLine{00238\ \ \ \{\ ARGV\_CHARP,\ \ \ \ \ \textcolor{stringliteral}{"{}string"{}},\ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}\ *),}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}multiple\ characters\ terminated\ with\ a\ '\(\backslash\)\(\backslash\)0'"{}}\ \},}
+\DoxyCodeLine{00240\ \ \ \{\ ARGV\_FLOAT,\ \ \ \ \ \textcolor{stringliteral}{"{}floating\ point"{}},\ \ \ \textcolor{keyword}{sizeof}(float),}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}real\ number\ with\ decimal\ point"{}}\ \},}
+\DoxyCodeLine{00242\ \ \ \{\ ARGV\_SHORT,\ \ \ \ \ \textcolor{stringliteral}{"{}short\ integer"{}},\ \ \ \ \textcolor{keyword}{sizeof}(short),}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decimal\ short-\/sized\ integer\ value"{}}\ \},}
+\DoxyCodeLine{00244\ \ \ \{\ ARGV\_INT,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}integer"{}},\ \ \ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decimal\ integer\ value"{}}\ \},}
+\DoxyCodeLine{00246\ \ \ \{\ ARGV\_U\_INT,\ \ \ \ \ \textcolor{stringliteral}{"{}unsigned\ integer"{}},\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ int),}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decimal\ unsigned\ integer\ value"{}}\ \},}
+\DoxyCodeLine{00248\ \ \ \{\ ARGV\_LONG,\ \ \ \ \ \ \textcolor{stringliteral}{"{}long\ integer"{}},\ \ \ \ \ \textcolor{keyword}{sizeof}(long),}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decimal\ long-\/sized\ integer\ value"{}}\ \},}
+\DoxyCodeLine{00250\ \ \ \{\ ARGV\_U\_LONG,\ \ \ \ \textcolor{stringliteral}{"{}unsigned\ long"{}},\ \ \ \ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ long),}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}decimal\ unsigned\ long-\/sized\ integer\ value"{}}\ \},}
+\DoxyCodeLine{00252\ \ \ \{\ ARGV\_BIN,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}binary"{}},\ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}base\ 2\ value\ with\ digits\ of\ 0\ or\ 1"{}}\ \},}
+\DoxyCodeLine{00254\ \ \ \{\ ARGV\_OCT,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}octal"{}},\ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}base\ 8\ value\ with\ digits\ from\ 0-\/7"{}}\ \},}
+\DoxyCodeLine{00256\ \ \ \{\ ARGV\_HEX,\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}hexadecimal"{}},\ \ \ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}base\ 16\ value\ with\ digits\ from\ 0-\/9,\ A-\/F"{}}\ \},}
+\DoxyCodeLine{00258\ \ \ \{\ ARGV\_INCR,\ \ \ \ \ \ \textcolor{stringliteral}{"{}increment"{}},\ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(int),}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}increment\ variable\ each\ time\ option\ used"{}}\ \},}
+\DoxyCodeLine{00260\ \ \ \{\ 0\ \}}
+\DoxyCodeLine{00261\ \};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{comment}{/********************************\ queue\ code\ *********************************/}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ *\ Generic\ inline\ queue\ defines.}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{comment}{/*\ declare\ the\ arguments\ needed\ to\ maintain\ a\ queue\ for\ type\ TYPE\ */}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ QUEUE\_DECLARE(type)\ \(\backslash\)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ type\ \ *queue\_alloc\ =\ NULL;\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ int\ \ \ queue\_head\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ int\ \ \ queue\_tail\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ int\ \ \ queue\_count\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ int\ \ \ queue\_max\ =\ 1}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ LOCAL\_QUEUE\_DECLARE(type)\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ static\ \ \ \ type\ \ \ \ *queue\_alloc\ =\ NULL;\ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ static\ \ \ \ int\ queue\_head\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ static\ \ \ \ int\ queue\_tail\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ static\ \ \ \ int\ queue\_count\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ static\ \ \ \ int\ queue\_max\ =\ 1}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{comment}{/*\ test\ to\ see\ if\ the\ queue\ has\ not\ been\ allocated\ */}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#define\ QUEUE\_IS\_NULL()\ (queue\_alloc\ ==\ NULL)}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{/*\ allocate\ a\ mini-\/queue\ */}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ QUEUE\_ALLOC(type,\ num)\ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ do\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ queue\_alloc\ =\ (type\ *)malloc(sizeof(type)\ *\ num);\ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ queue\_head\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ queue\_tail\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ queue\_count\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ queue\_max\ \ =\ num;\ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \}\ while(0)}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{comment}{/*\ allocate\ a\ mini-\/queue's\ allocation\ */}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ QUEUE\_FREE()\ \ \ \ \ \ \ \ free(queue\_alloc)}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{comment}{/*\ enqueue\ items\ from\ the\ mini-\/queue\ */}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#define\ QUEUE\_ENQUEUE(item)\ \(\backslash\)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ do\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\ \ \ \ queue\_alloc[queue\_head]\ =\ item;\ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ queue\_head\ =\ (queue\_head\ +\ 1)\ \%\ queue\_max;\ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ queue\_count++;\ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \}\ while(0)}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{comment}{/*\ dequeue\ items\ from\ the\ mini-\/queue\ */}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ QUEUE\_DEQUEUE(item)\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ do\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ item\ =\ queue\_alloc[queue\_tail];\ \(\backslash\)}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\ \ \ \ queue\_tail\ =\ (queue\_tail\ +\ 1)\ \%\ queue\_max;\ \(\backslash\)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\ \ \ \ queue\_count-\/-\/;\ \(\backslash\)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\ \ \}\ while(0)}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{comment}{/*\ count\ the\ number\ of\ items\ in\ the\ mini-\/queue\ */}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#define\ QUEUE\_COUNT()\ \ \ \ \ \ \ queue\_count}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !\ \_\_UTIL\_ARGV\_LOC\_B\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

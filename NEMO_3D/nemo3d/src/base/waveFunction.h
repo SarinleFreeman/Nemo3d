@@ -33,30 +33,29 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/waveFunction.h,v 1.2 2003/10/08 16:17:20 hook Exp $ 
+$Header: /repo/nemo3d/src/base/waveFunction.h,v 1.2 2003/10/08 16:17:20 hook Exp
+$
 *****************************************************************************/
 
 #ifndef WAVE_FUNCTION_H
 #define WAVE_FUNCTION_H 1
 
-#include <vector>
-#include <rvector.h>
 #include <cvector.h>
+#include <rvector.h>
+#include <vector>
 
-class waveFunction 
-{
- public:
-   int valid; // -1 (invalid), 0 (only eigenvalue ok), 1 (all ok)
-   int indx;
-   real E;
-   vector<complex> psi;
+class waveFunction {
+public:
+  int valid; // -1 (invalid), 0 (only eigenvalue ok), 1 (all ok)
+  int indx;
+  real E;
+  vector<complex> psi;
 
-   waveFunction() : valid(-1), indx(0) {;}
-   waveFunction(int n, int i=0) : valid(-1), indx(i) {
-      psi=vector<complex>(n);
-   }
-   void copy_wavefunc(const cvectr p);
+  waveFunction() : valid(-1), indx(0) { ; }
+  waveFunction(int n, int i = 0) : valid(-1), indx(i) {
+    psi = vector<complex>(n);
+  }
+  void copy_wavefunc(const cvectr p);
 };
-
 
 #endif

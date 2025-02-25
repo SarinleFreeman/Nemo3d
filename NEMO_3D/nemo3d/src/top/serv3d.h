@@ -39,9 +39,9 @@ $Header: /repo/nemo3d/src/top/serv3d.h,v 1.5 2005/05/27 17:34:33 marek Exp $
 #ifndef SERV3D_H
 #define SERV3D_H 1
 
-#include "util_command_BX.h"
 #include "input_tcl.h"
 #include "qd_struct_make.h"
+#include "util_command_BX.h"
 
 /*
 #include "i_n3d_global.h"

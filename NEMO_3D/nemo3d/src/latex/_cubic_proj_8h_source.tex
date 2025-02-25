@@ -1,0 +1,38 @@
+\doxysection{Cubic\+Proj.\+h}
+\hypertarget{_cubic_proj_8h_source}{}\label{_cubic_proj_8h_source}\index{base/CubicProj.h@{base/CubicProj.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}r2tensor.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}rvector.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ivector.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ system\_error\ printf}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ EPS\_UNITARY\ \ \ \ \ 1.0e-\/10\ }\textcolor{comment}{/*\ effective\ 0\ for\ unitary\ test\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EPS\ \ \ \ \ \ \ \ \ \ \ \ \ 1.0e-\/10}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ A\_SM\_SC\ 1.0}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{int}\ check\_unitarity(\textcolor{keywordtype}{double}\ **Ur,\ \textcolor{keywordtype}{double}\ **Ui,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{double}\ eps);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ define\_small\_cell\_of\_nanostructure(\textcolor{keywordtype}{int}\ *n\_nemo,\ \textcolor{keywordtype}{int}\ *n\_nanostruct,\ \textcolor{keywordtype}{int}\ *NBASIS,\ \textcolor{keywordtype}{int}\ *periodic\_y,\ \textcolor{keywordtype}{int}\ *periodic\_z,\ \textcolor{keywordtype}{int}\ primitive\_p\_cell);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ gen\_Rvecs\_cubic(\textcolor{keywordtype}{double}\ **R\_a,\ \textcolor{keywordtype}{int}\ Nrect[]);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ gen\_SmCell\_Gvecs(\textcolor{keywordtype}{double}\ **Gvecs,\textcolor{keywordtype}{int}\ *Nrect,\textcolor{keywordtype}{double}\ bz\_max);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ gen\_SmCell\_kpGvecs(\textcolor{keywordtype}{double}\ **Gvecs,\textcolor{keywordtype}{double}\ *k,\textcolor{keywordtype}{double}\ **kpGvecs,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ bz\_max,\ \textcolor{keywordtype}{int}\ Nc);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ projection\_matrix(\textcolor{keywordtype}{double}\ **Gv,\ \textcolor{keywordtype}{double}\ **Rv,\ \textcolor{keywordtype}{double}\ **Ur,\ \textcolor{keywordtype}{double}\ **Ui,\ \textcolor{keywordtype}{int}\ Nc);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ project\_probs(\textcolor{keywordtype}{double}\ **Ekmat,\ \textcolor{keywordtype}{double}\ **Ur,\ \textcolor{keywordtype}{double}\ **Ui,\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ vr[],\ \textcolor{keywordtype}{double}\ vi[],\ \textcolor{keywordtype}{double}\ wvr[],\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ wvi[],\ \textcolor{keywordtype}{int}\ NBASIS,\ \textcolor{keywordtype}{int}\ Norb,\ \textcolor{keywordtype}{int}\ Nc\_nano,\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Negy,\ \textcolor{keywordtype}{int}\ eix,\ \textcolor{keywordtype}{double}\ k[],\ \textcolor{keywordtype}{int}\ *n\_nanostruct);}
+\DoxyCodeLine{00032\ }
+
+\end{DoxyCode}

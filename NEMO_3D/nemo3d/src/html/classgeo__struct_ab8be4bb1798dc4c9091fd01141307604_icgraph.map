@@ -1,0 +1,22 @@
+<map id="geo_struct::Neighbors" name="geo_struct::Neighbors">
+<area shape="rect" id="Node000001" title=" " alt="" coords="460,222,609,248"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#aa3f4bdaa30364df921f7bee07e8bb61f" title=" " alt="" coords="250,5,375,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="519,209,478,136,447,96,410,61,374,42,377,38,414,57,451,92,482,133,524,207"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a24a071fee3d4e59a4df428e2d4b02587" title=" " alt="" coords="252,71,372,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="510,212,467,168,440,145,411,125,372,108,374,103,413,121,443,141,471,164,514,208"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ae17f923331e78002dc7841387a7078d3" title=" " alt="" coords="213,136,412,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="496,217,411,176,373,164,375,159,413,171,499,212"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a893f7c69fe72ff4ac7c0b8b346910112" title=" " alt="" coords="234,185,391,226"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="444,226,391,219,392,213,445,220"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a1beba273642243e4f7c57bcb51bef85f" title=" " alt="" coords="213,250,412,276"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="445,249,413,253,412,248,444,244"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a049cbf824e67ad25da1d98720c1b0f8e" title=" " alt="" coords="213,300,412,325"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="494,257,413,291,377,301,375,296,411,286,492,252"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#ad91354b0cfdd1ee43ca8ab3a80b33603" title=" " alt="" coords="242,373,383,414"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="510,261,466,299,414,340,356,375,353,370,410,335,463,295,507,257"/>
+<area shape="rect" id="Node000010" href="$classgeo__struct.html#a75d274959e0c507b019c55e0a98daedd" title=" " alt="" coords="223,438,402,464"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="526,263,510,300,486,345,454,390,414,428,391,440,389,435,410,424,450,386,481,342,505,298,521,261"/>
+<area shape="poly" id="edge8_Node000008_Node000008" title=" " alt="" coords="349,360,335,354,312,352,291,354,278,359,273,365,276,372,270,373,268,363,275,354,290,349,312,347,336,349,351,355"/>
+<area shape="rect" id="Node000009" href="$classgeo__struct.html#a9c6f22b3916504196ea0e4633a1bef20" title=" " alt="" coords="5,373,165,414"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="226,396,165,396,165,391,226,391"/>
+</map>

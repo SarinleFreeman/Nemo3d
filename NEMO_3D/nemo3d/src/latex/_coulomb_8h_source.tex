@@ -1,0 +1,157 @@
+\doxysection{Coulomb.\+h}
+\hypertarget{_coulomb_8h_source}{}\label{_coulomb_8h_source}\index{postprocessing/Coulomb.h@{postprocessing/Coulomb.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/postprocessing/Coulomb.h,v\ 1.1\ 2004/08/26\ 21:28:07\ swlee\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ \_\_coulomb\_h\_}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ \_\_coulomb\_h\_}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}io\_utils.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}cvector\_lib.h"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }Coulomb\{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ CONSTANT1,\ CONSTANT2;}
+\DoxyCodeLine{00051\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ Coulomb(qd\_struct\ din,\ \textcolor{keywordtype}{int}\ e,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ mpiID)}
+\DoxyCodeLine{00053\ \ \ :\ d(din),\ e\_max(e),\ h\_max(h),\ my\_id(mpiID)\ }
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ g\_min\ =\ d-\/>cell\_s[my\_id]*8;}
+\DoxyCodeLine{00056\ \ \ \ \ g\_max\ =\ d-\/>cell\_ln[my\_id]*8+g\_min;}
+\DoxyCodeLine{00057\ \ \ \ \ o\_max\ =\ d-\/>NBasisStates/2;}
+\DoxyCodeLine{00058\ \ \ \ \ o\_total\ =\ o\_max*o\_max;}
+\DoxyCodeLine{00059\ \ \ \ \ numAtoms\ =\ d-\/>n\_atom\_tot;}
+\DoxyCodeLine{00060\ \ \ \ \ \_H\_coul\ =\ Cvectr(e\_max*h\_max);}
+\DoxyCodeLine{00061\ \ \ \ \ \_H\_coul\ =\ Cvectr(e\_max*h\_max);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ MPI\_Comm\_size(MPI\_COMM\_WORLD,\ \&mpi\_numprocs);}
+\DoxyCodeLine{00064\ \ \ \ \textcolor{keywordflow}{if}(mpi\_numprocs==1)\ g\_max\ =\ numAtoms;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \string~Coulomb()\ }
+\DoxyCodeLine{00069\ \ \ \{\ rm\_cvectr(\&\_H\_coul);\ rm\_cvectr(\&\_H\_exch);\}\ \ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{inline}\ complex\ \&cf\_e(\textcolor{keywordtype}{int}\ n,\textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ o)}
+\DoxyCodeLine{00072\ \ \ \{\ \textcolor{keywordflow}{return}\ \_cf\_e[((n*numAtoms+g)*2+s)*o\_max+o];\}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{inline}\ complex\ \&cf\_h(\textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ o)}
+\DoxyCodeLine{00075\ \ \ \{\ \textcolor{keywordflow}{return}\ \_cf\_h[((n*numAtoms+g)*2+s)*o\_max+o];\}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{inline}\ complex\ \&H\_coul(\textcolor{keywordtype}{int}\ n1,\textcolor{keywordtype}{int}\ n2)}
+\DoxyCodeLine{00078\ \ \ \{\ \textcolor{keywordflow}{return}\ \_H\_coul[n1*h\_max+n2];\}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{inline}\ complex\ \&H\_exch(\textcolor{keywordtype}{int}\ n1,\ \textcolor{keywordtype}{int}\ n2)}
+\DoxyCodeLine{00081\ \ \ \{\ \textcolor{keywordflow}{return}\ \_H\_exch[n1*h\_max+n2];\}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \&nn(\textcolor{keywordtype}{int}\ g1,\textcolor{keywordtype}{int}\ nadj)}
+\DoxyCodeLine{00084\ \ \ \{\ \textcolor{keywordflow}{return}\ \_nn[g1*4+nadj];\}}
+\DoxyCodeLine{00085\ \ \ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \&lattice(\textcolor{keywordtype}{int}\ g1,\ \textcolor{keywordtype}{int}\ dim)}
+\DoxyCodeLine{00087\ \ \ \{\ \textcolor{keywordflow}{return}\ \_lattice[g1*3+dim];\}\ \ \ }
+\DoxyCodeLine{00088\ \ \ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{inline}\ complex*\ get\_H\_coul(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00090\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_H\_coul;\}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{inline}\ complex*\ get\_H\_exch(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00092\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_H\_exch;\}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \&coul\_on(\textcolor{keywordtype}{int}\ o1,\ \textcolor{keywordtype}{int}\ o2,\ \textcolor{keywordtype}{int}\ at)}
+\DoxyCodeLine{00095\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_coul\_on[(o1*o\_max+o2)*num\_atom\_type+at];\}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \&coul\_on\_avg(\textcolor{keywordtype}{int}\ o1,\ \textcolor{keywordtype}{int}\ o2)}
+\DoxyCodeLine{00098\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_coul\_on[o1*o\_max+o2];\}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \&exch\_on(\textcolor{keywordtype}{int}\ o1,\ \textcolor{keywordtype}{int}\ o2,\ \textcolor{keywordtype}{int}\ at)}
+\DoxyCodeLine{00101\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_exch\_on[(o1*o\_max+o2)*num\_atom\_type+at];\}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \&exch\_off(\textcolor{keywordtype}{int}\ o1,\ \textcolor{keywordtype}{int}\ o2,\ \textcolor{keywordtype}{int}\ pt)}
+\DoxyCodeLine{00104\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_exch\_off[(o1*o\_max+o2)*num\_atom\_pair+pt];\}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keyword}{inline}\ complex\ multiply(complex\ A,\ complex\ B)\textcolor{comment}{//conj(A)*B}}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ complex\ result;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ result.r=A.r*B.r+A.i*B.i;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ result.i=A.r*B.i-\/A.i*B.r;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ assign\_table(ifstream\&);}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{double}\ w\_coul(\textcolor{keywordtype}{double},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{double}\ w\_exch(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{double}\ distance\_sq(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{void}\ compute\_coulomb\_exchange();}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ compute\_exchange\_vs\_dot\_separation(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ compute\_overlap\_vs\_dot\_separation(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00121\ \ \ complex\ compute\_distant\_exchange\_interaction(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ get\_data(complex*,\ complex*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{double}*);}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{double}\ coulomb\_cell(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{int}\ \ pair(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ print\_phase(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{int}\ find\_cell\_overlap(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{bool}\ AreCellsClose(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00128\ \ \ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00130\ \ \ qd\_struct\ d;}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{int}\ e\_max,\ h\_max,\ g\_min,\ g\_max,\ o\_max,\ o\_total;}
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{int}\ numAtoms,\ num\_atom\_type,\ num\_atom\_pair,\ my\_id;}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{double}\ dielect,\ inv\_dielect;}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{int}*\ \_atom;}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{int}*\ \_nn;}
+\DoxyCodeLine{00136\ \ \ complex*\ \_cf\_e;}
+\DoxyCodeLine{00137\ \ \ complex*\ \_cf\_h;}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{double}*\ \_lattice;}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{double}*\ \_pair;}
+\DoxyCodeLine{00140\ \ \ vector<int>\ \ \ \ atom\_pair;}
+\DoxyCodeLine{00141\ \ \ vector<double>\ \_coul\_on;}
+\DoxyCodeLine{00142\ \ \ vector<double>\ \_exch\_on;}
+\DoxyCodeLine{00143\ \ \ vector<double>\ \_exch\_off;}
+\DoxyCodeLine{00144\ \ \ vector<double>\ \_coul\_on\_avg;}
+\DoxyCodeLine{00145\ \ \ complex*\ \_H\_coul;}
+\DoxyCodeLine{00146\ \ \ complex*\ \_H\_exch;}
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{int}\ mpi\_numprocs;}
+\DoxyCodeLine{00148\ \};\ \ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00151\ \ \ }
+
+\end{DoxyCode}

@@ -33,36 +33,35 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/ham_local.h,v 1.4 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/base/ham_local.h,v 1.4 2004/10/27 19:43:10 gekco Exp $
 *****************************************************************************/
 
 #ifndef HAM_LOCAL_H
 #define HAM_LOCAL_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include "io_utils.h"
 #include "Boolean.h"
+#include "io_utils.h"
 #include "qd_struct.h"
 
-#include "realtype.h"
 #include "nml_global.h"
+#include "realtype.h"
 #include <rvector.h>
 
-#include "constants_nemo.h"
-#include "cmatrix_nonsym.h"
-#include "mb_ham_spds_micro.h"
-#include "h_cvectr_mult.h"
-#include "run3d_mpi.h"
 #include "MPI_Timing.h"
+#include "cmatrix_nonsym.h"
+#include "constants_nemo.h"
+#include "h_cvectr_mult.h"
+#include "mb_ham_spds_micro.h"
+#include "run3d_mpi.h"
 
-void local_Hoff_zincBlende(qd_struct d, cmatrix h, int l, int m, 
-                           int map_mm_to_n[8][8], 
-                           int map_mb_to_m[8][4], real a_lattice[3],
-                           int block, int nbr5, int nbr6, int nbr7,
-                           real phase5, real phase6, real phase7);
+void local_Hoff_zincBlende(qd_struct d, cmatrix h, int l, int m,
+                           int map_mm_to_n[8][8], int map_mb_to_m[8][4],
+                           real a_lattice[3], int block, int nbr5, int nbr6,
+                           int nbr7, real phase5, real phase6, real phase7);
 void local_bandstruct_zincBlende_cubic(qd_struct d);
 
 void local_bandstruct_cubic(qd_struct d);

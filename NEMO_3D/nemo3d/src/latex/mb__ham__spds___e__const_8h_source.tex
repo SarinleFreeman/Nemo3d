@@ -1,0 +1,536 @@
+\doxysection{mb\+\_\+ham\+\_\+spds\+\_\+\+E\+\_\+const.\+h}
+\hypertarget{mb__ham__spds___e__const_8h_source}{}\label{mb__ham__spds___e__const_8h_source}\index{ham/mb\_ham\_spds\_E\_const.h@{ham/mb\_ham\_spds\_E\_const.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/ham/mb\_ham\_spds\_E\_const.h,v\ 1.2\ 2003/10/08\ 16:17:23\ hook\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ Inline\ code\ that\ returns\ the\ off-\/diagonal\ matrix\ elements}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*\ E\_const\_get2(\ Out\_econst\ ,\ vpar\_e\_const,\ basis1\_econst,\ basis2\_econst,\ l,\ m,\ n,\ l2,\ m2,\ n2)\ \ \ \ \ \ */}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{switch}(basis1\_econst)}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ ststs;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ stass;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l*stapcs;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ m*stapcs;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ n*stapcs;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*stadcs;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*stadcs;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*n*l*stadcs;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*stadcs;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*stadcs;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ case\ Sa\ is\ for\ single\ band\ */}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ case\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sss;}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ break;\ */}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ sasts;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ sss;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l*sapcs;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ m*sapcs;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ n*sapcs;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*sadcs;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*sadcs;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*sadcs;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*sadcs;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*sadcs;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ l*stcpas;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ l*scpas;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l2*pps\ +\ (1-\/l2)*ppp;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ l*m*pps\ -\/\ l*m*ppp;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ l*n*pps\ -\/\ l*n*ppp;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l2*m*padcs\ +\ m*(1-\/2*l2)*padcp;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*l2*n*padcs\ +\ n*(1-\/2*l2)*padcp;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*l*(l2-\/m2)*padcs\ +\ l*(1-\/l2+m2)*padcp;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ l*(n2-\/0.5*(l2+m2))*padcs\ -\/\ sqr3*l*n2*padcp;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ m*stcpas;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ m*scpas;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l*m*pps\ -\/\ l*m*ppp;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ m2*pps\ +\ (1-\/m2)*ppp;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ m*n*pps\ -\/\ m*n*ppp;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m2*padcs\ +\ l*(1-\/2*m2)*padcp;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*n*m2*padcs\ +\ n*(1-\/2*m2)*padcp;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*m*(l2-\/m2)*padcs\ -\/\ m*(1+l2-\/m2)*padcp;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ m*(n2-\/0.5*(l2+m2))*padcs\ -\/\ sqr3*m*n2*padcp;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ n*stcpas;\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ n*scpas;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l*n*pps\ -\/\ l*n*ppp;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ m*n*pps\ -\/\ m*n*ppp;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ n2*pps\ +\ (1-\/n2)*ppp;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n2*padcs\ +\ m*(1-\/2*n2)*padcp;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n2*padcs\ +\ l*(1-\/2*n2)*padcp;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*n*(l2-\/m2)*padcs\ -\/\ n*(l2-\/m2)*padcp;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ n*(n2-\/0.5*(l2+m2))*padcs\ +\ sqr3*n*(l2+m2)*padcp;\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*stcdas;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*scdas;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l2*m*pcdas\ +\ m*(1-\/2*l2)*pcdap;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m2*pcdas\ +\ l*(1-\/2*m2)*pcdap;}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ 3*l2*m2*dds\ +\ (l2+m2-\/4*l2*m2)*ddp\ +\ (n2+l2*m2)*ddd;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ 3*l*m2*n*dds\ +\ l*n*(1-\/4*m2)*ddp\ +\ l*n*(m2-\/1)*ddd;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ 3*l2*m*n*dds\ +\ m*n*(1-\/4*l2)*ddp\ +\ m*n*(l2-\/1)*ddd;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 1.5*l*m*(l2-\/m2)*dds\ +\ 2*l*m*(m2-\/l2)*ddp\ +\ 0.5*l*m*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ -\/\ sqr3*2*l*m*n2*ddp\ +\ 0.5*sqr3*l*m*(1+n2)*ddd;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n*stcdas;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n*scdas;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*n*m2*pcdas\ +\ n*(1-\/2*m2)*pcdap;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n2*pcdas\ +\ m*(1-\/2*n2)*pcdap;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ 3*l*m2*n*dds\ +\ l*n*(1-\/4*m2)*ddp\ +\ l*n*(m2-\/1)*ddd;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ 3*m2*n2*dds\ +\ (m2+n2-\/4*m2*n2)*ddp\ +\ (l2+m2*n2)*ddd;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ 3*m*n2*l*dds\ +\ m*l*(1-\/4*n2)*ddp\ +\ m*l*(n2-\/1)*ddd;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 1.5*m*n*(l2-\/m2)*dds\ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ +\ m*n*(1+0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*n*l*stcdas;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*n*l*scdas;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l2*n*pcdas\ +\ n*(1-\/2*l2)*pcdap;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*n2*pcdas\ +\ l*(1-\/2*n2)*pcdap;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ 3*l2*m*n*dds\ +\ m*n*(1-\/4*l2)*ddp\ +\ m*n*(l2-\/1)*ddd;}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ 3*n2*l*m*dds\ +\ l*m*(1-\/4*n2)*ddp\ +\ l*m*(n2-\/1)*ddd;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ 3*n2*l2*dds\ +\ (n2+l2-\/4*n2*l2)*ddp\ +\ (m2+n2*l2)*ddd;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 1.5*n*l*(l2-\/m2)*dds\ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*stcdas;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*scdas;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*l*(l2-\/m2)*pcdas\ +\ l*(1-\/l2+m2)*pcdap;}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*m*(l2-\/m2)*pcdas\ -\/\ m*(1+l2-\/m2)*pcdap;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*n*(l2-\/m2)*pcdas\ -\/\ n*(l2-\/m2)*pcdap;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ 1.5*l*m*(l2-\/m2)*dds\ +\ 2*l*m*(m2-\/l2)*ddp\ +\ 0.5*l*m*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ 1.5*m*n*(l2-\/m2)*dds\ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ +\ m*n*(1+0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ 1.5*n*l*(l2-\/m2)*dds\ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.75*(l2-\/m2)*(l2-\/m2)*dds\ +\ (l2+m2-\/(l2-\/m2)*(l2-\/m2))*ddp\ +\ (n2+0.25*(l2-\/m2)*(l2-\/m2))*ddd;\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*n2*(m2-\/l2)*ddp\ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:\ \ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*stcdas;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:\ \ \ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*scdas;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:\ \ \ \ \ \ Out\_econst\ =\ l*(n2-\/0.5*(l2+m2))*pcdas\ -\/\ sqr3*l*n2*pcdap;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:\ \ \ \ \ \ Out\_econst\ =\ m*(n2-\/0.5*(l2+m2))*pcdas\ -\/\ sqr3*m*n2*pcdap;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:\ \ \ \ \ \ Out\_econst\ =\ n*(n2-\/0.5*(l2+m2))*pcdas\ +\ sqr3*n*(l2+m2)*pcdap;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ -\/\ sqr3*2*l*m*n2*ddp\ +\ 0.5*sqr3*l*m*(1+n2)*ddd;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*n2*(m2-\/l2)*ddp\ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*(n2-\/0.5*(l2+m2))*dds\ +\ 3*n2*(l2+m2)*ddp\ +\ 0.75*(l2+m2)*(l2+m2)*ddd;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STc:}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ ststs;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sasts;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l*stcpas;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ m*stcpas;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ n*stcpas;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*stcdas;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*stcdas;}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*n*l*stcdas;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*stcdas;}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*stcdas;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sc:}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ stass;}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sss;}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l*scpas;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ m*scpas;}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ n*scpas;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*scdas;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*scdas;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*scdas;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*scdas;}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*scdas;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxc:}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ l*stapcs;}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ l*sapcs;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l2*pps\ +\ (1-\/l2)*ppp;}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ l*m*pps\ -\/\ l*m*ppp;}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ l*n*pps\ -\/\ l*n*ppp;}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l2*m*pcdas\ +\ m*(1-\/2*l2)*pcdap;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*l2*n*pcdas\ +\ n*(1-\/2*l2)*pcdap;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*l*(l2-\/m2)*pcdas\ +\ l*(1-\/l2+m2)*pcdap;}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ l*(n2-\/0.5*(l2+m2))*pcdas\ -\/\ sqr3*l*n2*pcdap;}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pyc:}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ m*stapcs;}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ m*sapcs;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l*m*pps\ -\/\ l*m*ppp;}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ m2*pps\ +\ (1-\/m2)*ppp;}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ m*n*pps\ -\/\ m*n*ppp;}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m2*pcdas\ +\ l*(1-\/2*m2)*pcdap;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*n*m2*pcdas\ +\ n*(1-\/2*m2)*pcdap;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*m*(l2-\/m2)*pcdas\ -\/\ m*(1+l2-\/m2)*pcdap;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ m*(n2-\/0.5*(l2+m2))*pcdas\ -\/\ sqr3*m*n2*pcdap;}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pzc:}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ n*stapcs;}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ n*sapcs;}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l*n*pps\ -\/\ l*n*ppp;}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ m*n*pps\ -\/\ m*n*ppp;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ n2*pps\ +\ (1-\/n2)*ppp;}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*pcdas\ -\/\ 2*l*m*n*pcdap;}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n2*pcdas\ +\ m*(1-\/2*n2)*pcdap;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n2*pcdas\ +\ l*(1-\/2*n2)*pcdap;}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*n*(l2-\/m2)*pcdas\ -\/\ n*(l2-\/m2)*pcdap;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ n*(n2-\/0.5*(l2+m2))*pcdas\ +\ sqr3*n*(l2+m2)*pcdap;\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxyc:}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*stadcs;}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*sadcs;}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l2*m*padcs\ +\ m*(1-\/2*l2)*padcp;}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m2*padcs\ +\ l*(1-\/2*m2)*padcp;}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ 3*l2*m2*dds\ +\ (l2+m2-\/4*l2*m2)*ddp\ +\ (n2+l2*m2)*ddd;}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ 3*l*m2*n*dds\ +\ l*n*(1-\/4*m2)*ddp\ +\ l*n*(m2-\/1)*ddd;}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ 3*l2*m*n*dds\ +\ m*n*(1-\/4*l2)*ddp\ +\ m*n*(l2-\/1)*ddd;}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 1.5*l*m*(l2-\/m2)*dds\ +\ 2*l*m*(m2-\/l2)*ddp\ +\ 0.5*l*m*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ -\/\ sqr3*2*l*m*n2*ddp\ +\ 0.5*sqr3*l*m*(1+n2)*ddd;}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyzc:}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n*stadcs;}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n*sadcs;}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ sqr3*n*m2*padcs\ +\ n*(1-\/2*m2)*padcp;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ sqr3*m*n2*padcs\ +\ m*(1-\/2*n2)*padcp;}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ 3*l*m2*n*dds\ +\ l*n*(1-\/4*m2)*ddp\ +\ l*n*(m2-\/1)*ddd;}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ 3*m2*n2*dds\ +\ (m2+n2-\/4*m2*n2)*ddp\ +\ (l2+m2*n2)*ddd;}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ 3*m*n2*l*dds\ +\ m*l*(1-\/4*n2)*ddp\ +\ m*l*(n2-\/1)*ddd;}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 1.5*m*n*(l2-\/m2)*dds\ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ +\ m*n*(1+0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxc:}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*n*l*stadcs;}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ sqr3*n*l*sadcs;}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l2*n*padcs\ +\ n*(1-\/2*l2)*padcp;}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*m*n*padcs\ -\/\ 2*l*m*n*padcp;}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ sqr3*l*n2*padcs\ +\ l*(1-\/2*n2)*padcp;}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ 3*l2*m*n*dds\ +\ m*n*(1-\/4*l2)*ddp\ +\ m*n*(l2-\/1)*ddd;}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ 3*n2*l*m*dds\ +\ l*m*(1-\/4*n2)*ddp\ +\ l*m*(n2-\/1)*ddd;}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ 3*n2*l2*dds\ +\ (n2+l2-\/4*n2*l2)*ddp\ +\ (m2+n2*l2)*ddd;}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 1.5*n*l*(l2-\/m2)*dds\ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2c:}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*stadcs;}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*sadcs;}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*l*(l2-\/m2)*padcs\ +\ l*(1-\/l2+m2)*padcp;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*m*(l2-\/m2)*padcs\ -\/\ m*(1+l2-\/m2)*padcp;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*n*(l2-\/m2)*padcs\ -\/\ n*(l2-\/m2)*padcp;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ 1.5*l*m*(l2-\/m2)*dds\ +\ 2*l*m*(m2-\/l2)*ddp\ +\ 0.5*l*m*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ 1.5*m*n*(l2-\/m2)*dds\ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ +\ m*n*(1+0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ 1.5*n*l*(l2-\/m2)*dds\ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.75*(l2-\/m2)*(l2-\/m2)*dds\ +\ (l2+m2-\/(l2-\/m2)*(l2-\/m2))*ddp\ +\ (n2+0.25*(l2-\/m2)*(l2-\/m2))*ddd;\ }
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*n2*(m2-\/l2)*ddp\ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2c:}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(basis2\_econst)}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STa:\ \ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*stadcs;}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Sa:\ \ \ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*sadcs;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pxa:\ \ \ \ \ \ Out\_econst\ =\ l*(n2-\/0.5*(l2+m2))*padcs\ -\/\ sqr3*l*n2*padcp;}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pya:\ \ \ \ \ \ Out\_econst\ =\ m*(n2-\/0.5*(l2+m2))*padcs\ -\/\ sqr3*m*n2*padcp;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Pza:\ \ \ \ \ \ Out\_econst\ =\ n*(n2-\/0.5*(l2+m2))*padcs\ +\ sqr3*n*(l2+m2)*padcp;}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dxya:\ \ \ \ \ Out\_econst\ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ -\/\ sqr3*2*l*m*n2*ddp\ +\ 0.5*sqr3*l*m*(1+n2)*ddd;}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dyza:\ \ \ \ \ Out\_econst\ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dzxa:\ \ \ \ \ Out\_econst\ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dx2my2a:\ \ Out\_econst\ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ +\ sqr3*n2*(m2-\/l2)*ddp\ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ }
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Dz2a:\ \ \ \ \ Out\_econst\ =\ (n2-\/0.5*(l2+m2))*(n2-\/0.5*(l2+m2))*dds\ +\ 3*n2*(l2+m2)*ddp\ +\ 0.75*(l2+m2)*(l2+m2)*ddd;}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00529\ \ \ \ \ \}}
+\DoxyCodeLine{00530\ }
+
+\end{DoxyCode}

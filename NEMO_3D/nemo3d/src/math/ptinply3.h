@@ -33,7 +33,7 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/ptinply3.h,v 1.3 2004/10/18 23:39:23 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/ptinply3.h,v 1.3 2004/10/18 23:39:23 gekco Exp $
 *****************************************************************************/
 
 #ifndef PTINPLY3_H
@@ -42,28 +42,42 @@ $Header: /repo/nemo3d/src/math/ptinply3.h,v 1.3 2004/10/18 23:39:23 gekco Exp $
 #include <math.h>
 #include <stdlib.h>
 
+#include "constants_nemo.h"
 #include "geopoint.h"
 #include "geopointvectorvector.h"
-#include "constants_nemo.h"
 #include "realtype.h"
 
-#include <rmatrix.h>
 #include <ivector.h>
+#include <rmatrix.h>
 
 #define GeoZeroVec(v) ((v).x = (v).y = (v).z = 0.0)
-#define GeoMultVec(a,b,c) do {(c).x = a*(b).x; (c).y = a*(b).y;	(c).z = a*(b).z; } while (0)
-#define Geo_Vet(a,b,c) do {(c).x = (b).x-(a).x; (c).y = (b).y-(a).y; (c).z = (b).z-(a).z;} while (0)
+#define GeoMultVec(a, b, c)                                                    \
+  do {                                                                         \
+    (c).x = a * (b).x;                                                         \
+    (c).y = a * (b).y;                                                         \
+    (c).z = a * (b).z;                                                         \
+  } while (0)
+#define Geo_Vet(a, b, c)                                                       \
+  do {                                                                         \
+    (c).x = (b).x - (a).x;                                                     \
+    (c).y = (b).y - (a).y;                                                     \
+    (c).z = (b).z - (a).z;                                                     \
+  } while (0)
 
-#define Geo_Add(a,b,c) {(c).x = (b).x+(a).x; (c).y = (b).y+(a).y; (c).z = (b).z+(a).z;}
+#define Geo_Add(a, b, c)                                                       \
+  {                                                                            \
+    (c).x = (b).x + (a).x;                                                     \
+    (c).y = (b).y + (a).y;                                                     \
+    (c).z = (b).z + (a).z;                                                     \
+  }
 
-real GeoDotProd ( geopoint *vec0, geopoint *vec1 );
-void GeoCrossProd ( geopoint *in0, geopoint *in1, geopoint *out );
-real GeoTripleProd ( geopoint *vec0, geopoint *vec1, geopoint *vec2 );
-real GeoVecLen ( geopoint *vec );
-int GeoPolyNormal ( int	n_verts, geopoint *verts, geopoint *n );
-real geo_solid_angle ( int n_vert, geopoint *verts, geopoint *p );
-int ptinpolyhedron( rmatrix v, ivectr nv, real x, real y, real z );
-int ptinpolyhedron_gp( geopointvectrvectr gpvv, geopoint p );
+real GeoDotProd(geopoint *vec0, geopoint *vec1);
+void GeoCrossProd(geopoint *in0, geopoint *in1, geopoint *out);
+real GeoTripleProd(geopoint *vec0, geopoint *vec1, geopoint *vec2);
+real GeoVecLen(geopoint *vec);
+int GeoPolyNormal(int n_verts, geopoint *verts, geopoint *n);
+real geo_solid_angle(int n_vert, geopoint *verts, geopoint *p);
+int ptinpolyhedron(rmatrix v, ivectr nv, real x, real y, real z);
+int ptinpolyhedron_gp(geopointvectrvectr gpvv, geopoint p);
 
 #endif
-

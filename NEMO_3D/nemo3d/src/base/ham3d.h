@@ -33,40 +33,37 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/ham3d.h,v 1.6 2004/10/18 14:35:24 gekco Exp $ 
+$Header: /repo/nemo3d/src/base/ham3d.h,v 1.6 2004/10/18 14:35:24 gekco Exp $
 *****************************************************************************/
 
 #ifndef HAM3D_H
 #define HAM3D_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
 #include "io_utils.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-
-#include "realtype.h"
+#include "cmatrix_nonsym.h"
 #include "constants_nemo.h"
-#include "rvector.h"
 #include "i2tensor.h"
 #include "i3tensor.h"
-#include "cmatrix_nonsym.h"
-#include "qd_struct.h"
-#include "run3d_mpi.h"
-#include "strain3d.h"
-#include "mat3d.h"
 #include "ivectorvector.h"
-#include "polyshape.h"
+#include "mat3d.h"
 #include "matsite_init.h"
+#include "polyshape.h"
 #include "ptinply3.h"
+#include "qd_struct.h"
+#include "realtype.h"
+#include "run3d_mpi.h"
+#include "rvector.h"
+#include "strain3d.h"
 
-#include "mb_ham_spds_micro.h" 
+#include "mb_ham_spds_micro.h"
 
 #include "geo_struct.h"
 
-#ifdef  MEMORY_SAVE_NEWSTRUCT
+#ifdef MEMORY_SAVE_NEWSTRUCT
 #include "bmatrix.h"
 #endif
 #endif
-
-

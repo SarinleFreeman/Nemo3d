@@ -1,0 +1,17 @@
+<map id="geo_struct::PositionInCell" name="geo_struct::PositionInCell">
+<area shape="rect" id="Node000001" title=" " alt="" coords="666,128,838,154"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#abe465ed63581caf44c2017836f6d708b" title=" " alt="" coords="422,5,612,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="723,119,676,81,617,46,585,34,587,29,619,41,679,77,727,115"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#ad2e9533c389f759d16ed606bd26132e9" title=" " alt="" coords="440,55,595,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="688,126,592,99,594,94,689,121"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ad6272018ab3dc22a3121bca6ad7f81d6" title=" " alt="" coords="440,120,595,161"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="651,144,595,144,595,138,651,138"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a9a7e24b2429ec7736f209b7d711322a2" title=" " alt="" coords="440,186,595,226"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="689,161,594,188,592,183,688,156"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#aafaaed85dafd354d439ce5c9d1026fa0" title=" " alt="" coords="416,251,618,276"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="727,167,679,205,619,241,587,253,585,248,617,236,676,200,723,162"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#ac15c939203584a626a23fda82935c079" title=" " alt="" coords="224,128,368,154"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="425,144,368,144,368,138,425,138"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a410f8d053a9efeb98682eea7a0f06018" title=" " alt="" coords="5,128,176,154"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="208,144,176,144,176,138,208,138"/>
+</map>

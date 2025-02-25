@@ -33,31 +33,30 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/rmatrixrvector.h,v 1.3 2004/10/27 19:43:10 gekco Exp $                
+$Header: /repo/nemo3d/src/math/rmatrixrvector.h,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
-
 
 #ifndef Rmatrixrvector_H
 #define Rmatrixrvector_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+#include "io_utils.h"
+#include "math_vdim.h"
+#include "nml_global.h"
+#include "realtype.h"
 #include <rmatrix.h>
 #include <rvector.h>
-#include "io_utils.h"
-#include "realtype.h"
-#include "nml_global.h"
-#include "math_vdim.h"
-
 
 typedef rmatrix *rmatrixrvectr;
 
 rmatrixrvectr Rmatrixrvectr(int d1, int d2);
-void rm_rmatrixrvectr(rmatrixrvectr *t_ptr) ;
-void rm_rmatrixrvectr_shell_only(rmatrixrvectr *t_ptr); 
-int add_elem_rmatrixrvectr(rvectr data_vector, int pos1, int pos2, rmatrixrvectr hold_matrix);
+void rm_rmatrixrvectr(rmatrixrvectr *t_ptr);
+void rm_rmatrixrvectr_shell_only(rmatrixrvectr *t_ptr);
+int add_elem_rmatrixrvectr(rvectr data_vector, int pos1, int pos2,
+                           rmatrixrvectr hold_matrix);
 
 #endif
-

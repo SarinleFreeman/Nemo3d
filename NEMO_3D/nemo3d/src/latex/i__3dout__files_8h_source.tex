@@ -1,0 +1,134 @@
+\doxysection{i\+\_\+3dout\+\_\+files.\+h}
+\hypertarget{i__3dout__files_8h_source}{}\label{i__3dout__files_8h_source}\index{io/i\_3dout\_files.h@{io/i\_3dout\_files.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/io/i\_3dout\_files.h,v\ 1.23\ 2008/09/24\ 02:09:19\ hoonryu\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ I\_3DOUT\_FILES\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ I\_3DOUT\_FILES\_H\ 1}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}io\_utils.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}Boolean.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mat__def_8h}{mat\_def.h}}"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}i\_mat.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}MPI\_Timing.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}fileformat.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}nml\_global.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}fvector.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}i3tensor.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}b3tensor.h"{}}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#if\ (!defined\ MPI3d\ \&\&\ defined\ FAKE\_MPI)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}mpi\_fake.h"{}}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (defined\ MPI3d\ \&\&\ !defined\ FAKE\_MPI)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ bzero(a,b)\ \ memset(a,0,b)}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{string}\ replaceSuffix(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ch,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ sfx,\ \textcolor{keywordtype}{int}\ indx=-\/1);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}*\ malloc\_strippedVector(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ sz\_datstr,\ \textcolor{keywordtype}{void}*\ vIn);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{char}\ *getfileext(\textcolor{keywordtype}{char}\ *fname);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ writeHeader\_siteInfo(qd\_struct\ d,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label);}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ writeSiteInfo(qd\_struct\ d,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label,\ \textcolor{keywordtype}{void}*\ dat0,\ ...);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ readSiteInfo(qd\_struct\ d,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \textcolor{keywordtype}{void}*\ dat0,\ ...);}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ initStartVect(\textcolor{keywordtype}{char}*,\ qd\_struct\ d,\ cvectr\ p);}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ readWaveFunction(\textcolor{keywordtype}{char}*\ filename,\ qd\_struct\ d,\ cvectr\ p);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ writeAtomInfo(qd\_struct\ d);}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ writeShapeInfo(qd\_struct\ d);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ writeNbrIndx(qd\_struct\ d);}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ writePhaseInfoForNEMO1D(qd\_struct\ d);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ writePos(qd\_struct\ d,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *type);}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ writeEigenvector(qd\_struct\ d,\ complex*\ wf,\ \textcolor{keywordtype}{int}\ indx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ suffix=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ writeMomentumMatrix(qd\_struct\ d,\ complex*\ wf,\ \textcolor{keywordtype}{int}\ indx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ suffix=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ writeTransitionRate(qd\_struct\ d,\ real\ *wf,\ \textcolor{keywordtype}{int}\ indx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ suffix=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ writeOverLap(qd\_struct\ d,\ complex\ *wf,\ \textcolor{keywordtype}{int}\ indx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ suffix=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ writePsiSqr(cmatrix\ wfc,\ \textcolor{keywordtype}{int}\ n,\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ wf\_indx);}
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ printPsisq(qd\_struct\ d,\ cvectr\ p,\ \textcolor{keywordtype}{int}\ n\_offset);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ writeEigenvalues(qd\_struct\ d,\ \textcolor{keywordtype}{char}\ mode);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ multicastDisplacement(\ qd\_struct\ d);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ readDisplacement(\ qd\_struct\ d,\ rvectr\ p);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{int}\ print\_bond\_lengths(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ write\_nbr(\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ first\_or\_second\ );}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ printHam\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{char}*\ fmt\ );}
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{int}\ print\_hmat\_struct\ (\ qd\_struct\ d\ );}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{int}\ print\_Psi4\_IPR(\ qd\_struct\ d\ ,\ rvectr\ wf4,\ \textcolor{keywordtype}{int}\ n,\ cvectr\ eigval);}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ hin\_atom\_parse(qd\_struct\ d,\ \mbox{\hyperlink{classgeo__struct}{geo\_struct}}*\ di);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{/*\ obsolete\ stuff\ OR\ used\ only\ by\ serial\ code\ */}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{int}\ print\_isosurf\_pdb(\ qd\_struct\ d,\ rmatrix\ data,\ real\ isoval,\ \textcolor{keywordtype}{int}\ eigvallabel\ );}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{int}\ print\_struct\_pdb(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{int}\ print\_struct\_gmv(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{int}\ scatter\_print\_all(qd\_struct\ d,\ rmatrix\ psisq,\ FILE\ *f\_out,\textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ iex);}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{int}\ scatter\_print\_unitcell(qd\_struct\ d,\ rmatrix\ psisq,\ FILE\ *f\_out,\textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ iex);}
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ print\_psisq\_gnu\_pdb(cmatrix\ wfc,\textcolor{keywordtype}{int}\ n,qd\_struct\ d,\textcolor{keywordtype}{int}\ n\_offset);}
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ print\_psisq\_gnu\_pdb\_k(cmatrix,\textcolor{keywordtype}{int},qd\_struct,\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ print\_psisqr\_gnuplot(\ qd\_struct\ d,\ rmatrix\ psisqr,\ \textcolor{keywordtype}{int}\ k\ );}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ write\_displacement(\ qd\_struct\ d);}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ read\_displacement(\ qd\_struct\ d,\ rvectr\ p);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{int}\ write\_cubic\_struct\_wavefunctions(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ writeOneVector(qd\_struct\ d,\ complex*\ x,\ complex*\ y);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ I\_3DOUT\_FILES\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ }
+
+\end{DoxyCode}

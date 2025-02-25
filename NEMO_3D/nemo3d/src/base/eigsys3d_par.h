@@ -33,32 +33,33 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/eigsys3d_par.h,v 1.15 2008/06/03 07:48:10 hoonryu Exp $ 
+$Header: /repo/nemo3d/src/base/eigsys3d_par.h,v 1.15 2008/06/03 07:48:10 hoonryu
+Exp $
 *****************************************************************************/
 
 #ifndef EIGSYS3D_PAR_H
 #define EIGSYS3D_PAR_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <complex.h>
 #include <rvector.h>
 
+#include "cmatrix_nonsym.h"
+#include "eigsys3d.h"
+#include "h_cmat_mult.h"
+#include "h_cvectr_mult.h"
+#include "ham_local.h"
 #include "io_utils.h"
-#include "nml_global.h"
 #include "lanczos.h"
 #include "lanczos_blk.h"
+#include "nml_global.h"
 #include "qd_struct.h"
-#include "run3d_mpi.h"
-#include "realtype.h"
-#include "cmatrix_nonsym.h"
-#include "h_cvectr_mult.h"
-#include "h_cmat_mult.h"
-#include "eigsys3d.h"
-#include "ham_local.h"
 #include "rayleigh_ritz.h"
+#include "realtype.h"
+#include "run3d_mpi.h"
 
 #ifdef MPI_TIMING
 #include "MPI_Timing.h"
@@ -78,10 +79,10 @@ $Header: /repo/nemo3d/src/base/eigsys3d_par.h,v 1.15 2008/06/03 07:48:10 hoonryu
 
 int lanczos_initialize(qd_struct d);
 int lanczos_driver(qd_struct d);
-int h_eigval_spds ( qd_struct d, real emin, real emax );
-void compute_electronic_structure( qd_struct d );
-void verify_ham( qd_struct d);
+int h_eigval_spds(qd_struct d, real emin, real emax);
+void compute_electronic_structure(qd_struct d);
+void verify_ham(qd_struct d);
 void verify_ham_col(qd_struct d, int col0, int colf);
-void generate_wave_vectors( qd_struct d, rmatrix *kr, int* Nk );
+void generate_wave_vectors(qd_struct d, rmatrix *kr, int *Nk);
 
 #endif /* EIGSYS3D_PAR_H */

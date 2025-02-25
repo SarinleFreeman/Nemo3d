@@ -1,0 +1,90 @@
+\doxysection{Time\+Reversal.\+h}
+\hypertarget{_time_reversal_8h_source}{}\label{_time_reversal_8h_source}\index{postprocessing/TimeReversal.h@{postprocessing/TimeReversal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/postprocessing/TimeReversal.h,v\ 1.1\ 2004/08/26\ 21:28:07\ swlee\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ \_\_timereversal\_h\_}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ \_\_timereversal\_h\_}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}cvector\_lib.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}io\_utils.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}util\_stringops.h"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}i\_3dout\_files.h"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }TimeReversal\{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ }
+\DoxyCodeLine{00053\ \ \ TimeReversal(qd\_struct\ din,\ \textcolor{keywordtype}{int}\ mpiID)}
+\DoxyCodeLine{00054\ \ \ :\ d(din),\ my\_id(mpiID)\ }
+\DoxyCodeLine{00055\ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ g\_min\ =\ d-\/>cell\_s[my\_id]*d-\/>geo.AtomsPerCellMax();}
+\DoxyCodeLine{00057\ \ \ \ \ g\_max\ =\ d-\/>cell\_ln[my\_id]*d-\/>geo.AtomsPerCellMax()+g\_min;}
+\DoxyCodeLine{00058\ \ \ \ \ o\_max\ =\ d-\/>NBasisStates/2;}
+\DoxyCodeLine{00059\ \ \ \ \ numAtoms\ =\ d-\/>n\_atom\_tot;\ }
+\DoxyCodeLine{00060\ \ \ \ \ \_cf\_tr\ =\ Cvectr(numAtoms*o\_max*2);\ \ }
+\DoxyCodeLine{00061\ \ \ \ MPI\_Comm\_size(MPI\_COMM\_WORLD,\ \&mpi\_numprocs);}
+\DoxyCodeLine{00062\ \ \ \ \textcolor{keywordflow}{if}(mpi\_numprocs==1)\ g\_max\ =\ numAtoms;}
+\DoxyCodeLine{00063\ \ \ \}}
+\DoxyCodeLine{00064\ \ \ }
+\DoxyCodeLine{00065\ \ \ \string~TimeReversal()\ \{\}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ get\_data(complex*);}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ apply\_time\_reversal\_operator(\textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keyword}{inline}\ complex\&\ cf(\textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ o)\ }
+\DoxyCodeLine{00071\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_cf[(g*2+s)*o\_max+o];\}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{inline}\ complex\&\ cf\_tr(\textcolor{keywordtype}{int}\ g,\ \textcolor{keywordtype}{int}\ s,\ \textcolor{keywordtype}{int}\ o)\ }
+\DoxyCodeLine{00074\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \_cf\_tr[(g*2+s)*o\_max+o];\}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ qd\_struct\ d;\ }
+\DoxyCodeLine{00078\ \ \textcolor{keywordtype}{int}\ g\_min,\ g\_max,\ o\_max,\ numAtoms,\ my\_id;}
+\DoxyCodeLine{00079\ \ complex*\ \_cf;}
+\DoxyCodeLine{00080\ \ complex*\ \_cf\_tr;}
+\DoxyCodeLine{00081\ \ \textcolor{keywordtype}{int}\ mpi\_numprocs;}
+\DoxyCodeLine{00082\ \};\ \ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

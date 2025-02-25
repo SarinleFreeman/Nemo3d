@@ -33,41 +33,41 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/opt3d.h,v 1.3 2005/11/12 19:14:42 gekco Exp $ 
+$Header: /repo/nemo3d/src/base/opt3d.h,v 1.3 2005/11/12 19:14:42 gekco Exp $
 *****************************************************************************/
 
 #ifndef OPT3D_H
 #define OPT3D_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "io_utils.h"
 
-#include "realtype.h"
+#include "Boolean.h"
+#include "cmatrix_nonsym.h"
 #include "constants_nemo.h"
-#include "rvector.h"
 #include "i2tensor.h"
 #include "i3tensor.h"
-#include "cmatrix_nonsym.h"
 #include "qd_struct.h"
-#include "Boolean.h"
+#include "realtype.h"
+#include "rvector.h"
 
-real calc_rate( qd_struct d, rvectr init, rvectr finl, real px, real py, real pz);
-int calc_opt_rates( qd_struct d, real px, real py, real pz);
-real calc_opt_rates_int( qd_struct d, real px, real py, real pz);
-int calc_opt_mat( qd_struct d, real px, real py, real pz);
-int calc_opt_mat_old( qd_struct d, real px, real py, real pz);
-int calc_opt_rates_int_ramp( qd_struct d, real* target, real start, real end, int n );
+real calc_rate(qd_struct d, rvectr init, rvectr finl, real px, real py,
+               real pz);
+int calc_opt_rates(qd_struct d, real px, real py, real pz);
+real calc_opt_rates_int(qd_struct d, real px, real py, real pz);
+int calc_opt_mat(qd_struct d, real px, real py, real pz);
+int calc_opt_mat_old(qd_struct d, real px, real py, real pz);
+int calc_opt_rates_int_ramp(qd_struct d, real *target, real start, real end,
+                            int n);
 
-int calc_opt_mat_cmplx( qd_struct d, real ephi, real etheta);
+int calc_opt_mat_cmplx(qd_struct d, real ephi, real etheta);
 
-int calc_rate_cmplx( rvectr optmat_vec, qd_struct d, cvectr init, cvectr finl, real px, real py, real pz);
+int calc_rate_cmplx(rvectr optmat_vec, qd_struct d, cvectr init, cvectr finl,
+                    real px, real py, real pz);
 
-rvectr make_egrid_lineshape( rvectr trans, int n_trans, real Gamma, int *ne );
+rvectr make_egrid_lineshape(rvectr trans, int n_trans, real Gamma, int *ne);
 
 #endif
-
-
-

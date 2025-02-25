@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/io/fileformat.h,v 1.11 2006/11/30 22:12:52 nkharche Exp $
+$Header: /repo/nemo3d/src/io/fileformat.h,v 1.11 2006/11/30 22:12:52 nkharche
+Exp $
 *****************************************************************************/
 
 #ifndef FILEFORMAT_H
@@ -48,71 +49,77 @@ $Header: /repo/nemo3d/src/io/fileformat.h,v 1.11 2006/11/30 22:12:52 nkharche Ex
 
 #ifndef NEMO3D_DB
 
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
 #include <string.h>
 
-#include "realtype.h"
 #include "complex.h"
 #include "io_utils.h"
+#include "realtype.h"
 
 #define MAX_VARS 10
 
 #define FORMATLONG "%8i"
 #define FORMATORIG "%5i"
-#define FORMATOUT  FORMATLONG
+#define FORMATOUT FORMATLONG
 
-#define PDBFORMATATOM "%5i" /* Used to write pdb file in rasmol readable format */
-#define PDBFORMATCONCT "%4i" /* Used to write pdb file in rasmol readable format */
+#define PDBFORMATATOM                                                          \
+  "%5i" /* Used to write pdb file in rasmol readable format */
+#define PDBFORMATCONCT                                                         \
+  "%4i" /* Used to write pdb file in rasmol readable format */
 
-/* For the structure output Wei Qiao (Purdue) decided that he does not need/ 
+/* For the structure output Wei Qiao (Purdue) decided that he does not need/
  *  want the values "  1.00  0.00" in the output file.   */
-#define COORDINATEWRITEOLD "  1.00  0.00" 
+#define COORDINATEWRITEOLD "  1.00  0.00"
 #define COORDINATEWRITENEW ""
 #define COORDINATEWRITE COORDINATEWRITENEW
 
 /*if COORDINATEWRITEOLD is chosen, COORDINATEREADOLD should be chosen either */
-#define COORDINATEREADOLD "%f%f" 
-#define COORDINATEREADNEW "" 
+#define COORDINATEREADOLD "%f%f"
+#define COORDINATEREADNEW ""
 #define COORDINATEREAD COORDINATEREADNEW
 
-using std::string;
 using std::cout;
 using std::endl;
+using std::string;
 
-void parseRecordFormat(const char* label, int* Nint, int* Nreal, int* Nfloat, 
-                       int* Ncol_var, int* sz_var, 
-                       int* Nvar, char* fieldType);
-FILE* readHeader(const char* filename, const char* recFmt, 
-                 int* Ndim, int* dim, char* dim_lbl[], 
-		 int* Nuser, char* usr_comment[]);
-void writeHeader(const char* file, const char* recFmt, 
-                 int* dim, char* dim_lbl[], char* usr_comment[]);
-void displayHeader(const char* filename);
- 
-void fmtdat(int, char*[]);
-void reformatBinaryData(char* filename, const char* flags, int prec);
-void convertBinToAscii(char* filename, int prec, int _inclHdr);
-void convertWfToPdb(char* filename, char* filename2);
-void convertAsciiToBin(char* filename);
-double* getBinFileData(const char* filename, int prec, int *rdim, int *cdim);
-void writeDXfile(char* filename);
-void read_oneLine(FILE *fp, char* xbuffer, char* ybuffer, char*zbuffer, char* databuffer, int* x, int* y, int* z, double* value);
-void writeDXHeader_For_WF_Profile(FILE *fp, int cellxmax, int cellymax, int cellzmax, int evN, double eLvalue, double lattice_x, double lattice_y, double lattice_z);
-void writeDXHeader_For_Tension_Profile(FILE *fp, int cellxmax, int cellymax, int cellzmax, double lattice_x, double lattice_y, double lattice_z, char* tension);
+void parseRecordFormat(const char *label, int *Nint, int *Nreal, int *Nfloat,
+                       int *Ncol_var, int *sz_var, int *Nvar, char *fieldType);
+FILE *readHeader(const char *filename, const char *recFmt, int *Ndim, int *dim,
+                 char *dim_lbl[], int *Nuser, char *usr_comment[]);
+void writeHeader(const char *file, const char *recFmt, int *dim,
+                 char *dim_lbl[], char *usr_comment[]);
+void displayHeader(const char *filename);
+
+void fmtdat(int, char *[]);
+void reformatBinaryData(char *filename, const char *flags, int prec);
+void convertBinToAscii(char *filename, int prec, int _inclHdr);
+void convertWfToPdb(char *filename, char *filename2);
+void convertAsciiToBin(char *filename);
+double *getBinFileData(const char *filename, int prec, int *rdim, int *cdim);
+void writeDXfile(char *filename);
+void read_oneLine(FILE *fp, char *xbuffer, char *ybuffer, char *zbuffer,
+                  char *databuffer, int *x, int *y, int *z, double *value);
+void writeDXHeader_For_WF_Profile(FILE *fp, int cellxmax, int cellymax,
+                                  int cellzmax, int evN, double eLvalue,
+                                  double lattice_x, double lattice_y,
+                                  double lattice_z);
+void writeDXHeader_For_Tension_Profile(FILE *fp, int cellxmax, int cellymax,
+                                       int cellzmax, double lattice_x,
+                                       double lattice_y, double lattice_z,
+                                       char *tension);
 void writeDXTail(FILE *fp);
 
-#endif  /* NEMO3D_DB */
-
+#endif /* NEMO3D_DB */
 
 // The definition below establishes an unmangled C function compiled with C++
 // such that this function can be called from a C-linked executable
 #ifdef __cplusplus
 extern "C" {
 #endif
-  double* getBinFileData_c(const char* filename, int prec, int *rdim, int *cdim);
-#ifdef __cplusplus   
+double *getBinFileData_c(const char *filename, int prec, int *rdim, int *cdim);
+#ifdef __cplusplus
 }
 #endif
 

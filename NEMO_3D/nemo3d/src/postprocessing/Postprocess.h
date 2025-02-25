@@ -33,12 +33,13 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/Postprocess.h,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/Postprocess.h,v 1.1 2004/08/26 21:28:07
+swlee Exp $
 *****************************************************************************/
 
 #ifndef postprocessing_h__
-#define postprocessing_h__ 
+#define postprocessing_h__
 
-int nemo3d_postprocessing(int argc, char* argv[]);
+int nemo3d_postprocessing(int argc, char *argv[]);
 
 #endif

@@ -33,29 +33,29 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/RandRandom.cpp,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/RandRandom.cpp,v 1.1 2004/08/26
+21:28:07 swlee Exp $
 *****************************************************************************/
 
 #include "RandRandom.h"
 extern "C" {
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/times.h>
 #include <sys/time.h>
+#include <sys/times.h>
+#include <sys/types.h>
+#include <unistd.h>
 }
 
-const double RandRandom::rand_max_inv = 1.0/(double(RAND_MAX) + 1);
+const double RandRandom::rand_max_inv = 1.0 / (double(RAND_MAX) + 1);
 
 void RandRandom::init(bool gen_seed) {
-  if(gen_seed) {
-    struct timeval tvbuf;  //Values from call to gettimeofday
-    struct timezone tzbuf; //Timezone
+  if (gen_seed) {
+    struct timeval tvbuf;  // Values from call to gettimeofday
+    struct timezone tzbuf; // Timezone
     gettimeofday(&tvbuf, &tzbuf);
     unsigned long last_secs = tvbuf.tv_sec;
-    thisSeed = last_secs%16081+thisStreamID*nStreams;
+    thisSeed = last_secs % 16081 + thisStreamID * nStreams;
   } else {
-    thisSeed = thisStreamID*nStreams;
+    thisSeed = thisStreamID * nStreams;
   }
   srand(thisSeed);
 }
-

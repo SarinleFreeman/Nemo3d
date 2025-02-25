@@ -1,0 +1,198 @@
+\doxysection{Strain\+Param Class Reference}
+\hypertarget{class_strain_param}{}\label{class_strain_param}\index{StrainParam@{StrainParam}}
+
+
+Collaboration diagram for Strain\+Param\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_strain_param__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_strain_param_afd7311259e4ecedb6ac30d6396cc022e}\label{class_strain_param_afd7311259e4ecedb6ac30d6396cc022e} 
+void {\bfseries Set\+Mat\+Parm} (vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ s\+Mat\+List)
+\item 
+\Hypertarget{class_strain_param_ae1483070aa633f988f13fd999c1bb0a2}\label{class_strain_param_ae1483070aa633f988f13fd999c1bb0a2} 
+void {\bfseries Set\+Options} (const top\+\_\+struct \&opt)
+\item 
+\Hypertarget{class_strain_param_a1bc5f4261a1b9da94ebf1972885bd4ac}\label{class_strain_param_a1bc5f4261a1b9da94ebf1972885bd4ac} 
+void {\bfseries Deallocate} ()
+\item 
+\Hypertarget{class_strain_param_a7b2df4d306d051422386d1a2b0ed0b30}\label{class_strain_param_a7b2df4d306d051422386d1a2b0ed0b30} 
+bool {\bfseries do\+Period\+Minimization} () const
+\item 
+real \mbox{\hyperlink{class_strain_param_aee23ff9649652a1a67475b2cb06d091e}{alpha\+\_\+eff}} (int m\+\_\+atom\+\_\+type, int n\+\_\+atom\+\_\+type, real r2, real d2, int anh, bool pr)
+\item 
+real \mbox{\hyperlink{class_strain_param_aa481e3130420772a49143b0a77582dfa}{beta\+\_\+eff}} (int m\+\_\+atom\+\_\+type, int n1\+\_\+atom\+\_\+type, int n2\+\_\+atom\+\_\+type, rvectr d1, rvectr d2, rvectr r1, rvectr r2, int anh, bool pr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_strain_param_aa9e456680d9f8ecee9780b962a6a2268}\label{class_strain_param_aa9e456680d9f8ecee9780b962a6a2268} 
+bool {\bfseries Min\+WrtX}
+\item 
+\Hypertarget{class_strain_param_aea98da53bac54ac651fa232c0cef42ed}\label{class_strain_param_aea98da53bac54ac651fa232c0cef42ed} 
+bool {\bfseries Min\+WrtY}
+\item 
+\Hypertarget{class_strain_param_a061a4340edb4add3f3b5b659f0a1b76d}\label{class_strain_param_a061a4340edb4add3f3b5b659f0a1b76d} 
+bool {\bfseries Min\+WrtZ}
+\item 
+\Hypertarget{class_strain_param_a2c93615e54ce9c9bef72791790924c5f}\label{class_strain_param_a2c93615e54ce9c9bef72791790924c5f} 
+int {\bfseries debugp}
+\item 
+\Hypertarget{class_strain_param_a896f3575b88feaacbaefe5e97753e57e}\label{class_strain_param_a896f3575b88feaacbaefe5e97753e57e} 
+int {\bfseries first\+\_\+or\+\_\+second}
+\item 
+\Hypertarget{class_strain_param_a794f8b689f2811daf8d45e992e4e1fa9}\label{class_strain_param_a794f8b689f2811daf8d45e992e4e1fa9} 
+double {\bfseries SCALE\+\_\+\+FCTR}
+\item 
+\Hypertarget{class_strain_param_a0f2eb0105aa1362071d0b28d348c2978}\label{class_strain_param_a0f2eb0105aa1362071d0b28d348c2978} 
+rvectr {\bfseries dp}
+\item 
+\Hypertarget{class_strain_param_a76c08ddb96ccd5ee6cee74e56e578335}\label{class_strain_param_a76c08ddb96ccd5ee6cee74e56e578335} 
+rmatrix {\bfseries amat}
+\item 
+\Hypertarget{class_strain_param_a5709f51cb1f28b96ad512bd5b16ca15c}\label{class_strain_param_a5709f51cb1f28b96ad512bd5b16ca15c} 
+rmatrix {\bfseries alpha}
+\item 
+\Hypertarget{class_strain_param_a5be997417f33060530bc11a8e8684ba6}\label{class_strain_param_a5be997417f33060530bc11a8e8684ba6} 
+rmatrix {\bfseries beta}
+\item 
+\Hypertarget{class_strain_param_a5c837f520e93ef4df54d8e56538b1103}\label{class_strain_param_a5c837f520e93ef4df54d8e56538b1103} 
+rmatrix {\bfseries aa\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_a36289e9c6188fc5b95b884c2040d8423}\label{class_strain_param_a36289e9c6188fc5b95b884c2040d8423} 
+rmatrix {\bfseries ba\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_a2af5f612e49d82af08ecd84db06eb4df}\label{class_strain_param_a2af5f612e49d82af08ecd84db06eb4df} 
+rmatrix {\bfseries ca\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_a7f4eb4074d179edee8eaafc556f1f75d}\label{class_strain_param_a7f4eb4074d179edee8eaafc556f1f75d} 
+rmatrix {\bfseries ao\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_a15ae23738e2807b111f6cc80cbd44fcf}\label{class_strain_param_a15ae23738e2807b111f6cc80cbd44fcf} 
+rmatrix {\bfseries bo\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_a424c5e70c9c983648fed23e7004e6188}\label{class_strain_param_a424c5e70c9c983648fed23e7004e6188} 
+rmatrix {\bfseries co\+\_\+\+VFF}
+\item 
+\Hypertarget{class_strain_param_afab1e0c73e61fe3d7816e34899cb8e02}\label{class_strain_param_afab1e0c73e61fe3d7816e34899cb8e02} 
+ivectr {\bfseries lm\+\_\+sndL}
+\item 
+\Hypertarget{class_strain_param_aa4402e892ea7b2c8c72aa2eca8dfdc80}\label{class_strain_param_aa4402e892ea7b2c8c72aa2eca8dfdc80} 
+ivectr {\bfseries lm\+\_\+sndR}
+\item 
+\Hypertarget{class_strain_param_ad8a8d9eded7b9336a629be8495c45960}\label{class_strain_param_ad8a8d9eded7b9336a629be8495c45960} 
+ivectr {\bfseries lm\+\_\+rcvL}
+\item 
+\Hypertarget{class_strain_param_a0ce38aa54be6bd660b1ef682d3450839}\label{class_strain_param_a0ce38aa54be6bd660b1ef682d3450839} 
+ivectr {\bfseries lm\+\_\+rcvR}
+\item 
+\Hypertarget{class_strain_param_ac470159686aeb0518013fdf00c26e415}\label{class_strain_param_ac470159686aeb0518013fdf00c26e415} 
+int {\bfseries cell\+LMin}
+\item 
+\Hypertarget{class_strain_param_a313e8d1774da3596f6b8d0bd2e1c4191}\label{class_strain_param_a313e8d1774da3596f6b8d0bd2e1c4191} 
+int {\bfseries cell\+LMax}
+\item 
+\Hypertarget{class_strain_param_ace551145a74f9120ebaf0ac731da8003}\label{class_strain_param_ace551145a74f9120ebaf0ac731da8003} 
+int {\bfseries atom\+LMin}
+\item 
+\Hypertarget{class_strain_param_a9356b30301c3f210dfe18f22227a179a}\label{class_strain_param_a9356b30301c3f210dfe18f22227a179a} 
+int {\bfseries atom\+LMax}
+\item 
+\Hypertarget{class_strain_param_aa8c78ba41361349c2489dc6deb1711d3}\label{class_strain_param_aa8c78ba41361349c2489dc6deb1711d3} 
+int {\bfseries cell\+RMin}
+\item 
+\Hypertarget{class_strain_param_a3ac8cd3956acd66325305df5b3689dc0}\label{class_strain_param_a3ac8cd3956acd66325305df5b3689dc0} 
+int {\bfseries cell\+RMax}
+\item 
+\Hypertarget{class_strain_param_aefd81b8affb9e5a912040658f516c4c3}\label{class_strain_param_aefd81b8affb9e5a912040658f516c4c3} 
+int {\bfseries atom\+RMin}
+\item 
+\Hypertarget{class_strain_param_a560c484aa56e9f2e09e53c2e5b482c90}\label{class_strain_param_a560c484aa56e9f2e09e53c2e5b482c90} 
+int {\bfseries atom\+RMax}
+\item 
+\Hypertarget{class_strain_param_a70463c719b1cd5bdaddda1f46d2b2e2a}\label{class_strain_param_a70463c719b1cd5bdaddda1f46d2b2e2a} 
+imatrix {\bfseries rcv\+L\+\_\+lm}
+\item 
+\Hypertarget{class_strain_param_a26b5398806436ae43cb64e78b9a627fb}\label{class_strain_param_a26b5398806436ae43cb64e78b9a627fb} 
+imatrix {\bfseries rcv\+R\+\_\+lm}
+\item 
+\Hypertarget{class_strain_param_ac1c344b6ae5e368de31c8562ef8dfbdc}\label{class_strain_param_ac1c344b6ae5e368de31c8562ef8dfbdc} 
+\mbox{\hyperlink{class_strain_comm}{Strain\+Comm}} {\bfseries sndL}
+\item 
+\Hypertarget{class_strain_param_a951932de4a8e391d9d57609c91c9389b}\label{class_strain_param_a951932de4a8e391d9d57609c91c9389b} 
+\mbox{\hyperlink{class_strain_comm}{Strain\+Comm}} {\bfseries sndR}
+\item 
+\Hypertarget{class_strain_param_aa53b2f4360e07c4a5b0bf08bf229f068}\label{class_strain_param_aa53b2f4360e07c4a5b0bf08bf229f068} 
+\mbox{\hyperlink{class_strain_comm}{Strain\+Comm}} {\bfseries rcvL}
+\item 
+\Hypertarget{class_strain_param_a92088916174c0d893607429bd290a330}\label{class_strain_param_a92088916174c0d893607429bd290a330} 
+\mbox{\hyperlink{class_strain_comm}{Strain\+Comm}} {\bfseries rcvR}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_strain_param_aee23ff9649652a1a67475b2cb06d091e}\index{StrainParam@{StrainParam}!alpha\_eff@{alpha\_eff}}
+\index{alpha\_eff@{alpha\_eff}!StrainParam@{StrainParam}}
+\doxysubsubsection{\texorpdfstring{alpha\_eff()}{alpha\_eff()}}
+{\footnotesize\ttfamily \label{class_strain_param_aee23ff9649652a1a67475b2cb06d091e} 
+real Strain\+Param\+::alpha\+\_\+eff (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+atom\+\_\+type}{, }\item[{int}]{n\+\_\+atom\+\_\+type}{, }\item[{real}]{r2}{, }\item[{real}]{d2}{, }\item[{int}]{anh}{, }\item[{bool}]{pr}{}\end{DoxyParamCaption})}
+
+Get the effective value of alpha scaled with strain. 
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+atom\+\_\+type} & is the type of the m-\/th atom \\
+\hline
+{\em n\+\_\+atom\+\_\+type} & is the type of the n-\/th atom \\
+\hline
+{\em d2} & is the square of the relaxed m-\/n2 bond of the V doublet \\
+\hline
+{\em r2} & is the square of the strained m-\/n2 bond of the V doublet \\
+\hline
+{\em anh} & is an integer 0/1/2 specifying the choice of the anharmonicity corrections \\
+\hline
+{\em pr} & is aboolean value, specifying either to print the wornings at truncation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the effective value of alphaa scaled with strain 
+\end{DoxyReturn}
+\Hypertarget{class_strain_param_aa481e3130420772a49143b0a77582dfa}\index{StrainParam@{StrainParam}!beta\_eff@{beta\_eff}}
+\index{beta\_eff@{beta\_eff}!StrainParam@{StrainParam}}
+\doxysubsubsection{\texorpdfstring{beta\_eff()}{beta\_eff()}}
+{\footnotesize\ttfamily \label{class_strain_param_aa481e3130420772a49143b0a77582dfa} 
+real Strain\+Param\+::beta\+\_\+eff (\begin{DoxyParamCaption}\item[{int}]{m\+\_\+atom\+\_\+type}{, }\item[{int}]{n1\+\_\+atom\+\_\+type}{, }\item[{int}]{n2\+\_\+atom\+\_\+type}{, }\item[{rvectr}]{d1}{, }\item[{rvectr}]{d2}{, }\item[{rvectr}]{r1}{, }\item[{rvectr}]{r2}{, }\item[{int}]{anh}{, }\item[{bool}]{pr}{}\end{DoxyParamCaption})}
+
+Get the effective value of beta scaled with strain. 
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+atom\+\_\+type} & is the type of the m-\/th atom \\
+\hline
+{\em n1\+\_\+atom\+\_\+type} & is the type of the n1-\/th atom \\
+\hline
+{\em n2\+\_\+atom\+\_\+type} & is the type of the n2-\/th atom \\
+\hline
+{\em d1} & is the vector of the relaxed m-\/n1 bond of the V doublet \\
+\hline
+{\em d2} & is the vector of the relaxed m-\/n2 bond of the V doublet \\
+\hline
+{\em r1} & is the vector of the strained m-\/n1 bond of the V doublet \\
+\hline
+{\em r2} & is the vector of the strained m-\/n2 bond of the V doublet \\
+\hline
+{\em anh} & is an integer 0/1/2 specifying the choice of the anharmonicity corrections \\
+\hline
+{\em pr} & is aboolean value, specifying either to print the wornings at truncation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the effective value of beta scaled with strain 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+base/Strain\+Param.\+h\item 
+base/Strain\+Param.\+c\end{DoxyCompactItemize}

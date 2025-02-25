@@ -41,9 +41,9 @@ $Header: /repo/nemo3d/src/top/run3d.h,v 1.6 2003/10/08 16:18:43 hook Exp $
 
 #define _MAIN /* needed for eigen library (REPLACE.h) */
 
-#include "nemo3d_mpi.h"
-#include "nemo3d_entry.h"
 #include "fileformat.h"
+#include "nemo3d_entry.h"
+#include "nemo3d_mpi.h"
 #ifdef Embedded_Postprocess
 #include "Postprocess.h"
 #endif

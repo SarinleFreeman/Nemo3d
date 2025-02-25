@@ -33,16 +33,18 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/ham/mb_ham_spds_micro2.h,v 1.2 2004/04/14 19:56:04 swlee Exp $
+$Header: /repo/nemo3d/src/ham/mb_ham_spds_micro2.h,v 1.2 2004/04/14 19:56:04
+swlee Exp $
 *****************************************************************************/
 
 #ifndef MB_HAM_SPDS_MICRO2_H
 #define MB_HAM_SPDS_MICRO2_H 1
 
-
-typedef enum {BM_1_s_nospin=1, 
-              BM_10_sp3ss_spin=10, 
-              BM_10_sp3d5ss_nospin=11, 
-              BM_20_sp3d5ss_spin=20} BM_Type;
+typedef enum {
+  BM_1_s_nospin = 1,
+  BM_10_sp3ss_spin = 10,
+  BM_10_sp3d5ss_nospin = 11,
+  BM_20_sp3d5ss_spin = 20
+} BM_Type;
 
 #endif

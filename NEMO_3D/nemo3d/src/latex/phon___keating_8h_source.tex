@@ -1,0 +1,251 @@
+\doxysection{phon\+\_\+\+Keating.\+h}
+\hypertarget{phon___keating_8h_source}{}\label{phon___keating_8h_source}\index{base/phon\_Keating.h@{base/phon\_Keating.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/phon\_Keating.h,v\ 1.4\ 2004/02/27\ 04:09:05\ lol\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ phon\_Keating\_h}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ phon\_Keating\_h}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}Boolean.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}io\_utils.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}util\_stringops.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}util\_memory.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants__nemo_8h}{constants\_nemo.h}}"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}macopt.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}macopt\_par.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}cmacopt.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}i\_3dout\_files.h"{}}\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}MPI\_Timing.h"{}}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\#include\ <iostream.h>}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}phon\_parpack.h"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}phon\_arpack.h"{}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}phon\_struct.h"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}phon\_output.h"{}}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{int}\ \ N\_DM(qd\_struct\ d,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ l,\textcolor{comment}{//-\/th\ unit\ cell}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m,\textcolor{comment}{//-\/th\ atom}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xi\textcolor{comment}{//-\/th\ component}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ );}
+\DoxyCodeLine{00073\ \textcolor{comment}{//Returnes\ index\ of\ the\ element\ in\ the\ Dynamical\ Matrix}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ Map\_DM(qd\_struct\ d);}
+\DoxyCodeLine{00076\ \textcolor{comment}{/*Mapping\ of\ the\ indexies\ of\ the\ dynamical\ matrix\ in}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ d-\/>phon.DMmap[d-\/>geo.N\_Cell][d-\/>geo.cellgeom.AtomsPerCellMax()]*/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ initial\_assignments(qd\_struct\ d,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_qph,\textcolor{comment}{//point\ in\ the\ reciprocal\ space}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ l,\textcolor{comment}{//cell}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m,\textcolor{comment}{//atom}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cvectr\ phase,\textcolor{comment}{//[n\_max]\ phase\ associated\ with\ n-\/th\ neighbor}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ alpha,\textcolor{comment}{//[n\_max]\ bond\ length\ VFF\ constant\ associated\ with\ n-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ beta,\textcolor{comment}{//[n\_max]\ bond\ bending\ VFF\ constant\ associated\ with\ n-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ sqrtMn,\textcolor{comment}{//[n\_max]\ square\ root\ of\ the\ atomic\ mass\ associated\ with\ n-\/th\ neighbor}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmatrix\ nnv,\textcolor{comment}{//[n\_max]\ strained\ bond\ length\ between\ n-\/th\ neighbor\ and\ m-\/th\ atom}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmatrix\ nnv0,\textcolor{comment}{//[n\_max]\ realxed\ bond\ length\ between\ n-\/th\ neighbor\ and\ m-\/th\ atom}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ dssq,\textcolor{comment}{//[n\_max]\ strained\ bond\ length\ squared\ between\ n-\/th\ neighbor\ and\ m-\/th\ atom}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ d0sq\textcolor{comment}{//[n\_max]\ realxed\ bond\ length\ squared\ between\ n-\/th\ neighbor\ and\ m-\/th\ atom}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00092\ \textcolor{comment}{//Assign\ a\ set\ of\ arrays\ associated\ to\ the\ n-\/th\ neighbor\ of\ m-\/th\ atom\ in\ l-\/th\ unit\ cell}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//n\_max=d-\/>geo.Neighbors(m)}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ Add\_element(qd\_struct\ d,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_row,\textcolor{keywordtype}{int}\ n\_col,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ tail\_r,real\ tail\_i}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00099\ \textcolor{comment}{/*Adds\ tail\ to\ the\ Dynamical\ matrix\ d-\/>phon.DM[row][i-\/1]\ and\ }}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ the\ corresponding\ column\ indexes\ to\ d-\/>phon.Ind\_DM[row][i].}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ Here\ 0<i<=d-\/>phon.states\_in\_row\ */}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ Add(qd\_struct\ d,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ real\ tail\_r,real\ tail\_i}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00107\ \textcolor{comment}{/*Decide\ either\ add\ the\ element\ to\ DM\ on\ the\ current\ processor,}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ what\ DM\ indexies\ n\_row\ and\ n\_col\ should\ be}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ and\ call\ Add\_element*/}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ Add\_Herm(qd\_struct\ d,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ row,\textcolor{keywordtype}{int}\ col,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ real\ tail\_r,real\ tail\_i}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00115\ \textcolor{comment}{/*Add\ tail\ and\ tail*\ to\ "{}hermitian"{}\ parts\ of\ DM*/}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ real\ DM\_A1(}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ real\ alpha,\textcolor{comment}{//bond\ length\ distorsion\ force\ constant\ array\ of\ N\_Neighbor[m]\ elements}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ real\ dssq,\textcolor{comment}{//square\ of\ the\ length\ of\ the\ strained\ bond}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ real\ d0sq,\textcolor{comment}{//square\ of\ the\ length\ of\ the\ relaxed\ bond}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ real\ nnv\textcolor{comment}{//component\ of\ the\ strained\ bond}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00123\ \textcolor{comment}{/*Computes\ A1:}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ A1=d\string^2\ E\_alpha/du\_x(n)du\_x(n)=d\string^2\ E\_alpha/du\_x(m)du\_x(m)}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ -\/A1=d\string^2\ E\_alpha/du\_x(n)du\_x(m)=d\string^2\ E\_alpha/du\_x(m)du\_x(n)}}
+\DoxyCodeLine{00126\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ real\ DM\_A2(}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ real\ alpha,\textcolor{comment}{//bond\ length\ distorsion\ force\ constant\ array\ of\ N\_Neighbor[m]\ elements}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ real\ d0sq,\textcolor{comment}{//square\ of\ the\ length\ of\ the\ relaxed\ bond}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ real\ x\_ij,real\ y\_ij\textcolor{comment}{//components\ of\ the\ strained\ bond}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00133\ \textcolor{comment}{/*Computes\ A2:}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ A2=d\string^2\ E\_alpha/du\_x(n)du\_y(n)=d\string^2\ E\_alpha/du\_x(m)du\_y(m)}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ -\/A2=d\string^2\ E\_alpha/du\_x(n)du\_y(m)=d\string^2\ E\_alpha/du\_x(m)du\_y(n)}}
+\DoxyCodeLine{00136\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ real\ doublet(}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ beta1,real\ beta2,\textcolor{comment}{//bond\ bending\ distorsion\ force\ constant}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ d0sq1,real\ d0sq2\textcolor{comment}{//square\ of\ the\ length\ of\ the\ relaxed\ bond}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00142\ \textcolor{comment}{/*Computes\ coefficient}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ 0.375*sqrt(beta1*beta2)/sqrt(d0sq1*d0sq2)}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ for\ the\ given\ V-\/shaped\ bond\ doublet*/}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ real\ DM\_D(}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ rvectr\ d1,rvectr\ d2,\textcolor{comment}{//vectors\ of\ the\ relaxed\ bonds\ of\ the\ V\ doublet}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ rvectr\ r1,rvectr\ r2\textcolor{comment}{//vectors\ of\ the\ strained\ bonds\ of\ the\ V\ doublet}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00150\ \textcolor{comment}{/*Computes\ D:}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ Term\ for\ bond\ bending\ distorsion}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ to\ be\ added\ in\ different\ elements\ of\ DM}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ with\ the\ same\ displacement\ projection}}
+\DoxyCodeLine{00154\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ Add\_A1(qd\_struct\ d,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ real\ A1,\textcolor{comment}{//element\ to\ be\ added}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mDM,\textcolor{comment}{//row}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nDM,\textcolor{comment}{//column}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMm,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ ofthe\ n-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_r,\textcolor{comment}{//real\ part\ of\ the\ phase}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_i\textcolor{comment}{//imaginary\ part\ of\ the\ phase}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00165\ \textcolor{comment}{/*Add\ elements\ A1\ to\ Dynamical\ Matrix*/}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ Add\_A2(qd\_struct\ d,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ real\ A2,\textcolor{comment}{//element\ to\ be\ added}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ l,\textcolor{comment}{//cell}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m,\textcolor{comment}{//atom}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xim,\textcolor{comment}{//displacement\ component\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cindx,\textcolor{comment}{//cell\ of\ the\ n-\/th\ neighbor\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ aindx,\textcolor{comment}{//atom\ of\ the\ n-\/th\ neighbor\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xin,\textcolor{comment}{//displacement\ component\ of\ the\ n-\/th\ neighbor\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMm,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ ofthe\ n-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_r,\textcolor{comment}{//real\ part\ of\ the\ phase}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_i\textcolor{comment}{//imaginary\ part\ of\ the\ phase}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00180\ \textcolor{comment}{/*Add\ elements\ A2\ to\ Dynamical\ Matrix*/}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ Add\_BXX(qd\_struct\ d,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ V,\textcolor{comment}{//factor\ for\ the\ V\ doublet}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ D,\textcolor{comment}{//=(r\_mn1*r\_mn2-\/d\_mn1*d\_mn2)}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ xn1,real\ xn2,\textcolor{comment}{//components\ of\ the\ bond\ length\ between\ m-\/th\ atom\ and\ n1(n2)\ neighbor}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_m,\textcolor{keywordtype}{int}\ atom\_m,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ vertex\ atom}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_n1,\textcolor{keywordtype}{int}\ atom\_n1,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ n1-\/th\ neighbor\ atom}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_n2,\textcolor{keywordtype}{int}\ atom\_n2,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ n2-\/th\ neighbor\ atom}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xi,\textcolor{comment}{//projection\ of\ the\ displacement}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMm,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn1,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn2,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n1\_r,\textcolor{comment}{//real\ part\ of\ the\ phase\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n1\_i,\textcolor{comment}{//imaginary\ part\ of\ the\ phase\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n2\_r,\textcolor{comment}{//real\ part\ of\ the\ phase\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n2\_i\textcolor{comment}{//imaginary\ part\ of\ the\ phase\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00198\ \textcolor{comment}{/*Add\ elements\ B\ to\ Dynamical\ Matrix}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ \ when\ projections\ of\ the\ displacements\ are\ the\ same*/}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ Add\_BX1X2(qd\_struct\ d,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ V,\textcolor{comment}{//factor\ for\ the\ V\ doublet}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ x1n1,real\ x1n2,real\ x2n1,real\ x2n2,\textcolor{comment}{//components\ of\ the\ bond\ length\ between\ m-\/th\ atom\ and\ n1(n2)\ neighbor}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_m,\textcolor{keywordtype}{int}\ atom\_m,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ vertex\ atom}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_n1,\textcolor{keywordtype}{int}\ atom\_n1,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ n1-\/th\ neighbor\ atom}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell\_n2,\textcolor{keywordtype}{int}\ atom\_n2,\textcolor{comment}{//cell\ and\ atom\ indexes\ of\ the\ n2-\/th\ neighbor\ atom}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ xi1,\textcolor{keywordtype}{int}\ xi2,\textcolor{comment}{//projections\ of\ the\ displacement}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMm,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn1,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ sqrtMn2,\textcolor{comment}{//square\ root\ of\ the\ atomic\ mass\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n1\_r,\textcolor{comment}{//real\ part\ of\ the\ phase\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n1\_i,\textcolor{comment}{//imaginary\ part\ of\ the\ phase\ of\ the\ n1-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n2\_r,\textcolor{comment}{//real\ part\ of\ the\ phase\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ phase\_n2\_i\textcolor{comment}{//imaginary\ part\ of\ the\ phase\ of\ the\ n2-\/th\ neighbor\ of\ m-\/th\ atom\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00216\ \textcolor{comment}{/*Add\ elements\ B\ to\ Dynamical\ Matrix}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ when\ projections\ of\ the\ displacements\ are\ different*/}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{void}\ comb\_DM(ivectr\ index,\textcolor{comment}{//[d-\/>phon.Ind\_DM[n\_row][i]+1]\ vector\ d-\/>phon.Ind\_DM[n\_row][i]}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ cvectr\ DMrow,\textcolor{comment}{//[d-\/>phon.Ind\_DM[n\_row][i]]\ vector\ d-\/>phon.DM[n\_row][i-\/1]}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ beg,\ \textcolor{keywordtype}{int}\ end\textcolor{comment}{//lower\ and\ upper\ bounds\ of\ the\ arrays}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00223\ \textcolor{comment}{/*Modification\ of\ quick\_sort\ to}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ \ sort\ d-\/>phon.Ind\_DM[n\_row][i]}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ \ in\ ascending\ order.}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ Also\ complex\ elements\ of\ DM}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ d-\/>phon.DM[n\_row][i-\/1]\ are\ swapped.*/}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{void}\ DM\_zeros(qd\_struct\ d);}
+\DoxyCodeLine{00230\ \textcolor{comment}{//Assignes\ zeros\ to\ elements\ with\ value\ less\ then\ zero}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keywordtype}{void}\ DM\_Keating(qd\_struct\ d,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_qph,\ \textcolor{comment}{//-\/th\ point\ in\ the\ reciprocal\ space}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cell0,\textcolor{comment}{//initial\ cell\ index}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cellF\textcolor{comment}{//final\ cell\ index}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00237\ \textcolor{comment}{//\ Generates\ valence-\/field-\/force\ part\ of\ dynamical\ matrix}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ phon\_disp(qd\_struct\ d);}
+\DoxyCodeLine{00240\ \textcolor{comment}{/*Computes\ phonon\ dispersion\ for\ }}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ \ d-\/>Nq\_ph\ points\ in\ the\ reciprocal\ space\ starting\ from}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ \ d-\/>q\_ph\_min\ to\ d-\/>q\_ph\_min\ */}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

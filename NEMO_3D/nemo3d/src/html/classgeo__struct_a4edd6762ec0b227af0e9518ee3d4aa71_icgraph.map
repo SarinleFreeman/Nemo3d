@@ -1,0 +1,17 @@
+<map id="geo_struct::isPeriodicZ" name="geo_struct::isPeriodicZ">
+<area shape="rect" id="Node000001" title=" " alt="" coords="500,136,655,161"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#aa3f4bdaa30364df921f7bee07e8bb61f" title=" " alt="" coords="290,5,415,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="548,128,504,94,451,61,414,46,416,41,453,57,507,90,551,123"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a8ea01752f72bff2103e0270985e7531b" title=" " alt="" coords="279,71,426,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="509,134,425,112,426,107,510,129"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a13125fddfe45852a50969f78eb7a37b1" title="Don&#39;t understand physical meaning quite well." alt="" coords="273,136,432,161"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="485,151,432,151,432,146,485,146"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a049cbf824e67ad25da1d98720c1b0f8e" title=" " alt="" coords="253,185,452,210"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="501,168,415,187,414,182,500,162"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#a75d274959e0c507b019c55e0a98daedd" title=" " alt="" coords="263,234,442,260"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="547,172,504,200,453,225,422,236,420,231,451,221,501,195,545,168"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ae17f923331e78002dc7841387a7078d3" title=" " alt="" coords="6,54,204,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="264,85,204,79,205,74,264,80"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a1beba273642243e4f7c57bcb51bef85f" title=" " alt="" coords="5,104,205,129"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="264,103,205,109,205,103,264,97"/>
+</map>

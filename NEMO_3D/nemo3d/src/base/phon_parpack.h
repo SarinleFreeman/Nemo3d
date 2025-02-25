@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/phon_parpack.h,v 1.4 2004/02/27 04:09:05 lol Exp $
+$Header: /repo/nemo3d/src/base/phon_parpack.h,v 1.4 2004/02/27 04:09:05 lol Exp
+$
 *****************************************************************************/
 
 #ifndef PHON_PARPACK_H
@@ -41,63 +42,61 @@ $Header: /repo/nemo3d/src/base/phon_parpack.h,v 1.4 2004/02/27 04:09:05 lol Exp 
 
 #ifndef NO_PARPACK
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include "realtype.h"
 #include "MPI_Timing.h"
+#include "realtype.h"
 
-
-#include "qd_struct.h"
 #include "dmk_mult.h"
-
+#include "qd_struct.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif /* __cplusplus */
 
 #ifdef FORTRAN_UNDERSCORE
-#define pznaupd   pznaupd_
-#define pzneupd   pzneupd_
-#define zaxpy     zaxpy_
-#define pdznorm2  pdznorm2_
+#define pznaupd pznaupd_
+#define pzneupd pzneupd_
+#define zaxpy zaxpy_
+#define pdznorm2 pdznorm2_
 #endif
 
 #ifdef FORTRAN_UNDERSCORE2
-#define pznaupd   pznaupd__
-#define pzneupd   pzneupd__
-#define zaxpy     zaxpy__
-#define pdznorm2  pdznorm2__
+#define pznaupd pznaupd__
+#define pzneupd pzneupd__
+#define zaxpy zaxpy__
+#define pdznorm2 pdznorm2__
 #endif
 
 #ifdef FORTRAN_ALLCAPS
-#define pznaupd   PZNAUPD
-#define pzneupd   PZNEUPD
-#define zaxpy     ZAXPY
-#define pdznorm2  PDZNORM2
+#define pznaupd PZNAUPD
+#define pzneupd PZNEUPD
+#define zaxpy ZAXPY
+#define pdznorm2 PDZNORM2
 #endif
 
-
-void pznaupd(int*, int*, char*, int*, char*, int*, double*, complex*, int*, complex*,
-	      int*, int*, int*, complex*, complex*, int*, double*, int*);
-void pzneupd(int*, int*, char*, int*, complex*, complex*, int*, complex*,
-	      complex*, char*, int*, char*, int*, double*, complex*, int*,
-	      complex*, int*, int*, int*, complex*, complex*, int*, double*,
-	      int*);
-void zaxpy(int*, complex*, complex*, int*, complex*, int*);
-double pdznorm2(int*, int*, complex*, int*);
+void pznaupd(int *, int *, char *, int *, char *, int *, double *, complex *,
+             int *, complex *, int *, int *, int *, complex *, complex *, int *,
+             double *, int *);
+void pzneupd(int *, int *, char *, int *, complex *, complex *, int *,
+             complex *, complex *, char *, int *, char *, int *, double *,
+             complex *, int *, complex *, int *, int *, int *, complex *,
+             complex *, int *, double *, int *);
+void zaxpy(int *, complex *, complex *, int *, complex *, int *);
+double pdznorm2(int *, int *, complex *, int *);
 
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
 
-
-int phon_parpack( qd_struct d,
-                  int iq_ph/*number of the point in the reciprocal space
-                             (needed for writing eigenvalues to
-                             d->phon.E_ph[iq_ph][d->d->opt.ExecParam.PhonDisp.N_branches+3])*/
-                  );//diagonalizer ;)
+int phon_parpack(
+    qd_struct d,
+    int iq_ph /*number of the point in the reciprocal space
+                (needed for writing eigenvalues to
+                d->phon.E_ph[iq_ph][d->d->opt.ExecParam.PhonDisp.N_branches+3])*/
+);            // diagonalizer ;)
 
 #endif /* NO_PARPACK */
 

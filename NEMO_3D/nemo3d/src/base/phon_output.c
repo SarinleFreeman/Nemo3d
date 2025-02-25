@@ -33,188 +33,192 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/phon_output.c,v 1.6 2005/01/14 20:24:39 marek Exp $ 
+$Header: /repo/nemo3d/src/base/phon_output.c,v 1.6 2005/01/14 20:24:39 marek Exp
+$
 *****************************************************************************/
-
 
 /* Print-outs for phon_struct*/
 
 #include "phon_output.h"
 
-void print_phonon_dispersion(ostream& output_file,qd_struct d,
-                             real a_over_a0//Measure of strain (in x-direction)
-                             )
-     //Prints phonon dispersion in file_name
+void print_phonon_dispersion(
+    ostream &output_file, qd_struct d,
+    real a_over_a0 // Measure of strain (in x-direction)
+    )
+// Prints phonon dispersion in file_name
 {
   real q;
-  
-  output_file << "\n%"
-              <<d->opt.ExecParam.PhonCalc.Nq_ph
-              << " points of "
+
+  output_file << "\n%" << d->opt.ExecParam.PhonCalc.Nq_ph << " points of "
               << d->opt.ExecParam.PhonCalc.N_branches
               << " branches of phonon dispersion in meV:\n"
-              << "%(If line is filled with zeros, it means, that it has not been computed yet.)"
-              <<endl;
-  output_file << "\n% a_x/a0   q_x,nm^-1     q_y,nm^-1    q_z,nm^-1  |    q,nm^-1  |";
-  for(int n=0;n<d->opt.ExecParam.PhonCalc.N_branches;n++)
-    output_file<<"   "<<n<<"-br";
-  output_file<<"\n";
-  
-  for(int n=0;n<d->opt.ExecParam.PhonCalc.Nq_ph;n++){
-    q=sqrt(d->phon.E_ph[n][0]*d->phon.E_ph[n][0]+
-           d->phon.E_ph[n][1]*d->phon.E_ph[n][1]+
-           d->phon.E_ph[n][2]*d->phon.E_ph[n][2]);
-    output_file<<"\n "<<a_over_a0
-               << "  "<<d->phon.E_ph[n][0]
-               << "  "<<d->phon.E_ph[n][1]
-               << "  "<<d->phon.E_ph[n][2]
-               << "  "<<q;
-    for(int i=0;i<d->opt.ExecParam.PhonCalc.N_branches;i++)
-      output_file<<"  "<<1000*d->phon.E_ph[n][i+3];
-  }
-  output_file<< "\n";
-}
+              << "%(If line is filled with zeros, it means, that it has not "
+                 "been computed yet.)"
+              << endl;
+  output_file
+      << "\n% a_x/a0   q_x,nm^-1     q_y,nm^-1    q_z,nm^-1  |    q,nm^-1  |";
+  for (int n = 0; n < d->opt.ExecParam.PhonCalc.N_branches; n++)
+    output_file << "   " << n << "-br";
+  output_file << "\n";
 
+  for (int n = 0; n < d->opt.ExecParam.PhonCalc.Nq_ph; n++) {
+    q = sqrt(d->phon.E_ph[n][0] * d->phon.E_ph[n][0] +
+             d->phon.E_ph[n][1] * d->phon.E_ph[n][1] +
+             d->phon.E_ph[n][2] * d->phon.E_ph[n][2]);
+    output_file << "\n " << a_over_a0 << "  " << d->phon.E_ph[n][0] << "  "
+                << d->phon.E_ph[n][1] << "  " << d->phon.E_ph[n][2] << "  "
+                << q;
+    for (int i = 0; i < d->opt.ExecParam.PhonCalc.N_branches; i++)
+      output_file << "  " << 1000 * d->phon.E_ph[n][i + 3];
+  }
+  output_file << "\n";
+}
 
 /**
  * Print the phonon energy  into the file run_name.PhonDisp
  * @param file_name is the name of the file (run_name.PhonDisp)
  * @param d is the qd_struct structure
- * @param a_over_a0 is the ratio between strained and relaxed lattice constant in x-direction
+ * @param a_over_a0 is the ratio between strained and relaxed lattice constant
+ * in x-direction
  * @return the file ofthe phonon energy run_name.PhonDisp
  */
-void print_phonon_dispersion(string file_name,qd_struct d,
-                             real a_over_a0//Measure of strain (in x-direction)
-                             )
-{
-  if(file_name!=""){
+void print_phonon_dispersion(
+    string file_name, qd_struct d,
+    real a_over_a0 // Measure of strain (in x-direction)
+) {
+  if (file_name != "") {
     ofstream output_file(file_name.c_str());
-    print_phonon_dispersion(output_file,d,a_over_a0/*Delete me!!!*/);
+    print_phonon_dispersion(output_file, d, a_over_a0 /*Delete me!!!*/);
     output_file.close();
-    }
-  else
-    print_phonon_dispersion(cout,d,a_over_a0);
+  } else
+    print_phonon_dispersion(cout, d, a_over_a0);
 }
 
-void DM_print_matlab(qd_struct d,
-                     int proc_to_print)
-     //Prints DM for Matlab
+void DM_print_matlab(qd_struct d, int proc_to_print)
+// Prints DM for Matlab
 {
-  real element_r,element_i;
-  if(mpi_n3d_id==proc_to_print){
-    printf("\nReal part of DM for matlab\n"
-           "Number of rows on %d-th processor=N_rows[mpi_n3d_id]=%d and columns d->phon.N_cols[mpi_n3d_id]=%d, d->phon.seg_col_ln[mpi_n3d_id]=%d\n",
-           mpi_n3d_id,d->phon.N_rows[mpi_n3d_id],d->phon.N_cols[mpi_n3d_id],d->phon.seg_col_ln[mpi_n3d_id]);
-    for(int row=0;row<d->phon.N_rows[mpi_n3d_id];row++){
-      if(row<(d->phon.max_row[mpi_n3d_id]-d->phon.min_row[mpi_n3d_id]+1)){
-        cout <<"\n" <<mpi_n3d_id <<" "<< setw(3) << row+d->phon.min_row[mpi_n3d_id]<<" ";
+  real element_r, element_i;
+  if (mpi_n3d_id == proc_to_print) {
+    printf(
+        "\nReal part of DM for matlab\n"
+        "Number of rows on %d-th processor=N_rows[mpi_n3d_id]=%d and columns "
+        "d->phon.N_cols[mpi_n3d_id]=%d, d->phon.seg_col_ln[mpi_n3d_id]=%d\n",
+        mpi_n3d_id, d->phon.N_rows[mpi_n3d_id], d->phon.N_cols[mpi_n3d_id],
+        d->phon.seg_col_ln[mpi_n3d_id]);
+    for (int row = 0; row < d->phon.N_rows[mpi_n3d_id]; row++) {
+      if (row <
+          (d->phon.max_row[mpi_n3d_id] - d->phon.min_row[mpi_n3d_id] + 1)) {
+        cout << "\n"
+             << mpi_n3d_id << " " << setw(3)
+             << row + d->phon.min_row[mpi_n3d_id] << " ";
+      } else if (mpi_n3d_numprocs != 1 && !mpi_n3d_id) {
+        cout << "\n"
+             << mpi_n3d_id << " " << setw(3)
+             << ((3 * d->geo.cellgeom.AtomsPerCellMax() * d->geo.N_Cell) -
+                 (d->phon.N_rows[mpi_n3d_id] - row))
+             << " ";
+      } else if (mpi_n3d_numprocs != 1 && mpi_n3d_id == mpi_n3d_numprocs - 1) {
+        cout << "\n"
+             << mpi_n3d_id << " " << setw(3)
+             << row + d->phon.min_row[mpi_n3d_id] -
+                    d->phon.max_row[mpi_n3d_id] - 1
+             << " ";
       }
-      else if(mpi_n3d_numprocs!=1 &&!mpi_n3d_id){
-        cout <<"\n" <<mpi_n3d_id <<" "<< setw(3)
-               << ((3*d->geo.cellgeom.AtomsPerCellMax()*d->geo.N_Cell)
-                   -(d->phon.N_rows[mpi_n3d_id]-row)) <<" ";
-      }
-      else if(mpi_n3d_numprocs!=1 && mpi_n3d_id==mpi_n3d_numprocs-1){
-        cout <<"\n" <<mpi_n3d_id <<" " << setw(3)
-             << row+d->phon.min_row[mpi_n3d_id]-d->phon.max_row[mpi_n3d_id]-1<<" ";
-      }
-      for(int col=0;col<d->phon.seg_col_ln[mpi_n3d_id];col++){
-        element_r=0.0;
-        element_i=0.0;
-        for(int j=1;j<=d->phon.Ind_DM[row][0];j++){
-          if(d->phon.Ind_DM[row][j]==col){
-            element_r=d->phon.DM[row][j-1].r;
-            element_i=d->phon.DM[row][j-1].i;
+      for (int col = 0; col < d->phon.seg_col_ln[mpi_n3d_id]; col++) {
+        element_r = 0.0;
+        element_i = 0.0;
+        for (int j = 1; j <= d->phon.Ind_DM[row][0]; j++) {
+          if (d->phon.Ind_DM[row][j] == col) {
+            element_r = d->phon.DM[row][j - 1].r;
+            element_i = d->phon.DM[row][j - 1].i;
             break;
-          }
-          else{
-            element_r=0.0;
-            element_i=0.0;
+          } else {
+            element_r = 0.0;
+            element_i = 0.0;
           }
         }
-        printf(" %g",element_r);
+        printf(" %g", element_r);
       }
       printf("\n");
     }
   }
-}//end of void DM_print_matlab
+} // end of void DM_print_matlab
 
-void Map_print(qd_struct d)
-{
-  for(int cell=0; cell<d->geo.N_Cell; cell++){
-    printf("\nmpi_n3d_id=%d : %d-th unit cell:\n",mpi_n3d_id,cell);fflush(stdout);
-    for(int atom=0; atom<d->geo.cellgeom.AtomsPerCellMax(); atom++){
-      for(int proj=0; proj<3; proj++){
-      printf(" d->phon.DMmap[%d][%d][%d]=%d d->geo.AtomType[%d][%d]=%d\n",
-             cell,atom,proj,d->phon.DMmap[cell][atom][proj],
-             cell,atom,(int) d->geo.AtomType[cell][atom]);fflush(stdout);
-      }//proj
-    }//atom
-  }//cell
+void Map_print(qd_struct d) {
+  for (int cell = 0; cell < d->geo.N_Cell; cell++) {
+    printf("\nmpi_n3d_id=%d : %d-th unit cell:\n", mpi_n3d_id, cell);
+    fflush(stdout);
+    for (int atom = 0; atom < d->geo.cellgeom.AtomsPerCellMax(); atom++) {
+      for (int proj = 0; proj < 3; proj++) {
+        printf(" d->phon.DMmap[%d][%d][%d]=%d d->geo.AtomType[%d][%d]=%d\n",
+               cell, atom, proj, d->phon.DMmap[cell][atom][proj], cell, atom,
+               (int)d->geo.AtomType[cell][atom]);
+        fflush(stdout);
+      } // proj
+    } // atom
+  } // cell
 }
 
-void nbr_on_proc_print(qd_struct d,
-                       int cell0,int cellF)
-     //
-{int l,m,n,nbr2,cindx,aindx,cnbr2,anbr2;
- bool has_periodicity = d->geo.StrainHasPeriodicity();
-  for ( l=cell0; l <= cellF; l++ ){
-    printf("\nmpi_n3d_id=%d : %d-th unit cell:\n",mpi_n3d_id,l);fflush(stdout);
+void nbr_on_proc_print(qd_struct d, int cell0, int cellF)
+//
+{
+  int l, m, n, nbr2, cindx, aindx, cnbr2, anbr2;
+  bool has_periodicity = d->geo.StrainHasPeriodicity();
+  for (l = cell0; l <= cellF; l++) {
+    printf("\nmpi_n3d_id=%d : %d-th unit cell:\n", mpi_n3d_id, l);
+    fflush(stdout);
     int i = d->geo.cell__ijk[l][0];
     int j = d->geo.cell__ijk[l][1];
     int k = d->geo.cell__ijk[l][2];
-    for ( m=0; m < d->geo.AtomsPerCellMax(); m++ ) {
-      for ( n=0; n < d->geo.Neighbors(m); n++ ) {
-        /* Get relative position of unit cell where this neighbor lives. */ 
-        int i_nbr = i + d->geo.NbrCell(m,n,0);
-        int j_nbr = j + d->geo.NbrCell(m,n,1);
-        int k_nbr = k + d->geo.NbrCell(m,n,2);
+    for (m = 0; m < d->geo.AtomsPerCellMax(); m++) {
+      for (n = 0; n < d->geo.Neighbors(m); n++) {
+        /* Get relative position of unit cell where this neighbor lives. */
+        int i_nbr = i + d->geo.NbrCell(m, n, 0);
+        int j_nbr = j + d->geo.NbrCell(m, n, 1);
+        int k_nbr = k + d->geo.NbrCell(m, n, 2);
         /* Get the unit cell and atomic index for this neighbor */
         cindx = d->geo.ijk__cell[i_nbr][j_nbr][k_nbr];
 
 #ifdef ELIMINATE_SSMAP
         if (cindx < 0 && has_periodicity && (cindx + d->geo.N_Cell + 1) >= 0) {
-          cindx = cindx + d->geo.N_Cell + 1 ;
+          cindx = cindx + d->geo.N_Cell + 1;
         }
-#else /* ELIMINATE_SSMAP */
-        if (cindx < 0 && has_periodicity && d->geo.ssmap[l][m][n]!=-1) {
+#else  /* ELIMINATE_SSMAP */
+        if (cindx < 0 && has_periodicity && d->geo.ssmap[l][m][n] != -1) {
           cindx = d->geo.ssmap[l][m][n];
         }
 #endif /* ELIMINATE_SSMAP */
 
-        aindx = d->geo.NbrCell(m,n,3);
-        printf("\n l=%d m=%d    n=%d => cindx =%d aindx=%d",
-               l,m,n,cindx,aindx);
+        aindx = d->geo.NbrCell(m, n, 3);
+        printf("\n l=%d m=%d    n=%d => cindx =%d aindx=%d", l, m, n, cindx,
+               aindx);
         fflush(stdout);
-        for(nbr2=n+1; nbr2<d->geo.Neighbors(m); nbr2++){
-          cnbr2=d->geo.ijk__cell
-            [i+d->geo.NbrCell(m,nbr2,0)]
-            [j+d->geo.NbrCell(m,nbr2,1)]
-            [k+d->geo.NbrCell(m,nbr2,2)];
+        for (nbr2 = n + 1; nbr2 < d->geo.Neighbors(m); nbr2++) {
+          cnbr2 = d->geo.ijk__cell[i + d->geo.NbrCell(m, nbr2, 0)]
+                                  [j + d->geo.NbrCell(m, nbr2, 1)]
+                                  [k + d->geo.NbrCell(m, nbr2, 2)];
 
 #ifdef ELIMINATE_SSMAP
-          if(cnbr2<0 && has_periodicity
-             && (cnbr2 + d->geo.N_Cell + 1 ) >= 0){
-            cnbr2= cnbr2 + d->geo.N_Cell + 1 ;
+          if (cnbr2 < 0 && has_periodicity &&
+              (cnbr2 + d->geo.N_Cell + 1) >= 0) {
+            cnbr2 = cnbr2 + d->geo.N_Cell + 1;
           }
-#else /* ELIMINATE_SSMAP */
-          if(cnbr2<0 && has_periodicity
-             && d->geo.ssmap[l][m][nbr2]!=-1){
-            cnbr2=d->geo.ssmap[l][m][nbr2];
+#else  /* ELIMINATE_SSMAP */
+          if (cnbr2 < 0 && has_periodicity && d->geo.ssmap[l][m][nbr2] != -1) {
+            cnbr2 = d->geo.ssmap[l][m][nbr2];
           }
 #endif /* ELIMINATE_SSMAP */
 
-
-          //atom index
-          anbr2=d->geo.NbrCell(m,nbr2,3);
-          printf("\n         nbr2=%d => cnbr2 =%d anbr2=%d",
-                 nbr2,cnbr2,anbr2);
+          // atom index
+          anbr2 = d->geo.NbrCell(m, nbr2, 3);
+          printf("\n         nbr2=%d => cnbr2 =%d anbr2=%d", nbr2, cnbr2,
+                 anbr2);
           fflush(stdout);
-        }//second-nearest neighbors loop
-      }//nearest neighbors
-    }//atom
-  }//cell
-}//end of void nbr_on_proc_print
+        } // second-nearest neighbors loop
+      } // nearest neighbors
+    } // atom
+  } // cell
+} // end of void nbr_on_proc_print
 #if 0
 void phon_struct::Print_parameters()
      //Prints all the parameters on all processors
@@ -290,7 +294,7 @@ void phon_struct::Picture_DM(int DM_total_size)
           if(Ind_DM[row][j]==col){
 #ifndef PR_VALUES
             DM_ostr<<"X";
-#endif// PR_VALUES
+#endif // PR_VALUES
 #ifdef PR_VALUES
             DM_ostr<< (int)DM[row][j-1].r;
             if((int)DM[row][j-1].r<10){
@@ -304,7 +308,7 @@ void phon_struct::Picture_DM(int DM_total_size)
                 DM_ostr<< " ";
               }
             }
-#endif// PR_VALUES
+#endif // PR_VALUES
             flag=false;
             break;
           }
@@ -327,4 +331,4 @@ void phon_struct::Picture_DM(int DM_total_size)
   printf("%s",DM_ostr.str().c_str());fflush(stdout);
 }
 
-#endif//0
+#endif // 0

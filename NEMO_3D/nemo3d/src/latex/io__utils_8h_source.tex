@@ -1,0 +1,148 @@
+\doxysection{io\+\_\+utils.\+h}
+\hypertarget{io__utils_8h_source}{}\label{io__utils_8h_source}\index{io/io\_utils.h@{io/io\_utils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/io/io\_utils.h,v\ 1.12\ 2003/10/31\ 22:37:17\ hook\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ \_IO\_UTILS\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ \_IO\_UTILS\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ for\ the\ embedding\ of\ NEMO\ 3D\ we\ need\ to\ have\ just\ the\ function\ definitions}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ at\ the\ top\ level\ defined.\ \ Not\ the\ whole\ include\ path\ should\ be\ followed}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ down\ in\ order\ to\ make\ the\ embedding\ of\ the\ overall\ nemo3d\ library\ into}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ python\ simpler.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifndef\ NEMO3D\_DB}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifdef\ PRINT\_DEBUG\_COM}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ print\_com2(A,B)\ "{}printf(A,B),\ fflush(stdout);"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ print\_com3(A,B,C)\ "{}printf(A,B,C),\ fflush(stdout);"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ print\_com2(A,B)\ ;}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ print\_com3(A,B,C)\ ;}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ global\ variable}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#ifdef\ SET\_GLOBAL\_STREAMS}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ SCOPE\_STREAM}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ SCOPE\_STREAM\ extern}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classstreambuf___n3_d}{streambuf\_N3D}}:\ \textcolor{keyword}{public}\ std::streambuf\ \{}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{/*\ NOTE\ for\ Intel\ C++\ compilers:}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *\ class\ ostream\_N3D:\ private\ virtual\ streambuf\_N3D,\ public\ std::ostream\ \{}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ Though\ it\ will\ compile\ fine,\ the\ inheritance\ of\ a\ VIRTUAL\ specified\ class}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *\ will\ cause\ "{}Segmentation\ fault\ (core\ dumped)"{}\ during\ RUNTIME.}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ Removing\ the\ VIRTUAL\ will\ solve\ the\ problem.}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }ostream\_N3D:\ \textcolor{keyword}{private}\ \mbox{\hyperlink{classstreambuf___n3_d}{streambuf\_N3D}},\ \textcolor{keyword}{public}\ std::ostream\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ ostream\_N3D()\ :\ std::ostream(\textcolor{keyword}{this})\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ SCOPE\_STREAM\ \mbox{\hyperlink{classostream___n3_d}{ostream\_N3D}}\ cout\_master,\ cout\_slave;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//class\ ostream\_debug:\ ostream\_N3D}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \ \ std::string}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ ostream\_debug()\ :\ ostream\_N3D()\ \ \{\ \ \ \ \}}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ \ friend\ template<typename\ T>}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ \ \ \ \ ostream\_debug\ operator<<(ostream\_debug\&\ o,\ const\ T\&\ t);}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00103\ ;\textcolor{comment}{//}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//}}
+\DoxyCodeLine{00105\ \textcolor{comment}{//class\ string\_debug\ :\ public\ std::string}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ \ \ string\_debug(const\ std::string\&\ s)\ :\ std::string(s)\ \ \{\ \ \}}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//\ \ \ friend\ std::ostream\&\ operator<<(std::ostream\&\ o,\ const\ string\_debug\&\ s);}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00111\ ;\textcolor{comment}{//}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//class\ DEATH\ :\ public\ std::string}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\{}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ public:}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ \ \ DEATH(const\ std::string\&\ s)\ :\ std::string(s)\ \ \{\ \ \}}}
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ \ \ friend\ std::ostream\&\ operator<<(std::ostream\&\ o,\ const\ DEATH\&\ s);}}
+\DoxyCodeLine{00118\ \textcolor{comment}{//\};}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ die(\textcolor{keywordtype}{char}*,\ ...);}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ masterPrint(\textcolor{keywordtype}{char}*,\ ...);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{string}\ format(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fmt,\ ...);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ setup\_global\_streams();}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{double}*\ getBinFileData(\textcolor{keywordtype}{char}*\ filename,\ \textcolor{keywordtype}{int}\ prec,\ \textcolor{keywordtype}{int}\ *rdim,\ \textcolor{keywordtype}{int}\ *cdim);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ NEMO3D\_DB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ The\ definition\ below\ establishes\ an\ unmangled\ C\ function\ compiled\ with\ C++}}
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ such\ that\ this\ function\ can\ be\ called\ from\ a\ C-\/linked\ executable}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00134\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{void}\ setup\_global\_streams\_c(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_IO\_UTILS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

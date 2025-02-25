@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/MaterialHandle.h,v 1.4 2003/10/08 16:16:19 hook Exp $
+$Header: /repo/nemo3d/src/base/MaterialHandle.h,v 1.4 2003/10/08 16:16:19 hook
+Exp $
 *****************************************************************************/
 
 #ifndef MATERIAL_HNDL_H
@@ -44,15 +45,15 @@ $Header: /repo/nemo3d/src/base/MaterialHandle.h,v 1.4 2003/10/08 16:16:19 hook E
 
 class MaterialHandle {
 public:
-   Material_struct* hndl; 
-   int matid3d;
-   vector<int> anion_id, cation_id;
-   string anion, cation;
-   real cation_weight, anion_weight;
+  Material_struct *hndl;
+  int matid3d;
+  vector<int> anion_id, cation_id;
+  string anion, cation;
+  real cation_weight, anion_weight;
 
-   MaterialHandle(Material_struct* h=NULL) { hndl=h;}
+  MaterialHandle(Material_struct *h = NULL) { hndl = h; }
 
-   friend ostream& operator<<(ostream& o, const MaterialHandle& mh);
+  friend ostream &operator<<(ostream &o, const MaterialHandle &mh);
 };
 
 #endif

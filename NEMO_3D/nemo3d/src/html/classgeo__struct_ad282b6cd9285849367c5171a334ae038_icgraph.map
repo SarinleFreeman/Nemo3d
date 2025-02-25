@@ -1,0 +1,13 @@
+<map id="geo_struct::isCellZB_110_small" name="geo_struct::isCellZB_110_small">
+<area shape="rect" id="Node000001" title=" " alt="" coords="619,71,760,111"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#ad2e9533c389f759d16ed606bd26132e9" title=" " alt="" coords="416,5,571,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="611,68,556,49,558,44,613,63"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#ad6272018ab3dc22a3121bca6ad7f81d6" title=" " alt="" coords="416,71,571,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="604,94,572,94,572,88,604,88"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a9a7e24b2429ec7736f209b7d711322a2" title=" " alt="" coords="416,136,571,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="613,119,558,138,556,133,611,114"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ac15c939203584a626a23fda82935c079" title=" " alt="" coords="224,78,368,104"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="401,94,368,94,368,88,401,88"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a410f8d053a9efeb98682eea7a0f06018" title=" " alt="" coords="5,78,176,104"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="208,94,176,94,176,88,208,88"/>
+</map>

@@ -1,0 +1,393 @@
+\doxysection{mb\+\_\+ham\+\_\+spds\+\_\+micro.\+h}
+\hypertarget{mb__ham__spds__micro_8h_source}{}\label{mb__ham__spds__micro_8h_source}\index{ham/mb\_ham\_spds\_micro.h@{ham/mb\_ham\_spds\_micro.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/ham/mb\_ham\_spds\_micro.h,v\ 1.16\ 2007/06/12\ 20:15:22\ nkharche\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ MB\_HAM\_SPDS\_MICRO\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MB\_HAM\_SPDS\_MICRO\_H\ 1}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ SIDEBANDS\ 1}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#undef\ SIMPLESTAMP}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#undef\ \ SPLIT\_HAMILTONIAN\_AC}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ SIMPLE\_HAMILTONIAN\_AC}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <cvector.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}cvector\_lib.h"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <rvector.h>}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ <fvector.h>}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ <ivector.h>}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ <complex.h>}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ <matrix.h>}\ \textcolor{comment}{/*\ used\ for\ cdim()\ and\ vdim()\ definitions\ */}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ <cmatrix.h>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}cmatrix\_lib.h"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <rmatrix.h>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants__nemo_8h}{constants\_nemo.h}}"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\#include\ <stream.h>\ \ //\ this\ does\ not\ seem\ to\ be\ used}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mat__def_8h}{mat\_def.h}}"{}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ ceigval\_ns\_full(\ cvectr\ eigv,\ cmatrix\ h\ );}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ ceigvec\_ns\_full(\ cvectr\ eigv\ ,\ cmatrix\ z,\ cmatrix\ h\ );\ }
+\DoxyCodeLine{00072\ rvectr\ eigval\_h\_full\ (rvectr\ d,\ coperator\ a,\ \textcolor{keywordtype}{int}\ *error\_code);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ STRAIN\_SHIFT\_ENABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ STRAIN\_SHIFT\_ENABLE\_1D\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ sp3s\_nparam\ 15}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ sp3d5s\_nparam\ \ 35}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ sp3d5s\_nparam\_copy\_size\ \ 10}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ Additional\_Diagonal\_constant}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#ifdef\ Additional\_Diagonal\_constant}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ sp3d5s\_nstrain\_extra\ 16}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ sp3d5s\_nstrain\ 33}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ sp3d5s\_nstrain\_extra\ 0}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ sp3d5s\_nstrain\ 33}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ sp3d5s\_nstrain\_old\ 15}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ sp3d5s\_Ebound\_default\ 27.0}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ sp3d5s\_Ebound\_undefine\ -\/100.0}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ sp3d5s\_strain\_ideal\ 2.0}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ sp3d5s\_c\_strain\_ideal\ 1.0}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{double}\ \ sp3d5s\_Ebound;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ STa\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ Sa\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ Pxa\ \ \ \ \ \ 2}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ Pya\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ Pza\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ Dxya\ \ \ \ \ 5}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ Dyza\ \ \ \ \ 6}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ Dzxa\ \ \ \ \ 7}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ Dx2my2a\ \ 8}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ Dz2a\ \ \ \ \ 9}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ STc\ \ \ \ \ 10}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ Sc\ \ \ \ \ \ 11}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ Pxc\ \ \ \ \ 12}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ Pyc\ \ \ \ \ 13}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ Pzc\ \ \ \ \ 14}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ Dxyc\ \ \ \ 15}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ Dyzc\ \ \ \ 16}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ Dzxc\ \ \ \ 17}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ Dx2my2c\ 18}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ Dz2c\ \ \ \ 19}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{/*\ normal\ order\ in\ the\ parameter\ list\ (35\ members)\ for\ sp3d5s*\ band\ model}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ 0\ \ \ pAs\_s\_s\ }}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ 1\ \ \ pAs\_p\_p\ }}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ 2\ \ \ pIn\_s\_s\ \ \ \ \ }}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ \ \ 3\ \ \ pIn\_p\_p\ }}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ 4\ \ \ pAs\_ss\_ss\ }}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ 5\ \ \ pIn\_ss\_ss\ }}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ 6\ \ \ pAs\_d\_d\ }}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ 7\ \ \ pIn\_d\_d\ }}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ 8\ \ \ pAs\_so\_so\ }}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ 9\ \ \ pIn\_so\_so\ }}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ 10\ \ \ pInAs\_s\_s}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ 11\ \ \ pInAs\_ss\_ss}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ 12\ \ \ pInAs\_ssa\_sc}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ 13\ \ \ pInAs\_sa\_ssc}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ 14\ \ \ pInAs\_sa\_pc\ }}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ 15\ \ \ pInAs\_sc\_pa\ }}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \ 16\ \ \ pInAs\_ssa\_pc\ }}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ 17\ \ \ pInAs\_ssc\_pa\ }}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ 18\ \ \ pInAs\_sa\_dc\ }}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ 19\ \ \ pInAs\_sc\_da\ }}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ \ 20\ \ \ pInAs\_ssa\_dc\ }}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ 21\ \ \ pInAs\_ssc\_da\ }}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ 22\ \ \ pInAs\_p\_p\_sigm\ }}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ 23\ \ \ pInAs\_p\_p\_pi\ }}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ 24\ \ \ pInAs\_pa\_dc\_sigm\ }}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ 25\ \ \ pInAs\_pc\_da\_sigm\ }}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ 26\ \ \ pInAs\_pa\_dc\_pi\ }}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ 27\ \ \ pInAs\_pc\_da\_pi\ }}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ 28\ \ \ pInAs\_d\_d\_sigm\ }}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ 29\ \ \ pInAs\_d\_d\_pi\ }}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ \ \ 30\ \ \ pInAs\_d\_d\_del\ }}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ 31\ \ \ 0.60583\ \ \ \ \ \ \ \ \ lattice\ constant\ }}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ 32\ \ \ 1.0\ \ \ \ \ \ \ \ \ \ \ \ \ bond\ distortion\ in\ x}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ 33\ \ \ 1.0\ \ \ \ \ \ \ \ \ \ \ \ \ bond\ distortion\ in\ y}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ \ \ 34\ \ \ 1.0\ \ \ \ \ \ \ \ \ \ \ \ \ bond\ distortion\ in\ z}}
+\DoxyCodeLine{00156\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ These\ macos\ provide\ the\ symbolic}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ mapping\ from\ an\ orbital\ description\ /\ name}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ \ \ into\ the\ tight\ binding\ parameter\ vector.}}
+\DoxyCodeLine{00162\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{comment}{/*\ normal\ order\ in\ the\ parameter\ list\ (15\ members)\ for\ sp3s*\ band\ model}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \ Notations\ are\ defined\ in\ J.\ Phys.\ Chem.\ Solids\ Vol\ 44,\ pp\ 365\ (1983)}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ The\ parameters\ will\ be\ converted\ to\ the\ notation\ used\ in\ sp3d5s*\ band\ model}}
+\DoxyCodeLine{00167\ \textcolor{comment}{}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ 0\ \ \ E(s,a)\ \ =\ pAs\_s\_s\ \ \ }}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ \ \ \ 1\ \ \ E(p,a)\ \ =\ pAs\_p\_p\ }}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ 2\ \ \ E(s,c)\ \ =\ pIn\_s\_s\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ 3\ \ \ E(p,c)\ \ =\ pIn\_p\_p\ }}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ \ \ \ 4\ \ \ E(s*,a)\ =\ pAs\_ss\_ss\ }}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ \ \ \ 5\ \ \ E(s*,c)\ =\ pIn\_ss\_ss}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ \ \ \ 6\ \ \ V(s,\ s)\ =\ 4\ *\ pInAs\_s\_s\ }}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ \ \ \ 7\ \ \ V(x,x)\ \ =\ (4/3)\ *\ (pInAs\_p\_p\_sigm\ +\ 2*\ pInAs\_p\_p\_pi)}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ \ \ \ 8\ \ \ V(x,y)\ \ =\ (4/3)\ *\ (pInAs\_p\_p\_sigma\ -\/\ pInAs\_p\_p\_pi)}}
+\DoxyCodeLine{00177\ \textcolor{comment}{\ \ \ \ 9\ \ \ E(sa,pc)\ \ =\ (4/sqrt(3))\ *\ pInAs\_sa\_pc}}
+\DoxyCodeLine{00178\ \textcolor{comment}{\ \ \ 10\ \ \ E(sc,pa)\ \ =\ (4/sqrt(3))\ *\ pInAs\_sc\_pa\ }}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ \ \ 11\ \ \ E(s*a,pc)\ =\ (4/sqrt(3))\ *\ pInAs\_ssa\_pc\ \ }}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ 12\ \ \ E(s*c,pa)\ =\ -\/(4/sqrt(3))\ *\ pInAs\_ssc\_pa\ }}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ 13\ \ \ Spin-\/Orbit\ coupling\ for\ anion\ \ =\ 3\ *\ pAs\_so\_so}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ 14\ \ \ Spin-\/orbit\ coupling\ for\ cation\ =\ 3*\ pIn\_so\_so}}
+\DoxyCodeLine{00183\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_sa\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_pa\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_sc\ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_pc\ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_sta\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_stc\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_da\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_dc\ \ \ \ \ \ \ 7}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_La\ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ \ \ \ pE\_Lc\ \ \ \ \ \ \ 9}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_sss\ \ \ \ \ 10}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_ststs\ \ \ 11}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_stass\ \ \ 12}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_sasts\ \ \ 13}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_sapcs\ \ \ 14}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_scpas\ \ \ 15}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_stapcs\ \ 16}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_stcpas\ \ 17}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_sadcs\ \ \ 18}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_scdas\ \ \ 19}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_stadcs\ \ 20}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_stcdas\ \ 21}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_pps\ \ \ \ \ 22}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_ppp\ \ \ \ \ 23}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_padcs\ \ \ 24}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_pcdas\ \ \ 25}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_padcp\ \ \ 26}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_pcdap\ \ \ 27}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_dds\ \ \ \ \ 28}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_ddp\ \ \ \ \ 29}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_ddd\ \ \ \ \ 30}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_unstr\_latt\ 31}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_frac\_x\ \ \ \ \ 32}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_frac\_y\ \ \ \ \ 33}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ \ \ \ pV\_frac\_z\ \ \ \ \ 34}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ \ \ Macros\ for\ the\ strain\ induced\ off-\/diagonal\ parameter\ scaling}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ \ \ mapping\ from\ an\ orbital\ interaction\ description\ to\ a\ position}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ in\ the\ parameter\ vector.}}
+\DoxyCodeLine{00227\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_ssts\ \ \ \ \ 0}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_ststs\ \ \ \ 1}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_sss\ \ \ \ \ \ 2}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_sps\ \ \ \ \ \ 3}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_pps\ \ \ \ \ \ 4}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_ppp\ \ \ \ \ \ 5}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_sds\ \ \ \ \ \ 6}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_stps\ \ \ \ \ 7}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_pds\ \ \ \ \ \ 8}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_pdp\ \ \ \ \ \ 9}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_const\ \ \ 10}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_dds\ \ \ \ \ 11}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_ddp\ \ \ \ \ 12}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_ddd\ \ \ \ \ 13}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_stds\ \ \ \ 14}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_cat\_shift\ 15}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ \ \ \ eta\_an\_shift\ \ 16}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_ss\ \ \ \ \ 17\ \ }}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stst\ \ \ 18}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stas\ \ \ 19}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_sast\ \ \ 20}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_sapc\ \ \ 21}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_pasc\ \ \ 22}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_scpa\ \ \ c\_ind\_pasc}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stapc\ \ 23}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_pastc\ \ 24}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stcpa\ \ c\_ind\_pastc}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_sadc\ \ \ 25}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_dasc\ \ \ 26}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_scda\ \ \ c\_ind\_dasc\ \ }}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stadc\ \ 27}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_dastc\ \ 28}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_stcda\ \ c\_ind\_dastc}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_pp\ 29}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_padc\ \ \ 30}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_dapc\ \ \ 31}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_pcda\ \ \ c\_ind\_dapc}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ \ \ \ c\_ind\_dd\ 32}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00270\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_UNDERSCORE}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ dgesv\ \ \ dgesv\_}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_UNDERSCORE2}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ dgesv\ \ \ dgesv\_\_}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_ALLCAPS}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ dgesv\ \ \ DGESV}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00284\ \ \ \ \textcolor{keywordtype}{void}\ dgesv(\textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{double}*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{double}*,\ \textcolor{keywordtype}{int}*,\ \textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00286\ \}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{keywordtype}{void}\ diag\_map\_set(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keywordtype}{int}\ h3d\_offdiag(\ cmatrix\ h,\ rvectr\ nnv,\ ivectr\ basis0,\ ivectr\ basisn,\ ivectr\ spin,}
+\DoxyCodeLine{00293\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_lattice\_const,\ \textcolor{keywordtype}{int}\ nb2\ );}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{keywordtype}{int}\ h3d\_offdiag\_diag\_corr(\ cmatrix\ ho,\ cmatrix\ hd,\ rvectr\ nnv,\ rvectr\ nnv0,\ ivectr}
+\DoxyCodeLine{00296\ basis0,\ ivectr\ basisn,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real}
+\DoxyCodeLine{00297\ unstrnd\_lattice\_const,\ \textcolor{keywordtype}{int}\ nb2\ );}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{int}\ h3d\_diag(\ cmatrix\ h,\ ivectr\ basis0,\ ivectr\ spin,\ rvectr\ param,\ \textcolor{keywordtype}{int}\ nb2\ );}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{keywordtype}{int}\ h3d\_diag\_strain\_corr(\ cmatrix\ ho,\ cmatrix\ hd,\ rvectr\ nnv,\ ivectr\ basis0,\ ivectr}
+\DoxyCodeLine{00302\ basisn,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_lattice\_const\ ,\ \textcolor{keywordtype}{int}\ nb2\ );}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{keywordtype}{int}\ h3d\_diag\_pz\_addition\_for\_wurtzite\_crystal\_splitting\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{double}\ pz\_addition);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{keywordtype}{int}\ h3d\_diag\_surface\_atom\_shift\ (\ qd\_struct\ d\ );}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{keywordtype}{void}\ h3d\_diag\_dangling\_bond\_shift\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindx,\ \textcolor{keywordtype}{int}\ aindx\ );}
+\DoxyCodeLine{00309\ \textcolor{keywordtype}{void}\ h3d\_diag\_dangling\_bond\_shift\_zincblende\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindx,\ \textcolor{keywordtype}{int}\ aindx\ );}
+\DoxyCodeLine{00310\ \textcolor{keywordtype}{void}\ h3d\_diag\_dangling\_bond\_shift\_wurtzite\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindx,\ \textcolor{keywordtype}{int}\ aindx\ );}
+\DoxyCodeLine{00311\ \textcolor{keywordtype}{void}\ h3d\_diag\_dangling\_bond\_shift\_ZB\_rot\ (\ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindx,\ \textcolor{keywordtype}{int}\ aindx\ );\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ and\ ZB\_111\ */}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{keywordtype}{double}\ vector\_dot\_vector(\ rvectr,\ rvectr,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ complex\ spin\_orbit\_spds(\ \textcolor{keywordtype}{int}\ basis1,\ \textcolor{keywordtype}{int}\ basis2,\ \textcolor{keywordtype}{int}\ spin1,\ \textcolor{keywordtype}{int}\ spin2,\ real\ delta\_a,\ real\ delta\_c\ );}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{comment}{/*\ Returns\ the\ diagonal\ element\ of\ spds\ hamiltonian\ */}}
+\DoxyCodeLine{00318\ real\ diag(\ rvectr\ param,\ \textcolor{keywordtype}{int}\ basis\ );}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{comment}{/*\ Returns\ off\ diagonal\ element\ between\ state\ ba\ and\ bc.\ \ Vector}}
+\DoxyCodeLine{00321\ \textcolor{comment}{between\ anion\ and\ cation\ is\ input\ as\ [xd,yd,zd]\ */}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{comment}{/*\ Gets\ off\ diagonal\ elements\ and\ multiplys\ by\ appropriate\ phase}}
+\DoxyCodeLine{00324\ \textcolor{comment}{\ \ \ factor\ */}}
+\DoxyCodeLine{00325\ complex\ ei(\ rvectr\ v,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ rvectr\ d,\ rvectr\ d0,\ \ \textcolor{keywordtype}{int}\ ba,\ \textcolor{keywordtype}{int}\ bc,\ real\ *E\_diag\_corr\ );}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ complex\ eidk(\ rvectr\ v,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ rvectr\ d,\ rvectr\ d0,\ \ \textcolor{keywordtype}{int}\ ba,\ \textcolor{keywordtype}{int}\ bc,\ \textcolor{keywordtype}{int}\ dim1,\ real\ *E\_diag\_corr\ );}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{comment}{/*\ Nemo\ interface\ for\ spds\ hamiltonian\ */}}
+\DoxyCodeLine{00330\ \textcolor{keywordtype}{int}\ tbh\_const\_1d\_nemo(\ cmatrix\ h,\ cmatrix\ hp1,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k\ );}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keywordtype}{int}\ tbh\_const\_bulk(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k\ );}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{keywordtype}{int}\ tbh\_const\_bulk\_dk(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ dim1\ );}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ real\ mtensor(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ band,\ rmatrix\ mtens);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ real\ Newton\_micro(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ band,\ rvectr\ mdE,\ rmatrix\ mtens);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{comment}{/*\ This\ one\ constructs\ the\ bulk\ Hamiltonian\ using\ the\ 3d\ hamiltonian\ calls\ */}}
+\DoxyCodeLine{00341\ \textcolor{keywordtype}{int}\ tbh\_const\_bulk\_3d(\ cmatrix\ h,\ rmatrix\ nnv,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k\ );}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ real\ dE\_dk(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ band,\ rvectr\ dE\ );}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keywordtype}{void}\ E\_const\_prep(\ rvectr\ par\_in,\ rvectr\ mb\_strain,\ rvectr\ par\_out,\ real\ unstrnd\_cubic\_cell\_length,\ real\ xd,\ real\ yd,\ real\ zd,\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ real\ *l,\ real\ *m,\ real\ *n,\ real\ *l2,\ real\ *m2,\ real\ *n2\ );}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#ifdef\ Additional\_Diagonal\_constant}}
+\DoxyCodeLine{00349\ real\ E\_const\_get(\ rvectr\ vpar\_e\_const,\ rvectr\ vpar\_orig,\ rvectr\ strain\_vec,\ \textcolor{keywordtype}{int}\ basis1\_econst,\ \textcolor{keywordtype}{int}\ basis2\_econst,\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ real\ l,\ real\ m,\ real\ n,\ real\ l2,\ real\ m2,\ real\ n2,\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ real\ l0,\ real\ m0,\ real\ n0,\ real\ l02,\ real\ m02,\ real\ n02,}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ real\ cstrain,\ real\ *out\_diag\_corr);}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00354\ real\ E\_const\_get(\ rvectr\ vpar\_e\_const,\ rvectr\ vpar\_orig,\ \textcolor{keywordtype}{int}\ basis1\_econst,\ \textcolor{keywordtype}{int}\ basis2\_econst,\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ real\ l,\ real\ m,\ real\ n,\ real\ l2,\ real\ m2,\ real\ n2,\ }
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ real\ l0,\ real\ m0,\ real\ n0,\ real\ l02,\ real\ m02,\ real\ n02,}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ real\ cstrain,\ real\ *out\_diag\_corr);}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{keywordtype}{void}\ strain\_corr\_prep(\ rvectr\ par\_in,\ rvectr\ mb\_strain,\ rvectr\ par\_scal\_out,\ real\ unstrnd\_cubic\_cell\_length,\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ xd,\ real\ yd,\ real\ zd,\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ xd0,\ real\ yd0,\ real\ zd0,\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ *l,\ real\ *m,\ real\ *n,\ real\ *l2,\ real\ *m2,\ real\ *n2\ ,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ *l0,\ real\ *m0,\ real\ *n0,\ real\ *l02,\ real\ *m02,\ real\ *n02\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{keywordtype}{int}\ tbh\_const\_1d\_nemo\_old(\ cmatrix\ h,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ cmatrix\ hp1,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ rvectr\ param,\ rvectr\ k\ );}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{keywordtype}{int}\ tbh\_const\_bulk\_dk\_old(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ dim1\ );}
+\DoxyCodeLine{00372\ real\ dE\_dk\_simple(\ cmatrix\ h,\ rmatrix\ nnv,\ rmatrix\ nnv0,\ ivectr\ basis,\ ivectr\ spin,\ rvectr\ param,\ rvectr\ mb\_strain,\ real\ unstrnd\_cubic\_cell\_length,\ rvectr\ k,\ \textcolor{keywordtype}{int}\ band,\ rvectr\ dE\ );}
+\DoxyCodeLine{00373\ rvectr\ param\_sp3s\_2\_sp3d5s(\ rvectr\ param\_in,\ rvectr\ param\_out,\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ unstrnd\_lattice\_const,\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ delX,\ real\ delY,\ real\ delZ\ );}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ complex\ vector\_potential\_phase(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindex,\ \textcolor{keywordtype}{int}\ aindex,\ rvectr\ nnv);}
+\DoxyCodeLine{00378\ \textcolor{keywordtype}{int}\ \ \ \ \ apply\_magnetic\_field(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindex,\ \textcolor{keywordtype}{int}\ aindex);\ }
+\DoxyCodeLine{00379\ \textcolor{keywordtype}{int}\ \ \ \ \ apply\_magnetic\_field(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ cindex,\ \textcolor{keywordtype}{int}\ aindex,\ rvectr\ nnv);\ }
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keywordtype}{int}\ compute\_strain\_tensor(real*\ exx,\ real*\ eyy,\ real*\ ezz,\ real*\ exy,}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real*\ exz,\ real*\ eyz,}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qd\_struct\ d,\ \textcolor{keywordtype}{int}\ Zc,\ \textcolor{keywordtype}{int}\ Za);}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{int}\ on\_site\_d\_orbital\_shift(qd\_struct\ d,\ \textcolor{keywordtype}{int}\ Zc,\ \textcolor{keywordtype}{int}\ Za,\ real\ E\_d,\ real\ b\_d,}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real*\ Exy,\ real*\ Exz,\ real*\ Eyz);}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

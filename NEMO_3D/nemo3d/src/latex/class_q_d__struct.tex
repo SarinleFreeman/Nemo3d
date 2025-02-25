@@ -1,0 +1,424 @@
+\doxysection{QD\+\_\+struct Class Reference}
+\hypertarget{class_q_d__struct}{}\label{class_q_d__struct}\index{QD\_struct@{QD\_struct}}
+
+
+Represents the entire structure to be simulated.  
+
+
+
+
+{\ttfamily \#include $<$qd\+\_\+struct.\+h$>$}
+
+
+
+Collaboration diagram for QD\+\_\+struct\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_q_d__struct__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_q_d__struct_a52945c0b85510e4479dd30072b99b939}\label{class_q_d__struct_a52945c0b85510e4479dd30072b99b939} 
+void {\bfseries set\+Top\+Struct} (const char \texorpdfstring{$\ast$}{*}f\+\_\+xml, const char \texorpdfstring{$\ast$}{*}f\+\_\+in)
+\item 
+\Hypertarget{class_q_d__struct_a3ae6287d643aad62e929959f3d9aaaf9}\label{class_q_d__struct_a3ae6287d643aad62e929959f3d9aaaf9} 
+void {\bfseries check\+Input} ()
+\item 
+\Hypertarget{class_q_d__struct_aaa5cd39eb147473e78da882e794baa2a}\label{class_q_d__struct_aaa5cd39eb147473e78da882e794baa2a} 
+void {\bfseries set\+\_\+s\+Mat\+List} ()
+\item 
+\Hypertarget{class_q_d__struct_af77b1a8aa0986319d708564cb74f74b9}\label{class_q_d__struct_af77b1a8aa0986319d708564cb74f74b9} 
+void {\bfseries cleanup} ()
+\item 
+\Hypertarget{class_q_d__struct_a52945c0b85510e4479dd30072b99b939}\label{class_q_d__struct_a52945c0b85510e4479dd30072b99b939} 
+void {\bfseries set\+Top\+Struct} (const char \texorpdfstring{$\ast$}{*}f\+\_\+xml, const char \texorpdfstring{$\ast$}{*}f\+\_\+in)
+\item 
+\Hypertarget{class_q_d__struct_a3ae6287d643aad62e929959f3d9aaaf9}\label{class_q_d__struct_a3ae6287d643aad62e929959f3d9aaaf9} 
+void {\bfseries check\+Input} ()
+\item 
+\Hypertarget{class_q_d__struct_aaa5cd39eb147473e78da882e794baa2a}\label{class_q_d__struct_aaa5cd39eb147473e78da882e794baa2a} 
+void {\bfseries set\+\_\+s\+Mat\+List} ()
+\item 
+\Hypertarget{class_q_d__struct_af77b1a8aa0986319d708564cb74f74b9}\label{class_q_d__struct_af77b1a8aa0986319d708564cb74f74b9} 
+void {\bfseries cleanup} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_q_d__struct_a75f5c6b0f3004b7bf1f6899d6fec80a8}{inputfile}}
+\item 
+top\+\_\+struct \mbox{\hyperlink{class_q_d__struct_af7831ccb811e02393caa0eab22b884d0}{opt}}
+\item 
+vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ \mbox{\hyperlink{class_q_d__struct_a118beed885f7d0d63cd5b2dfd5bcf3ea}{s\+Mat\+List}}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_aa19425239c0d49839da2cac5d0c6627d}{Abort\+\_\+result}}
+\item 
+\mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} \mbox{\hyperlink{class_q_d__struct_acef34f05d5542c72da8075126f2be70f}{geo}}
+\item 
+imatrix \mbox{\hyperlink{class_q_d__struct_a2d01842d17e471c2cc973f06902df440}{Atom\+\_\+to\+\_\+lm}}
+\item 
+ivectr \mbox{\hyperlink{class_q_d__struct_a363db808f7b1fe185a56fa4e196e442f}{surface\+Atoms}}
+\item 
+vector$<$ \mbox{\hyperlink{classwave_function}{wave\+Function}} $>$ \mbox{\hyperlink{class_q_d__struct_aa69c8623e71672f89cd4b6f12d3e7734}{WF}}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_a53ec620298757f8c2a89736c10317ccc}{neigv}}
+\item 
+\Hypertarget{class_q_d__struct_a3f37cf7382e88a38813756feb3406903}\label{class_q_d__struct_a3f37cf7382e88a38813756feb3406903} 
+real {\bfseries shift}
+\item 
+\Hypertarget{class_q_d__struct_ae45b7ffc1dbcc734881c767ae65aa765}\label{class_q_d__struct_ae45b7ffc1dbcc734881c767ae65aa765} 
+real {\bfseries eta}
+\item 
+\Hypertarget{class_q_d__struct_ae1d926dc443ee126d9f79eaed88946af}\label{class_q_d__struct_ae1d926dc443ee126d9f79eaed88946af} 
+rvectr {\bfseries mstar}
+\item 
+\Hypertarget{class_q_d__struct_a31057df89b3e318b479c011fa9394c2a}\label{class_q_d__struct_a31057df89b3e318b479c011fa9394c2a} 
+rvectr {\bfseries te}
+\item 
+\Hypertarget{class_q_d__struct_a3478d477102ba10704ee3078f9c869c4}\label{class_q_d__struct_a3478d477102ba10704ee3078f9c869c4} 
+imatrix {\bfseries tindx}
+\item 
+\Hypertarget{class_q_d__struct_ac631f56a6b23abd5efa527193830093e}\label{class_q_d__struct_ac631f56a6b23abd5efa527193830093e} 
+rmatrix {\bfseries wf}
+\item 
+\Hypertarget{class_q_d__struct_a311f5c2f0710f6a3fe78483e895f5228}\label{class_q_d__struct_a311f5c2f0710f6a3fe78483e895f5228} 
+rmatrix {\bfseries opmat}
+\item 
+\Hypertarget{class_q_d__struct_a1b9a7bb96b35ba83ed97d0605b10363a}\label{class_q_d__struct_a1b9a7bb96b35ba83ed97d0605b10363a} 
+r3tensor {\bfseries opmat\+\_\+pxyz}
+\item 
+cmatrix \mbox{\hyperlink{class_q_d__struct_ab12a7a8b03145147995fb0052b1930a3}{wfc}}
+\item 
+cvectr \mbox{\hyperlink{class_q_d__struct_a3b5a2dcde36ca6a3fc9fcc1ad706e0ce}{eigv}}
+\item 
+\Hypertarget{class_q_d__struct_a2172807464841c605af040119e04e351}\label{class_q_d__struct_a2172807464841c605af040119e04e351} 
+i3tensor {\bfseries mat}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_acfcd8cd37561934ee85fda571bfd5eec}{NBasis\+States}}
+\item 
+\Hypertarget{class_q_d__struct_aaceb29d495b239531688042f3e5628ee}\label{class_q_d__struct_aaceb29d495b239531688042f3e5628ee} 
+int {\bfseries n\+\_\+atom\+\_\+tot}
+\item 
+\Hypertarget{class_q_d__struct_a92126c65407cd1950d19445d86485914}\label{class_q_d__struct_a92126c65407cd1950d19445d86485914} 
+int {\bfseries n\+\_\+ham\+\_\+tot}
+\item 
+\Hypertarget{class_q_d__struct_a3336024531f3941f4e06f3f0d080a1cb}\label{class_q_d__struct_a3336024531f3941f4e06f3f0d080a1cb} 
+int {\bfseries npair}
+\item 
+\Hypertarget{class_q_d__struct_a7a3722e437e0c35ea875bf541ea17595}\label{class_q_d__struct_a7a3722e437e0c35ea875bf541ea17595} 
+BM\+\_\+\+Type {\bfseries Band\+Model}
+\item 
+\Hypertarget{class_q_d__struct_a3f0bf3a5ff9335675e7bf406942ca42c}\label{class_q_d__struct_a3f0bf3a5ff9335675e7bf406942ca42c} 
+real {\bfseries kxL}
+\item 
+\Hypertarget{class_q_d__struct_ab03f957fd642ff3b130c354dde804d1d}\label{class_q_d__struct_ab03f957fd642ff3b130c354dde804d1d} 
+real {\bfseries kyL}
+\item 
+real \mbox{\hyperlink{class_q_d__struct_abee91e92702590d8364c388f944ff2bb}{kzL}}
+\item 
+\Hypertarget{class_q_d__struct_ad598f82d16b39c5b3f959707a064467a}\label{class_q_d__struct_ad598f82d16b39c5b3f959707a064467a} 
+ivectr {\bfseries Basis\+\_\+\+Spin}
+\item 
+\Hypertarget{class_q_d__struct_a70630d0b1e128f4097591bf839fea22c}\label{class_q_d__struct_a70630d0b1e128f4097591bf839fea22c} 
+ivectr {\bfseries Basis\+Anion}
+\item 
+\Hypertarget{class_q_d__struct_ae1ee4f2f479915441a0c6ccd6350127e}\label{class_q_d__struct_ae1ee4f2f479915441a0c6ccd6350127e} 
+ivectr {\bfseries Basis\+Cation}
+\item 
+\Hypertarget{class_q_d__struct_aed56fa48c2f45b28984f717ebc57437d}\label{class_q_d__struct_aed56fa48c2f45b28984f717ebc57437d} 
+rvectr {\bfseries param}
+\item 
+\Hypertarget{class_q_d__struct_a727c3c043b79d4c07b8e7c284fdd8f55}\label{class_q_d__struct_a727c3c043b79d4c07b8e7c284fdd8f55} 
+cmatrix {\bfseries hd}
+\item 
+\Hypertarget{class_q_d__struct_af973536987baf87413a76c83c7bf00ee}\label{class_q_d__struct_af973536987baf87413a76c83c7bf00ee} 
+cmatrix {\bfseries ho}
+\item 
+\Hypertarget{class_q_d__struct_a3c935cb0a4948e4aaf487ecba6bb117f}\label{class_q_d__struct_a3c935cb0a4948e4aaf487ecba6bb117f} 
+r3tensor {\bfseries parmat}
+\item 
+\Hypertarget{class_q_d__struct_a49845dea097af964e882bdb2d18bbd50}\label{class_q_d__struct_a49845dea097af964e882bdb2d18bbd50} 
+r2tensor {\bfseries phi}
+\item 
+\Hypertarget{class_q_d__struct_a710da23d768c0269f06e9238343f6ce3}\label{class_q_d__struct_a710da23d768c0269f06e9238343f6ce3} 
+\mbox{\hyperlink{class_ham_zinc_blende}{Ham\+Zinc\+Blende}} {\bfseries Hzb}
+\item 
+\Hypertarget{class_q_d__struct_adb117f531f1db3860d798b4b4452b055}\label{class_q_d__struct_adb117f531f1db3860d798b4b4452b055} 
+\mbox{\hyperlink{class_ham_zinc_blende_complex}{Ham\+Zinc\+Blende\+Complex}} {\bfseries Hzb\+Complex}
+\item 
+\Hypertarget{class_q_d__struct_a8f08351f7e31a35bc14ea58dc7b22be8}\label{class_q_d__struct_a8f08351f7e31a35bc14ea58dc7b22be8} 
+rvectr {\bfseries Cubic\+Sparse1s}
+\item 
+\Hypertarget{class_q_d__struct_af351e33102074ec62c9c3a9716703f1d}\label{class_q_d__struct_af351e33102074ec62c9c3a9716703f1d} 
+bool {\bfseries is\+\_\+\+Cubic\+Sparse1s\+Set}
+\item 
+\Hypertarget{class_q_d__struct_a792160a0ffca5a1e9bffcdf1702f915e}\label{class_q_d__struct_a792160a0ffca5a1e9bffcdf1702f915e} 
+int {\bfseries Cubic\+Max\+Nbr}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_a8178a6d3dfff9148ba2b462e1239d487}{\+\_\+primitive\+Cell\+\_\+granularity}}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_ae062463e5bd9caaeba8a14ef1ef09967}{\+\_\+bandstruct\+\_\+on\+\_\+full\+\_\+domain}}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_a2b9132b22c63c9c2de5cb243dd146a13}{\+\_\+bandstruct\+\_\+on\+\_\+local\+\_\+domain}}
+\item 
+\Hypertarget{class_q_d__struct_a341e171c829922843d4ad8331b5ef31b}\label{class_q_d__struct_a341e171c829922843d4ad8331b5ef31b} 
+cmatrixmatrix {\bfseries Ham}
+\item 
+\Hypertarget{class_q_d__struct_aa41c75c4c5d85226efe56d6dc2eeaaa2}\label{class_q_d__struct_aa41c75c4c5d85226efe56d6dc2eeaaa2} 
+ivectr {\bfseries Ham\+\_\+neighbor}
+\item 
+\Hypertarget{class_q_d__struct_a56e40c7ca24dedcc30697bde85447ee3}\label{class_q_d__struct_a56e40c7ca24dedcc30697bde85447ee3} 
+imatrix {\bfseries Ham\+\_\+offset\+\_\+x}
+\item 
+\Hypertarget{class_q_d__struct_a4ce73ccf02516eff84e42eeb3c902912}\label{class_q_d__struct_a4ce73ccf02516eff84e42eeb3c902912} 
+imatrix {\bfseries Ham\+\_\+offset\+\_\+y}
+\item 
+\Hypertarget{class_q_d__struct_ad26eab9e51a2061bb4f1f0bcc056dab3}\label{class_q_d__struct_ad26eab9e51a2061bb4f1f0bcc056dab3} 
+imatrix {\bfseries Ham\+\_\+yc}
+\item 
+\Hypertarget{class_q_d__struct_a280d7b1822049a80442dbc462a10e177}\label{class_q_d__struct_a280d7b1822049a80442dbc462a10e177} 
+int {\bfseries Ham\+\_\+use\+\_\+hermiticity}
+\item 
+\Hypertarget{class_q_d__struct_ac429b5005c6c089f98decf81a75dbbaa}\label{class_q_d__struct_ac429b5005c6c089f98decf81a75dbbaa} 
+imatrix {\bfseries Ham\+\_\+transp}
+\item 
+\Hypertarget{class_q_d__struct_a741e8661e2306e62e48632529a604ee5}\label{class_q_d__struct_a741e8661e2306e62e48632529a604ee5} 
+imatrix {\bfseries Ham\+\_\+atom\+\_\+nbr\+\_\+2\+\_\+m}
+\item 
+\Hypertarget{class_q_d__struct_a6a2ac69026f85b2305f8c53edcc9ed06}\label{class_q_d__struct_a6a2ac69026f85b2305f8c53edcc9ed06} 
+imatrix {\bfseries Ham\+\_\+atom\+\_\+nbr\+\_\+2\+\_\+l}
+\item 
+imatrix \mbox{\hyperlink{class_q_d__struct_ace73a6808ba0f246e228feddb8acd6df}{l\+\_\+m\+\_\+2\+\_\+atom}}
+\item 
+\Hypertarget{class_q_d__struct_a218aa58b5b16b23f7bbf879a29e2db14}\label{class_q_d__struct_a218aa58b5b16b23f7bbf879a29e2db14} 
+rvectr {\bfseries Amass}
+\item 
+\Hypertarget{class_q_d__struct_a4d11adcda8212b0182e781079db8919a}\label{class_q_d__struct_a4d11adcda8212b0182e781079db8919a} 
+\mbox{\hyperlink{classphon__struct}{phon\+\_\+struct}} {\bfseries phon}
+\item 
+\Hypertarget{class_q_d__struct_ad1f53c8e8eaf92a3064a8ec8e4055071}\label{class_q_d__struct_ad1f53c8e8eaf92a3064a8ec8e4055071} 
+\mbox{\hyperlink{class_strain_param}{Strain\+Param}} {\bfseries strain}
+\item 
+\Hypertarget{class_q_d__struct_a26a13627bc11e33b2d991eb29cce9bed}\label{class_q_d__struct_a26a13627bc11e33b2d991eb29cce9bed} 
+rmatrixrvectr {\bfseries strnmat}
+\item 
+\Hypertarget{class_q_d__struct_a4230591eadb1f22ac5a238242ca4a771}\label{class_q_d__struct_a4230591eadb1f22ac5a238242ca4a771} 
+cvectr {\bfseries rc}
+\item 
+\Hypertarget{class_q_d__struct_a07ffa2f2c6f778e071fe4f44334f82c2}\label{class_q_d__struct_a07ffa2f2c6f778e071fe4f44334f82c2} 
+cvectr {\bfseries r0}
+\item 
+\Hypertarget{class_q_d__struct_acf42d125f1793e4995698849b0bf3cf0}\label{class_q_d__struct_acf42d125f1793e4995698849b0bf3cf0} 
+cvectr {\bfseries q0}
+\item 
+\Hypertarget{class_q_d__struct_a5ef3e096f0ac7d7da3a221e6a7f7e909}\label{class_q_d__struct_a5ef3e096f0ac7d7da3a221e6a7f7e909} 
+cvectr {\bfseries q\+\_\+m10}
+\item 
+\Hypertarget{class_q_d__struct_aa12dc4667c0253ba0df69cdebc533066}\label{class_q_d__struct_aa12dc4667c0253ba0df69cdebc533066} 
+cvectr {\bfseries r0\+\_\+start}
+\item 
+\Hypertarget{class_q_d__struct_a848edb6ba2a667cbca297da1d3ffb489}\label{class_q_d__struct_a848edb6ba2a667cbca297da1d3ffb489} 
+cvectr {\bfseries cvec\+\_\+aux}
+\item 
+\Hypertarget{class_q_d__struct_afaa9c9d5477dce9e2eaed85d1b9e1481}\label{class_q_d__struct_afaa9c9d5477dce9e2eaed85d1b9e1481} 
+cmatrix {\bfseries mm}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_aa5d2aa88b0d0ce418156a8df655ae96e}{maxseg}}
+\item 
+int \mbox{\hyperlink{class_q_d__struct_a7de00c273accf1b9b0b4ad3e1457ad1b}{nproc}}
+\item 
+ivectr \mbox{\hyperlink{class_q_d__struct_ab21481e59fef20cc126ecf31f7048a93}{cell\+\_\+s}}
+\item 
+ivectr \mbox{\hyperlink{class_q_d__struct_a5ab6f156c0aa330bb98e482f5dd9e40c}{cell\+\_\+ln}}
+\item 
+ivectr \mbox{\hyperlink{class_q_d__struct_aa2e22e393bc3c96625a4dfd6d0201e98}{seg\+\_\+s}}
+\item 
+ivectr \mbox{\hyperlink{class_q_d__struct_aba8ff77cf0046b4e0359ccae26da5082}{seg\+\_\+ln}}
+\item 
+\Hypertarget{class_q_d__struct_a9a872936b9d503f9f577fa925226f46e}\label{class_q_d__struct_a9a872936b9d503f9f577fa925226f46e} 
+ivectr {\bfseries nvmap}
+\item 
+\Hypertarget{class_q_d__struct_a117b5e2f12584b180d000d9482fe6235}\label{class_q_d__struct_a117b5e2f12584b180d000d9482fe6235} 
+imatrix {\bfseries commsize}
+\item 
+\Hypertarget{class_q_d__struct_a00aa0f447b04e20b270e44c046b7d846}\label{class_q_d__struct_a00aa0f447b04e20b270e44c046b7d846} 
+imatrix {\bfseries commorder}
+\item 
+\Hypertarget{class_q_d__struct_a73c9672ca78cd2f49f0bbc52aee93420}\label{class_q_d__struct_a73c9672ca78cd2f49f0bbc52aee93420} 
+ivectrvectr {\bfseries vecmap}
+\item 
+\Hypertarget{class_q_d__struct_a622a80f746d42e445a26922db3e82f6b}\label{class_q_d__struct_a622a80f746d42e445a26922db3e82f6b} 
+cvectr {\bfseries drq}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the entire structure to be simulated. 
+
+This class encapsulates data relevant to the entire structure to be simulated by NEMO3D. It also has resultant output data that come from simulation. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_q_d__struct_ae062463e5bd9caaeba8a14ef1ef09967}\index{QD\_struct@{QD\_struct}!\_bandstruct\_on\_full\_domain@{\_bandstruct\_on\_full\_domain}}
+\index{\_bandstruct\_on\_full\_domain@{\_bandstruct\_on\_full\_domain}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{\_bandstruct\_on\_full\_domain}{\_bandstruct\_on\_full\_domain}}
+{\footnotesize\ttfamily \label{class_q_d__struct_ae062463e5bd9caaeba8a14ef1ef09967} 
+int QD\+\_\+struct\+::\+\_\+bandstruct\+\_\+on\+\_\+full\+\_\+domain}
+
+Set to 1 if electronic calculation is being done in full domain. \Hypertarget{class_q_d__struct_a2b9132b22c63c9c2de5cb243dd146a13}\index{QD\_struct@{QD\_struct}!\_bandstruct\_on\_local\_domain@{\_bandstruct\_on\_local\_domain}}
+\index{\_bandstruct\_on\_local\_domain@{\_bandstruct\_on\_local\_domain}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{\_bandstruct\_on\_local\_domain}{\_bandstruct\_on\_local\_domain}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a2b9132b22c63c9c2de5cb243dd146a13} 
+int QD\+\_\+struct\+::\+\_\+bandstruct\+\_\+on\+\_\+local\+\_\+domain}
+
+Set to 1 if electronic calculation is being done in local domain. \Hypertarget{class_q_d__struct_a8178a6d3dfff9148ba2b462e1239d487}\index{QD\_struct@{QD\_struct}!\_primitiveCell\_granularity@{\_primitiveCell\_granularity}}
+\index{\_primitiveCell\_granularity@{\_primitiveCell\_granularity}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{\_primitiveCell\_granularity}{\_primitiveCell\_granularity}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a8178a6d3dfff9148ba2b462e1239d487} 
+int QD\+\_\+struct\+::\+\_\+primitive\+Cell\+\_\+granularity}
+
+Set to 1 if electronic structure has granularity on a primitive cell \Hypertarget{class_q_d__struct_aa19425239c0d49839da2cac5d0c6627d}\index{QD\_struct@{QD\_struct}!Abort\_result@{Abort\_result}}
+\index{Abort\_result@{Abort\_result}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{Abort\_result}{Abort\_result}}
+{\footnotesize\ttfamily \label{class_q_d__struct_aa19425239c0d49839da2cac5d0c6627d} 
+int QD\+\_\+struct\+::\+Abort\+\_\+result}
+
+Flag to chec whether simulation was forced to quit or not. Set to 1 if process is forced to quit. \Hypertarget{class_q_d__struct_a2d01842d17e471c2cc973f06902df440}\index{QD\_struct@{QD\_struct}!Atom\_to\_lm@{Atom\_to\_lm}}
+\index{Atom\_to\_lm@{Atom\_to\_lm}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{Atom\_to\_lm}{Atom\_to\_lm}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a2d01842d17e471c2cc973f06902df440} 
+imatrix QD\+\_\+struct\+::\+Atom\+\_\+to\+\_\+lm}
+
+2D integer matrix. Atom\+\_\+to\+\_\+lm\mbox{[}k\mbox{]}\mbox{[}0\mbox{]} returns index of a cell this atom belongs. Atom\+\_\+to\+\_\+lm\mbox{[}k\mbox{]}\mbox{[}1\mbox{]} returns relative index of this atom in a cell of index l. (Note \+: apart from its absolute atomic index, every atom has another relative index in a unit cell that starts from 1 to geo.\+Atomper\+Cell\+Max()) \begin{DoxySeeAlso}{See also}
+geo\+\_\+struct\+::\+Atomper\+Cell\+Max() 
+\end{DoxySeeAlso}
+\Hypertarget{class_q_d__struct_a5ab6f156c0aa330bb98e482f5dd9e40c}\index{QD\_struct@{QD\_struct}!cell\_ln@{cell\_ln}}
+\index{cell\_ln@{cell\_ln}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_ln}{cell\_ln}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a5ab6f156c0aa330bb98e482f5dd9e40c} 
+ivectr QD\+\_\+struct\+::cell\+\_\+ln}
+
+size of a unitcell segment (\# of unitcell, equivalently) in each process. cell\+\_\+ln\mbox{[}n\mbox{]} has \# of unitcells allocated in n-\/th process. \Hypertarget{class_q_d__struct_ab21481e59fef20cc126ecf31f7048a93}\index{QD\_struct@{QD\_struct}!cell\_s@{cell\_s}}
+\index{cell\_s@{cell\_s}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{cell\_s}{cell\_s}}
+{\footnotesize\ttfamily \label{class_q_d__struct_ab21481e59fef20cc126ecf31f7048a93} 
+ivectr QD\+\_\+struct\+::cell\+\_\+s}
+
+starting index of a unitcell segment in each process. cell\+\_\+s\mbox{[}n\mbox{]} has the starting index of a unitcell segment allocated in n-\/th process. \Hypertarget{class_q_d__struct_a3b5a2dcde36ca6a3fc9fcc1ad706e0ce}\index{QD\_struct@{QD\_struct}!eigv@{eigv}}
+\index{eigv@{eigv}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{eigv}{eigv}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a3b5a2dcde36ca6a3fc9fcc1ad706e0ce} 
+cvectr QD\+\_\+struct\+::eigv}
+
+complex vecgtor that contains calculated eigenvectors. \Hypertarget{class_q_d__struct_acef34f05d5542c72da8075126f2be70f}\index{QD\_struct@{QD\_struct}!geo@{geo}}
+\index{geo@{geo}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{geo}{geo}}
+{\footnotesize\ttfamily \label{class_q_d__struct_acef34f05d5542c72da8075126f2be70f} 
+\mbox{\hyperlink{classgeo__struct}{geo\+\_\+struct}} QD\+\_\+struct\+::geo}
+
+geometry infomation. \begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_a654046600a86961b14880e4aba86c80e}{geo\+\_\+struct\+::geo\+\_\+struct()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_q_d__struct_a75f5c6b0f3004b7bf1f6899d6fec80a8}\index{QD\_struct@{QD\_struct}!inputfile@{inputfile}}
+\index{inputfile@{inputfile}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{inputfile}{inputfile}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a75f5c6b0f3004b7bf1f6899d6fec80a8} 
+char \texorpdfstring{$\ast$}{*} QD\+\_\+struct\+::inputfile}
+
+name of input deck \Hypertarget{class_q_d__struct_abee91e92702590d8364c388f944ff2bb}\index{QD\_struct@{QD\_struct}!kzL@{kzL}}
+\index{kzL@{kzL}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{kzL}{kzL}}
+{\footnotesize\ttfamily \label{class_q_d__struct_abee91e92702590d8364c388f944ff2bb} 
+real QD\+\_\+struct\+::kzL}
+
+increment of k value into x, y and z direction. initial, final k values and number of steps between init/final values are extraced from input deck. \Hypertarget{class_q_d__struct_ace73a6808ba0f246e228feddb8acd6df}\index{QD\_struct@{QD\_struct}!l\_m\_2\_atom@{l\_m\_2\_atom}}
+\index{l\_m\_2\_atom@{l\_m\_2\_atom}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{l\_m\_2\_atom}{l\_m\_2\_atom}}
+{\footnotesize\ttfamily \label{class_q_d__struct_ace73a6808ba0f246e228feddb8acd6df} 
+imatrix QD\+\_\+struct\+::l\+\_\+m\+\_\+2\+\_\+atom}
+
+l\+\_\+m\+\_\+2\+\_\+atom\mbox{[}l\mbox{]}\mbox{[}m\mbox{]} returns absolute atomic index of an atom whose cell index = l and relative atomic index in a unit cell is m. \Hypertarget{class_q_d__struct_aa5d2aa88b0d0ce418156a8df655ae96e}\index{QD\_struct@{QD\_struct}!maxseg@{maxseg}}
+\index{maxseg@{maxseg}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{maxseg}{maxseg}}
+{\footnotesize\ttfamily \label{class_q_d__struct_aa5d2aa88b0d0ce418156a8df655ae96e} 
+int QD\+\_\+struct\+::maxseg}
+
+largest size of vector segment. \Hypertarget{class_q_d__struct_acfcd8cd37561934ee85fda571bfd5eec}\index{QD\_struct@{QD\_struct}!NBasisStates@{NBasisStates}}
+\index{NBasisStates@{NBasisStates}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{NBasisStates}{NBasisStates}}
+{\footnotesize\ttfamily \label{class_q_d__struct_acfcd8cd37561934ee85fda571bfd5eec} 
+int QD\+\_\+struct\+::\+NBasis\+States}
+
+number of basis per atom. It will be set according to the selected band model. \Hypertarget{class_q_d__struct_a53ec620298757f8c2a89736c10317ccc}\index{QD\_struct@{QD\_struct}!neigv@{neigv}}
+\index{neigv@{neigv}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{neigv}{neigv}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a53ec620298757f8c2a89736c10317ccc} 
+int QD\+\_\+struct\+::neigv}
+
+Number of eigenvalues \Hypertarget{class_q_d__struct_a7de00c273accf1b9b0b4ad3e1457ad1b}\index{QD\_struct@{QD\_struct}!nproc@{nproc}}
+\index{nproc@{nproc}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{nproc}{nproc}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a7de00c273accf1b9b0b4ad3e1457ad1b} 
+int QD\+\_\+struct\+::nproc}
+
+\hypertarget{class_q_d__struct_autotoc_md0}{}\doxysubsection{\texorpdfstring{of processes}{of processes}}\label{class_q_d__struct_autotoc_md0}
+\hypertarget{class_q_d__struct_autotoc_md1}{}\doxysubsection{\texorpdfstring{of processes}{of processes}}\label{class_q_d__struct_autotoc_md1}
+\Hypertarget{class_q_d__struct_af7831ccb811e02393caa0eab22b884d0}\index{QD\_struct@{QD\_struct}!opt@{opt}}
+\index{opt@{opt}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{opt}{opt}}
+{\footnotesize\ttfamily \label{class_q_d__struct_af7831ccb811e02393caa0eab22b884d0} 
+top\+\_\+struct QD\+\_\+struct\+::opt}
+
+this has several information extracted from input deck. \begin{DoxySeeAlso}{See also}
+top\+\_\+struct\+::top\+\_\+struct() 
+\end{DoxySeeAlso}
+\Hypertarget{class_q_d__struct_aba8ff77cf0046b4e0359ccae26da5082}\index{QD\_struct@{QD\_struct}!seg\_ln@{seg\_ln}}
+\index{seg\_ln@{seg\_ln}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{seg\_ln}{seg\_ln}}
+{\footnotesize\ttfamily \label{class_q_d__struct_aba8ff77cf0046b4e0359ccae26da5082} 
+ivectr QD\+\_\+struct\+::seg\+\_\+ln}
+
+size (length) of a vector segment in each process. seg\+\_\+ln\mbox{[}n\mbox{]} has the length of a vector segment allocated in n-\/th process. \Hypertarget{class_q_d__struct_aa2e22e393bc3c96625a4dfd6d0201e98}\index{QD\_struct@{QD\_struct}!seg\_s@{seg\_s}}
+\index{seg\_s@{seg\_s}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{seg\_s}{seg\_s}}
+{\footnotesize\ttfamily \label{class_q_d__struct_aa2e22e393bc3c96625a4dfd6d0201e98} 
+ivectr QD\+\_\+struct\+::seg\+\_\+s}
+
+staring index of a vector segment in each process. seg\+\_\+s\mbox{[}n\mbox{]} has the starting index of a vector segment allocated in n-\/th process. \Hypertarget{class_q_d__struct_a118beed885f7d0d63cd5b2dfd5bcf3ea}\index{QD\_struct@{QD\_struct}!sMatList@{sMatList}}
+\index{sMatList@{sMatList}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{sMatList}{sMatList}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a118beed885f7d0d63cd5b2dfd5bcf3ea} 
+vector$<$ \mbox{\hyperlink{class_material_handle}{Material\+Handle}} $>$ QD\+\_\+struct\+::s\+Mat\+List}
+
+1D array of data type $<$material\+Handle$>$. This is the list of materials avaiable in a specific simulation domain. \Hypertarget{class_q_d__struct_a363db808f7b1fe185a56fa4e196e442f}\index{QD\_struct@{QD\_struct}!surfaceAtoms@{surfaceAtoms}}
+\index{surfaceAtoms@{surfaceAtoms}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{surfaceAtoms}{surfaceAtoms}}
+{\footnotesize\ttfamily \label{class_q_d__struct_a363db808f7b1fe185a56fa4e196e442f} 
+ivectr QD\+\_\+struct\+::surface\+Atoms}
+
+list of atoms on surface. surface\+Atoms\mbox{[}k\mbox{]} returns atomic index of k-\/th surface atom. \Hypertarget{class_q_d__struct_aa69c8623e71672f89cd4b6f12d3e7734}\index{QD\_struct@{QD\_struct}!WF@{WF}}
+\index{WF@{WF}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{WF}{WF}}
+{\footnotesize\ttfamily \label{class_q_d__struct_aa69c8623e71672f89cd4b6f12d3e7734} 
+vector$<$ \mbox{\hyperlink{classwave_function}{wave\+Function}} $>$ QD\+\_\+struct\+::\+WF}
+
+This matrix has raw eigenvalues. This data will be additionally scaled by HAMILTONIAN\+\_\+\+SCALE\+\_\+\+VALUE, which produces actual eigenvalues that we see from the result. \Hypertarget{class_q_d__struct_ab12a7a8b03145147995fb0052b1930a3}\index{QD\_struct@{QD\_struct}!wfc@{wfc}}
+\index{wfc@{wfc}!QD\_struct@{QD\_struct}}
+\doxysubsubsection{\texorpdfstring{wfc}{wfc}}
+{\footnotesize\ttfamily \label{class_q_d__struct_ab12a7a8b03145147995fb0052b1930a3} 
+cmatrix QD\+\_\+struct\+::wfc}
+
+complex matrix that contains calculated wavefunction values. wfc\mbox{[}ev\mbox{]}\mbox{[}geo.\+l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot\mbox{[}l\mbox{]}\mbox{[}m\mbox{]} + n\mbox{]} indicates wave function of (nth basis of the atom whose cell index = l and atomic index = m) for ev-\/th eigen value \begin{DoxySeeAlso}{See also}
+\doxylink{classgeo__struct_a88b7c5437de0f25e0dc63202d0eed666}{geo\+\_\+struct\+::l\+\_\+m\+\_\+2\+\_\+offset\+\_\+ham\+\_\+tot} 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+base/qd\+\_\+struct.\+h\item 
+base/qd\+\_\+struct\+\_\+old.\+h\item 
+base/qd\+\_\+struct\+\_\+make.\+c\item 
+base/qd\+\_\+struct\+\_\+make\+\_\+old.\+c\item 
+io/i\+\_\+mat.\+c\end{DoxyCompactItemize}

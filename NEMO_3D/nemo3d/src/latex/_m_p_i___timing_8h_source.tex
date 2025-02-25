@@ -1,0 +1,258 @@
+\doxysection{MPI\+\_\+\+Timing.\+h}
+\hypertarget{_m_p_i___timing_8h_source}{}\label{_m_p_i___timing_8h_source}\index{base/MPI\_Timing.h@{base/MPI\_Timing.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************\ }}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/MPI\_Timing.h,v\ 1.13\ 2007/08/10\ 15:03:32\ baeh\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ MPI\_TIMING\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MPI\_TIMING\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifdef\ MPI\_TIMING}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}is\_def.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}rvector.h"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }MPI\_Timing\ \ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\_0,\ total;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ setup\_0,\ setup;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ work\_0,\ work;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ fileio\_0,\ fileio;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ matmul\_spds;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Hv\_tot;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ h3ddiag\_small;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ h3doffd\_small;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MPI\ profile\ for\ strain\ caculation}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ sendrecv,\ allreduce,\ barrier,\ bcast,\ send,\ and\ recv}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ strain\_mpi[6];}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MPI\ profile\ for\ electronic\ structure}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ electr\_mpi[6];}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MPI\ profile\ for\ rest\ of\ the\ code}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ other\_mpi[6];}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ MPI\ profile\ location}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *\ section;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time;}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_h3ddiag;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_h3doffd;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lanczos\_iter;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lanczos\_setup\_once;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lanczos\_iter\_all;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lanczos\_trid;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lanczos\_function;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ matmul\_spds\_small;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ krylov;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ h3ddiag;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ h3doffd;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ strain;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time5;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ test5;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time6;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ test6;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time7;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ test7;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time8;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ test8;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_time9;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ test9;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ parpack\_function;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rayleigh\_function;}
+\DoxyCodeLine{00103\ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ for\ matrix\ matrix\ multiply\ sendrecv\ routine}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ matmult\_sendrecv;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ out\_data\_length;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Initialize()\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ total\_0\ =\ total\ =\ 0.0;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ setup\_0\ =\ setup\ =\ 0.0;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ work\_0\ =\ work\ =\ 0.0;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ matmul\_spds=0.0;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ h3ddiag\_small=0.0;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ h3doffd\_small=0.0;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time=0.0;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ start\_h3ddiag=0.0;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ start\_h3doffd=0.0;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ fileio\_0\ =\ fileio\ =0.0;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ lanczos\_iter=0.0;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ lanczos\_setup\_once=0.0;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ lanczos\_iter\_all=0.0;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ lanczos\_trid=0.0;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ matmul\_spds\_small=0.0;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ Hv\_tot=0.0;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ krylov=0.0;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ h3ddiag=0.0;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ h3doffd=0.0;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ strain\ =0.0;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time5=0.0;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ test5=0.0;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time6=0.0;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ test6=0.0;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time7=0.0;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ test7=0.0;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time8=0.0;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ test8=0.0;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ start\_time9=0.0;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ test9=0.0;}
+\DoxyCodeLine{00145\ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ parpack\_function=0.0;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ rayleigh\_function=0.0;}
+\DoxyCodeLine{00148\ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ matmult\_sendrecv\ =\ 0.0;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<6;\ i++)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strain\_mpi[i]\ =\ 0.0;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ electr\_mpi[i]\ =\ 0.0;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[i]\ =\ 0.0;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ section\ =\ other\_mpi;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data\_length=25;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ MPI\_Timing()\ \{\ Initialize();\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ print()\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \ CPU\ \%2d\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}},\ mpi\_n3d\_id);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ TOTAL:\ \ \ \ \ \ \ \ total=\%5.1f\(\backslash\)t\ setup=\%5.1f\(\backslash\)t\ strain=\%5.1f\ electronics=\%5.1f\ fileio=\%5.1f\(\backslash\)n"{}},\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_n3d\_id,total,\ setup,\ strain,\ work,\ fileio);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ MATRIX:\ \ \ \ \ \ \ h3ddia=\%5.1f\(\backslash\)t\ h3doff=\%5.1f\(\backslash\)t\ multiply\_nocom=\%5.1f\(\backslash\)t\ \ multiply\_tot=\%5.1f\(\backslash\)n"{}},}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_n3d\_id,h3ddiag,\ h3doffd,\ matmul\_spds,\ Hv\_tot);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ COMM1:\ \ \ \ \ \ \ \ \ sendrec=\%5.1f\(\backslash\)t\ allred=\%5.1f\(\backslash\)t\ barrier=\%5.1f\(\backslash\)t\ bcast=\%5.1f\(\backslash\)t\ send=\%5.1f\(\backslash\)t\ receive=\%5.1f\(\backslash\)n"{}},}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mpi\_n3d\_id,\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[0]+strain\_mpi[0]+electr\_mpi[0],}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[1]+strain\_mpi[1]+electr\_mpi[1],}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[2]+strain\_mpi[2]+electr\_mpi[2],}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[3]+strain\_mpi[3]+electr\_mpi[3],}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[4]+strain\_mpi[4]+electr\_mpi[4],}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other\_mpi[5]+strain\_mpi[5]+electr\_mpi[5]);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ COMM2:\ \ \ \ \ \ matmult\_sendrecv\ =\ \%5.1f\(\backslash\)n"{}},\ mpi\_n3d\_id,matmult\_sendrecv);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ STRAIN:\ \ \ \ \ \%5.1f\(\backslash\)n"{}},\ mpi\_n3d\_id,strain);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ LANCZ:\ \ \ \ \ \ \%5.1f\(\backslash\)n"{}},\ mpi\_n3d\_id,lanczos\_function);\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ RAYLEIGH:\ \ \ \%5.1f\(\backslash\)n"{}},\ mpi\_n3d\_id,rayleigh\_function);\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}cpu:\ \%3d\ PARPACK:\ \ \ \ \%5.1f\(\backslash\)n"{}},\ mpi\_n3d\_id,parpack\_function);\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ rvectr\ GetData()\{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ out\_data\ =\ Rvectr(out\_data\_length);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[0]\ \ =\ (double)\ mpi\_n3d\_id;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[1]\ \ =\ total;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[2]\ \ =\ setup;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[3]\ \ =\ strain;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[4]\ \ =\ work;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[5]\ \ =\ fileio;}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[12]\ =\ matmult\_sendrecv;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<6;\ i++)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[6+i]\ =\ other\_mpi[i];}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[13+i]\ =\ strain\_mpi[i];}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\_data[19+i]\ =\ electr\_mpi[i];}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out\_data;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \};\ \textcolor{comment}{/*\ class\ MPI\_Timing\ */}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \_IS\_DEF\ MPI\_Timing\ mpiTiming;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ Wrapper\ macros\ for\ mpi\ profiling}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ MPI\_Sendrecv(sa,sb,sc,sd,se,ra,rb,rc,rd,re,f,g)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ MPI\_Sendrecv(sa,sb,sc,sd,se,ra,rb,rc,rd,re,f,g);\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[0]\ +=\ MPI\_Wtime()-\/t;\}}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ MPI\_Allreduce(a,b,c,d,e,f)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ MPI\_Allreduce(a,b,c,d,e,f);\ \(\backslash\)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[1]\ +=\ MPI\_Wtime()-\/t;\}}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ MPI\_Barrier(a)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \ \ MPI\_Barrier(a);\ \(\backslash\)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[2]\ +=\ MPI\_Wtime()-\/t;\}\ }}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ MPI\_Bcast(a,b,c,d,e)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ MPI\_Bcast(a,b,c,d,e);\ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[3]\ +=\ MPI\_Wtime()-\/t;\}}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ MPI\_Send(a,b,c,d,e,f)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ MPI\_Send(a,b,c,d,e,f);\ \(\backslash\)}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[4]\ +=\ MPI\_Wtime()-\/t;\}}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ MPI\_Recv(a,b,c,d,e,f,g)\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ double\ t\ =\ MPI\_Wtime();\ \(\backslash\)}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ MPI\_Recv(a,b,c,d,e,f,g);\ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ mpiTiming.section[5]\ +=\ MPI\_Wtime()-\/t;\}}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#ifndef\ MPI\_LOCAL\_H}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ MPI\_TIME\_INIT(T)\ double\ T=0.0}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ MPI\_TIC(T)\ \ \ \ \ \ \ T\ =\ MPI\_Wtime()}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ MPI\_TOC(T,T0)\ \ \ \ T\ +=\ (MPI\_Wtime()\ -\/\ T0)}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ MPI\_TIMING\ not\ defined\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#ifndef\ MPI\_LOCAL\_H}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ MPI\_TIME\_INIT(T)\ }\textcolor{comment}{/*\ no-\/op\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ MPI\_TIC(T)\ \ \ \ \ \ \ }\textcolor{comment}{/*\ no-\/op\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ MPI\_TOC(T,T0)\ \ \ }\textcolor{comment}{/*\ no-\/op\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MPI\_TIMING\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MPI\_TIMING\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

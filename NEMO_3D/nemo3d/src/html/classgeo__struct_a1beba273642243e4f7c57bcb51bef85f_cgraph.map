@@ -1,0 +1,18 @@
+<map id="geo_struct::isInvalidPeriodicity" name="geo_struct::isInvalidPeriodicity">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,125,205,151"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#ada8eeb3e24ce0188ad4a4b476a1333ca" title=" " alt="" coords="253,39,449,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,122,252,74,277,66,279,71,254,79,136,127"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a8ea01752f72bff2103e0270985e7531b" title=" " alt="" coords="278,88,424,129"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="205,124,262,117,262,122,206,129"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a555d4644dae184bb4a77314cb9add0a2" title=" " alt="" coords="508,153,642,179"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="205,141,493,159,492,164,205,147"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#ab8be4bb1798dc4c9091fd01141307604" title=" " alt="" coords="276,204,426,230"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="148,149,294,196,293,201,147,154"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ac094521fd1e5a1324816c419714490eb" title=" " alt="" coords="497,5,653,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="423,85,448,75,471,57,496,40,507,35,509,39,498,44,475,62,450,79,425,90"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a7c06f3f97eca1a66a748d1ed3cffe6b5" title=" " alt="" coords="497,55,653,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="424,93,486,81,487,86,425,98"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a4edd6762ec0b227af0e9518ee3d4aa71" title=" " alt="" coords="498,104,653,130"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="424,109,482,111,482,116,424,114"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="425,125,508,146,507,152,423,130"/>
+</map>

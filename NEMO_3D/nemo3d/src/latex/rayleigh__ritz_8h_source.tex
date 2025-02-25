@@ -1,0 +1,98 @@
+\doxysection{rayleigh\+\_\+ritz.\+h}
+\hypertarget{rayleigh__ritz_8h_source}{}\label{rayleigh__ritz_8h_source}\index{base/rayleigh\_ritz.h@{base/rayleigh\_ritz.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/rayleigh\_ritz.h,v\ 1.5\ 2004/10/27\ 19:43:10\ gekco\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ RAYLEIGH\_RITZ\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ RAYLEIGH\_RITZ\_H\ 1}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <rvector.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <i2tensor.h>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ <i3tensor.h>}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}nml\_global.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants__nemo_8h}{constants\_nemo.h}}"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}cmatrix\_nonsym.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}qd\_struct.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}run3d\_mpi.h"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}eigsys3d\_par.h"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}strain3d.h"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}mat3d.h"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}ivectorvector.h"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}matsite\_init.h"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ RESTART\_GEKCO}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifdef\ RESTART\_GEKCO\ \ \ \ }}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}cmacopt.h"{}}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RESTART\_GEKCO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}h\_cvectr\_mult.h"{}}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ linSolv\_CGNE(cvectr\ x,\ qd\_struct\ d,\ real\ shift,\ cvectr\ r,\ real\ tol,\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real*\ xx,\ real*\ xHx);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ rayleighQuotientIter(qd\_struct\ d);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{int}\ min\_rayleigh(qd\_struct\ d);}
+\DoxyCodeLine{00074\ real\ calc\_rayleigh(\ rvectr\ p,\ \textcolor{keywordtype}{void}\ *data\ );}
+\DoxyCodeLine{00075\ real\ calc\_rayleigh\_sq(\ rvectr\ p,\ \textcolor{keywordtype}{void}\ *data\ );}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ calc\_rayleigh\_d(\ rvectr\ p,\ rvectr\ xi,\ \textcolor{keywordtype}{void}\ *data\ );}
+\DoxyCodeLine{00077\ complex\ calc\_rayleigh\_compl(\ cvectr\ x,\ \textcolor{keywordtype}{int}\ sz,\ qd\_struct\ d\ );}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifdef\ MPI3d}}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ calc\_rayleigh\_sq\_macopt(\ rvectr\ p,\ \textcolor{keywordtype}{int}\ sz,\ rvectr\ xi,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{int}\ itercount,\ real\ *onevalue\ );}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ calc\_rayleigh\_sq\_cmacopt(\ cvectr\ p,\ \textcolor{keywordtype}{int}\ sz,\ cvectr\ xi,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{int}\ itercount,\ real\ *onevalue\ );}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ MPI3d\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ calc\_rayleigh\_sq\_macopt(\ rvectr\ p,\ rvectr\ xi,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{int}\ itercount,\ real\ *onevalue\ );}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ calc\_rayleigh\_sq\_cmacopt(\ cvectr\ p,\ cvectr\ xi,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{int}\ itercount,\ real\ *onevalue\ );}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MPI3d\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RAYLEIGH\_RITZ\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ }
+
+\end{DoxyCode}

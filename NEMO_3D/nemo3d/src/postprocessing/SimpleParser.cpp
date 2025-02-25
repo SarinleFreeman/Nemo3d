@@ -33,96 +33,88 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/SimpleParser.cpp,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/SimpleParser.cpp,v 1.1 2004/08/26
+21:28:07 swlee Exp $
 *****************************************************************************/
 
 #include "SimpleParser.h"
 
-char* readLine(char *s, int max, istream &fp){
+char *readLine(char *s, int max, istream &fp) {
   char ch;
   int i = 0;
-  while ( fp.get(ch) && !( ch == '\n' || ch ==';') )
-  {
-    if ( ch == '\\' ) // line continuation character
+  while (fp.get(ch) && !(ch == '\n' || ch == ';')) {
+    if (ch == '\\') // line continuation character
     {
       // check if backslash is followed by a newline
       fp.get(ch);
-      if ( ch == '\n' )
-      {
+      if (ch == '\n') {
         // backslash followed by newline, do nothing
-      }
-      else
-      {
+      } else {
         // backslash not followed by newline
-        if ( i < max - 1 )
+        if (i < max - 1)
           s[i++] = '\\';
-        if ( i < max - 1 )
+        if (i < max - 1)
           s[i++] = ch; //
       }
-    }
-    else
-    {
+    } else {
       if (i < max - 1)
         s[i++] = ch;
     }
   }
-  if (max > 0) s[i] = '\0';  // add terminating NULL
+  if (max > 0)
+    s[i] = '\0'; // add terminating NULL
 
-  if ( !(ch == '\n' || ch == ';' ) )
-    return NULL;             // return NULL for end of file
+  if (!(ch == '\n' || ch == ';'))
+    return NULL; // return NULL for end of file
   return s;
 }
 
-
 // NOTE that it only adds strings
-unsigned parsewords(char *inbuf, vector<string>& slist){
-  const char* token = "=, \t\n";
+unsigned parsewords(char *inbuf, vector<string> &slist) {
+  const char *token = "=, \t\n";
 
-  char *tmpstr = new char[strlen(inbuf)+1];
+  char *tmpstr = new char[strlen(inbuf) + 1];
   strcpy(tmpstr, inbuf);
   slist.erase(slist.begin(), slist.end());
 
   int num = 0;
-  char* tokenp = strtok(tmpstr, token);
-  while(tokenp && tokenp[0] != '#') {
+  char *tokenp = strtok(tmpstr, token);
+  while (tokenp && tokenp[0] != '#') {
     num++;
     slist.push_back(string(tokenp));
-    tokenp = strtok(0,token);
+    tokenp = strtok(0, token);
   }
 
-  delete [] tmpstr;
+  delete[] tmpstr;
   return num;
-
 }
 
-unsigned parsewords(char *inbuf, list<string>& slist){
-  const char* token = "=, \t\n";
+unsigned parsewords(char *inbuf, list<string> &slist) {
+  const char *token = "=, \t\n";
 
-  char *tmpstr = new char[strlen(inbuf)+1];
+  char *tmpstr = new char[strlen(inbuf) + 1];
   strcpy(tmpstr, inbuf);
   slist.erase(slist.begin(), slist.end());
 
   int num = 0;
-  char* tokenp = strtok(tmpstr, token);
-  while(tokenp && tokenp[0] != '#') {
+  char *tokenp = strtok(tmpstr, token);
+  while (tokenp && tokenp[0] != '#') {
     num++;
     slist.push_back(string(tokenp));
-    tokenp = strtok(0,token);
+    tokenp = strtok(0, token);
   }
 
-  delete [] tmpstr;
+  delete[] tmpstr;
   return num;
-
 }
 
-int getwords(vector<string>& slist, istream &fp) {
+int getwords(vector<string> &slist, istream &fp) {
 
   const int max = 1024;
   char s[max];
 
-  if(readLine(s,max,fp)) 
-    return parsewords(s,slist);
+  if (readLine(s, max, fp))
+    return parsewords(s, slist);
   else
     return -1;
-
 }

@@ -1,0 +1,96 @@
+\doxysection{qtracemin\+\_\+driver.\+h}
+\hypertarget{qtracemin__driver_8h_source}{}\label{qtracemin__driver_8h_source}\index{base/qtracemin\_driver.h@{base/qtracemin\_driver.h}}
+\mbox{\hyperlink{qtracemin__driver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/qtracemin\_driver.h,v\ 1.2\ 2007/07/24\ 17:20:51\ lee509\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ QTRACEMIN\_DRIVER\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ QTRACEMIN\_DRIVER\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_cplusplus\ }}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_UNDERSCORE}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ zcopy\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zcopy\_}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ zdotc\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zdotc\_}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ zlarnv\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zlarnv\_}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ dznrm2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dznrm2\_}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ ztracemin\_wrapper\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ztracemin\_wrapper\_}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ modified\_conjugate\_gradient\_wrapper\ \ modified\_conjugate\_gradient\_wrapper\_}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_UNDERSCORE2}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ zcopy\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zcopy\_\_}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ zdotc\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zdotc\_\_}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ zlarnv\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ zlarnv\_\_}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ dznrm2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dznrm2\_\_}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ztracemin\_wrapper\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ztracemin\_wrapper\_\_}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ modified\_conjugate\_gradient\_wrapper\ \ modified\_conjugate\_gradient\_wrapper\_\_}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#ifdef\ FORTRAN\_ALLCAPS}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ zcopy\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ZCOPY}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ zdotc\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ZDOTC}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ zlarnv\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ZLARNV}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ dznrm2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DZNRM2}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ ztracemin\_wrapper\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ZTRACEMIN\_WRAPPER\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ modified\_conjugate\_gradient\_wrapper\ \ MODIFIED\_CONJUGATE\_GRADIENT\_WRAPPER}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//LAPACK\ Functions}}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ zcopy\ (\textcolor{keywordtype}{int}\ *,\ complex\ *,\ \textcolor{keywordtype}{int}\ *,\ complex\ *,\ \textcolor{keywordtype}{int}\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//subroutine\ used\ to\ copy\ vectors}}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ zlarnv(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int}\ *,\ complex\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//subroutine\ used\ to\ generate\ random\ vector\ }}
+\DoxyCodeLine{00081\ real\ dznrm2(\textcolor{keywordtype}{int}\ *,\ complex\ *,\ \textcolor{keywordtype}{int}\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//functions\ used\ to\ compute\ norm\ of\ two\ vectors}}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ zdotc\ (complex\ *,\ \textcolor{keywordtype}{int}\ *,\ complex\ *,\ \textcolor{keywordtype}{int}\ *,\ complex\ *,\ \textcolor{keywordtype}{int}\ *);\ \ \ \ \ \ \ \textcolor{comment}{//function\ used\ to\ compute\ complex\ conjugate\ dot\ product\ of\ two\ vectors}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ modified\_conjugate\_gradient\_wrapper(\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,real*,\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*,real*,real*,\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*,\textcolor{keywordtype}{int}*);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ ztracemin\_wrapper(\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,complex\ *,real\ *,complex\ *,complex\ *,complex\ *,complex\ *,real\ *,\textcolor{keywordtype}{int}\ *,complex\ *,real\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *,\textcolor{keywordtype}{int}\ *);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_cplusplus\ }}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{qtracemin__driver_8h_ae37c93ca107912ec640a2b6e80d9673a}{qtracemin\_driver}}(\ qd\_struct\ d\ );}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ QTRACEMIN\_DRIVER\_H\ }}
+
+\end{DoxyCode}

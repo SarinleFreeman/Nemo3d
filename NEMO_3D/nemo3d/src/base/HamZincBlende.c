@@ -33,519 +33,494 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/HamZincBlende.c,v 1.13 2004/12/02 12:09:56 marek Exp $ 
+$Header: /repo/nemo3d/src/base/HamZincBlende.c,v 1.13 2004/12/02 12:09:56 marek
+Exp $
 *****************************************************************************/
 
 #include "HamZincBlende.h"
 #include "io_utils.h"
 #include "realtype.h"
 
-void HamZincBlende::Initialize(BM_Type BandModel, int N_Basis, int Natom, int Natom_surf,
-                               int Nout, int Nin, bool MagneticFieldOn, complex HBxy) 
-{
-   nml_memory_report("Before Allocation of Hamiltonian in Hzb.Initialize - HamZincBlende::Initialize");
-   this->N_Basis = N_Basis;
-   this->BandModel = BandModel;
-   this->Natom = Natom;
-   this->Natom_surf = Natom_surf;
-   this->MagneticFieldOn = MagneticFieldOn;
-   this->HBxy = HBxy;
-   double memory_estimate=0;
+void HamZincBlende::Initialize(BM_Type BandModel, int N_Basis, int Natom,
+                               int Natom_surf, int Nout, int Nin,
+                               bool MagneticFieldOn, complex HBxy) {
+  nml_memory_report("Before Allocation of Hamiltonian in Hzb.Initialize - "
+                    "HamZincBlende::Initialize");
+  this->N_Basis = N_Basis;
+  this->BandModel = BandModel;
+  this->Natom = Natom;
+  this->Natom_surf = Natom_surf;
+  this->MagneticFieldOn = MagneticFieldOn;
+  this->HBxy = HBxy;
+  double memory_estimate = 0;
 
-   
+  switch (BandModel) {
+  case BM_20_sp3d5ss_spin:
+    memory_estimate =
+        (Natom * N_Basis + Natom_surf * 5 + Natom * N_Basis * N_Basis * 2) *
+            sizeof(ham_mem_real) +
+        Natom * 6 * sizeof(ham_mem_complex) + Nin * 3 * sizeof(int) +
+        Nout * 3 * sizeof(int);
+    if (MagneticFieldOn)
+      memory_estimate += Natom * 4 * 2 * sizeof(ham_mem_complex);
+    printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d "
+           "Natom_surface=%d\n",
+           mpi_n3d_id, memory_estimate / 1.0e6, Natom, Natom_surf);
+    fflush(stdout);
 
-   switch (BandModel){
-   case BM_20_sp3d5ss_spin:
-      memory_estimate = (Natom * N_Basis + Natom_surf*5 + Natom*N_Basis*N_Basis *2) * sizeof(ham_mem_real) +
-                        Natom * 6* sizeof(ham_mem_complex) +
-                        Nin * 3 * sizeof(int) + Nout * 3 * sizeof(int);
-      if(MagneticFieldOn) 
-        memory_estimate += Natom*4 * 2 * sizeof(ham_mem_complex);
-      printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d Natom_surface=%d\n", mpi_n3d_id, memory_estimate/1.0e6,Natom,Natom_surf); fflush(stdout);
+    this->Hdd =
+        ham_mem_Rvectr(Natom * N_Basis); // Diagonal elements of diagonal block
+    this->Hdu = ham_mem_Cvectr(
+        Natom *
+        6); // Nondiagonal elements of diagonal block due to spin-orbit coupling
+    this->Hds = ham_mem_Rvectr(Natom_surf *
+                               5); // Nondiagonal elements of diagonal block due
+                                   // to dangling-bond energy shift.
+    // There are six independent non-zero elements for each diagonal block due
+    // to sp3 dangling bonds But, one of them H[2][3] is stored by Hdu
+    // (spin-orbit coupling term) so we only store five elements.
+    this->Hu =
+        ham_mem_Rvectr(Natom * N_Basis *
+                       N_Basis); // we are storing the spin-up-up block
+                                 // (Nb*Nb/4) for each neighbor interaction (*4)
+    this->Ho = ham_mem_Rvectr(Natom * N_Basis * N_Basis);
+    if (MagneticFieldOn) {
+      this->HphaseIn = ham_mem_Cvectr(Natom * 4);
+      this->HphaseOut = ham_mem_Cvectr(Natom * 4);
+    }
+    break;
+  case BM_10_sp3ss_spin:
+    memory_estimate =
+        (Natom * N_Basis + Natom_surf * 5 + Natom * N_Basis * N_Basis * 2) *
+            sizeof(ham_mem_real) +
+        Natom * 6 * sizeof(complex) + Nin * 3 * sizeof(int) +
+        Nout * 3 * sizeof(int);
+    if (MagneticFieldOn)
+      memory_estimate += Natom * 4 * 2 * sizeof(complex);
+    printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d "
+           "Natom_surface=%d\n",
+           mpi_n3d_id, memory_estimate / 1.0e6, Natom, Natom_surf);
+    fflush(stdout);
+    this->Hdd = ham_mem_Rvectr(Natom * N_Basis);
+    this->Hdu = ham_mem_Cvectr(Natom * 6);
+    this->Hds = ham_mem_Rvectr(Natom_surf * 5);
+    this->Hu = ham_mem_Rvectr(Natom * N_Basis * N_Basis);
+    this->Ho = ham_mem_Rvectr(Natom * N_Basis * N_Basis);
+    if (MagneticFieldOn) {
+      this->HphaseIn = ham_mem_Cvectr(Natom * 4);
+      this->HphaseOut = ham_mem_Cvectr(Natom * 4);
+    }
+    break;
+  case BM_10_sp3d5ss_nospin:
+    memory_estimate =
+        (Natom * N_Basis + Natom_surf * 6 + Natom * N_Basis * N_Basis * 4 * 2) *
+            sizeof(ham_mem_real) +
+        Nin * 3 * sizeof(int) + Nout * 3 * sizeof(int);
+    if (MagneticFieldOn)
+      memory_estimate += Natom * 4 * 2 * sizeof(complex);
+    printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d "
+           "Natom_surface=%d\n",
+           mpi_n3d_id, memory_estimate / 1.0e6, Natom, Natom_surf);
+    fflush(stdout);
+    this->Hdd =
+        ham_mem_Rvectr(Natom * N_Basis); // Diagonal elements of diagonal block
+    this->Hds = ham_mem_Rvectr(Natom_surf *
+                               6); // Nondiagonal elements of diagonal block due
+                                   // to dangling-bond energy shift
+    // There are six independent non-zero off-diagonal elements for each
+    // diagonal block due to sp3 dangling bonds
+    this->Hu = ham_mem_Rvectr(Natom * N_Basis * N_Basis *
+                              4); // we are storing the whole block (Nb*Nb) for
+                                  // each neighbor interaction (*4)
+    this->Ho = ham_mem_Rvectr(Natom * N_Basis * N_Basis * 4);
+    if (MagneticFieldOn) {
+      this->HphaseIn = ham_mem_Cvectr(Natom * 4);
+      this->HphaseOut = ham_mem_Cvectr(Natom * 4);
+    }
+    break;
+  case BM_1_s_nospin:
+    die("ERROR in HamZincBlende::Initialize:  not yet implemented "
+        "Bands_1_s_nospin");
+    break;
+  default:
+    die("ERROR in HamZincBlende::Initialize:  unknown bandstructure model");
+    break;
+  }
 
-      this->Hdd = ham_mem_Rvectr(Natom*N_Basis); // Diagonal elements of diagonal block
-      this->Hdu = ham_mem_Cvectr(Natom*6); // Nondiagonal elements of diagonal block due to spin-orbit coupling
-      this->Hds = ham_mem_Rvectr(Natom_surf*5); // Nondiagonal elements of diagonal block due to dangling-bond energy shift.
-     // There are six independent non-zero elements for each diagonal block due to sp3 dangling bonds
-     // But, one of them H[2][3] is stored by Hdu (spin-orbit coupling term) so we only store five elements. 
-      this->Hu = ham_mem_Rvectr(Natom*N_Basis*N_Basis); //we are storing the spin-up-up block (Nb*Nb/4) for each neighbor interaction (*4) 
-      this->Ho = ham_mem_Rvectr(Natom*N_Basis*N_Basis);
-      if(MagneticFieldOn) {
-        this->HphaseIn  = ham_mem_Cvectr(Natom*4);
-        this->HphaseOut = ham_mem_Cvectr(Natom*4);
-      }
-      break;
-   case BM_10_sp3ss_spin:
-      memory_estimate = (Natom * N_Basis + Natom_surf*5 + Natom*N_Basis*N_Basis *2) * sizeof(ham_mem_real) +
-                        Natom * 6* sizeof(complex) +
-                        Nin * 3 * sizeof(int) + Nout * 3 * sizeof(int);
-      if(MagneticFieldOn) 
-        memory_estimate += Natom*4 * 2 * sizeof(complex);
-      printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d Natom_surface=%d\n", mpi_n3d_id, memory_estimate/1.0e6,Natom,Natom_surf); fflush(stdout);
-      this->Hdd = ham_mem_Rvectr(Natom*N_Basis);
-      this->Hdu = ham_mem_Cvectr(Natom*6);
-      this->Hds = ham_mem_Rvectr(Natom_surf*5);
-      this->Hu = ham_mem_Rvectr(Natom*N_Basis*N_Basis);
-      this->Ho = ham_mem_Rvectr(Natom*N_Basis*N_Basis);
-      if(MagneticFieldOn) {
-        this->HphaseIn  = ham_mem_Cvectr(Natom*4);
-        this->HphaseOut = ham_mem_Cvectr(Natom*4);
-      }
-      break;
-   case BM_10_sp3d5ss_nospin:
-      memory_estimate = (Natom * N_Basis + Natom_surf*6 + Natom*N_Basis*N_Basis *4 *2) * sizeof(ham_mem_real) +
-                        Nin * 3 * sizeof(int) + Nout * 3 * sizeof(int);
-      if(MagneticFieldOn) 
-        memory_estimate += Natom*4 * 2 * sizeof(complex);
-      printf("mpi_id=%d memory estimate Hamiltonian storage: %g MB Natom=%d Natom_surface=%d\n", mpi_n3d_id, memory_estimate/1.0e6,Natom,Natom_surf); fflush(stdout);
-      this->Hdd = ham_mem_Rvectr(Natom*N_Basis); // Diagonal elements of diagonal block
-      this->Hds = ham_mem_Rvectr(Natom_surf*6);  // Nondiagonal elements of diagonal block due to dangling-bond energy shift
-// There are six independent non-zero off-diagonal elements for each diagonal block due to sp3 dangling bonds
-      this->Hu = ham_mem_Rvectr(Natom*N_Basis*N_Basis*4); // we are storing the whole block (Nb*Nb) for each neighbor interaction (*4)
-      this->Ho = ham_mem_Rvectr(Natom*N_Basis*N_Basis*4);
-      if(MagneticFieldOn) {
-        this->HphaseIn  = ham_mem_Cvectr(Natom*4);
-        this->HphaseOut = ham_mem_Cvectr(Natom*4);
-      }
-      break;
-   case BM_1_s_nospin:
-      die("ERROR in HamZincBlende::Initialize:  not yet implemented Bands_1_s_nospin"); break;
-   default:
-      die("ERROR in HamZincBlende::Initialize:  unknown bandstructure model"); break;
-   }
-   
-   this->indxHU_nbr =  Ivectr(Nin);
-   this->indxHU_to_row = Ivectr(Nin);
-   this->indxHU_to_col = Ivectr(Nin);
-   this->indxHO_nbr =  Ivectr(Nout);
-   this->indxHO_to_row = Ivectr(Nout);
-   this->indxHO_to_col = Ivectr(Nout);
+  this->indxHU_nbr = Ivectr(Nin);
+  this->indxHU_to_row = Ivectr(Nin);
+  this->indxHU_to_col = Ivectr(Nin);
+  this->indxHO_nbr = Ivectr(Nout);
+  this->indxHO_to_row = Ivectr(Nout);
+  this->indxHO_to_col = Ivectr(Nout);
 
-   nml_memory_report("After Allocation of Hamiltonian in Hzb.Initialize - HamZincBlende::Initialize");
+  nml_memory_report("After Allocation of Hamiltonian in Hzb.Initialize - "
+                    "HamZincBlende::Initialize");
 }
 
+void HamZincBlende::setDiag(const cmatrix hd, int atom, int I, int J,
+                            int Zsurf) {
+  // atomic energies of diagonal block
+  for (int ii = 0; ii < this->N_Basis; ii++)
+    this->Hdd[J + ii] = hd[ii][ii].r;
 
-void HamZincBlende::setDiag(const cmatrix hd, int atom, int I, int J, 
-                            int Zsurf) 
-{
-   // atomic energies of diagonal block
-   for (int ii=0; ii<this->N_Basis; ii++)
-      this->Hdd[J+ii] = hd[ii][ii].r;
+  // spin-orbit interaction of diagonal block
+  int offset = 6 * atom;
+  switch (this->BandModel) {
+  case BM_20_sp3d5ss_spin:
+    this->Hdu[offset + 0].r = hd[2][3].r;
+    this->Hdu[offset + 0].i = hd[2][3].i;
+    this->Hdu[offset + 1].r = hd[12][13].r;
+    this->Hdu[offset + 1].i = hd[12][13].i;
+    this->Hdu[offset + 2].r = hd[4][12].r;
+    this->Hdu[offset + 2].i = hd[4][12].i;
+    this->Hdu[offset + 3].r = hd[4][13].r;
+    this->Hdu[offset + 3].i = hd[4][13].i;
+    this->Hdu[offset + 4].r = hd[2][14].r;
+    this->Hdu[offset + 4].i = hd[2][14].i;
+    this->Hdu[offset + 5].r = hd[3][14].r;
+    this->Hdu[offset + 5].i = hd[3][14].i;
+    break;
+  case BM_10_sp3ss_spin:
+    this->Hdu[offset + 0].r = hd[2][3].r;
+    this->Hdu[offset + 0].i = hd[2][3].i;
+    this->Hdu[offset + 1].r = hd[7][8].r;
+    this->Hdu[offset + 1].i = hd[7][8].i;
+    this->Hdu[offset + 2].r = hd[4][7].r;
+    this->Hdu[offset + 2].i = hd[4][7].i;
+    this->Hdu[offset + 3].r = hd[4][8].r;
+    this->Hdu[offset + 3].i = hd[4][8].i;
+    this->Hdu[offset + 4].r = hd[2][9].r;
+    this->Hdu[offset + 4].i = hd[2][9].i;
+    this->Hdu[offset + 5].r = hd[3][9].r;
+    this->Hdu[offset + 5].i = hd[3][9].i;
+    break;
+  case BM_1_s_nospin:
+    die("ERROR in HamZincBlende::setDiag: not yet implemented "
+        "Bands_1_s_nospin");
+    break;
+  case BM_10_sp3d5ss_nospin:
+    break; // no spin-orbit coupling for the spinless model
+  default:
+    die("ERROR in HamZincBlende::setDiag: not yet implemented unknown band "
+        "model");
+    break;
+  }
 
-   // spin-orbit interaction of diagonal block
-   int offset = 6*atom;
-   switch (this->BandModel){
-   case BM_20_sp3d5ss_spin:
-      this->Hdu[offset+0].r = hd[2][3].r;
-      this->Hdu[offset+0].i = hd[2][3].i;
-      this->Hdu[offset+1].r = hd[12][13].r;
-      this->Hdu[offset+1].i = hd[12][13].i;
-      this->Hdu[offset+2].r = hd[4][12].r;
-      this->Hdu[offset+2].i = hd[4][12].i;
-      this->Hdu[offset+3].r = hd[4][13].r;
-      this->Hdu[offset+3].i = hd[4][13].i;
-      this->Hdu[offset+4].r = hd[2][14].r;
-      this->Hdu[offset+4].i = hd[2][14].i;
-      this->Hdu[offset+5].r = hd[3][14].r;
-      this->Hdu[offset+5].i = hd[3][14].i;
-      break;
-   case BM_10_sp3ss_spin:
-      this->Hdu[offset+0].r = hd[2][3].r;
-      this->Hdu[offset+0].i = hd[2][3].i;
-      this->Hdu[offset+1].r = hd[7][8].r;
-      this->Hdu[offset+1].i = hd[7][8].i;
-      this->Hdu[offset+2].r = hd[4][7].r;
-      this->Hdu[offset+2].i = hd[4][7].i;
-      this->Hdu[offset+3].r = hd[4][8].r;
-      this->Hdu[offset+3].i = hd[4][8].i;
-      this->Hdu[offset+4].r = hd[2][9].r;
-      this->Hdu[offset+4].i = hd[2][9].i;
-      this->Hdu[offset+5].r = hd[3][9].r;
-      this->Hdu[offset+5].i = hd[3][9].i;
-      break;
-   case BM_1_s_nospin:
-      die("ERROR in HamZincBlende::setDiag: not yet implemented Bands_1_s_nospin"); break;
-   case BM_10_sp3d5ss_nospin:
-      break; // no spin-orbit coupling for the spinless model 
-   default:
-      die("ERROR in HamZincBlende::setDiag: not yet implemented unknown band model"); break;
-   }
-
-   // surface-atom dangling-bond shift in the diagonal block
-   if (Zsurf>=0) {
-      if(this->BandModel== BM_20_sp3d5ss_spin || this->BandModel==BM_10_sp3ss_spin)
-      {
-        int offset = 5*Zsurf;
-        this->Hds[offset+0] = hd[1][2].r;
-        this->Hds[offset+1] = hd[1][3].r;
-        this->Hds[offset+2] = hd[1][4].r;
-        this->Hds[offset+3] = hd[2][4].r;
-        this->Hds[offset+4] = hd[3][4].r;
-      }
-      else if (this->BandModel == BM_10_sp3d5ss_nospin)
-      {
-        int offset = 6*Zsurf;
-        this->Hds[offset+0] = hd[1][2].r;
-        this->Hds[offset+1] = hd[1][3].r;
-        this->Hds[offset+2] = hd[1][4].r;
-        this->Hds[offset+3] = hd[2][3].r;
-        this->Hds[offset+4] = hd[2][4].r;
-        this->Hds[offset+5] = hd[3][4].r;
-      }
-   }
+  // surface-atom dangling-bond shift in the diagonal block
+  if (Zsurf >= 0) {
+    if (this->BandModel == BM_20_sp3d5ss_spin ||
+        this->BandModel == BM_10_sp3ss_spin) {
+      int offset = 5 * Zsurf;
+      this->Hds[offset + 0] = hd[1][2].r;
+      this->Hds[offset + 1] = hd[1][3].r;
+      this->Hds[offset + 2] = hd[1][4].r;
+      this->Hds[offset + 3] = hd[2][4].r;
+      this->Hds[offset + 4] = hd[3][4].r;
+    } else if (this->BandModel == BM_10_sp3d5ss_nospin) {
+      int offset = 6 * Zsurf;
+      this->Hds[offset + 0] = hd[1][2].r;
+      this->Hds[offset + 1] = hd[1][3].r;
+      this->Hds[offset + 2] = hd[1][4].r;
+      this->Hds[offset + 3] = hd[2][3].r;
+      this->Hds[offset + 4] = hd[2][4].r;
+      this->Hds[offset + 5] = hd[3][4].r;
+    }
+  }
 }
 
-
-void HamZincBlende::Deallocate() 
-{
-   if (this->Hu){
-      ham_mem_rm_rvectr(&this->Hu);
-      this->Hu=NULL;
-   }
-   if (this->Ho){
-      ham_mem_rm_rvectr(&this->Ho);
-      this->Ho=NULL;
-   }
-   if (this->Hdd){
-      ham_mem_rm_rvectr(&this->Hdd);
-      this->Hdd=NULL;
-   }
-   if (this->Hdu){
-      ham_mem_rm_cvectr(&this->Hdu);
-      this->Hdu=NULL;
-   }
-   if (this->Hds){
-      ham_mem_rm_rvectr(&this->Hds);
-      this->Hds=NULL;
-   }
-   if (this->HphaseIn){
-      ham_mem_rm_cvectr(&this->HphaseIn);
-   }
-   if (this->HphaseOut){
-      ham_mem_rm_cvectr(&this->HphaseOut);
-   }
-   if (this->indxHU_nbr){
-      rm_ivectr(&this->indxHU_nbr);
-      this->indxHU_nbr=NULL;
-   }
-   if (this->indxHU_to_row){
-      rm_ivectr(&this->indxHU_to_row);
-      this->indxHU_to_row=NULL;
-   }
-   if (this->indxHU_to_col){
-      rm_ivectr(&this->indxHU_to_col);
-      this->indxHU_to_col=NULL;
-   }
-   if (this->indxHO_nbr){
-      rm_ivectr(&this->indxHO_nbr);
-      this->indxHO_nbr=NULL;
-   }
-   if (this->indxHO_to_row){
-      rm_ivectr(&this->indxHO_to_row);
-      this->indxHO_to_row=NULL;
-   }
-   if (this->indxHO_to_col){
-      rm_ivectr(&this->indxHO_to_col);
-      this->indxHO_to_col=NULL;
-   }
+void HamZincBlende::Deallocate() {
+  if (this->Hu) {
+    ham_mem_rm_rvectr(&this->Hu);
+    this->Hu = NULL;
+  }
+  if (this->Ho) {
+    ham_mem_rm_rvectr(&this->Ho);
+    this->Ho = NULL;
+  }
+  if (this->Hdd) {
+    ham_mem_rm_rvectr(&this->Hdd);
+    this->Hdd = NULL;
+  }
+  if (this->Hdu) {
+    ham_mem_rm_cvectr(&this->Hdu);
+    this->Hdu = NULL;
+  }
+  if (this->Hds) {
+    ham_mem_rm_rvectr(&this->Hds);
+    this->Hds = NULL;
+  }
+  if (this->HphaseIn) {
+    ham_mem_rm_cvectr(&this->HphaseIn);
+  }
+  if (this->HphaseOut) {
+    ham_mem_rm_cvectr(&this->HphaseOut);
+  }
+  if (this->indxHU_nbr) {
+    rm_ivectr(&this->indxHU_nbr);
+    this->indxHU_nbr = NULL;
+  }
+  if (this->indxHU_to_row) {
+    rm_ivectr(&this->indxHU_to_row);
+    this->indxHU_to_row = NULL;
+  }
+  if (this->indxHU_to_col) {
+    rm_ivectr(&this->indxHU_to_col);
+    this->indxHU_to_col = NULL;
+  }
+  if (this->indxHO_nbr) {
+    rm_ivectr(&this->indxHO_nbr);
+    this->indxHO_nbr = NULL;
+  }
+  if (this->indxHO_to_row) {
+    rm_ivectr(&this->indxHO_to_row);
+    this->indxHO_to_row = NULL;
+  }
+  if (this->indxHO_to_col) {
+    rm_ivectr(&this->indxHO_to_col);
+    this->indxHO_to_col = NULL;
+  }
 }
 
+void HamZincBlende::printStorageInfo() {
+  if (mpi_n3d_id)
+    return; // only master prints this info
 
-void HamZincBlende::printStorageInfo() 
-{
-   if (mpi_n3d_id) return;  // only master prints this info
+  real storage_main = 0.0;
 
-   real storage_main=0.0;
+  switch (this->BandModel) {
+  case BM_20_sp3d5ss_spin:
+    storage_main = sizeof(real) * Natom * (100 * 4 + 32) / 1048576.0;
+    break;
+  case BM_10_sp3ss_spin:
+    storage_main = sizeof(real) * Natom * (25 * 4 + 22) / 1048576.0;
+    break;
+  case BM_10_sp3d5ss_nospin:
+    storage_main = sizeof(real) * Natom * (100 * 8 + 24) / 1048576.0;
+    break;
+  case BM_1_s_nospin:
+    die("Bands_1_s_nospin not yet implemented HamZincBlende::printStorageInfo");
+    break;
+  default:
+    die("unknown bandstructure model HamZincBlende::printStorageInfo");
+    break;
+  }
 
-   switch (this->BandModel) {
-   case BM_20_sp3d5ss_spin:
-      storage_main = sizeof(real)*Natom*(100*4 + 32)/1048576.0; 
-      break;
-   case BM_10_sp3ss_spin:
-      storage_main = sizeof(real)*Natom*(25*4 + 22)/1048576.0; 
-      break;
-   case BM_10_sp3d5ss_nospin:
-      storage_main = sizeof(real)*Natom*(100*8 + 24)/1048576.0; 
-      break;
-   case BM_1_s_nospin:
-      die("Bands_1_s_nospin not yet implemented HamZincBlende::printStorageInfo"); break;
-   default:
-      die("unknown bandstructure model HamZincBlende::printStorageInfo"); break;
-   }
-
-   printf("atom count:  total=%d  surface=%d\n", Natom, Natom_surf);
-   printf("Estimated Hamiltonian Storage %.1fMB (main)\n", storage_main);
+  printf("atom count:  total=%d  surface=%d\n", Natom, Natom_surf);
+  printf("Estimated Hamiltonian Storage %.1fMB (main)\n", storage_main);
 }
 
+void HamZincBlende::print_20_sp3d5ss_spin() {
+  /* print the Hamiltonian to various files */
+  int Nb_2 = this->N_Basis / 2;
+  int atom, i, j, k;
+  FILE *fp;
 
-void HamZincBlende::print_20_sp3d5ss_spin()
-{
-   /* print the Hamiltonian to various files */
-   int Nb_2 = this->N_Basis / 2;
-   int atom, i, j, k;
-   FILE *fp;
-   
-   fp=fopen("Hdd","w");
-   for (atom=0; atom<this->Natom; atom++) {
-      for (i=0; i<this->N_Basis; i++) {
-	 int indx = i + atom*this->N_Basis;
-	 fprintf(fp, "%d %d %20.12e\n", indx, indx, this->Hdd[indx]);
-      }}
-   fclose(fp);
-   
-   fp=fopen("Hdu","w");
-   for (atom=0; atom<this->Natom; atom++) {
-      int indx = 6*atom;
-      int offset = atom*this->N_Basis;
-      
-      
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+2,
-	      offset+3,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+3,
-	      offset+2,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+12,
-	      offset+13,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+13,
-	      offset+12,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+4,
-	      offset+12,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+12,
-	      offset+4,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+4,
-	      offset+13,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+13,
-	      offset+4,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+2,
-	      offset+14,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+14,
-	      offset+2,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+3,
-	      offset+14,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+14,
-	      offset+3,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      
-   }
-   fclose(fp);
-   
-   fp=fopen("Ho","w");
-   for (k=0; k<nml_iv_extent(this->indxHO_to_row); k++) {
-      for (i=0; i<Nb_2; i++) {
-      for (j=0; j<Nb_2; j++) {
-	 int indx = Nb_2*(Nb_2*k + i) + j;
-	 fprintf(fp, "%d %d %20.12e\n", 
-		 this->indxHO_to_row[k]+i, 
-		 this->indxHO_to_col[k]+j,
-		 this->Ho[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", 
-		 this->indxHO_to_row[k]+i+Nb_2,
-		 this->indxHO_to_col[k]+j+Nb_2,
-		 this->Ho[indx]);
-      }}
-   }
-   fclose(fp);
-   
-   fp=fopen("Hu","w");
-   for (k=0; k<nml_iv_extent(this->indxHU_to_row); k++) {
-      for (i=0; i<Nb_2; i++) {
-      for (j=0; j<Nb_2; j++) {
-	 int indx = Nb_2*(Nb_2*k + i) + j;
-	 int I = this->indxHU_to_row[k] + i;
-	 int J = this->indxHU_to_col[k] + j;
-	 fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", I+Nb_2, J+Nb_2, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", J+Nb_2, I+Nb_2, this->Hu[indx]);
-      }}
-   }
-   fclose(fp);
-}
-
-
-void HamZincBlende::print_10_sp3d5ss_nospin()
-{
-   /* print the Hamiltonian to various files */
-   const int Nb = 10;
-   int atom, i, j, k;
-   FILE *fp;
-   
-   fp=fopen("Hdd","w");
-   for (atom=0; atom<this->Natom; atom++) {
-      for (i=0; i<this->N_Basis; i++) {
-	 int indx = i + atom*this->N_Basis;
-	 fprintf(fp, "%d %d %20.12e\n", indx, indx, this->Hdd[indx]);
-      }}
-   fclose(fp);
-   
-   fp=fopen("Ho","w");
-   for (k=0; k<nml_iv_extent(this->indxHO_to_row); k++) {
-      for (i=0; i<Nb; i++) {
-      for (j=0; j<Nb; j++) {
-	 int indx = Nb*(Nb*k + i) + j;
-	 fprintf(fp, "%d %d %20.12e\n", 
-		 this->indxHO_to_row[k]+i, 
-		 this->indxHO_to_col[k]+j,
-		 this->Ho[indx]);
-      }}
-   }
-   fclose(fp);
-   
-   fp=fopen("Hu","w");
-   for (k=0; k<nml_iv_extent(this->indxHU_to_row); k++) {
-      for (i=0; i<Nb; i++) {
-      for (j=0; j<Nb; j++) {
-	 int indx = Nb*(Nb*k + i) + j;
-	 int I = this->indxHU_to_row[k] + i;
-	 int J = this->indxHU_to_col[k] + j;
-	 fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
-      }}
-   }
-   fclose(fp);
-}
-
-void HamZincBlende::print_10_sp3ss_spin()
-{
-   /* print the Hamiltonian to various files */
-   int Nb_2 = this->N_Basis / 2;
-   int atom, i, j, k;
-   char fil[100];
-   FILE *fp;
-   
-   sprintf(fil, "Hdd_%d", mpi_n3d_id);
-   fp=fopen(fil,"w");
-   for (atom=0; atom<this->Natom; atom++) {
-   for (i=0; i<this->N_Basis; i++) {
-      int indx = i + atom*this->N_Basis;
+  fp = fopen("Hdd", "w");
+  for (atom = 0; atom < this->Natom; atom++) {
+    for (i = 0; i < this->N_Basis; i++) {
+      int indx = i + atom * this->N_Basis;
       fprintf(fp, "%d %d %20.12e\n", indx, indx, this->Hdd[indx]);
-   }}
-   fclose(fp);
-   
-   sprintf(fil, "Hdu_%d", mpi_n3d_id);
-   fp=fopen(fil,"w");
-   for (atom=0; atom<this->Natom; atom++) {
-      int indx = 6*atom;
-      int offset = atom*this->N_Basis;
-      
-      
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+2,
-	      offset+3,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+3,
-	      offset+2,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+7,
-	      offset+8,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+8,
-	      offset+7,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+4,
-	      offset+7,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+7,
-	      offset+4,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+4,
-	      offset+8,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+8,
-	      offset+4,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+2,
-	      offset+9,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+9,
-	      offset+2,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+3,
-	      offset+9,
-	      this->Hdu[indx].r, this->Hdu[indx].i);
-      fprintf(fp, "%d %d %20.12e %20.12e\n", 
-	      offset+9,
-	      offset+3,
-	      this->Hdu[indx].r, -this->Hdu[indx].i);
-      indx++;
-   }
-   fclose(fp);
-   
-   sprintf(fil, "Ho_%d", mpi_n3d_id);
-   fp=fopen(fil,"w");
-   for (k=0; k<nml_iv_extent(this->indxHO_to_row); k++) {
-      for (i=0; i<Nb_2; i++) {
-      for (j=0; j<Nb_2; j++) {
-	 int indx = Nb_2*(Nb_2*k + i) + j;
-	 fprintf(fp, "%d %d %20.12e\n", 
-		 this->indxHO_to_row[k]+i, 
-		 this->indxHO_to_col[k]+j,
-		 this->Ho[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", 
-		 this->indxHO_to_row[k]+i+Nb_2,
-		 this->indxHO_to_col[k]+j+Nb_2,
-		 this->Ho[indx]);
-      }}
-   }
-   fclose(fp);
-   
-   sprintf(fil, "Hu_%d", mpi_n3d_id);
-   fp=fopen(fil,"w");
-   for (k=0; k<nml_iv_extent(this->indxHU_to_row); k++) {
-      for (i=0; i<Nb_2; i++) {
-      for (j=0; j<Nb_2; j++) {
-	 int indx = Nb_2*(Nb_2*k + i) + j;
-	 int I = this->indxHU_to_row[k] + i;
-	 int J = this->indxHU_to_col[k] + j;
-	 fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", I+Nb_2, J+Nb_2, this->Hu[indx]);
-	 fprintf(fp, "%d %d %20.12e\n", J+Nb_2, I+Nb_2, this->Hu[indx]);
-      }}
-   }
-   fclose(fp);
+    }
+  }
+  fclose(fp);
+
+  fp = fopen("Hdu", "w");
+  for (atom = 0; atom < this->Natom; atom++) {
+    int indx = 6 * atom;
+    int offset = atom * this->N_Basis;
+
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 2, offset + 3,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 3, offset + 2,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 12, offset + 13,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 13, offset + 12,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 4, offset + 12,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 12, offset + 4,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 4, offset + 13,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 13, offset + 4,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 2, offset + 14,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 14, offset + 2,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 3, offset + 14,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 14, offset + 3,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+  }
+  fclose(fp);
+
+  fp = fopen("Ho", "w");
+  for (k = 0; k < nml_iv_extent(this->indxHO_to_row); k++) {
+    for (i = 0; i < Nb_2; i++) {
+      for (j = 0; j < Nb_2; j++) {
+        int indx = Nb_2 * (Nb_2 * k + i) + j;
+        fprintf(fp, "%d %d %20.12e\n", this->indxHO_to_row[k] + i,
+                this->indxHO_to_col[k] + j, this->Ho[indx]);
+        fprintf(fp, "%d %d %20.12e\n", this->indxHO_to_row[k] + i + Nb_2,
+                this->indxHO_to_col[k] + j + Nb_2, this->Ho[indx]);
+      }
+    }
+  }
+  fclose(fp);
+
+  fp = fopen("Hu", "w");
+  for (k = 0; k < nml_iv_extent(this->indxHU_to_row); k++) {
+    for (i = 0; i < Nb_2; i++) {
+      for (j = 0; j < Nb_2; j++) {
+        int indx = Nb_2 * (Nb_2 * k + i) + j;
+        int I = this->indxHU_to_row[k] + i;
+        int J = this->indxHU_to_col[k] + j;
+        fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", I + Nb_2, J + Nb_2, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", J + Nb_2, I + Nb_2, this->Hu[indx]);
+      }
+    }
+  }
+  fclose(fp);
 }
 
+void HamZincBlende::print_10_sp3d5ss_nospin() {
+  /* print the Hamiltonian to various files */
+  const int Nb = 10;
+  int atom, i, j, k;
+  FILE *fp;
+
+  fp = fopen("Hdd", "w");
+  for (atom = 0; atom < this->Natom; atom++) {
+    for (i = 0; i < this->N_Basis; i++) {
+      int indx = i + atom * this->N_Basis;
+      fprintf(fp, "%d %d %20.12e\n", indx, indx, this->Hdd[indx]);
+    }
+  }
+  fclose(fp);
+
+  fp = fopen("Ho", "w");
+  for (k = 0; k < nml_iv_extent(this->indxHO_to_row); k++) {
+    for (i = 0; i < Nb; i++) {
+      for (j = 0; j < Nb; j++) {
+        int indx = Nb * (Nb * k + i) + j;
+        fprintf(fp, "%d %d %20.12e\n", this->indxHO_to_row[k] + i,
+                this->indxHO_to_col[k] + j, this->Ho[indx]);
+      }
+    }
+  }
+  fclose(fp);
+
+  fp = fopen("Hu", "w");
+  for (k = 0; k < nml_iv_extent(this->indxHU_to_row); k++) {
+    for (i = 0; i < Nb; i++) {
+      for (j = 0; j < Nb; j++) {
+        int indx = Nb * (Nb * k + i) + j;
+        int I = this->indxHU_to_row[k] + i;
+        int J = this->indxHU_to_col[k] + j;
+        fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
+      }
+    }
+  }
+  fclose(fp);
+}
+
+void HamZincBlende::print_10_sp3ss_spin() {
+  /* print the Hamiltonian to various files */
+  int Nb_2 = this->N_Basis / 2;
+  int atom, i, j, k;
+  char fil[100];
+  FILE *fp;
+
+  sprintf(fil, "Hdd_%d", mpi_n3d_id);
+  fp = fopen(fil, "w");
+  for (atom = 0; atom < this->Natom; atom++) {
+    for (i = 0; i < this->N_Basis; i++) {
+      int indx = i + atom * this->N_Basis;
+      fprintf(fp, "%d %d %20.12e\n", indx, indx, this->Hdd[indx]);
+    }
+  }
+  fclose(fp);
+
+  sprintf(fil, "Hdu_%d", mpi_n3d_id);
+  fp = fopen(fil, "w");
+  for (atom = 0; atom < this->Natom; atom++) {
+    int indx = 6 * atom;
+    int offset = atom * this->N_Basis;
+
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 2, offset + 3,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 3, offset + 2,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 7, offset + 8,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 8, offset + 7,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 4, offset + 7,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 7, offset + 4,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 4, offset + 8,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 8, offset + 4,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 2, offset + 9,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 9, offset + 2,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 3, offset + 9,
+            this->Hdu[indx].r, this->Hdu[indx].i);
+    fprintf(fp, "%d %d %20.12e %20.12e\n", offset + 9, offset + 3,
+            this->Hdu[indx].r, -this->Hdu[indx].i);
+    indx++;
+  }
+  fclose(fp);
+
+  sprintf(fil, "Ho_%d", mpi_n3d_id);
+  fp = fopen(fil, "w");
+  for (k = 0; k < nml_iv_extent(this->indxHO_to_row); k++) {
+    for (i = 0; i < Nb_2; i++) {
+      for (j = 0; j < Nb_2; j++) {
+        int indx = Nb_2 * (Nb_2 * k + i) + j;
+        fprintf(fp, "%d %d %20.12e\n", this->indxHO_to_row[k] + i,
+                this->indxHO_to_col[k] + j, this->Ho[indx]);
+        fprintf(fp, "%d %d %20.12e\n", this->indxHO_to_row[k] + i + Nb_2,
+                this->indxHO_to_col[k] + j + Nb_2, this->Ho[indx]);
+      }
+    }
+  }
+  fclose(fp);
+
+  sprintf(fil, "Hu_%d", mpi_n3d_id);
+  fp = fopen(fil, "w");
+  for (k = 0; k < nml_iv_extent(this->indxHU_to_row); k++) {
+    for (i = 0; i < Nb_2; i++) {
+      for (j = 0; j < Nb_2; j++) {
+        int indx = Nb_2 * (Nb_2 * k + i) + j;
+        int I = this->indxHU_to_row[k] + i;
+        int J = this->indxHU_to_col[k] + j;
+        fprintf(fp, "%d %d %20.12e\n", I, J, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", J, I, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", I + Nb_2, J + Nb_2, this->Hu[indx]);
+        fprintf(fp, "%d %d %20.12e\n", J + Nb_2, I + Nb_2, this->Hu[indx]);
+      }
+    }
+  }
+  fclose(fp);
+}

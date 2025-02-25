@@ -33,28 +33,32 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/h_cmat_mult.h,v 1.3 2007/07/24 16:53:15 lee509 Exp $ 
+$Header: /repo/nemo3d/src/base/h_cmat_mult.h,v 1.3 2007/07/24 16:53:15 lee509
+Exp $
 *****************************************************************************/
 
-
 #ifndef H_CMAT_MULT_H
-#define H_CMAT_MULT_H 
+#define H_CMAT_MULT_H
 
 /*! \file h_cmat_mult.h
  *  \brief These routines support Matrix-Matrix Multiplication of Hamiltonian H
- *  Y = (H-sigma*I)*X. For external use as an API, use the function Hmatmult_spds_complete
+ *  Y = (H-sigma*I)*X. For external use as an API, use the function
+ * Hmatmult_spds_complete
  */
 
-void matmat_mult(const int** argList, nml_dcmatrix* y, const nml_dcmatrix* x);
-/*!< Provides external function pointer for Matrix-Matrix multiplication routine.
- * @param argList IN: Argument lists needed for matrix-matrix multiplication. 
- *                arg[0]: qd_struct, arg[1]: shift, arg[2]: number of columns for matrix multiplication, arg[3]: Nproj (Not used)
+void matmat_mult(const int **argList, nml_dcmatrix *y, const nml_dcmatrix *x);
+/*!< Provides external function pointer for Matrix-Matrix multiplication
+ * routine.
+ * @param argList IN: Argument lists needed for matrix-matrix multiplication.
+ *                arg[0]: qd_struct, arg[1]: shift, arg[2]: number of columns
+ * for matrix multiplication, arg[3]: Nproj (Not used)
  * @param y OUT: Output complex matrix
  * @param x IN: Input complex matrix
  * @return void
  */
 
-void Hmatmult_spds_complete( cmatrix Y, qd_struct d, real shift, cmatrix X, int num_col );
+void Hmatmult_spds_complete(cmatrix Y, qd_struct d, real shift, cmatrix X,
+                            int num_col);
 /*!< API for Matrix-Matrix multiplication. Y = (H-shift*I)*X
  * @param Y OUT: Output complex matrix
  * @param d IN: QD_struct, see qd_struct.h
@@ -64,8 +68,10 @@ void Hmatmult_spds_complete( cmatrix Y, qd_struct d, real shift, cmatrix X, int 
  * @return void
  */
 
-int Hmatmult_spds_col_fullstored_par( cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X, int num_col, int proc );
-/*!< Matrix-Matrix multiplication routine for full storage mode. Y = (H-shift*I)*X
+int Hmatmult_spds_col_fullstored_par(cmatrix Y, cmatrix YC, qd_struct d, real s,
+                                     cmatrix X, int num_col, int proc);
+/*!< Matrix-Matrix multiplication routine for full storage mode. Y =
+ * (H-shift*I)*X
  * @param Y OUT: Output complex matrix
  * @param YC OUT: Output complex matrix for neighboring processor
  * @param d IN: QD_struct, see qd_struct.h
@@ -76,8 +82,10 @@ int Hmatmult_spds_col_fullstored_par( cmatrix Y, cmatrix YC, qd_struct d, real s
  * @return length of vector that needs to be passed to neighboring processor
  */
 
-int Hmatmult_spds_col( cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X, int num_col, int proc );
-/*!< Matrix-Matrix multiplication routine for full storage mode. Y = (H-shift*I)*X
+int Hmatmult_spds_col(cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X,
+                      int num_col, int proc);
+/*!< Matrix-Matrix multiplication routine for full storage mode. Y =
+ * (H-shift*I)*X
  * @param Y OUT: Output complex matrix
  * @param YC OUT: Output complex matrix for neighboring processor
  * @param d IN: QD_struct, see qd_struct.h
@@ -88,7 +96,8 @@ int Hmatmult_spds_col( cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X, in
  * @return length of vector that needs to be passed to neighboring processor
  */
 
-int Hmatmult_spds_col_prep_store( cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X, int num_col, int proc );
+int Hmatmult_spds_col_prep_store(cmatrix Y, cmatrix YC, qd_struct d, real s,
+                                 cmatrix X, int num_col, int proc);
 /*!< Construction function for Hamiltonian (Y/YC/s/X/num_col are not used)
  * @param d IN: QD_struct, see qd_struct.h
  * @param proc IN: Processor number
@@ -96,4 +105,3 @@ int Hmatmult_spds_col_prep_store( cmatrix Y, cmatrix YC, qd_struct d, real s, cm
  */
 
 #endif
-

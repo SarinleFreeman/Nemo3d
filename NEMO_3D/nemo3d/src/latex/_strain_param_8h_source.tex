@@ -1,0 +1,126 @@
+\doxysection{Strain\+Param.\+h}
+\hypertarget{_strain_param_8h_source}{}\label{_strain_param_8h_source}\index{base/StrainParam.h@{base/StrainParam.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ L.\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/StrainParam.h,v\ 1.8\ 2005/01/14\ 20:24:38\ marek\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ \_STRAIN\_PARAM}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ \_STRAIN\_PARAM}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ <ivector.h>}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <rvector.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <rmatrix.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <imatrix.h>}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}top\_struct.H"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}MaterialHandle.h"{}}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }StrainComm\ \{}
+\DoxyCodeLine{00052\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \textcolor{keywordtype}{int}\ N;\ \ \ \ \ \ \ \textcolor{comment}{//\ size\ of\ raw\ data\ in\ units\ of\ sizeof(int)}}
+\DoxyCodeLine{00054\ \ \ \ \textcolor{keywordtype}{void}*\ data;\ \ \textcolor{comment}{//\ points\ to\ raw\ data\ }}
+\DoxyCodeLine{00055\ \ \ \ \textcolor{keywordtype}{int}*\ indx;\ \ \ \ \textcolor{comment}{//\ points\ to\ index\ data\ }}
+\DoxyCodeLine{00056\ \ \ \ real*\ rdata;\ \ \textcolor{comment}{//\ points\ to\ real\ data}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ StrainComm()\ \{;\}\ \textcolor{comment}{//\ dummy\ constructor}}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }StrainParam\ \{}
+\DoxyCodeLine{00063\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \textcolor{comment}{//\ shoule\ we\ minimize\ the\ lattice\ constant\ wrt\ to\ x,\ y,\ z?}}
+\DoxyCodeLine{00065\ \ \ \ \textcolor{keywordtype}{bool}\ MinWrtX,\ MinWrtY,\ MinWrtZ;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \textcolor{keywordtype}{int}\ debugp;}
+\DoxyCodeLine{00068\ \ \ \ \textcolor{keywordtype}{int}\ first\_or\_second;\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \textcolor{keywordtype}{double}\ SCALE\_FCTR;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ rvectr\ dp;}
+\DoxyCodeLine{00073\ \ \ \ rmatrix\ amat,\ alpha,\ beta;}
+\DoxyCodeLine{00074\ \ \ \ rmatrix\ aa\_VFF,ba\_VFF,ca\_VFF;\textcolor{comment}{//Coefficients\ of\ the\ strain\ dependence\ of\ the\ VFF\ constants\ in\ the\ Keating\ model.\ Used\ for\ the\ strain\ calculations\ and\ the\ low-\/energy\ acousticl\ phonons}}
+\DoxyCodeLine{00075\ \ \ \ rmatrix\ ao\_VFF,bo\_VFF,co\_VFF;\textcolor{comment}{//Coefficients\ of\ the\ strain\ dependence\ of\ the\ VFF\ constants\ in\ the\ Keating\ model.\ Used\ for\ optical\ phonons.}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \textcolor{comment}{/*\ mapping\ stuff\ for\ strain\ */}}
+\DoxyCodeLine{00078\ \ \ \ ivectr\ lm\_sndL,\ lm\_sndR,\ lm\_rcvL,\ lm\_rcvR;}
+\DoxyCodeLine{00079\ \ \ \ \textcolor{keywordtype}{int}\ cellLMin,\ cellLMax,\ atomLMin,\ atomLMax,\ cellRMin,\ cellRMax,\ atomRMin,\ atomRMax\ ;}
+\DoxyCodeLine{00080\ \ \ \ imatrix\ rcvL\_lm,\ rcvR\_lm\ ;}
+\DoxyCodeLine{00081\ \ \ \ \mbox{\hyperlink{class_strain_comm}{StrainComm}}\ sndL,\ sndR,\ rcvL,\ rcvR;}
+\DoxyCodeLine{00082\ \ \ \ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ StrainParam()\ \{;\}\ \textcolor{comment}{//\ dummy\ constructor}}
+\DoxyCodeLine{00085\ \ \ \ \textcolor{keywordtype}{void}\ SetMatParm(vector<MaterialHandle>\ sMatList);}
+\DoxyCodeLine{00086\ \ \ \ \textcolor{keywordtype}{void}\ SetOptions(\textcolor{keyword}{const}\ top\_struct\&\ opt);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \textcolor{keywordtype}{void}\ Deallocate();}
+\DoxyCodeLine{00089\ \ \ \ \string~StrainParam()\ \{\ Deallocate();\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \textcolor{keywordtype}{bool}\ doPeriodMinimization()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ MinWrtX\ ||\ MinWrtY\ ||\ MinWrtZ;\ \}}
+\DoxyCodeLine{00092\ \ \ \ \textcolor{comment}{//Get\ the\ effective\ values\ of\ alpha\ and\ beta\ if\ they\ were\ schaled\ with\ strain}}
+\DoxyCodeLine{00093\ \ \ \ \textcolor{comment}{/*\ \ \ real\ parabola(real\ Anh,//anharmonicity\ parameter}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ Dnh,//second-\/order\ anharmonicity\ parameter}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ arg//argument\ corresponding\ to\ the\ strain}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00098\ \ \ \ real\ \mbox{\hyperlink{class_strain_param_aee23ff9649652a1a67475b2cb06d091e}{alpha\_eff}}(\textcolor{keywordtype}{int}\ m\_atom\_type,\textcolor{comment}{//type\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_atom\_type,\textcolor{comment}{//type\ of\ the\ n-\/th\ atom}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ r2,\textcolor{comment}{//square\ of\ the\ real\ bond\ length}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ real\ d2,\textcolor{comment}{//square\ of\ the\ equilibrium\ bond\ length}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ anh,\textcolor{comment}{//1-\/use\ acoustical\ anharmonicity\ corrections}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//2-\/use\ optical\ anharmonicity\ corrections}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//3-\/use\ linear\ interpolation}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pr\textcolor{comment}{//true\ for\ printing\ truncated\ alpha}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00107\ \ \ \ real\ \mbox{\hyperlink{class_strain_param_aa481e3130420772a49143b0a77582dfa}{beta\_eff}}(\textcolor{keywordtype}{int}\ m\_atom\_type,\textcolor{comment}{//type\ of\ the\ m-\/th\ atom}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n1\_atom\_type,\textcolor{comment}{//type\ of\ the\ n1-\/th\ atom}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n2\_atom\_type,\textcolor{comment}{//type\ of\ the\ n2-\/th\ atom}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ d1,rvectr\ d2,\textcolor{comment}{//vectors\ of\ the\ relaxed\ bonds\ of\ the\ V\ doublet}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ r1,rvectr\ r2,\textcolor{comment}{//vectors\ of\ the\ strained\ bonds\ of\ the\ V\ doublet}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ anh,\textcolor{comment}{//1-\/use\ acoustical\ anharmonicity\ corrections}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//2-\/use\ optical\ anharmonicity\ corrections}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//3-\/use\ linear\ interpolation}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pr\textcolor{comment}{//true\ for\ printing\ truncated\ beta}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

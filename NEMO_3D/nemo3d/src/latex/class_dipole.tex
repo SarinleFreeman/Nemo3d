@@ -1,0 +1,80 @@
+\doxysection{Dipole Class Reference}
+\hypertarget{class_dipole}{}\label{class_dipole}\index{Dipole@{Dipole}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_dipole_a6610597beebcab9b72ba2ab3d912f6f0}\label{class_dipole_a6610597beebcab9b72ba2ab3d912f6f0} 
+{\bfseries Dipole} (qd\+\_\+struct din, int e, int h, int mpi\+ID)
+\item 
+\Hypertarget{class_dipole_a919eeee4d0a1052bf7547178f435de96}\label{class_dipole_a919eeee4d0a1052bf7547178f435de96} 
+void {\bfseries assign\+\_\+table} (ifstream \&)
+\item 
+\Hypertarget{class_dipole_a2c9ac9fd30a5e3da96ca0e77bfec942d}\label{class_dipole_a2c9ac9fd30a5e3da96ca0e77bfec942d} 
+int {\bfseries pair} (int, int)
+\item 
+\Hypertarget{class_dipole_a84da33d0aac16be22dd285ac3f61b69f}\label{class_dipole_a84da33d0aac16be22dd285ac3f61b69f} 
+void {\bfseries compute\+\_\+dipole} ()
+\item 
+\Hypertarget{class_dipole_a2dac0f4874a816ff842bafbea94972b2}\label{class_dipole_a2dac0f4874a816ff842bafbea94972b2} 
+void {\bfseries compute\+\_\+dipole\+\_\+approximation} ()
+\item 
+\Hypertarget{class_dipole_abc3ca3d4304d6a58ac80f7262d465418}\label{class_dipole_abc3ca3d4304d6a58ac80f7262d465418} 
+void {\bfseries compute\+\_\+dipole\+\_\+with\+\_\+spin\+\_\+suppressed} ()
+\item 
+\Hypertarget{class_dipole_ae2fc1d41453556221a9b5bd981c42e3f}\label{class_dipole_ae2fc1d41453556221a9b5bd981c42e3f} 
+void {\bfseries get\+\_\+data} (complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, double \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_dipole_aa3f1a22f73829b8767483a378ed73188}\label{class_dipole_aa3f1a22f73829b8767483a378ed73188} 
+void {\bfseries get\+\_\+data} (complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, double \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_dipole_a4129392361ee15545549d2a432d6efcf}\label{class_dipole_a4129392361ee15545549d2a432d6efcf} 
+complex {\bfseries dot\+\_\+product} (complex, complex)
+\item 
+\Hypertarget{class_dipole_a6d30e8daabae222ad0c47e9963ec7f06}\label{class_dipole_a6d30e8daabae222ad0c47e9963ec7f06} 
+double {\bfseries amplitude\+\_\+e} (int, int, int)
+\item 
+\Hypertarget{class_dipole_a7785e8327f7ab42b32e1b065afb3cdcf}\label{class_dipole_a7785e8327f7ab42b32e1b065afb3cdcf} 
+double {\bfseries amplitude\+\_\+h} (int, int, int)
+\item 
+\Hypertarget{class_dipole_a502394c815291fcff4821ce7d55b94bc}\label{class_dipole_a502394c815291fcff4821ce7d55b94bc} 
+complex \& {\bfseries H\+\_\+dipole\+\_\+X} (int e, int h)
+\item 
+\Hypertarget{class_dipole_a5d997ce702baa9bc19b9ff955e63ae6b}\label{class_dipole_a5d997ce702baa9bc19b9ff955e63ae6b} 
+complex \& {\bfseries H\+\_\+dipole\+\_\+Y} (int e, int h)
+\item 
+\Hypertarget{class_dipole_ab94668ead28770076aed3171a4c451ef}\label{class_dipole_ab94668ead28770076aed3171a4c451ef} 
+complex \& {\bfseries H\+\_\+dipole\+\_\+Z} (int e, int h)
+\item 
+\Hypertarget{class_dipole_a852f88a14dc3faa11028565fbb29a688}\label{class_dipole_a852f88a14dc3faa11028565fbb29a688} 
+complex \& {\bfseries cf\+\_\+e} (int e, int g, int s, int o)
+\item 
+\Hypertarget{class_dipole_a10060ff9dd8720c27a372c87f9ae693e}\label{class_dipole_a10060ff9dd8720c27a372c87f9ae693e} 
+complex \& {\bfseries cf\+\_\+h} (int h, int g, int s, int o)
+\item 
+\Hypertarget{class_dipole_a57ca7f31a91d067b78c2c42051dd9e32}\label{class_dipole_a57ca7f31a91d067b78c2c42051dd9e32} 
+int \& {\bfseries nn} (int iat, int nadj)
+\item 
+\Hypertarget{class_dipole_a0598b85c4145f6bfa826c0668dd90afc}\label{class_dipole_a0598b85c4145f6bfa826c0668dd90afc} 
+double \& {\bfseries lattice} (int iat, int dim)
+\item 
+\Hypertarget{class_dipole_a6b3a5b2a14ff0337b443c5dc4edf36bf}\label{class_dipole_a6b3a5b2a14ff0337b443c5dc4edf36bf} 
+complex \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+\+H\+\_\+dipole\+\_\+X} (void)
+\item 
+\Hypertarget{class_dipole_a60c64d558d296c2e6015c06e1a75b4ed}\label{class_dipole_a60c64d558d296c2e6015c06e1a75b4ed} 
+complex \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+\+H\+\_\+dipole\+\_\+Y} (void)
+\item 
+\Hypertarget{class_dipole_af9fc8907419628c30f633814cf968672}\label{class_dipole_af9fc8907419628c30f633814cf968672} 
+complex \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+\+H\+\_\+dipole\+\_\+Z} (void)
+\item 
+\Hypertarget{class_dipole_a3318a500ebff04349d654322293e1aa7}\label{class_dipole_a3318a500ebff04349d654322293e1aa7} 
+double \& {\bfseries dipole\+\_\+on} (int ob, int at)
+\item 
+\Hypertarget{class_dipole_a508989bbdc4c716ea3c188b56a6a09ca}\label{class_dipole_a508989bbdc4c716ea3c188b56a6a09ca} 
+double \& {\bfseries dipole\+\_\+off} (int ob1, int ob2, int pt)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+postprocessing/Dipole.\+h\item 
+postprocessing/Dipole.\+cpp\end{DoxyCompactItemize}

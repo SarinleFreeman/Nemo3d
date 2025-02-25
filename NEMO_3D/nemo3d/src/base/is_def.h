@@ -33,7 +33,7 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/is_def.h,v 1.2 2003/10/08 16:16:40 hook Exp $ 
+$Header: /repo/nemo3d/src/base/is_def.h,v 1.2 2003/10/08 16:16:40 hook Exp $
 *****************************************************************************/
 
 #ifndef _IS_DEF_H

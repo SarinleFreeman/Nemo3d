@@ -33,9 +33,9 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/ivectori3matrix.h,v 1.3 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/ivectori3matrix.h,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
-
 
 #ifndef IVECTRI3MATRIX_H
 #define IVECTRI3MATRIX_H
@@ -50,8 +50,9 @@ $Header: /repo/nemo3d/src/math/ivectori3matrix.h,v 1.3 2004/10/27 19:43:10 gekco
 typedef i3matrix *ivectri3matrix;
 
 ivectri3matrix Ivectri3matrix(int n);
-void rm_ivectri3matrix (ivectri3matrix *I_ptr);
-void rm_ivectri3matrix_shellonly (ivectri3matrix *I_ptr);
-int add_elem_ivectri3matrix(i3matrix data_matrix, int pos, ivectri3matrix hold_vectr);
+void rm_ivectri3matrix(ivectri3matrix *I_ptr);
+void rm_ivectri3matrix_shellonly(ivectri3matrix *I_ptr);
+int add_elem_ivectri3matrix(i3matrix data_matrix, int pos,
+                            ivectri3matrix hold_vectr);
 
 #endif

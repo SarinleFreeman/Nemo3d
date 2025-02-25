@@ -3,7 +3,7 @@ The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
 Copyright (C) 2002 California Institute of Technology (Caltech)
 
 This application is free software, which you can redistribute and/or modify
-under the terms of the GNU Lesser General Public License as published by the 
+under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation; either version 2.1 of the License, or (at your
 option) any later version.
 
@@ -36,14 +36,13 @@ This product includes software developed by the Apache Software Foundation
 $Header: /repo/nemo3d/src/base/Boolean.h,v 1.2 2003/10/08 16:16:08 hook Exp $
 *****************************************************************************/
 
-
 #ifndef BOOLEAN_H
 #define BOOLEAN_H
 
-typedef char Boolean; 
+typedef char Boolean;
 
 #ifndef TRUE
-#define TRUE  '\1'
+#define TRUE '\1'
 #endif /* TRUE */
 
 #ifndef FALSE

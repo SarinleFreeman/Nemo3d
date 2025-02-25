@@ -1,0 +1,45 @@
+\doxysection{Rand\+Random Class Reference}
+\hypertarget{class_rand_random}{}\label{class_rand_random}\index{RandRandom@{RandRandom}}
+
+
+{\ttfamily \#include $<$Rand\+Random.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rand_random_a5522a65e0c18364cb75ee07cdddc25cf}\label{class_rand_random_a5522a65e0c18364cb75ee07cdddc25cf} 
+typedef double {\bfseries Return\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rand_random_ad5b5d8561d3201ff107d84112f7571d0}\label{class_rand_random_ad5b5d8561d3201ff107d84112f7571d0} 
+{\bfseries Rand\+Random} (bool gen\+\_\+seed=false)
+\item 
+\Hypertarget{class_rand_random_a4f4ecdc29d907488d3476009655394ed}\label{class_rand_random_a4f4ecdc29d907488d3476009655394ed} 
+{\bfseries Rand\+Random} (int i, int nstr, bool gen\+\_\+seed=false)
+\item 
+\Hypertarget{class_rand_random_a23aec52c95f39d7c780926439d86250b}\label{class_rand_random_a23aec52c95f39d7c780926439d86250b} 
+void {\bfseries init} (bool gen\+\_\+seed=false)
+\item 
+\Hypertarget{class_rand_random_a868066dd1e1f91dce55d901d4a96eb5d}\label{class_rand_random_a868066dd1e1f91dce55d901d4a96eb5d} 
+Return\+\_\+t {\bfseries get\+Random} ()
+\item 
+\Hypertarget{class_rand_random_aeda6e489869c2284a33623802a036ff5}\label{class_rand_random_aeda6e489869c2284a33623802a036ff5} 
+Return\+\_\+t {\bfseries operator()} ()
+\item 
+\Hypertarget{class_rand_random_a938fc7c21803ffae8bc76859ca0c143a}\label{class_rand_random_a938fc7c21803ffae8bc76859ca0c143a} 
+int {\bfseries irand} ()
+\item 
+\Hypertarget{class_rand_random_ad2fd0b8445105c7308a9948ae5e297ec}\label{class_rand_random_ad2fd0b8445105c7308a9948ae5e297ec} 
+void {\bfseries bivariate} (Return\+\_\+t \&g1, Return\+\_\+t \&g2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A wrapper class to generate a random number using C srand and rand. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+postprocessing/Rand\+Random.\+h\item 
+postprocessing/Rand\+Random.\+cpp\end{DoxyCompactItemize}

@@ -33,40 +33,39 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/math3d.h,v 1.2 2003/10/08 16:18:03 hook Exp $ 
+$Header: /repo/nemo3d/src/math/math3d.h,v 1.2 2003/10/08 16:18:03 hook Exp $
 *****************************************************************************/
 
 #ifndef MATH3D_H
 #define MATH3D_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include <rvector.h>
+#include <cmatrix.h>
 #include <cvector.h>
 #include <rtridiag.h>
-#include <cmatrix.h>
+#include <rvector.h>
 
+#include "ctridiag.h"
+#include "cvector_lib.h"
 #include "io_utils.h"
 #include "realtype.h"
-#include "cvector_lib.h"
 #include "rvector_lib.h"
-#include "ctridiag.h"
 
 #include "lanczos.h"
 
-void eigvec_srt( cvectr vec, cmatrix cmat, int n );
-real invit ( rtridiag h, rvectr x, rvectr y, real lambda );
+void eigvec_srt(cvectr vec, cmatrix cmat, int n);
+real invit(rtridiag h, rvectr x, rvectr y, real lambda);
 
 /* Called by eigval_s_tridi_QD() below, which is nolonger needed. */
-int td_ql_im_QD (rvectr d, rvectr e, roperator z, int n);
+int td_ql_im_QD(rvectr d, rvectr e, roperator z, int n);
 
 /*
  * Called from eigsys3d_par.[ch]::srch_converged_eigval_par(),
  * which is now made obsolete by LAPACK.
  */
-rvectr eigval_s_tridi_QD (rvectr d, rtridiag t, int n);
+rvectr eigval_s_tridi_QD(rvectr d, rtridiag t, int n);
 
 #endif
-

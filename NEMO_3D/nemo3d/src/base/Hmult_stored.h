@@ -33,29 +33,33 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/Hmult_stored.h,v 1.7 2007/07/24 17:47:36 lee509 Exp $ 
+$Header: /repo/nemo3d/src/base/Hmult_stored.h,v 1.7 2007/07/24 17:47:36 lee509
+Exp $
 *****************************************************************************/
 
 #ifndef HMULT_STORED_H
 #define HMULT_STORED_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-#include "realtype.h"
-#include "constants_nemo.h"
 #include "MPI_Timing.h"
+#include "constants_nemo.h"
 #include "qd_struct.h"
+#include "realtype.h"
 
 /*! \file Hmult_stored.h
  *  \brief Matrix-vector / matrix-matrix multiplier for sparse storage mode.
  */
 
-int Hmult_spds_col_stored (cvectr y, cvectr yc, qd_struct d, real s, cvectr x, int proc );
-/*!< Matrix-vector multiplication routine for sparse storage mode y = (H-shift*I)*x
+int Hmult_spds_col_stored(cvectr y, cvectr yc, qd_struct d, real s, cvectr x,
+                          int proc);
+/*!< Matrix-vector multiplication routine for sparse storage mode y =
+ * (H-shift*I)*x
  * @param y OUT: Output vector
- * @param yc OUT: Output vector for neighboring processor. It is sent to neighbor processors via MPI_Sendrecv
+ * @param yc OUT: Output vector for neighboring processor. It is sent to
+ * neighbor processors via MPI_Sendrecv
  * @param d IN: QD_struct, see qd_struct.h
  * @param s IN: Energy shift
  * @param x IN: Input vector
@@ -63,10 +67,13 @@ int Hmult_spds_col_stored (cvectr y, cvectr yc, qd_struct d, real s, cvectr x, i
  * @return length of vector that needs to be passed to neighbor processor
  */
 
-int Hmatmult_spds_col_stored (cmatrix Y, cmatrix YC, qd_struct d, real s, cmatrix X, int num_col, int proc );
-/*!< Matrix-matrix multiplication routine for sparse storage mode Y = (H-shift*I)*X
+int Hmatmult_spds_col_stored(cmatrix Y, cmatrix YC, qd_struct d, real s,
+                             cmatrix X, int num_col, int proc);
+/*!< Matrix-matrix multiplication routine for sparse storage mode Y =
+ * (H-shift*I)*X
  * @param Y OUT: Output matrix
- * @param YC OUT: Output matrix for neighboring processor. It is sent to neighbor processors via MPI_Sendrecv
+ * @param YC OUT: Output matrix for neighboring processor. It is sent to
+ * neighbor processors via MPI_Sendrecv
  * @param d IN: QD_struct, see qd_struct.h
  * @param s IN: Energy shift
  * @param X IN: Input matrix
@@ -75,9 +82,9 @@ int Hmatmult_spds_col_stored (cmatrix Y, cmatrix YC, qd_struct d, real s, cmatri
  * @return length of vector that needs to be passed to neighbor processor
  */
 
-
-void Hv_stored_20_Hzb      (cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3d5s* with spin orbital model. Memory efficient mode. See HamZincBlende.c
+void Hv_stored_20_Hzb(cvectr, cvectr, cvectr, qd_struct);
+/*! Matrix-vector multiplication routine for sp3d5s* with spin orbital model.
+ * Memory efficient mode. See HamZincBlende.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector
@@ -85,8 +92,9 @@ void Hv_stored_20_Hzb      (cvectr, cvectr, cvectr, qd_struct);
  * @return void
  */
 
-void Hv_stored_20_HzbComplex      (cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3d5s* with spin orbital model. Speed efficient mode. See HamZincBlendeComplex.c
+void Hv_stored_20_HzbComplex(cvectr, cvectr, cvectr, qd_struct);
+/*! Matrix-vector multiplication routine for sp3d5s* with spin orbital model.
+ * Speed efficient mode. See HamZincBlendeComplex.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector
@@ -95,7 +103,8 @@ void Hv_stored_20_HzbComplex      (cvectr, cvectr, cvectr, qd_struct);
  */
 
 void Hv_stored_10_sp3d5s_Hzb(cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3d5s* without spin orbital model. Memory efficientt mode. See HamZincBlende.c
+/*! Matrix-vector multiplication routine for sp3d5s* without spin orbital model.
+ * Memory efficientt mode. See HamZincBlende.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector
@@ -104,7 +113,8 @@ void Hv_stored_10_sp3d5s_Hzb(cvectr, cvectr, cvectr, qd_struct);
  */
 
 void Hv_stored_10_sp3d5s_HzbComplex(cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3d5s* without spin orbital model. Speed efficient mode. See HamZincBlendeComplex.c
+/*! Matrix-vector multiplication routine for sp3d5s* without spin orbital model.
+ * Speed efficient mode. See HamZincBlendeComplex.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector
@@ -112,8 +122,9 @@ void Hv_stored_10_sp3d5s_HzbComplex(cvectr, cvectr, cvectr, qd_struct);
  * @return void
  */
 
-void Hv_stored_10_Hzb      (cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3s* with spin orbital model. Memory efficient mode. See HamZincBlende.c
+void Hv_stored_10_Hzb(cvectr, cvectr, cvectr, qd_struct);
+/*! Matrix-vector multiplication routine for sp3s* with spin orbital model.
+ * Memory efficient mode. See HamZincBlende.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector
@@ -121,8 +132,9 @@ void Hv_stored_10_Hzb      (cvectr, cvectr, cvectr, qd_struct);
  * @return void
  */
 
-void Hv_stored_10_HzbComplex      (cvectr, cvectr, cvectr, qd_struct);
-/*! Matrix-vector multiplication routine for sp3s* with spin orbital model. Speed efficient mode. See HamZincBlendeComplex.c
+void Hv_stored_10_HzbComplex(cvectr, cvectr, cvectr, qd_struct);
+/*! Matrix-vector multiplication routine for sp3s* with spin orbital model.
+ * Speed efficient mode. See HamZincBlendeComplex.c
  * @param y OUT: Output vector
  * @param yc OUT: Output vector for neighbor processor
  * @param x IN: Input vector

@@ -33,31 +33,30 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/ham/mb_ham_spds_diag.h,v 1.2 2003/10/08 16:17:24 hook Exp $
+$Header: /repo/nemo3d/src/ham/mb_ham_spds_diag.h,v 1.2 2003/10/08 16:17:24 hook
+Exp $
 *****************************************************************************/
 
 /*  diag(  vpar_diag, int basis_diag )  */
 
 static int diag_map[20];
-diag_map[STa]       = 4;
-diag_map[Sa]        = 0;
-diag_map[Pxa]       = 1;
-diag_map[Pya]       = 1;
-diag_map[Pza]       = 1;
-diag_map[Dxya]      = 6;
-diag_map[Dyza]      = 6;
-diag_map[Dzxa]      = 6;
-diag_map[Dx2my2a]   = 6;
-diag_map[Dz2a]      = 6;
-diag_map[STc]       = 5;
-diag_map[Sc]        = 2;
-diag_map[Pxc]       = 3;
-diag_map[Pyc]       = 3;
-diag_map[Pzc]       = 3;
-diag_map[Dxyc]      = 7;
-diag_map[Dyzc]      = 7;
-diag_map[Dzxc]      = 7;
-diag_map[Dx2my2c]   = 7;
-diag_map[Dz2c]      = 7;
-
-
+diag_map[STa] = 4;
+diag_map[Sa] = 0;
+diag_map[Pxa] = 1;
+diag_map[Pya] = 1;
+diag_map[Pza] = 1;
+diag_map[Dxya] = 6;
+diag_map[Dyza] = 6;
+diag_map[Dzxa] = 6;
+diag_map[Dx2my2a] = 6;
+diag_map[Dz2a] = 6;
+diag_map[STc] = 5;
+diag_map[Sc] = 2;
+diag_map[Pxc] = 3;
+diag_map[Pyc] = 3;
+diag_map[Pzc] = 3;
+diag_map[Dxyc] = 7;
+diag_map[Dyzc] = 7;
+diag_map[Dzxc] = 7;
+diag_map[Dx2my2c] = 7;
+diag_map[Dz2c] = 7;

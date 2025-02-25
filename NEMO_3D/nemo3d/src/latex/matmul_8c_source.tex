@@ -1,0 +1,761 @@
+\doxysection{matmul.\+c}
+\hypertarget{matmul_8c_source}{}\label{matmul_8c_source}\index{base/matmul.c@{base/matmul.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/matmul.c,v\ 1.9\ 2006/12/18\ 21:40:04\ gekco\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}matmul.h"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\#ifdef\ Linux}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\#define\ CMATMUL\_EXPLICIT\_INLINE\_20}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\#endif}}
+\DoxyCodeLine{00047\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ CMATMUL\_EXPLICIT\_INLINE\_20}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ CMATMUL\_POINTER\_REDUCE\_20}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifndef\ CMATMUL\_EXPLICIT\_INLINE\_10}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ CMATMUL\_POINTER\_REDUCE\_10}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{int}\ cmatmul\_spds(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00059\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{if}\ (hdim==20)\{}
+\DoxyCodeLine{00061\ \ \ \ \ cmatmul\_spds\_20(\ y,\ h,\ x,\ isy,\ isx,\ hdim\ );}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (hdim==10)\{}
+\DoxyCodeLine{00064\ \ \ \ \ cmatmul\_spds\_10(\ y,\ h,\ x,\ isy,\ isx,\ hdim\ );}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ y[i+isy].r\ +=\ h[i][j].r*x[j+isx].r\ -\/\ h[i][j].i*x[j+isx].i;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ y[i+isy].i\ +=\ h[i][j].r*x[j+isx].i\ +\ h[i][j].i*x[j+isx].r;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{register}\ real\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*x[jp].r\ -\/\ h\_i\_j\_i*x[jp].i;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*x[jp].i\ +\ h\_i\_j\_i*x[jp].r;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00100\ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/*\ same\ as\ cmatmul\_spds\ but\ perform\ an\ adjoint\ operation\ on\ the\ matrix\ h\ first.\ */}}
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00104\ \{}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ y[i+isy].r\ +=\ h[j][i].r*x[j+isx].r\ +\ h[j][i].i*x[j+isx].i;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ y[i+isy].i\ +=\ h[j][i].r*x[j+isx].i\ -\/\ h[j][i].i*x[j+isx].r;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ jp;}
+\DoxyCodeLine{00116\ \ \ \ \ cvectr\ h\_j;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ x\_jp\_r,x\_jp\_i;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{register}\ real\ h\_j\_i\_r,\ h\_j\_i\_i;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )\{}
+\DoxyCodeLine{00120\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00121\ \ \ \ \ x\_jp\_r=x[jp].r,\ x\_jp\_i=x[jp].i;}
+\DoxyCodeLine{00122\ \ \ \ \ h\_j=h[j];}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )\{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ h\_j\_i\_r\ =\ h\_j[i].r,\ h\_j\_i\_i\ =\ h\_j[i].i;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ y[i+isy].r\ +=\ h\_j\_i\_r*x\_jp\_r\ +\ h\_j\_i\_i*x\_jp\_i;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ y[i+isy].i\ +=\ h\_j\_i\_r*x\_jp\_i\ -\/\ h\_j\_i\_i*x\_jp\_r;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_20(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00134\ \{}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ jp;}
+\DoxyCodeLine{00138\ \ \ \ \ cvectr\ h\_j;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ x\_jp\_r,x\_jp\_i;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{register}\ real\ h\_j\_i\_r,\ h\_j\_i\_i;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\{}
+\DoxyCodeLine{00142\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00143\ \ \ \ \ x\_jp\_r=x[jp].r,\ x\_jp\_i=x[jp].i;}
+\DoxyCodeLine{00144\ \ \ \ \ h\_j=h[j];}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ h\_j\_i\_r\ =\ h\_j[i].r,\ h\_j\_i\_i\ =\ h\_j[i].i;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ y[i+isy].r\ +=\ h\_j\_i\_r*x\_jp\_r\ +\ h\_j\_i\_i*x\_jp\_i;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ y[i+isy].i\ +=\ h\_j\_i\_r*x\_jp\_i\ -\/\ h\_j\_i\_i*x\_jp\_r;}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ jp;}
+\DoxyCodeLine{00154\ \ \ \ \ cvectr\ h\_j;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ x\_jp\_r,x\_jp\_i;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{register}\ real\ h\_j\_i\_r,\ h\_j\_i\_i;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{static}\ real\ y\_r[20],y\_i[20];}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00159\ \ \ \ \ y\_r[i]\ =\ y[i+isy].r;}
+\DoxyCodeLine{00160\ \ \ \ \ y\_i[i]\ =\ y[i+isy].i;}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\{}
+\DoxyCodeLine{00163\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00164\ \ \ \ \ x\_jp\_r=x[jp].r,\ x\_jp\_i=x[jp].i;}
+\DoxyCodeLine{00165\ \ \ \ \ h\_j=h[j];}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ h\_j\_i\_r\ =\ h\_j[i].r,\ h\_j\_i\_i\ =\ h\_j[i].i;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ y\_r[i]\ +=\ h\_j\_i\_r*x\_jp\_r\ +\ h\_j\_i\_i*x\_jp\_i;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ y\_i[i]\ +=\ h\_j\_i\_r*x\_jp\_i\ -\/\ h\_j\_i\_i*x\_jp\_r;}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00173\ \ \ \ \ y[i+isy].r\ =\ y\_r[i];}
+\DoxyCodeLine{00174\ \ \ \ \ y[i+isy].i\ =\ y\_i[i];}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_10(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00182\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ jp;}
+\DoxyCodeLine{00185\ \ \ \ \ cvectr\ h\_j;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ x\_jp\_r,x\_jp\_i;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{register}\ real\ h\_j\_i\_r,\ h\_j\_i\_i;}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 10;\ j++\ )\{}
+\DoxyCodeLine{00189\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00190\ \ \ \ \ x\_jp\_r=x[jp].r,\ x\_jp\_i=x[jp].i;}
+\DoxyCodeLine{00191\ \ \ \ \ h\_j=h[j];}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 10;\ i++\ )\{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ h\_j\_i\_r\ =\ h\_j[i].r,\ h\_j\_i\_i\ =\ h\_j[i].i;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ y[i+isy].r\ +=\ h\_j\_i\_r*x\_jp\_r\ +\ h\_j\_i\_i*x\_jp\_i;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ y[i+isy].i\ +=\ h\_j\_i\_r*x\_jp\_i\ -\/\ h\_j\_i\_i*x\_jp\_r;}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_20(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00204\ \{}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#ifdef\ CMATMUL\_POINTER\_REDUCE\_20}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00208\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ xjp\_r[20],\ xjp\_i[20];}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00214\ \ \ \ \ xjp\_r[j]=x[jp].r;}
+\DoxyCodeLine{00215\ \ \ \ \ xjp\_i[j]=x[jp].i;}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00218\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00219\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00220\ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00221\ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r[j]\ -\/\ h\_i\_j\_i*xjp\_i[j];}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i[j]\ +\ h\_i\_j\_i*xjp\_r[j];}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00228\ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#ifdef\ CMATMUL\_EXPLICIT\_INLINE\_20}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00236\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_00,\ xjp\_i\_00;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_01,\ xjp\_i\_01;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_02,\ xjp\_i\_02;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_03,\ xjp\_i\_03;}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_04,\ xjp\_i\_04;}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_05,\ xjp\_i\_05;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_06,\ xjp\_i\_06;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_07,\ xjp\_i\_07;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_08,\ xjp\_i\_08;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_09,\ xjp\_i\_09;}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_10,\ xjp\_i\_10;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_11,\ xjp\_i\_11;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_12,\ xjp\_i\_12;}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_13,\ xjp\_i\_13;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_14,\ xjp\_i\_14;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_15,\ xjp\_i\_15;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_16,\ xjp\_i\_16;}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_17,\ xjp\_i\_17;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_18,\ xjp\_i\_18;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_19,\ xjp\_i\_19;}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ jp=isx;}
+\DoxyCodeLine{00261\ \ \ \ \ xjp\_r\_00=x[jp].r;}
+\DoxyCodeLine{00262\ \ \ \ \ xjp\_i\_00=x[jp].i;}
+\DoxyCodeLine{00263\ \ \ \ \ }
+\DoxyCodeLine{00264\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00265\ \ \ \ \ xjp\_r\_01=x[jp].r;}
+\DoxyCodeLine{00266\ \ \ \ \ xjp\_i\_01=x[jp].i;}
+\DoxyCodeLine{00267\ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00269\ \ \ \ \ xjp\_r\_02=x[jp].r;}
+\DoxyCodeLine{00270\ \ \ \ \ xjp\_i\_02=x[jp].i;}
+\DoxyCodeLine{00271\ \ \ \ \ }
+\DoxyCodeLine{00272\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00273\ \ \ \ \ xjp\_r\_03=x[jp].r;}
+\DoxyCodeLine{00274\ \ \ \ \ xjp\_i\_03=x[jp].i;}
+\DoxyCodeLine{00275\ \ \ \ \ }
+\DoxyCodeLine{00276\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00277\ \ \ \ \ xjp\_r\_04=x[jp].r;}
+\DoxyCodeLine{00278\ \ \ \ \ xjp\_i\_04=x[jp].i;}
+\DoxyCodeLine{00279\ \ \ \ \ }
+\DoxyCodeLine{00280\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00281\ \ \ \ \ xjp\_r\_05=x[jp].r;}
+\DoxyCodeLine{00282\ \ \ \ \ xjp\_i\_05=x[jp].i;}
+\DoxyCodeLine{00283\ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00285\ \ \ \ \ xjp\_r\_06=x[jp].r;}
+\DoxyCodeLine{00286\ \ \ \ \ xjp\_i\_06=x[jp].i;}
+\DoxyCodeLine{00287\ \ \ \ \ }
+\DoxyCodeLine{00288\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00289\ \ \ \ \ xjp\_r\_07=x[jp].r;}
+\DoxyCodeLine{00290\ \ \ \ \ xjp\_i\_07=x[jp].i;}
+\DoxyCodeLine{00291\ \ \ \ \ }
+\DoxyCodeLine{00292\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00293\ \ \ \ \ xjp\_r\_08=x[jp].r;}
+\DoxyCodeLine{00294\ \ \ \ \ xjp\_i\_08=x[jp].i;}
+\DoxyCodeLine{00295\ \ \ \ \ }
+\DoxyCodeLine{00296\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00297\ \ \ \ \ xjp\_r\_09=x[jp].r;}
+\DoxyCodeLine{00298\ \ \ \ \ xjp\_i\_09=x[jp].i;}
+\DoxyCodeLine{00299\ \ \ \ \ }
+\DoxyCodeLine{00300\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00301\ \ \ \ \ xjp\_r\_10=x[jp].r;}
+\DoxyCodeLine{00302\ \ \ \ \ xjp\_i\_10=x[jp].i;}
+\DoxyCodeLine{00303\ \ \ \ \ }
+\DoxyCodeLine{00304\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00305\ \ \ \ \ xjp\_r\_11=x[jp].r;}
+\DoxyCodeLine{00306\ \ \ \ \ xjp\_i\_11=x[jp].i;}
+\DoxyCodeLine{00307\ \ \ \ \ }
+\DoxyCodeLine{00308\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00309\ \ \ \ \ xjp\_r\_12=x[jp].r;}
+\DoxyCodeLine{00310\ \ \ \ \ xjp\_i\_12=x[jp].i;}
+\DoxyCodeLine{00311\ \ \ \ \ }
+\DoxyCodeLine{00312\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00313\ \ \ \ \ xjp\_r\_13=x[jp].r;}
+\DoxyCodeLine{00314\ \ \ \ \ xjp\_i\_13=x[jp].i;}
+\DoxyCodeLine{00315\ \ \ \ \ }
+\DoxyCodeLine{00316\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00317\ \ \ \ \ xjp\_r\_14=x[jp].r;}
+\DoxyCodeLine{00318\ \ \ \ \ xjp\_i\_14=x[jp].i;}
+\DoxyCodeLine{00319\ \ \ \ \ }
+\DoxyCodeLine{00320\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00321\ \ \ \ \ xjp\_r\_15=x[jp].r;}
+\DoxyCodeLine{00322\ \ \ \ \ xjp\_i\_15=x[jp].i;}
+\DoxyCodeLine{00323\ \ \ \ \ }
+\DoxyCodeLine{00324\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00325\ \ \ \ \ xjp\_r\_16=x[jp].r;}
+\DoxyCodeLine{00326\ \ \ \ \ xjp\_i\_16=x[jp].i;}
+\DoxyCodeLine{00327\ \ \ \ \ }
+\DoxyCodeLine{00328\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00329\ \ \ \ \ xjp\_r\_17=x[jp].r;}
+\DoxyCodeLine{00330\ \ \ \ \ xjp\_i\_17=x[jp].i;}
+\DoxyCodeLine{00331\ \ \ \ \ }
+\DoxyCodeLine{00332\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00333\ \ \ \ \ xjp\_r\_18=x[jp].r;}
+\DoxyCodeLine{00334\ \ \ \ \ xjp\_i\_18=x[jp].i;}
+\DoxyCodeLine{00335\ \ \ \ \ }
+\DoxyCodeLine{00336\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00337\ \ \ \ \ xjp\_r\_19=x[jp].r;}
+\DoxyCodeLine{00338\ \ \ \ \ xjp\_i\_19=x[jp].i;}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00342\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00343\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00344\ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00345\ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ j=0;}
+\DoxyCodeLine{00348\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00349\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_00\ -\/\ h\_i\_j\_i*xjp\_i\_00;}
+\DoxyCodeLine{00350\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_00\ +\ h\_i\_j\_i*xjp\_r\_00;}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \ \ \ \ j++;}
+\DoxyCodeLine{00353\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00354\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_01\ -\/\ h\_i\_j\_i*xjp\_i\_01;}
+\DoxyCodeLine{00355\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_01\ +\ h\_i\_j\_i*xjp\_r\_01;}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ j++;}
+\DoxyCodeLine{00358\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00359\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_02\ -\/\ h\_i\_j\_i*xjp\_i\_02;}
+\DoxyCodeLine{00360\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_02\ +\ h\_i\_j\_i*xjp\_r\_02;}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ j++;}
+\DoxyCodeLine{00363\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00364\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_03\ -\/\ h\_i\_j\_i*xjp\_i\_03;}
+\DoxyCodeLine{00365\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_03\ +\ h\_i\_j\_i*xjp\_r\_03;}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ j++;}
+\DoxyCodeLine{00368\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00369\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_04\ -\/\ h\_i\_j\_i*xjp\_i\_04;}
+\DoxyCodeLine{00370\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_04\ +\ h\_i\_j\_i*xjp\_r\_04;}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ j++;}
+\DoxyCodeLine{00373\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00374\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_05\ -\/\ h\_i\_j\_i*xjp\_i\_05;}
+\DoxyCodeLine{00375\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_05\ +\ h\_i\_j\_i*xjp\_r\_05;}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ j++;}
+\DoxyCodeLine{00378\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00379\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_06\ -\/\ h\_i\_j\_i*xjp\_i\_06;}
+\DoxyCodeLine{00380\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_06\ +\ h\_i\_j\_i*xjp\_r\_06;}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ j++;}
+\DoxyCodeLine{00383\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00384\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_07\ -\/\ h\_i\_j\_i*xjp\_i\_07;}
+\DoxyCodeLine{00385\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_07\ +\ h\_i\_j\_i*xjp\_r\_07;}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ j++;}
+\DoxyCodeLine{00388\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00389\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_08\ -\/\ h\_i\_j\_i*xjp\_i\_08;}
+\DoxyCodeLine{00390\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_08\ +\ h\_i\_j\_i*xjp\_r\_08;}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \ \ \ \ j++;}
+\DoxyCodeLine{00393\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00394\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_09\ -\/\ h\_i\_j\_i*xjp\_i\_09;}
+\DoxyCodeLine{00395\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_09\ +\ h\_i\_j\_i*xjp\_r\_09;}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ j++;}
+\DoxyCodeLine{00398\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00399\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_10\ -\/\ h\_i\_j\_i*xjp\_i\_10;}
+\DoxyCodeLine{00400\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_10\ +\ h\_i\_j\_i*xjp\_r\_10;}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ j++;}
+\DoxyCodeLine{00403\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00404\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_11\ -\/\ h\_i\_j\_i*xjp\_i\_11;}
+\DoxyCodeLine{00405\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_11\ +\ h\_i\_j\_i*xjp\_r\_11;}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ j++;}
+\DoxyCodeLine{00408\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00409\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_12\ -\/\ h\_i\_j\_i*xjp\_i\_12;}
+\DoxyCodeLine{00410\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_12\ +\ h\_i\_j\_i*xjp\_r\_12;}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ j++;}
+\DoxyCodeLine{00413\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00414\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_13\ -\/\ h\_i\_j\_i*xjp\_i\_13;}
+\DoxyCodeLine{00415\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_13\ +\ h\_i\_j\_i*xjp\_r\_13;}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ j++;}
+\DoxyCodeLine{00418\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00419\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_14\ -\/\ h\_i\_j\_i*xjp\_i\_14;}
+\DoxyCodeLine{00420\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_14\ +\ h\_i\_j\_i*xjp\_r\_14;}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ j++;}
+\DoxyCodeLine{00423\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00424\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_15\ -\/\ h\_i\_j\_i*xjp\_i\_15;}
+\DoxyCodeLine{00425\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_15\ +\ h\_i\_j\_i*xjp\_r\_15;}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ j++;}
+\DoxyCodeLine{00428\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00429\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_16\ -\/\ h\_i\_j\_i*xjp\_i\_16;}
+\DoxyCodeLine{00430\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_16\ +\ h\_i\_j\_i*xjp\_r\_16;}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ j++;}
+\DoxyCodeLine{00433\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00434\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_17\ -\/\ h\_i\_j\_i*xjp\_i\_17;}
+\DoxyCodeLine{00435\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_17\ +\ h\_i\_j\_i*xjp\_r\_17;}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ j++;}
+\DoxyCodeLine{00438\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00439\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_18\ -\/\ h\_i\_j\_i*xjp\_i\_18;}
+\DoxyCodeLine{00440\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_18\ +\ h\_i\_j\_i*xjp\_r\_18;}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ j++;}
+\DoxyCodeLine{00443\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00444\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_19\ -\/\ h\_i\_j\_i*xjp\_i\_19;}
+\DoxyCodeLine{00445\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_19\ +\ h\_i\_j\_i*xjp\_r\_19;}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00451\ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00452\ \ \ \ \ \}}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{comment}{/*\ Use\ a\ pointer\ to\ the\ matrix\ element\ h\_i\_p\ with\ incremental\ }}
+\DoxyCodeLine{00459\ \textcolor{comment}{\ \ \ \ \ \ \ Pointers.\ \ This\ does\ not\ seem\ to\ work\ very\ well\ on\ the\ }}
+\DoxyCodeLine{00460\ \textcolor{comment}{\ \ \ \ \ \ \ Intel\ Pentium\ III.\ */}}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00463\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{register}\ complex\ *h\_i\_p;}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ xjp\_r[20],\ xjp\_i[20];}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00469\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00470\ \ \ \ \ xjp\_r[j]=x[jp].r;}
+\DoxyCodeLine{00471\ \ \ \ \ xjp\_i[j]=x[jp].i;}
+\DoxyCodeLine{00472\ \ \ \ \ \}}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00474\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00475\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00476\ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00477\ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00478\ \ \ \ \ h\_i\_p\ =\ h\_i;}
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ h\_i\_j\_r\ =\ (*h\_i\_p).r,\ h\_i\_j\_i\ =\ (*h\_i\_p).i;}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r[j]\ -\/\ h\_i\_j\_i*xjp\_i[j];}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i[j]\ +\ h\_i\_j\_i*xjp\_r[j];}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ h\_i\_p++;}
+\DoxyCodeLine{00485\ \ \ \ \ \}}
+\DoxyCodeLine{00486\ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00487\ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00488\ \ \ \ \ \}}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{comment}{/*\ use\ a\ temporary\ complex\ register....}}
+\DoxyCodeLine{00493\ \textcolor{comment}{\ \ \ \ \ \ \ need\ to\ do\ pointer\ arithmatic\ on\ the\ inner\ loop....*/}}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00496\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{register}\ complex\ y\_ip;}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ xjp\_r[20],\ xjp\_i[20];}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ xjp\_r[j]=x[jp].r;}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ xjp\_i[j]=x[jp].i;}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 20;\ i++\ )\{}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ y\_ip\ =\ y[ip];}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 20;\ j++\ )\ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_ip.r\ +=\ h\_i\_j\_r*xjp\_r[j]\ -\/\ h\_i\_j\_i*xjp\_i[j];}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_ip.i\ +=\ h\_i\_j\_r*xjp\_i[j]\ +\ h\_i\_j\_i*xjp\_r[j];}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ y[ip]\ =\ y\_ip;}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00518\ \}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_10(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00521\ \{}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\#ifdef\ CMATMUL\_POINTER\_REDUCE\_10}}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00525\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ xjp\_r[10],\ xjp\_i[10];}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 10;\ j++\ )\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00531\ \ \ \ \ xjp\_r[j]=x[jp].r;}
+\DoxyCodeLine{00532\ \ \ \ \ xjp\_i[j]=x[jp].i;}
+\DoxyCodeLine{00533\ \ \ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 10;\ i++\ )\{}
+\DoxyCodeLine{00535\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00536\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00537\ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00538\ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ 10;\ j++\ )\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r[j]\ -\/\ h\_i\_j\_i*xjp\_i[j];}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i[j]\ +\ h\_i\_j\_i*xjp\_r[j];}
+\DoxyCodeLine{00543\ \ \ \ \ \}}
+\DoxyCodeLine{00544\ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00545\ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00546\ \ \ \ \ \}}
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#ifdef\ CMATMUL\_EXPLICIT\_INLINE\_10}}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00553\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ y\_ip\_r,y\_ip\_i;}
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ h\_i\_j\_r,\ h\_i\_j\_i;}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_00,\ xjp\_i\_00;}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_01,\ xjp\_i\_01;}
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_02,\ xjp\_i\_02;}
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_03,\ xjp\_i\_03;}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_04,\ xjp\_i\_04;}
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_05,\ xjp\_i\_05;}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_06,\ xjp\_i\_06;}
+\DoxyCodeLine{00563\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_07,\ xjp\_i\_07;}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_08,\ xjp\_i\_08;}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{double}\ xjp\_r\_09,\ xjp\_i\_09;}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ jp=isx;}
+\DoxyCodeLine{00568\ \ \ \ \ xjp\_r\_00=x[jp].r;}
+\DoxyCodeLine{00569\ \ \ \ \ xjp\_i\_00=x[jp].i;}
+\DoxyCodeLine{00570\ \ \ \ \ }
+\DoxyCodeLine{00571\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00572\ \ \ \ \ xjp\_r\_01=x[jp].r;}
+\DoxyCodeLine{00573\ \ \ \ \ xjp\_i\_01=x[jp].i;}
+\DoxyCodeLine{00574\ \ \ \ \ }
+\DoxyCodeLine{00575\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00576\ \ \ \ \ xjp\_r\_02=x[jp].r;}
+\DoxyCodeLine{00577\ \ \ \ \ xjp\_i\_02=x[jp].i;}
+\DoxyCodeLine{00578\ \ \ \ \ }
+\DoxyCodeLine{00579\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00580\ \ \ \ \ xjp\_r\_03=x[jp].r;}
+\DoxyCodeLine{00581\ \ \ \ \ xjp\_i\_03=x[jp].i;}
+\DoxyCodeLine{00582\ \ \ \ \ }
+\DoxyCodeLine{00583\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00584\ \ \ \ \ xjp\_r\_04=x[jp].r;}
+\DoxyCodeLine{00585\ \ \ \ \ xjp\_i\_04=x[jp].i;}
+\DoxyCodeLine{00586\ \ \ \ \ }
+\DoxyCodeLine{00587\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00588\ \ \ \ \ xjp\_r\_05=x[jp].r;}
+\DoxyCodeLine{00589\ \ \ \ \ xjp\_i\_05=x[jp].i;}
+\DoxyCodeLine{00590\ \ \ \ \ }
+\DoxyCodeLine{00591\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00592\ \ \ \ \ xjp\_r\_06=x[jp].r;}
+\DoxyCodeLine{00593\ \ \ \ \ xjp\_i\_06=x[jp].i;}
+\DoxyCodeLine{00594\ \ \ \ \ }
+\DoxyCodeLine{00595\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00596\ \ \ \ \ xjp\_r\_07=x[jp].r;}
+\DoxyCodeLine{00597\ \ \ \ \ xjp\_i\_07=x[jp].i;}
+\DoxyCodeLine{00598\ \ \ \ \ }
+\DoxyCodeLine{00599\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00600\ \ \ \ \ xjp\_r\_08=x[jp].r;}
+\DoxyCodeLine{00601\ \ \ \ \ xjp\_i\_08=x[jp].i;}
+\DoxyCodeLine{00602\ \ \ \ \ }
+\DoxyCodeLine{00603\ \ \ \ \ jp++;;}
+\DoxyCodeLine{00604\ \ \ \ \ xjp\_r\_09=x[jp].r;}
+\DoxyCodeLine{00605\ \ \ \ \ xjp\_i\_09=x[jp].i;}
+\DoxyCodeLine{00606\ \ \ \ \ }
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ 10;\ i++\ )\{}
+\DoxyCodeLine{00611\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00612\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00613\ \ \ \ \ y\_ip\_r\ =\ y[ip].r;}
+\DoxyCodeLine{00614\ \ \ \ \ y\_ip\_i\ =\ y[ip].i;}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ j=0;}
+\DoxyCodeLine{00617\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00618\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_00\ -\/\ h\_i\_j\_i*xjp\_i\_00;}
+\DoxyCodeLine{00619\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_00\ +\ h\_i\_j\_i*xjp\_r\_00;}
+\DoxyCodeLine{00620\ }
+\DoxyCodeLine{00621\ \ \ \ \ j++;}
+\DoxyCodeLine{00622\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00623\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_01\ -\/\ h\_i\_j\_i*xjp\_i\_01;}
+\DoxyCodeLine{00624\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_01\ +\ h\_i\_j\_i*xjp\_r\_01;}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \ \ \ \ j++;}
+\DoxyCodeLine{00627\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00628\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_02\ -\/\ h\_i\_j\_i*xjp\_i\_02;}
+\DoxyCodeLine{00629\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_02\ +\ h\_i\_j\_i*xjp\_r\_02;}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ j++;}
+\DoxyCodeLine{00632\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00633\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_03\ -\/\ h\_i\_j\_i*xjp\_i\_03;}
+\DoxyCodeLine{00634\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_03\ +\ h\_i\_j\_i*xjp\_r\_03;}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00636\ \ \ \ \ j++;}
+\DoxyCodeLine{00637\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00638\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_04\ -\/\ h\_i\_j\_i*xjp\_i\_04;}
+\DoxyCodeLine{00639\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_04\ +\ h\_i\_j\_i*xjp\_r\_04;}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00641\ \ \ \ \ j++;}
+\DoxyCodeLine{00642\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00643\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_05\ -\/\ h\_i\_j\_i*xjp\_i\_05;}
+\DoxyCodeLine{00644\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_05\ +\ h\_i\_j\_i*xjp\_r\_05;}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00646\ \ \ \ \ j++;}
+\DoxyCodeLine{00647\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00648\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_06\ -\/\ h\_i\_j\_i*xjp\_i\_06;}
+\DoxyCodeLine{00649\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_06\ +\ h\_i\_j\_i*xjp\_r\_06;}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ j++;}
+\DoxyCodeLine{00652\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00653\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_07\ -\/\ h\_i\_j\_i*xjp\_i\_07;}
+\DoxyCodeLine{00654\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_07\ +\ h\_i\_j\_i*xjp\_r\_07;}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \ \ \ \ j++;}
+\DoxyCodeLine{00657\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00658\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_08\ -\/\ h\_i\_j\_i*xjp\_i\_08;}
+\DoxyCodeLine{00659\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_08\ +\ h\_i\_j\_i*xjp\_r\_08;}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00661\ \ \ \ \ j++;}
+\DoxyCodeLine{00662\ \ \ \ \ h\_i\_j\_r\ =\ h\_i[j].r,\ h\_i\_j\_i\ =\ h\_i[j].i;}
+\DoxyCodeLine{00663\ \ \ \ \ y\_ip\_r\ +=\ h\_i\_j\_r*xjp\_r\_09\ -\/\ h\_i\_j\_i*xjp\_i\_09;}
+\DoxyCodeLine{00664\ \ \ \ \ y\_ip\_i\ +=\ h\_i\_j\_r*xjp\_i\_09\ +\ h\_i\_j\_i*xjp\_r\_09;}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00667\ }
+\DoxyCodeLine{00668\ \ \ \ \ y[ip].r\ =\ y\_ip\_r;}
+\DoxyCodeLine{00669\ \ \ \ \ y[ip].i\ =\ y\_ip\_i;}
+\DoxyCodeLine{00670\ \ \ \ \ \}}
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00672\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00675\ }
+\DoxyCodeLine{00676\ \}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_sc(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim,\ complex\ scalar\ )}
+\DoxyCodeLine{00679\ \{}
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ j;}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \textcolor{preprocessor}{\#ifdef\ \_OLD\_eikHx}}
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keyword}{register}\ \textcolor{keywordtype}{int}\ ip,jp;}
+\DoxyCodeLine{00684\ \ \ \ \ \textcolor{keyword}{register}\ complex\ a;}
+\DoxyCodeLine{00685\ \ \ \ \ cvectr\ h\_i;}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )\{}
+\DoxyCodeLine{00688\ \ \ \ \ ip=\ i+isy;}
+\DoxyCodeLine{00689\ \ \ \ \ h\_i\ =\ h[i];}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )\ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ a.r\ =\ scalar.r*h\_i[j].r\ -\/\ scalar.i*h\_i[j].i;}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ a.i\ =\ scalar.r*h\_i[j].i\ +\ scalar.i*h\_i[j].r;\ \ }
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ jp=j+isx;}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ y[ip].r\ +=\ a.r*x[jp].r\ -\/\ a.i*x[jp].i;}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ y[ip].i\ +=\ a.r*x[jp].i\ +\ a.i*x[jp].r;}
+\DoxyCodeLine{00696\ \ \ \ \ \}\ }
+\DoxyCodeLine{00697\ \ \ \ \ \}}
+\DoxyCodeLine{00698\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordflow}{for}\ (\ i=0;\ i\ <\ hdim;\ i++\ )\{}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \textcolor{keyword}{register}\ complex\ Hx\ =\ Complex(0.0,0.0);}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ cvectr\ h\_i\ =\ h[i];}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ complex*\ y\_i\ =\ y\ +\ i\ +\ isy;}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\ j=0;\ j\ <\ hdim;\ j++\ )\ \{}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ complex*\ x\_j\ =\ x\ +\ j\ +\ isx;}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ complex*\ H\_ij\ =\ h\_i\ +\ j;}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ Hx.r\ +=\ H\_ij-\/>r*x\_j-\/>r\ -\/\ H\_ij-\/>i*x\_j-\/>i;}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ Hx.i\ +=\ H\_ij-\/>r*x\_j-\/>i\ +\ H\_ij-\/>i*x\_j-\/>r;}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ y\_i-\/>r\ +=\ scalar.r*Hx.r\ -\/\ scalar.i*Hx.i;}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ y\_i-\/>i\ +=\ scalar.r*Hx.i\ +\ scalar.i*Hx.r;}
+\DoxyCodeLine{00712\ \ \ \ \ \}}
+\DoxyCodeLine{00713\ \ \ \ \ \textcolor{keywordflow}{return}(0);}
+\DoxyCodeLine{00714\ \}}
+\DoxyCodeLine{00715\ }
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00719\ }
+\DoxyCodeLine{00720\ \textcolor{preprocessor}{\#ifdef\ CMATMUL\_SPDS\_1\_MACRO\ }}
+\DoxyCodeLine{00721\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ CMATMUL\_SPDS\_1\_MACRO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00722\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_1(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00723\ \{}
+\DoxyCodeLine{00724\ \ \ \ \ y[isy].r\ +=\ h[0][0].r*x[isx].r\ -\/\ h[0][0].i*x[isx].i;}
+\DoxyCodeLine{00725\ \ \ \ \ y[isy].i\ +=\ h[0][0].r*x[isx].i\ +\ h[0][0].i*x[isx].r;}
+\DoxyCodeLine{00726\ }
+\DoxyCodeLine{00727\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \}}
+\DoxyCodeLine{00730\ \textcolor{comment}{/*\ same\ as\ cmatmul\_spds\ but\ perform\ an\ adjoint\ operation\ on\ the\ matrix\ h\ first.\ */}}
+\DoxyCodeLine{00731\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_1(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ )}
+\DoxyCodeLine{00732\ \{}
+\DoxyCodeLine{00733\ \ \ \ \ y[isy].r\ +=\ h[0][0].r*x[isx].r\ +\ h[0][0].i*x[isx].i;}
+\DoxyCodeLine{00734\ \ \ \ \ y[isy].i\ +=\ h[0][0].r*x[isx].i\ -\/\ h[0][0].i*x[isx].r;}
+\DoxyCodeLine{00735\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00736\ \ \ \ \ }
+\DoxyCodeLine{00737\ \}}
+\DoxyCodeLine{00738\ \textcolor{keywordtype}{int}\ cmatmul\_sparse\_spds\_1(\ cvectr\ y,\ \textcolor{keywordtype}{double}\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx\ )}
+\DoxyCodeLine{00739\ \{}
+\DoxyCodeLine{00740\ \ \ \ \ y[isy].r\ +=\ h*x[isx].r\ ;}
+\DoxyCodeLine{00741\ \ \ \ \ y[isy].i\ +=\ h*x[isx].i\ ;}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \}}
+\DoxyCodeLine{00746\ \textcolor{comment}{/*\ same\ as\ cmatmul\_spds\ but\ perform\ an\ adjoint\ operation\ on\ the\ matrix\ h\ first.\ */}}
+\DoxyCodeLine{00747\ \textcolor{keywordtype}{int}\ cmatmul\_sparse\_spds\_hc\_1(\ cvectr\ y,\ \textcolor{keywordtype}{double}\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx\ )}
+\DoxyCodeLine{00748\ \{}
+\DoxyCodeLine{00749\ \ \ \ \ y[isy].r\ +=\ h*x[isx].r;}
+\DoxyCodeLine{00750\ \ \ \ \ y[isy].i\ +=\ h*x[isx].i;}
+\DoxyCodeLine{00751\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00752\ \ \ \ \ }
+\DoxyCodeLine{00753\ \}}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CMATMUL\_SPDS\_1\_MACRO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00755\ }
+
+\end{DoxyCode}

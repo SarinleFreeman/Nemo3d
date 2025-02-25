@@ -33,33 +33,28 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/TimeReversal.cpp,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/TimeReversal.cpp,v 1.1 2004/08/26
+21:28:07 swlee Exp $
 *****************************************************************************/
 
 #include "TimeReversal.h"
 #include "SimpleParser.h"
 
+void TimeReversal::get_data(complex *coef) { _cf = coef; }
 
-void TimeReversal::get_data(complex* coef)
-{
-   _cf = coef;
-}
+void TimeReversal::apply_time_reversal_operator(char *evec_file) {
 
-
-void TimeReversal::apply_time_reversal_operator(char* evec_file) {
-
-   for(int g=g_min; g<g_max; g++){
-     for(int orbital=0; orbital<o_max; orbital++){
-         cf_tr(g, 1, orbital).r = cf(g, 0, orbital).r;
-         cf_tr(g, 1, orbital).i = - cf(g, 0, orbital).i;
-         cf_tr(g, 0, orbital).r = - cf(g, 1, orbital).r;
-         cf_tr(g, 0, orbital).i = cf(g, 1, orbital).i;
+  for (int g = g_min; g < g_max; g++) {
+    for (int orbital = 0; orbital < o_max; orbital++) {
+      cf_tr(g, 1, orbital).r = cf(g, 0, orbital).r;
+      cf_tr(g, 1, orbital).i = -cf(g, 0, orbital).i;
+      cf_tr(g, 0, orbital).r = -cf(g, 1, orbital).r;
+      cf_tr(g, 0, orbital).i = cf(g, 1, orbital).i;
     }
   }
 
-   char filename[123];
-   sprintf(filename,"%s_tr", evec_file);
-   cout_master <<"Writing time-reversal wave function to "<<filename<<endl;
-   writeSiteInfo(d, "basis", filename, "{real wf.r, real wf.i}", _cf_tr);
+  char filename[123];
+  sprintf(filename, "%s_tr", evec_file);
+  cout_master << "Writing time-reversal wave function to " << filename << endl;
+  writeSiteInfo(d, "basis", filename, "{real wf.r, real wf.i}", _cf_tr);
 }
-

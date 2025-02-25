@@ -1,0 +1,11 @@
+<map id="geo_struct::Reduce" name="geo_struct::Reduce">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,92,141,118"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#aef1f7af5712141df37f494d342755dae" title=" " alt="" coords="218,5,356,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,89,137,65,188,41,210,33,212,38,190,46,139,70,97,94"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#ade5ab16b317b624e3b6f1a153fb5db53" title=" " alt="" coords="218,55,356,96"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,93,203,84,203,90,142,98"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ada8eeb3e24ce0188ad4a4b476a1333ca" title=" " alt="" coords="189,120,385,146"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="141,111,174,115,173,121,141,116"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a654046600a86961b14880e4aba86c80e" title=" " alt="" coords="211,169,362,195"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="100,116,142,136,190,156,210,162,208,167,188,161,139,141,98,121"/>
+</map>

@@ -33,7 +33,7 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/random.h,v 1.3 2003/11/20 23:11:24 swlee Exp $ 
+$Header: /repo/nemo3d/src/math/random.h,v 1.3 2003/11/20 23:11:24 swlee Exp $
 *****************************************************************************/
 
 #ifndef RANDOM_H

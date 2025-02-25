@@ -1,0 +1,1828 @@
+\doxysection{mb\+\_\+ham\+\_\+spds\+\_\+\+Voffd\+Ediag\+\_\+constructors.\+h}
+\hypertarget{mb__ham__spds___voffd_ediag__constructors_8h_source}{}\label{mb__ham__spds___voffd_ediag__constructors_8h_source}\index{ham/mb\_ham\_spds\_VoffdEdiag\_constructors.h@{ham/mb\_ham\_spds\_VoffdEdiag\_constructors.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ Inline\ code\ that\ returns\ the\ off-\/diagonal\ matrix\ elements}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ as\ well\ as\ the\ additional\ corrections\ to\ the\ diagonal\ elements}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ due\ to\ strain.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*\ STa\_\ */}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ get\_STa\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ ststs;\ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_ststs;\ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stst;\ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ get\_STa\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ stass;\ \(\backslash\)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_stass;\ \(\backslash\)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stas;\ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ get\_STa\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ get\_STa\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ get\_STa\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ get\_STa\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*\ \ \ \ \ \ stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ get\_STa\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*\ \ \ \ \ \ stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ get\_STa\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*\ l*\ \ \ \ \ stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ get\_STa\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/\ m2)*\ \ \ \ \ stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ get\_STa\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2\ -\/0.5*(l2\ +m2))\ *\ \ \ \ stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00117\ \textcolor{comment}{/*\ Sa\_\ */}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ get\_Sa\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ sasts;\ \(\backslash\)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_sasts;\ \(\backslash\)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sast;\ \(\backslash\)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ get\_Sa\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ sss;\ \(\backslash\)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_sss;\ \(\backslash\)}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_ss;\ \(\backslash\)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ get\_Sa\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ get\_Sa\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ get\_Sa\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ get\_Sa\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*\ m*\ \ \ \ \ sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ get\_Sa\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m\ *n\ *\ \ \ \ sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ get\_Sa\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l\ *n\ *\ \ \ \ sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ get\_Sa\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2\ -\/m2)\ *\ \ \ \ sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ get\_Sa\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2\ -\/0.5*(l2\ +m2))\ *\ \ \ \ sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00188\ \textcolor{comment}{/*\ Pxa\_\ */}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ get\_Pxa\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \(\backslash\)}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l2*\ \ \ \ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/l2)*\ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l02*\ \ \ \ pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/l02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*m*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*m*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*m0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*m0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*n*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*n*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*m*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*l2)*\ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*m0*\ pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*l02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*\ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*\ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*n*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*l2)*\ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*n0*\ pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*l02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*l*(l2-\/m2)*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/l2+m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*l0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/l02+m02)*\ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ get\_Pxa\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*(n2-\/0.5*(l2+m2))*\ \ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l*n2*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l0*n02*\ \ \ \ \ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00275\ \textcolor{comment}{/*\ Pya\_\ */}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ get\_Pya\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \(\backslash\)}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ get\_Pya\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ get\_Pya\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*m*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*m*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*m0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*m0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#define\ get\_Pya\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m2*\ \ \ \ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/m2)*\ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m02*\ \ \ \ pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/m02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ get\_Pya\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*n*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ get\_Pya\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m2*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*m2)*\ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m02*\ pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ get\_Pya\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*m2*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*m2)*\ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*m02*\ pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#define\ get\_Pya\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*\ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*\ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#define\ get\_Pya\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*m*(l2-\/m2)*\ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*(1+l2-\/m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*m0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*(1+l02-\/m02)*\ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ get\_Pya\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*(n2-\/0.5*(l2+m2))*\ \ \ \ \ \ \ \ padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m*n2*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m0*n02*\ \ \ \ \ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00362\ \textcolor{comment}{/*\ Pza\_\ */}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ get\_Pza\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_stcpas;\ \ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \ \(\backslash\)}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ get\_Pza\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#define\ get\_Pza\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*n*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*n*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ get\_Pza\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*n*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#define\ get\_Pza\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n2*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/n2)*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n02*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/n02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#define\ get\_Pza\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ get\_Pza\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*n2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*n02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ get\_Pza\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*n2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*n02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ get\_Pza\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*n*(l2-\/m2)*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*(l2-\/m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*n0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*(l02-\/m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\#define\ get\_Pza\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*(n2-\/0.5*(l2+m2))*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n*(l2+m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n0*(l02+m02)*pVp\_padcp;\ \ \(\backslash\)}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \ \(\backslash\)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00449\ \textcolor{comment}{/*\ Dxya\_\ */}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ get\_Dxya\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*m*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*l2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*m0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*l02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2-\/4*l2*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+l2*m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m02*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02-\/4*l02*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+l02*m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l*m2*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(1-\/4*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(m2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l0*m02*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(1-\/4*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(m02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1-\/4*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(l2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m0*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1-\/4*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(l02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*l*m*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l*m*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l*m*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*l0*m0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l0*m0*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l0*m0*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#define\ get\_Dxya\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l*m*n2*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l*m*(1+n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l0*m0*n02*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l0*m0*(1+n02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00546\ \textcolor{comment}{/*\ Dyza\_\ */}}
+\DoxyCodeLine{00547\ \textcolor{preprocessor}{\#define\ get\_Dyza\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00553\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00554\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00555\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00561\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00570\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00571\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*m2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00573\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*m02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00577\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00579\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00581\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*n2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*n02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00587\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l*m2*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00591\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(1-\/4*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(m2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00593\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l0*m02*n0*\ \ \ \ pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(1-\/4*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00595\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(m02-\/1)*\ \ pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00597\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00601\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*m2*n2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00602\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m2+n2-\/4*m2*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2*n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*m02*n02*\ \ \ \ \ \ \ \ \ \ pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00605\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m02+n02-\/4*m02*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00606\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02*n02)*\ \ \ \ \ \ pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00607\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00608\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00609\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00611\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*m*n2*l*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00613\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*l*(1-\/4*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*l*(n2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00615\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*m0*n02*l0*\ \ \ \ pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00616\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*l0*(1-\/4*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00617\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*l0*(n02-\/1)*\ \ pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00618\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00619\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00620\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00621\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*m*n*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00625\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1+0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00626\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*m0*n0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*(1+2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00628\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1+0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00629\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00630\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00631\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\#define\ get\_Dyza\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00634\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00635\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00636\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00637\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00638\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00639\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00641\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00642\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00643\ \textcolor{comment}{/*\ Dzxa\_\ */}}
+\DoxyCodeLine{00644\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00645\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00646\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*l*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00647\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00648\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00649\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00652\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00653\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*l*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00654\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00659\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00660\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00661\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*l2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00662\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00663\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*l02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00664\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00665\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00666\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00668\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00670\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00671\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00672\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00673\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00674\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00675\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00676\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00677\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00678\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00679\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*n2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00680\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00681\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*n02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00682\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00683\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00684\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00685\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00686\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00687\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00688\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1-\/4*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00689\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(l2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00690\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m0*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00691\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1-\/4*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00692\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(l02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00693\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00694\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00695\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00696\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00697\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00698\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*n2*l*m*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00699\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*m*(1-\/4*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00700\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*m*(n2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00701\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*n02*l0*m0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00702\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*m0*(1-\/4*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00703\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*m0*(n02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00704\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00705\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00706\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00708\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00709\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*n2*l2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00710\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+l2-\/4*n2*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00711\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m2+n2*l2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00712\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*n02*l02*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00713\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+l02-\/4*n02*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00714\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m02+n02*l02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00715\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00716\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00718\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00719\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00720\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*n*l*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00721\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00722\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00723\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*n0*l0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*l0*(1-\/2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00725\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*l0*(1-\/0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00726\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00727\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00728\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#define\ get\_Dzxa\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00730\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00731\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00732\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00733\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00734\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00735\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00736\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00738\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00739\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00740\ \textcolor{comment}{/*\ Dx2my2a\_\ */}}
+\DoxyCodeLine{00741\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00742\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00743\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00744\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00745\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00746\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00747\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00749\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00750\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00751\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00752\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00753\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00755\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00756\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00757\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*l*(l2-\/m2)*\ \ \ \ \ \ \ pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00758\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/l2+m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00759\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*l0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00760\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/l02+m02)*\ \ \ \ \ \ \ pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00762\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00763\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00764\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00765\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00766\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*m*(l2-\/m2)*\ \ \ \ \ \ \ pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00767\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*(1+l2-\/m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00768\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*m0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00769\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*(1+l02-\/m02)*\ \ \ \ \ \ \ pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00770\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00771\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00773\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00774\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00775\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*n*(l2-\/m2)*\ \ \ \ \ \ \ pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00776\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*(l2-\/m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00777\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*n0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*(l02-\/m02)*\ \ \ \ \ \ \ \ \ pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00779\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00781\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00783\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00784\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*l*m*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00785\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l*m*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00786\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l*m*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*l0*m0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00788\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l0*m0*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00789\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l0*m0*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00791\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00792\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00794\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00795\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*m*n*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00796\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00797\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1+0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00798\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*m0*n0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00799\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*(1+2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00800\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1+0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00802\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00804\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00805\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00806\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*n*l*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00808\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00809\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*n0*l0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00810\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*l0*(1-\/2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00811\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*l0*(1-\/0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00812\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00814\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00815\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00816\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00817\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.75*(l2-\/m2)*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00818\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2-\/(l2-\/m2)*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00819\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+0.25*(l2-\/m2)*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00820\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.75*(l02-\/m02)*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00821\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02-\/(l02-\/m02)*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00822\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+0.25*(l02-\/m02)*(l02-\/m02))*pVp\_ddd;\ \ \(\backslash\)}}
+\DoxyCodeLine{00823\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00824\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00825\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00826\ \textcolor{preprocessor}{\#define\ get\_Dx2my2a\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00827\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00828\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00829\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n2*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00830\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00831\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00832\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n02*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00833\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n02)*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00834\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00835\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00836\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00837\ \textcolor{comment}{/*\ Dz2a\_\ */}}
+\DoxyCodeLine{00838\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_STc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00839\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00840\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00841\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00842\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00843\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00844\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00845\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Sc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00846\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00847\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00848\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{00849\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00850\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00852\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Pxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00853\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00855\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l*n2*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00856\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00857\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l0*n02*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00858\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00859\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00860\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Pyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00862\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00863\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00864\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m*n2*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00865\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00866\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m0*n02*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00867\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00868\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00869\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00870\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Pzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00871\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00872\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00873\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n*(l2+m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00874\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{00875\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n0*(l02+m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00877\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{00878\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00879\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Dxyc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00880\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00881\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00882\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l*m*n2*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00883\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l*m*(1+n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00884\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00885\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l0*m0*n02*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00886\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l0*m0*(1+n02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00887\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00888\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00889\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00890\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Dyzc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00891\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00892\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00893\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00894\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00895\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00896\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00897\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00898\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00899\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00900\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00901\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Dzxc(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00902\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00903\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00905\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00906\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00907\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00908\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00909\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00910\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00911\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00912\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Dx2my2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00913\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00914\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00915\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n2*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00916\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00918\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n02*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00919\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n02)*(l02-\/m02)*pVp\_ddd;\ \ \(\backslash\)}}
+\DoxyCodeLine{00920\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00921\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00922\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00923\ \textcolor{preprocessor}{\#define\ get\_Dz2a\_Dz2c(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00924\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00925\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*(n2-\/0.5*(l2+m2))*\ \ \ \ \ \ \ \ \ \ dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00926\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 3*n2*(l2+m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00927\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.75*(l2+m2)*(l2+m2)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00928\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{00929\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 3*n02*(l02+m02)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{00930\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.75*(l02+m02)*(l02+m02)*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{00931\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00932\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{00933\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00934\ \textcolor{comment}{/*\ STc\_\ */}}
+\DoxyCodeLine{00935\ \textcolor{preprocessor}{\#define\ get\_STc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00936\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00937\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ ststs;\ \(\backslash\)}}
+\DoxyCodeLine{00938\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_ststs;\ \(\backslash\)}}
+\DoxyCodeLine{00939\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00940\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stst;\ \(\backslash\)}}
+\DoxyCodeLine{00941\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00942\ \textcolor{preprocessor}{\#define\ get\_STc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00943\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00944\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ sasts;\ \(\backslash\)}}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_sasts;\ \(\backslash\)}}
+\DoxyCodeLine{00946\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00947\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sast;\ \(\backslash\)}}
+\DoxyCodeLine{00948\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00949\ \textcolor{preprocessor}{\#define\ get\_STc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00950\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00951\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00952\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00953\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00954\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \(\backslash\)}}
+\DoxyCodeLine{00955\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00956\ \textcolor{preprocessor}{\#define\ get\_STc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00958\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00959\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00960\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00961\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \(\backslash\)}}
+\DoxyCodeLine{00962\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00963\ \textcolor{preprocessor}{\#define\ get\_STc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00964\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00965\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00966\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_stcpas;\ \(\backslash\)}}
+\DoxyCodeLine{00967\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00968\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcpa;\ \(\backslash\)}}
+\DoxyCodeLine{00969\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00970\ \textcolor{preprocessor}{\#define\ get\_STc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00971\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00972\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00973\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00974\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00975\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00976\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00977\ \textcolor{preprocessor}{\#define\ get\_STc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00978\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00979\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00980\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00981\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00982\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00983\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00984\ \textcolor{preprocessor}{\#define\ get\_STc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00985\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00986\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*l*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00987\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00988\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00989\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00990\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00991\ \textcolor{preprocessor}{\#define\ get\_STc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00992\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{00993\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*\ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00994\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{00995\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{00996\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{00997\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{00998\ \textcolor{preprocessor}{\#define\ get\_STc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{00999\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01000\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*\ \ \ \ \ \ \ stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{01001\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_stcdas;\ \(\backslash\)}}
+\DoxyCodeLine{01002\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01003\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stcda;\ \(\backslash\)}}
+\DoxyCodeLine{01004\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01005\ \textcolor{comment}{/*\ Sc\_\ */}}
+\DoxyCodeLine{01006\ \textcolor{preprocessor}{\#define\ get\_Sc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01007\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01008\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ stass;\ \(\backslash\)}}
+\DoxyCodeLine{01009\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_stass;\ \(\backslash\)}}
+\DoxyCodeLine{01010\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01011\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stas;\ \(\backslash\)}}
+\DoxyCodeLine{01012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01013\ \textcolor{preprocessor}{\#define\ get\_Sc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01014\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01015\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ \ \ \ \ sss;\ \(\backslash\)}}
+\DoxyCodeLine{01016\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ pVp\_sss;\ \(\backslash\)}}
+\DoxyCodeLine{01017\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01018\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_ss;\ \(\backslash\)}}
+\DoxyCodeLine{01019\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01020\ \textcolor{preprocessor}{\#define\ get\_Sc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01021\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01022\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01023\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01024\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01025\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{01026\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01027\ \textcolor{preprocessor}{\#define\ get\_Sc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01029\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01030\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01031\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01032\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{01033\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01034\ \textcolor{preprocessor}{\#define\ get\_Sc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*\ \ \ \ \ scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_scpas;\ \(\backslash\)}}
+\DoxyCodeLine{01038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scpa;\ \(\backslash\)}}
+\DoxyCodeLine{01040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01041\ \textcolor{preprocessor}{\#define\ get\_Sc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{01047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01048\ \textcolor{preprocessor}{\#define\ get\_Sc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{01054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01055\ \textcolor{preprocessor}{\#define\ get\_Sc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01056\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01057\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01058\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01060\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{01061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01062\ \textcolor{preprocessor}{\#define\ get\_Sc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01063\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01064\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*\ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{01068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01069\ \textcolor{preprocessor}{\#define\ get\_Sc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*\ \ \ \ \ \ \ scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_scdas;\ \(\backslash\)}}
+\DoxyCodeLine{01073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_scda;\ \(\backslash\)}}
+\DoxyCodeLine{01075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01076\ \textcolor{comment}{/*\ Pxc\_\ */}}
+\DoxyCodeLine{01077\ \textcolor{preprocessor}{\#define\ get\_Pxc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{01083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01084\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*\ \ \ \ \ sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{01090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01091\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l2*\ \ \ \ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/l2)*\ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l02*\ \ \ \ pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/l02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01100\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*m*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*m*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*m0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*m0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01109\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01110\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*n*\ \ \ \ \ \ pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01112\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*n*\ \ \ \ \ \ ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01113\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01114\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01115\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01116\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01117\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01118\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01120\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*m*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01121\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*l2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*m0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01123\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*l02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01124\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01125\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01126\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01127\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01129\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01130\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01132\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01133\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01135\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01136\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \(\backslash\)}}
+\DoxyCodeLine{01138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ =\ sqr3*l2*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01139\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*l2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ =\ sqr3*l02*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01141\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*l02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01142\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01143\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01144\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01145\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01146\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*l*(l2-\/m2)*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01148\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/l2+m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01149\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*l0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01150\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/l02+m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01151\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01152\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01153\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01154\ \textcolor{preprocessor}{\#define\ get\_Pxc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01155\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01156\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01157\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l*n2*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01159\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l0*n02*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01160\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01163\ \textcolor{comment}{/*\ Pyc\_\ */}}
+\DoxyCodeLine{01164\ \textcolor{preprocessor}{\#define\ get\_Pyc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01165\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01166\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01167\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01169\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{01170\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01171\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01172\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01174\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01175\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01176\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{01177\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01178\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01179\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01180\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*m*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01181\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*m*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*m0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*m0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01186\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01187\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01189\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m2*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/m2)*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01191\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m02*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/m02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01193\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01194\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01195\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01196\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01197\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*n*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01199\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01200\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01201\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01202\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01203\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01204\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01205\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01206\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01207\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01209\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01212\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01214\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01215\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01216\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*m2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01217\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01218\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*m02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01219\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01220\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01221\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01222\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01223\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01225\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01226\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01227\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01232\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01233\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01234\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*m*(l2-\/m2)*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*(1+l2-\/m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01236\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*m0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01237\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*(1+l02-\/m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01239\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01240\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01241\ \textcolor{preprocessor}{\#define\ get\_Pyc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01242\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01243\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01244\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m*n2*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01245\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01246\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m0*n02*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01247\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01248\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01249\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01250\ \textcolor{comment}{/*\ Pzc\_\ */}}
+\DoxyCodeLine{01251\ \textcolor{preprocessor}{\#define\ get\_Pzc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01253\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01254\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_stapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01255\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01256\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stapc;\ \(\backslash\)}}
+\DoxyCodeLine{01257\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01258\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01259\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01260\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*pVp\_sapcs;\ \(\backslash\)}}
+\DoxyCodeLine{01262\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01263\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sapc;\ \(\backslash\)}}
+\DoxyCodeLine{01264\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01265\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01266\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01267\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*n*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l*n*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01270\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ l0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01271\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01272\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01274\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01275\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01276\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*n*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*n0*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01282\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01283\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n2*pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/n2)*ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01287\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n02*pVp\_pps\ \ \(\backslash\)}}
+\DoxyCodeLine{01288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (1-\/n02)*pVp\_ppp;\ \(\backslash\)}}
+\DoxyCodeLine{01289\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pp;\ \(\backslash\)}}
+\DoxyCodeLine{01291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01292\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01294\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01295\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01296\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01297\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01298\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01299\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01300\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01301\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01302\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*n2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*n02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01309\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01310\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01311\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01312\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n2*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01313\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*n2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n02*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01315\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*n02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01316\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01317\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01318\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01319\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01320\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01321\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*n*(l2-\/m2)*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01322\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*(l2-\/m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01323\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*n0*(l02-\/m02)*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01324\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*(l02-\/m02)*pVp\_pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01325\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01326\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \(\backslash\)}}
+\DoxyCodeLine{01327\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01328\ \textcolor{preprocessor}{\#define\ get\_Pzc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01329\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01330\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*(n2-\/0.5*(l2+m2))*pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01331\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n*(l2+m2)*pcdap;\ \(\backslash\)}}
+\DoxyCodeLine{01332\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*(n02-\/0.5*(l02+m02))*pVp\_pcdas\ \ \(\backslash\)}}
+\DoxyCodeLine{01333\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n0*(l02+m02)*pVp\_pcdap;\ \ \(\backslash\)}}
+\DoxyCodeLine{01334\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01335\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_pcda;\ \ \(\backslash\)}}
+\DoxyCodeLine{01336\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01337\ \textcolor{comment}{/*\ Dxyc\_\ */}}
+\DoxyCodeLine{01338\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01339\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01340\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01341\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01342\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01343\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{01344\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01345\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01346\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01347\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01348\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01349\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01350\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{01351\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01352\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01353\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01354\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*m*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01355\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*l2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01356\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*m0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01357\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*l02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01358\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01359\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01360\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01361\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01362\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01363\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01364\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01367\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01370\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01371\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01373\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01374\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01376\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01377\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01378\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01379\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01381\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01382\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2-\/4*l2*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+l2*m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01384\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m02*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01385\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02-\/4*l02*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01386\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+l02*m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01387\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01388\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01390\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01391\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01392\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l*m2*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(1-\/4*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(m2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01395\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l0*m02*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(1-\/4*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01397\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(m02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01398\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01401\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01402\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01404\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1-\/4*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01405\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(l2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01406\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m0*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01407\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1-\/4*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01408\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(l02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01409\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01410\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01411\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01412\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01413\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01414\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*l*m*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01415\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l*m*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01416\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l*m*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01417\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*l0*m0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01418\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l0*m0*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01419\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l0*m0*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01420\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01421\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01422\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01423\ \textcolor{preprocessor}{\#define\ get\_Dxyc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01424\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01425\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01426\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l*m*n2*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01427\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l*m*(1+n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01428\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01429\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l0*m0*n02*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01430\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l0*m0*(1+n02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01431\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01432\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01433\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01434\ \textcolor{comment}{/*\ Dyzc\_\ */}}
+\DoxyCodeLine{01435\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01436\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01437\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01439\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01440\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{01441\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01442\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01443\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01444\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01445\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01446\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01447\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{01448\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01449\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01450\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01451\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01452\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01454\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01455\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01456\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01457\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01458\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01459\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01460\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*m2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01461\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01462\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*m02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01464\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01465\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01466\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01467\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01469\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01470\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*(1-\/2*n2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01471\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01472\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*(1-\/2*n02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01473\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01474\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01475\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01476\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01477\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01478\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l*m2*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01479\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(1-\/4*m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01480\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*n*(m2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01481\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l0*m02*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01482\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(1-\/4*m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01483\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*n0*(m02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01484\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01485\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01486\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01487\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01489\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*m2*n2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01490\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m2+n2-\/4*m2*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01491\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2*n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01492\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*m02*n02*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m02+n02-\/4*m02*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01494\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02*n02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01495\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01496\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01497\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01498\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01499\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01500\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*m*n2*l*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01501\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*l*(1-\/4*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01502\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*l*(n2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01503\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*m0*n02*l0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01504\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*l0*(1-\/4*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01505\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*l0*(n02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01506\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01507\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01508\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01509\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01510\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01511\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*m*n*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01512\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01513\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1+0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01514\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*m0*n0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01515\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*(1+2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01516\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1+0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01517\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01518\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01519\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01520\ \textcolor{preprocessor}{\#define\ get\_Dyzc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01521\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01522\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01523\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01524\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01525\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01526\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01527\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01528\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01529\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01530\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01531\ \textcolor{comment}{/*\ Dzxc\_\ */}}
+\DoxyCodeLine{01532\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01533\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01534\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*l*stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01535\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01536\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01537\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{01538\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01539\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01540\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01541\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*n*l*sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01542\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*n0*l0*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01543\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01544\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{01545\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01546\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01547\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01548\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l2*n*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01549\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*(1-\/2*l2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01550\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l02*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01551\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*(1-\/2*l02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01552\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01553\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01554\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01555\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01556\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01557\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*n*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01558\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l*m*n*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01559\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*n0*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01560\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 2*l0*m0*n0*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01561\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01562\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01563\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01564\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01565\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01566\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n2*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01567\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/2*n2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01568\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n02*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01569\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/2*n02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01570\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01571\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01572\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01573\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01574\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01575\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*l2*m*n*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01576\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1-\/4*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01577\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(l2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01578\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*l02*m0*n0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01579\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1-\/4*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01580\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(l02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01581\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01582\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01583\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01584\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01585\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01586\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*n2*l*m*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01587\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*m*(1-\/4*n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01588\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*m*(n2-\/1)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01589\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*n02*l0*m0*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01590\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*m0*(1-\/4*n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01591\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*m0*(n02-\/1)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01592\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01593\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01594\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01595\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01596\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01597\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 3*n2*l2*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01598\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+l2-\/4*n2*l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01599\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m2+n2*l2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01600\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 3*n02*l02*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01601\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+l02-\/4*n02*l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01602\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (m02+n02*l02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01603\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01604\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01605\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01606\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01607\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01608\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*n*l*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01609\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01610\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01611\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*n0*l0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01612\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*l0*(1-\/2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01613\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*l0*(1-\/0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01614\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01615\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01616\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01617\ \textcolor{preprocessor}{\#define\ get\_Dzxc\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01618\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01619\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01620\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01621\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01622\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01623\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01624\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01625\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01626\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01627\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01628\ \textcolor{comment}{/*\ Dx2my2c\_\ */}}
+\DoxyCodeLine{01629\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01630\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01631\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01632\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01633\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01634\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{01635\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01636\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01637\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01638\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01639\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01640\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01641\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{01642\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01643\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01644\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01645\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*l*(l2-\/m2)*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01646\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l*(1-\/l2+m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01647\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*l0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01648\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ l0*(1-\/l02+m02)*\ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01649\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01650\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01651\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01652\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01653\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01654\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*m*(l2-\/m2)*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01655\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*(1+l2-\/m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01656\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*m0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01657\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*(1+l02-\/m02)*\ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01658\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01659\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01660\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01661\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01662\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01663\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*n*(l2-\/m2)*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01664\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*(l2-\/m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01665\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*n0*(l02-\/m02)*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01666\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*(l02-\/m02)*\ \ \ \ \ \ \ \ \ pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01667\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01668\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01669\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01670\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01671\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01672\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*l*m*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01673\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l*m*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01674\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l*m*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01675\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*l0*m0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01676\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 2*l0*m0*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01677\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*l0*m0*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01678\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01679\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01680\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01681\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01682\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01683\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*m*n*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01684\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m*n*(1+2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01685\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m*n*(1+0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01686\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*m0*n0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01687\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ m0*n0*(1+2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01688\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ m0*n0*(1+0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01689\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01690\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01691\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01692\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01693\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01694\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 1.5*n*l*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01695\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n*l*(1-\/2*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01696\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n*l*(1-\/0.5*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01697\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 1.5*n0*l0*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01698\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ n0*l0*(1-\/2*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01699\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ n0*l0*(1-\/0.5*(l02-\/m02))*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01700\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01701\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01702\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01703\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01704\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01705\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.75*(l2-\/m2)*(l2-\/m2)*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01706\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l2+m2-\/(l2-\/m2)*(l2-\/m2))*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01707\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n2+0.25*(l2-\/m2)*(l2-\/m2))*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01708\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.75*(l02-\/m02)*(l02-\/m02)*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01709\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (l02+m02-\/(l02-\/m02)*(l02-\/m02))*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01710\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ (n02+0.25*(l02-\/m02)*(l02-\/m02))*pVp\_ddd;\ \ \(\backslash\)}}
+\DoxyCodeLine{01711\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01712\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \ \(\backslash\)}}
+\DoxyCodeLine{01713\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01714\ \textcolor{preprocessor}{\#define\ get\_Dx2my2c\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01715\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01716\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01717\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n2*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01718\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01719\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01720\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n02*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01721\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n02)*(l02-\/m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01722\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01723\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01724\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01725\ \textcolor{comment}{/*\ Dz2c\_\ */}}
+\DoxyCodeLine{01726\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_STa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01727\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01728\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01729\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_stadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01730\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01731\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_stadc;\ \(\backslash\)}}
+\DoxyCodeLine{01732\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01733\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Sa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01734\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01735\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01736\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*pVp\_sadcs;\ \(\backslash\)}}
+\DoxyCodeLine{01737\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01738\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_sadc;\ \(\backslash\)}}
+\DoxyCodeLine{01739\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01740\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Pxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01741\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01742\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ l*(n2-\/0.5*(l2+m2))*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01743\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l*n2*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01744\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ l0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01745\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*l0*n02*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01746\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01747\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01748\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01749\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Pya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01750\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01751\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ m*(n2-\/0.5*(l2+m2))*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01752\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m*n2*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01753\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ m0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01754\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*m0*n02*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01755\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01756\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01757\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01758\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Pza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01759\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01760\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ n*(n2-\/0.5*(l2+m2))*padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01761\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n*(l2+m2)*padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01762\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ n0*(n02-\/0.5*(l02+m02))*pVp\_padcs\ \ \(\backslash\)}}
+\DoxyCodeLine{01763\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n0*(l02+m02)*pVp\_padcp;\ \(\backslash\)}}
+\DoxyCodeLine{01764\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01765\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_padc;\ \(\backslash\)}}
+\DoxyCodeLine{01766\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01767\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Dxya(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01768\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01769\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*m*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01770\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l*m*n2*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01771\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l*m*(1+n2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01772\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*m0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01773\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ sqr3*2*l0*m0*n02*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01774\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.5*sqr3*l0*m0*(1+n02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01775\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01776\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01777\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01778\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Dyza(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01779\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01780\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*m*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01781\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01782\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01783\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*m0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01784\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*m0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01785\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*m0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01786\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01787\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01788\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01789\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Dzxa(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01790\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01791\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ sqr3*l*n*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01792\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l*n*(l2+m2-\/n2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01793\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l*n*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01794\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ sqr3*l0*n0*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01795\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*l0*n0*(l02+m02-\/n02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01796\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ -\/\ 0.5*sqr3*l0*n0*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01797\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01798\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01799\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01800\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Dx2my2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01801\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01802\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ 0.5*sqr3*(l2-\/m2)*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01803\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n2*(m2-\/l2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01804\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n2)*(l2-\/m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01805\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ 0.5*sqr3*(l02-\/m02)*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01806\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ sqr3*n02*(m02-\/l02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01807\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.25*sqr3*(1+n02)*(l02-\/m02)*pVp\_ddd;\ \ \(\backslash\)}}
+\DoxyCodeLine{01808\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01809\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ pVpE\_dd;\ \ \(\backslash\)}}
+\DoxyCodeLine{01810\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01811\ \textcolor{preprocessor}{\#define\ get\_Dz2c\_Dz2a(Vmat,\ Ecorr)\ \(\backslash\)}}
+\DoxyCodeLine{01812\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r1\ =\ Vmat\ \ \(\backslash\)}}
+\DoxyCodeLine{01813\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ =\ (n2-\/0.5*(l2+m2))*(n2-\/0.5*(l2+m2))*dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01814\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 3*n2*(l2+m2)*ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01815\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.75*(l2+m2)*(l2+m2)*ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01816\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r2\ \ =\ (n02-\/0.5*(l02+m02))*(n02-\/0.5*(l02+m02))*pVp\_dds\ \ \(\backslash\)}}
+\DoxyCodeLine{01817\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 3*n02*(l02+m02)*pVp\_ddp\ \ \(\backslash\)}}
+\DoxyCodeLine{01818\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ +\ 0.75*(l02+m02)*(l02+m02)*pVp\_ddd;\ \(\backslash\)}}
+\DoxyCodeLine{01819\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ r3\ \ =\ (r2*r2-\/r1*r1)*cstrain/\ \(\backslash\)}}
+\DoxyCodeLine{01820\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ pVpE\_dd;\ \(\backslash\)}}
+\DoxyCodeLine{01821\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ Ecorr\ +=\ r3;}}
+\DoxyCodeLine{01822\ }
+
+\end{DoxyCode}

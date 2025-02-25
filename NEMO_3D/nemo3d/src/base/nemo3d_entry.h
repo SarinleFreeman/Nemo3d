@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/nemo3d_entry.h,v 1.6 2003/10/08 16:16:52 hook Exp $
+$Header: /repo/nemo3d/src/base/nemo3d_entry.h,v 1.6 2003/10/08 16:16:52 hook Exp
+$
 *****************************************************************************/
 
 #ifndef NEMO3d_ENTRY_H
@@ -48,13 +49,13 @@ $Header: /repo/nemo3d/src/base/nemo3d_entry.h,v 1.6 2003/10/08 16:16:52 hook Exp
 #ifndef NEMO3D_DB
 #include "eigsys3d.h"
 #include "eigsys3d_par.h"
-#include "math3d.h"
 #include "ham3d.h"
-#include "opt3d.h"
-#include "mat3d.h"
 #include "ham3d_final.h"
-#include "util_command_BX.h"
+#include "mat3d.h"
+#include "math3d.h"
+#include "opt3d.h"
 #include "qd_struct.h"
+#include "util_command_BX.h"
 
 #include "nemo3d_mpi.h"
 
@@ -66,9 +67,9 @@ $Header: /repo/nemo3d/src/base/nemo3d_entry.h,v 1.6 2003/10/08 16:16:52 hook Exp
 #endif
 
 #include "MPI_Timing.h"
-#include "top_struct.H"
-#include "phon_struct.h"
 #include "phon_Keating.h"
+#include "phon_struct.h"
+#include "top_struct.H"
 
 #ifdef Embedded_Postprocess
 #include "Postprocess.h"
@@ -76,17 +77,16 @@ $Header: /repo/nemo3d/src/base/nemo3d_entry.h,v 1.6 2003/10/08 16:16:52 hook Exp
 
 #endif /* NEMO3D_DB */
 
-int nemo3d(const char* inputFile, const char *inFileName);
+int nemo3d(const char *inputFile, const char *inFileName);
 
-int nemo3d_wrapper(const char* str,  char *filename);
+int nemo3d_wrapper(const char *str, char *filename);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-int nemo3d_wrapper_c(const char* str,  char *filename);
+int nemo3d_wrapper_c(const char *str, char *filename);
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* NEMO3d_ENTRY_H */

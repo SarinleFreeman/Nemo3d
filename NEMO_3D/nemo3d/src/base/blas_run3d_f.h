@@ -3,7 +3,7 @@ The Jet Propulsion Laboratory (JPL) NanoElectronicMOdeling-3D package.
 Copyright (C) 2002 California Institute of Technology (Caltech)
 
 This application is free software, which you can redistribute and/or modify
-under the terms of the GNU Lesser General Public License as published by the 
+under the terms of the GNU Lesser General Public License as published by the
 Free Software Foundation; either version 2.1 of the License, or (at your
 option) any later version.
 
@@ -33,35 +33,37 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/blas_run3d_f.h,v 1.2 2003/10/08 16:16:23 hook Exp $ 
+$Header: /repo/nemo3d/src/base/blas_run3d_f.h,v 1.2 2003/10/08 16:16:23 hook Exp
+$
 *****************************************************************************/
 
 #ifndef BLAS_RUN3D_H
 #define BLAS_RUN3D_H 1
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include "realtype.h"
 #include "complex.h"
+#include "realtype.h"
 #include "system.h"
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #ifdef FORTRAN_UNDERSCORE
-#define zgemvt_f            zgemvt_f_
-#define zdotc_f            zdotc_f_
+#define zgemvt_f zgemvt_f_
+#define zdotc_f zdotc_f_
 #endif
 
 #ifdef FORTRAN_UNDERSCORE2
-#define zgemvt_f            zgemvt_f__
-#define zdotc_f            zdotc_f__
+#define zgemvt_f zgemvt_f__
+#define zdotc_f zdotc_f__
 #endif
 
 #ifdef FORTRAN_ALLCAPS
-#define zgemvt_f            ZGEMVT_F
-#define zdotc_f            ZDOTC_F
+#define zgemvt_f ZGEMVT_F
+#define zdotc_f ZDOTC_F
 #endif
 
-void zgemvt_f( complex *y, complex *a, complex *alpha, complex *beta, complex *x,  int *n );
-void zdotc_f( complex *a, complex *x, complex *y, int *n );
+void zgemvt_f(complex *y, complex *a, complex *alpha, complex *beta, complex *x,
+              int *n);
+void zdotc_f(complex *a, complex *x, complex *y, int *n);
 
 #endif

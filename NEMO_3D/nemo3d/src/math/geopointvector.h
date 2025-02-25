@@ -33,9 +33,9 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/geopointvector.h,v 1.3 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/geopointvector.h,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
-
 
 #ifndef GEOPOINTVECTOR_H
 #define GEOPOINTVECTOR_H

@@ -1,0 +1,159 @@
+\doxysection{phon\+\_\+struct Class Reference}
+\hypertarget{classphon__struct}{}\label{classphon__struct}\index{phon\_struct@{phon\_struct}}
+
+
+{\ttfamily \#include $<$phon\+\_\+struct.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classphon__struct_ab730fb7ff9c131dcbbb9a773a3f0ada9}\label{classphon__struct_ab730fb7ff9c131dcbbb9a773a3f0ada9} 
+void {\bfseries ph\+\_\+s\+\_\+alloc} (int N\+\_\+uc, int N\+\_\+a, int N\+\_\+branches, int Nq\+\_\+ph, int nproc)
+\item 
+\Hypertarget{classphon__struct_a6e6923b5b32d81b2faf716e9574c939c}\label{classphon__struct_a6e6923b5b32d81b2faf716e9574c939c} 
+void {\bfseries comm\+\_\+vectors\+\_\+allocate} ()
+\item 
+\Hypertarget{classphon__struct_abfc0aea0a1d44d292631a074cfef5033}\label{classphon__struct_abfc0aea0a1d44d292631a074cfef5033} 
+void {\bfseries comm\+\_\+vectors\+\_\+deallocate} ()
+\item 
+\Hypertarget{classphon__struct_a79cd758370a5584ec933773751496e24}\label{classphon__struct_a79cd758370a5584ec933773751496e24} 
+void {\bfseries DM\+\_\+allocate} (int \mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\+\_\+rows}}, int DM\+\_\+states\+\_\+in\+\_\+row)
+\item 
+\Hypertarget{classphon__struct_a31d023515df776bde45de8931769daec}\label{classphon__struct_a31d023515df776bde45de8931769daec} 
+void {\bfseries DM\+\_\+reallocate} (int \mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\+\_\+rows}}, int DM\+\_\+states\+\_\+in\+\_\+row)
+\item 
+\Hypertarget{classphon__struct_a9e63387de5b8fcf3bbfaffbee1e90612}\label{classphon__struct_a9e63387de5b8fcf3bbfaffbee1e90612} 
+void {\bfseries ph\+\_\+s\+\_\+dealloc} ()
+\item 
+\Hypertarget{classphon__struct_a8c11adf3427d5cd220ed1874632dd215}\label{classphon__struct_a8c11adf3427d5cd220ed1874632dd215} 
+void {\bfseries ph\+\_\+s\+\_\+clear} ()
+\item 
+\Hypertarget{classphon__struct_aa9e52b742f6075767ea63adaf72f0bc9}\label{classphon__struct_aa9e52b742f6075767ea63adaf72f0bc9} 
+void {\bfseries Print\+\_\+\+DM} ()
+\item 
+\Hypertarget{classphon__struct_a553c5aef4b6faab5c71957b72464b263}\label{classphon__struct_a553c5aef4b6faab5c71957b72464b263} 
+void {\bfseries Print\+\_\+parameters} ()
+\item 
+\Hypertarget{classphon__struct_aabeb9b3f860faea5e927caf9633ef87d}\label{classphon__struct_aabeb9b3f860faea5e927caf9633ef87d} 
+void {\bfseries Picture\+\_\+\+DM} (int DM\+\_\+total\+\_\+size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classphon__struct_ad20fd6d0db121923494127c319790691}\label{classphon__struct_ad20fd6d0db121923494127c319790691} 
+int {\bfseries states\+\_\+in\+\_\+row}
+\begin{DoxyCompactList}\small\item\em maximum number of nonzero elements in every row in Keating model \end{DoxyCompactList}\item 
+\Hypertarget{classphon__struct_a9eb524735802c69de05aefcec43b252e}\label{classphon__struct_a9eb524735802c69de05aefcec43b252e} 
+cmatrix {\bfseries DM}
+\begin{DoxyCompactList}\small\item\em dynamical matrix \end{DoxyCompactList}\item 
+imatrix \mbox{\hyperlink{classphon__struct_ae87d4d1857ab9aada5c31768322ecb10}{Ind\+\_\+\+DM}}
+\item 
+i3matrix \mbox{\hyperlink{classphon__struct_afa5e3dc47fe6c0d7f65096f0c8912198}{DMmap}}
+\item 
+rmatrix \mbox{\hyperlink{classphon__struct_a06b32793022638f4c8b0a7842d0abf15}{E\+\_\+ph}}
+\item 
+int \mbox{\hyperlink{classphon__struct_ab58fcb42b870cea5ea9f79ceb634f7dd}{nbr\+\_\+uc}}
+\item 
+\Hypertarget{classphon__struct_ae63582ef20dd7c9c65ed887816115e2d}\label{classphon__struct_ae63582ef20dd7c9c65ed887816115e2d} 
+ivectr {\bfseries seg\+\_\+col\+\_\+s}
+\item 
+ivectr \mbox{\hyperlink{classphon__struct_a24085e2deb2ddd47d3cfaa3e2412d757}{seg\+\_\+col\+\_\+ln}}
+\item 
+\Hypertarget{classphon__struct_a1f27a9c4b8d9c940eb135d03acc34deb}\label{classphon__struct_a1f27a9c4b8d9c940eb135d03acc34deb} 
+ivectr {\bfseries min\+\_\+row}
+\item 
+ivectr \mbox{\hyperlink{classphon__struct_af24936116e0d9f22cca227eb7bf442ab}{max\+\_\+row}}
+\item 
+\Hypertarget{classphon__struct_a227fb417672b789dbbb176e76f1db579}\label{classphon__struct_a227fb417672b789dbbb176e76f1db579} 
+ivectr {\bfseries sz\+CommL}
+\item 
+ivectr \mbox{\hyperlink{classphon__struct_a404774c0c6676763140efac479d193d4}{sz\+CommR}}
+\item 
+\Hypertarget{classphon__struct_a8d1a6a145d01caced5f8a3a60879c2b4}\label{classphon__struct_a8d1a6a145d01caced5f8a3a60879c2b4} 
+ivectr {\bfseries N\+\_\+cols}
+\item 
+ivectr \mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\+\_\+rows}}
+\item 
+\Hypertarget{classphon__struct_aab6a0d4aec99937576703f53b73701ab}\label{classphon__struct_aab6a0d4aec99937576703f53b73701ab} 
+ivectr {\bfseries mpi\+\_\+left}
+\item 
+ivectr \mbox{\hyperlink{classphon__struct_ae8f222c490bf59b88450238972960c4e}{mpi\+\_\+right}}
+\item 
+\Hypertarget{classphon__struct_ae3abff2bf3bf4bf24883ee4f44b6e4a1}\label{classphon__struct_ae3abff2bf3bf4bf24883ee4f44b6e4a1} 
+cvectr {\bfseries wL}
+\begin{DoxyCompactList}\small\item\em part of the vector to be transfered to Left processor \end{DoxyCompactList}\item 
+\Hypertarget{classphon__struct_ae666c6402a5d0ccde2a768808869aee6}\label{classphon__struct_ae666c6402a5d0ccde2a768808869aee6} 
+cvectr {\bfseries wR}
+\begin{DoxyCompactList}\small\item\em part of the vector to be transfered to Right processor \end{DoxyCompactList}\item 
+\Hypertarget{classphon__struct_ab226a2e91f27ff3258e1c1d2b1f8cfda}\label{classphon__struct_ab226a2e91f27ff3258e1c1d2b1f8cfda} 
+cvectr {\bfseries vL}
+\begin{DoxyCompactList}\small\item\em part of the vector to be received from Left processor \end{DoxyCompactList}\item 
+\Hypertarget{classphon__struct_a7614f1c40ef1baac6385dd1c5f1268b2}\label{classphon__struct_a7614f1c40ef1baac6385dd1c5f1268b2} 
+cvectr {\bfseries vR}
+\begin{DoxyCompactList}\small\item\em part of the vector to be received from Right processor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to define all computed phonon stuff. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classphon__struct_afa5e3dc47fe6c0d7f65096f0c8912198}\index{phon\_struct@{phon\_struct}!DMmap@{DMmap}}
+\index{DMmap@{DMmap}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{DMmap}{DMmap}}
+{\footnotesize\ttfamily \label{classphon__struct_afa5e3dc47fe6c0d7f65096f0c8912198} 
+i3matrix phon\+\_\+struct\+::\+DMmap}
+
+\mbox{[}total \# of unit cells\mbox{]}\mbox{[}\# of atoms per unit cell\mbox{]}\mbox{[}3 proj\mbox{]} Map of indexies in the dynamical matrix \Hypertarget{classphon__struct_a06b32793022638f4c8b0a7842d0abf15}\index{phon\_struct@{phon\_struct}!E\_ph@{E\_ph}}
+\index{E\_ph@{E\_ph}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{E\_ph}{E\_ph}}
+{\footnotesize\ttfamily \label{classphon__struct_a06b32793022638f4c8b0a7842d0abf15} 
+rmatrix phon\+\_\+struct\+::\+E\+\_\+ph}
+
+\mbox{[}N\+\_\+branches+3\mbox{]}\mbox{[}Nq\+\_\+ph\mbox{]} matrix of phonon energy dispersion branches The first 3 columns contain q\+\_\+ph\+\_\+x,q\+\_\+ph\+\_\+y,q\+\_\+ph\+\_\+z components \Hypertarget{classphon__struct_ae87d4d1857ab9aada5c31768322ecb10}\index{phon\_struct@{phon\_struct}!Ind\_DM@{Ind\_DM}}
+\index{Ind\_DM@{Ind\_DM}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{Ind\_DM}{Ind\_DM}}
+{\footnotesize\ttfamily \label{classphon__struct_ae87d4d1857ab9aada5c31768322ecb10} 
+imatrix phon\+\_\+struct\+::\+Ind\+\_\+\+DM}
+
+indexies of nonzero elements in m-\/th row of DM. \mbox{[}i\mbox{]}\mbox{[}0\mbox{]} element contains the number of nonzero elements in i-\/th row \Hypertarget{classphon__struct_af24936116e0d9f22cca227eb7bf442ab}\index{phon\_struct@{phon\_struct}!max\_row@{max\_row}}
+\index{max\_row@{max\_row}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{max\_row}{max\_row}}
+{\footnotesize\ttfamily \label{classphon__struct_af24936116e0d9f22cca227eb7bf442ab} 
+ivectr phon\+\_\+struct\+::max\+\_\+row}
+
+\mbox{[}d-\/\texorpdfstring{$>$}{>}nproc\mbox{]} minimal and maximal indexies of the rows of DM to be stored on the mpi\+\_\+n3d\+\_\+id processor \Hypertarget{classphon__struct_ae8f222c490bf59b88450238972960c4e}\index{phon\_struct@{phon\_struct}!mpi\_right@{mpi\_right}}
+\index{mpi\_right@{mpi\_right}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{mpi\_right}{mpi\_right}}
+{\footnotesize\ttfamily \label{classphon__struct_ae8f222c490bf59b88450238972960c4e} 
+ivectr phon\+\_\+struct\+::mpi\+\_\+right}
+
+Left/right processors mpi\+\_\+n3d\+\_\+id for communication \Hypertarget{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}\index{phon\_struct@{phon\_struct}!N\_rows@{N\_rows}}
+\index{N\_rows@{N\_rows}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{N\_rows}{N\_rows}}
+{\footnotesize\ttfamily \label{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c} 
+ivectr phon\+\_\+struct\+::\+N\+\_\+rows}
+
+Number of columns/rows of DM stored on every processor \Hypertarget{classphon__struct_ab58fcb42b870cea5ea9f79ceb634f7dd}\index{phon\_struct@{phon\_struct}!nbr\_uc@{nbr\_uc}}
+\index{nbr\_uc@{nbr\_uc}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{nbr\_uc}{nbr\_uc}}
+{\footnotesize\ttfamily \label{classphon__struct_ab58fcb42b870cea5ea9f79ceb634f7dd} 
+int phon\+\_\+struct\+::nbr\+\_\+uc}
+
+=1 for the standart Keating model with second-\/neares neighbors interaction limit. Number of neighbors unit cells in x direction, whose atoms interact with the boundary atoms of the given unit cell \Hypertarget{classphon__struct_a24085e2deb2ddd47d3cfaa3e2412d757}\index{phon\_struct@{phon\_struct}!seg\_col\_ln@{seg\_col\_ln}}
+\index{seg\_col\_ln@{seg\_col\_ln}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{seg\_col\_ln}{seg\_col\_ln}}
+{\footnotesize\ttfamily \label{classphon__struct_a24085e2deb2ddd47d3cfaa3e2412d757} 
+ivectr phon\+\_\+struct\+::seg\+\_\+col\+\_\+ln}
+
+\mbox{[}d-\/\texorpdfstring{$>$}{>}nproc\mbox{]} Initial index and the number of the DM elements on every processor. The partition is by columns. \Hypertarget{classphon__struct_a404774c0c6676763140efac479d193d4}\index{phon\_struct@{phon\_struct}!szCommR@{szCommR}}
+\index{szCommR@{szCommR}!phon\_struct@{phon\_struct}}
+\doxysubsubsection{\texorpdfstring{szCommR}{szCommR}}
+{\footnotesize\ttfamily \label{classphon__struct_a404774c0c6676763140efac479d193d4} 
+ivectr phon\+\_\+struct\+::sz\+CommR}
+
+Number of rows in the buffer to be exchanged with the left/right processor 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+base/phon\+\_\+struct.\+h\item 
+base/phon\+\_\+struct.\+c\end{DoxyCompactItemize}

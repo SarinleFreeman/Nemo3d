@@ -33,20 +33,19 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/cmatrix_lib.h,v 1.2 2003/10/08 16:17:41 hook Exp $
+$Header: /repo/nemo3d/src/math/cmatrix_lib.h,v 1.2 2003/10/08 16:17:41 hook Exp
+$
 *****************************************************************************/
-
 
 #ifndef CMATRIX_LIB_H
 #define CMATRIX_LIB_H 1
 
 #include <cmatrix.h>
-#include <cvector.h>
 #include <complex.h>
+#include <cvector.h>
 
 #include "cvector_lib.h"
 #include "util_messages.h"
-
 
 coperator Coperator(int n);
 cvectr mul_cmatrix(cvectr y, cmatrix a, cvectr x);

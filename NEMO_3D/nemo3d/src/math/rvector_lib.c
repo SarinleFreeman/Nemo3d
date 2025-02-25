@@ -33,91 +33,89 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/rvector_lib.c,v 1.5 2004/12/07 19:47:59 marek Exp $
+$Header: /repo/nemo3d/src/math/rvector_lib.c,v 1.5 2004/12/07 19:47:59 marek Exp
+$
 *****************************************************************************/
 
 #include "rvector_lib.h"
 
-
-
 /**
  * Copies rvector "rvSource" to the rvector "raTarget".
- * If rvTarget is NULL, a new Rvector is allocated with the same dimension as rvSource.
- * If rvTarget exists and is different dimension from rvSource, memory for rvTarget
- * is deallocated, and a new Rvector is allocated with the same dimensions as rvSource.
+ * If rvTarget is NULL, a new Rvector is allocated with the same dimension as
+ * rvSource. If rvTarget exists and is different dimension from rvSource, memory
+ * for rvTarget is deallocated, and a new Rvector is allocated with the same
+ * dimensions as rvSource.
  */
-rvectr cp_rvectr (rvectr rvTarget, rvectr rvSource) {
-    int i;
+rvectr cp_rvectr(rvectr rvTarget, rvectr rvSource) {
+  int i;
 
-    if (!rvSource) {
-        n3d_warning("In cp_rvectr():: Error - Source rvector 'rvSource' is NULL.\n");
-        return rvSource;
-    }
+  if (!rvSource) {
+    n3d_warning(
+        "In cp_rvectr():: Error - Source rvector 'rvSource' is NULL.\n");
+    return rvSource;
+  }
 
-    if (!rvTarget) {
-      rvTarget = Rvectr( nml_dv_extent(rvSource) );
+  if (!rvTarget) {
+    rvTarget = Rvectr(nml_dv_extent(rvSource));
+  } else { /* rvTarget exists */
+    /* Now check if different dimensions */
+    if (nml_dv_extent(rvTarget) != nml_dv_extent(rvSource)) {
+      rm_rvectr(&rvTarget);
+      rvTarget = Rvectr(nml_dv_extent(rvSource));
     }
-    else { /* rvTarget exists */
-        /* Now check if different dimensions */
-        if ( nml_dv_extent(rvTarget) != nml_dv_extent(rvSource) ) {
-            rm_rvectr( &rvTarget );
-                rvTarget = Rvectr( nml_dv_extent(rvSource) );
-        }
-    }
+  }
 
-    for (i=0; i < nml_dv_extent(rvSource); i++) {
-        rvTarget[i] = rvSource[i];
-    }
-    return rvTarget;
+  for (i = 0; i < nml_dv_extent(rvSource); i++) {
+    rvTarget[i] = rvSource[i];
+  }
+  return rvTarget;
 }
-
-
 
 /**
  * Copies rvector "rvSource"  to the real array "raTarget".
  */
-real* cp_rvectr2rarray(real *raTarget, rvectr rvSource) {
-    int i;
+real *cp_rvectr2rarray(real *raTarget, rvectr rvSource) {
+  int i;
 
-    if (!rvSource){
-        n3d_warning("In cp_rvectr2rarray():: Error - Source rvector 'rvSource' is NULL.\n");
-        return raTarget;
-    }
-
-    if (!raTarget) {
-        n3d_warning("In cp_rvectr2rarray():: Error - Target real array 'raTarget' is NULL.\n");
-        return raTarget;
-    }
-
-    for (i=0; i < nml_dv_extent(rvSource); i++) {
-        raTarget[i] = rvSource[i];
-    }
+  if (!rvSource) {
+    n3d_warning(
+        "In cp_rvectr2rarray():: Error - Source rvector 'rvSource' is NULL.\n");
     return raTarget;
+  }
+
+  if (!raTarget) {
+    n3d_warning("In cp_rvectr2rarray():: Error - Target real array 'raTarget' "
+                "is NULL.\n");
+    return raTarget;
+  }
+
+  for (i = 0; i < nml_dv_extent(rvSource); i++) {
+    raTarget[i] = rvSource[i];
+  }
+  return raTarget;
 }
-
-
 
 /*
  * Copies real array "raSource" to the real array "raTarget".
  * It copies arraySize number of elements from raSource to raTarget.
  */
-void cp_rarray2rarray(real* raSource, real* raTarget, int arraySize) {
-    int i;
+void cp_rarray2rarray(real *raSource, real *raTarget, int arraySize) {
+  int i;
 
-    if (!raSource){
-        n3d_warning("In cp_rarray2rarray():: Error - Source real array 'raSource' is NULL.\n");
-        return;
-    }
-
-    if (!raTarget) {
-        n3d_warning("In cp_rarray2rarray():: Error - Target real array 'raTarget' is NULL.\n");
-        return;
-    }
-
-    for (i=0; i<arraySize; i++){
-        raTarget[i] = raSource[i];
-    }
+  if (!raSource) {
+    n3d_warning("In cp_rarray2rarray():: Error - Source real array 'raSource' "
+                "is NULL.\n");
     return;
+  }
+
+  if (!raTarget) {
+    n3d_warning("In cp_rarray2rarray():: Error - Target real array 'raTarget' "
+                "is NULL.\n");
+    return;
+  }
+
+  for (i = 0; i < arraySize; i++) {
+    raTarget[i] = raSource[i];
+  }
+  return;
 }
-
-

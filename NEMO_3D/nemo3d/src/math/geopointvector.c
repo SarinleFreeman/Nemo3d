@@ -33,36 +33,32 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/geopointvector.c,v 1.3 2004/10/27 19:43:10 gekco Exp $ 
+$Header: /repo/nemo3d/src/math/geopointvector.c,v 1.3 2004/10/27 19:43:10 gekco
+Exp $
 *****************************************************************************/
 
 #include "geopointvector.h"
 
-geopointvectr Geopointvectr(int n)
-{
-    geopointvectr gp=NULL;
-    
-    gp = (geopointvectr) nml_calloc (1,(n + 1) * sizeof (geopoint));
-    if (gp == NULL) {
-	die("Geopointvectr unable to allocate memory.");
-    }
-    gp++;
-    vdim (gp) = n;
+geopointvectr Geopointvectr(int n) {
+  geopointvectr gp = NULL;
 
-    return gp;
+  gp = (geopointvectr)nml_calloc(1, (n + 1) * sizeof(geopoint));
+  if (gp == NULL) {
+    die("Geopointvectr unable to allocate memory.");
+  }
+  gp++;
+  vdim(gp) = n;
+
+  return gp;
 }
 
+void rm_geopointvectr(geopointvectr *v_ptr) {
+  geopointvectr v = *v_ptr;
 
-void rm_geopointvectr ( geopointvectr  *v_ptr)
-{
-  geopointvectr  v=*v_ptr;
-  
-  if (!v_ptr || !(v=*v_ptr))
-      return;
-  
-  nml_free (--v);
+  if (!v_ptr || !(v = *v_ptr))
+    return;
+
+  nml_free(--v);
   *v_ptr = NULL;
   return;
 }
-
-

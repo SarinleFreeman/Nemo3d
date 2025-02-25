@@ -36,24 +36,20 @@ This product includes software developed by the Apache Software Foundation
 $Header: /repo/nemo3d/src/util/system.h,v 1.3 2005/04/15 19:09:36 dseaman Exp $
 *****************************************************************************/
 
-
 #ifndef SYSTEM_H
 #define SYSTEM_H 1
 
 #include <stdio.h>
 
-
-#define LOGFILE stderr 
+#define LOGFILE stderr
 #define CUTOFF_PREC 1.0e-8
-
 
 #if (__STDC__ | WINNT | __VMS | VMS | Linux | NEW_XRT | MACOSX)
 #include <float.h>
-#define XRT3D_HUGE_VAL     DBL_MAX
+#define XRT3D_HUGE_VAL DBL_MAX
 #else
 #include <values.h>
-#define XRT3D_HUGE_VAL     MAXDOUBLE
+#define XRT3D_HUGE_VAL MAXDOUBLE
 #endif /* (__STDC__ | WINNT | __VMS | VMS | Linux | NEW_XRT) */
-
 
 #endif /* SYSTEM_H */

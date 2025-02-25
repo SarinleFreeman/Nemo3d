@@ -33,47 +33,53 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/rmatrix_lib.h,v 1.2 2003/10/08 16:18:16 hook Exp $
+$Header: /repo/nemo3d/src/math/rmatrix_lib.h,v 1.2 2003/10/08 16:18:16 hook Exp
+$
 *****************************************************************************/
-
 
 #ifndef RMATRIX_LIB_H
 #define RMATRIX_LIB_H 1
 
+#include "rvector_lib.h" /* references typedef roperator and vector copy functions */
 #include <rmatrix.h>
 #include <rvector.h>
-#include "rvector_lib.h" /* references typedef roperator and vector copy functions */
 
-#define Swap(g, h)  { temp=(g); (g)=(h); (h)=temp; }
+#define Swap(g, h)                                                             \
+  {                                                                            \
+    temp = (g);                                                                \
+    (g) = (h);                                                                 \
+    (h) = temp;                                                                \
+  }
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #ifdef FORTRAN_UNDERSCORE
-#define dgetrf            dgetrf_
-#define dgetrs            dgetrs_
+#define dgetrf dgetrf_
+#define dgetrs dgetrs_
 #endif
 
 #ifdef FORTRAN_UNDERSCORE2
-#define dgetrf            dgetrf__
-#define dgetrs            dgetrs__
+#define dgetrf dgetrf__
+#define dgetrs dgetrs__
 #endif
 
 #ifdef FORTRAN_ALLCAPS
-#define dgetrf            DGETRF
-#define dgetrs            DGETRS
+#define dgetrf DGETRF
+#define dgetrs DGETRS
 #endif
 
-    void dgetrf(int*, int*, nml_dscalar*, int*, int**, int*);
-    void dgetrs(char*, int*, int*, nml_dscalar*, int*, int**, rvectr, int*, int*);
+void dgetrf(int *, int *, nml_dscalar *, int *, int **, int *);
+void dgetrs(char *, int *, int *, nml_dscalar *, int *, int **, rvectr, int *,
+            int *);
 
 #ifdef __cplusplus
 }
 #endif
 
-
 roperator Roperator(int n);
-rvectr luDecompositionBackSubstitution(roperator a0, roperator a, rvectr x, rvectr b);
+rvectr luDecompositionBackSubstitution(roperator a0, roperator a, rvectr x,
+                                       rvectr b);
 
 #endif /* RMATRIX_LIB_H  */

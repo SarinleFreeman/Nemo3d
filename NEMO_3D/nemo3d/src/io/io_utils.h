@@ -47,25 +47,24 @@ $Header: /repo/nemo3d/src/io/io_utils.h,v 1.12 2003/10/31 22:37:17 hook Exp $
  */
 #ifndef NEMO3D_DB
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <string>
 
+#include "run3d_mpi.h"
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
-#include "run3d_mpi.h"
 
 using std::string;
 
 #ifdef PRINT_DEBUG_COM
-#define print_com2(A,B) "printf(A,B), fflush(stdout);"
-#define print_com3(A,B,C) "printf(A,B,C), fflush(stdout);"
+#define print_com2(A, B) "printf(A,B), fflush(stdout);"
+#define print_com3(A, B, C) "printf(A,B,C), fflush(stdout);"
 #else
-#define print_com2(A,B) ;
-#define print_com3(A,B,C) ;
+#define print_com2(A, B) ;
+#define print_com3(A, B, C) ;
 #endif
-
 
 // global variable
 #ifdef SET_GLOBAL_STREAMS
@@ -74,8 +73,7 @@ using std::string;
 #define SCOPE_STREAM extern
 #endif
 
-class streambuf_N3D: public std::streambuf {
-};
+class streambuf_N3D : public std::streambuf {};
 
 /* NOTE for Intel C++ compilers:
  * class ostream_N3D: private virtual streambuf_N3D, public std::ostream {
@@ -83,60 +81,57 @@ class streambuf_N3D: public std::streambuf {
  * will cause "Segmentation fault (core dumped)" during RUNTIME.
  * Removing the VIRTUAL will solve the problem.
  */
-class ostream_N3D: private streambuf_N3D, public std::ostream {
-    public:
-        ostream_N3D() : std::ostream(this) {
-        }
+class ostream_N3D : private streambuf_N3D, public std::ostream {
+public:
+  ostream_N3D() : std::ostream(this) {}
 };
 
 SCOPE_STREAM ostream_N3D cout_master, cout_slave;
 
-//class ostream_debug: ostream_N3D
+// class ostream_debug: ostream_N3D
 //{
-//   std::string
-// public:
-//   ostream_debug() : ostream_N3D()  {    }
+//    std::string
+//  public:
+//    ostream_debug() : ostream_N3D()  {    }
 //
-//   friend template<typename T>
-//      ostream_debug operator<<(ostream_debug& o, const T& t);
-//};
-;//
+//    friend template<typename T>
+//       ostream_debug operator<<(ostream_debug& o, const T& t);
+// };
+; //
 //
-//class string_debug : public std::string
+// class string_debug : public std::string
 //{
 // public:
 //   string_debug(const std::string& s) : std::string(s)  {  }
 //   friend std::ostream& operator<<(std::ostream& o, const string_debug& s);
 //};
-;//
+; //
 //
-//class DEATH : public std::string
+// class DEATH : public std::string
 //{
 // public:
 //   DEATH(const std::string& s) : std::string(s)  {  }
 //   friend std::ostream& operator<<(std::ostream& o, const DEATH& s);
 //};
 
+void die(char *, ...);
+void masterPrint(char *, ...);
 
-void die(char*, ...);
-void masterPrint(char*, ...);
-
-string format(const char* fmt, ...);
+string format(const char *fmt, ...);
 
 void setup_global_streams();
-double* getBinFileData(char* filename, int prec, int *rdim, int *cdim);
+double *getBinFileData(char *filename, int prec, int *rdim, int *cdim);
 
-#endif  /* NEMO3D_DB */
+#endif /* NEMO3D_DB */
 
 // The definition below establishes an unmangled C function compiled with C++
 // such that this function can be called from a C-linked executable
 #ifdef __cplusplus
 extern "C" {
 #endif
-  void setup_global_streams_c(void);
+void setup_global_streams_c(void);
 #ifdef __cplusplus
 }
 #endif
-
 
 #endif /* _IO_UTILS_H */

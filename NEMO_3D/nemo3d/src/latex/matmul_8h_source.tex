@@ -1,0 +1,86 @@
+\doxysection{matmul.\+h}
+\hypertarget{matmul_8h_source}{}\label{matmul_8h_source}\index{base/matmul.h@{base/matmul.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/matmul.h,v\ 1.4\ 2006/12/18\ 21:40:04\ gekco\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ MATMUL\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ MATMUL\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}cmatrix.h"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}cvector.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}complex.h"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{int}\ cmatmul\_spds(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_20(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_10(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_20(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_10(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_sc(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim,\ complex\ scalar\ );}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ CMATMUL\_SPDS\_1\_MACRO}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifdef\ \ CMATMUL\_SPDS\_1\_MACRO}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ cmatmul\_spds\_1(\ \ y,\ \ h,\ \ x,\ \ isy,\ \ isx,\ hdim\ )\ \ \ \ \ \{y[isy].r\ +=\ h[0][0].r*x[isx].r\ -\/\ h[0][0].i*x[isx].i;y[isy].i\ +=\ h[0][0].r*x[isx].i\ +\ h[0][0].i*x[isx].r;\}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ cmatmul\_spds\_hc\_1(\ \ y,\ \ h,\ \ x,\ \ isy,\ \ isx,\ \ hdim\ )\ \{y[isy].r\ +=\ h[0][0].r*x[isx].r\ +\ h[0][0].i*x[isx].i;y[isy].i\ +=\ h[0][0].r*x[isx].i\ -\/\ h[0][0].i*x[isx].r;\}}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ Hoon\ and\ sunnylee\ -\/\ this\ is\ for\ "{}call\ by\ value"{}\ function,}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ changed\ h[0][0]\ to\ val\ (it\ looks\ trivial,\ however,\ it\ helps\ to\ speed\ up\ a\ little}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ cmatmul\_sparse\_spds\_1(\ \ y,\ \ val,\ \ x,\ \ isy,\ \ isx\ )\ \ \ \ \ \{y[isy].r\ +=\ val*x[isx].r\ ;y[isy].i\ +=\ val*x[isx].i\ ;\}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ cmatmul\_sparse\_spds\_hc\_1(\ \ y,\ \ val,\ \ x,\ \ isy,\ \ isx\ )\ \{y[isy].r\ +=\ val*x[isx].r\ ;y[isy].i\ +=\ val*x[isx].i\ ;\}}}
+\DoxyCodeLine{00067\ \textcolor{comment}{//\ Hoon\ and\ sunnylee}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ CMATMUL\_SPDS\_1\_MACRO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_1(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{int}\ cmatmul\_spds\_hc\_1(\ cvectr\ y,\ cmatrix\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx,\ \textcolor{keywordtype}{int}\ hdim\ );}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{int}\ cmatmul\_sparse\_spds\_1(\ cvectr\ y,\ \textcolor{keywordtype}{double}\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx\ );}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ cmatmul\_sparse\_spds\_hc\_1(\ cvectr\ y,\ \textcolor{keywordtype}{double}\ h,\ cvectr\ x,\ \textcolor{keywordtype}{int}\ isy,\ \textcolor{keywordtype}{int}\ isx\ );}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CMATMUL\_SPDS\_1\_MACRO\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MATMUL\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00080\ }
+
+\end{DoxyCode}

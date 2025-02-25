@@ -1,0 +1,20 @@
+<map id="geo_struct::FindSurfaceAtoms" name="geo_struct::FindSurfaceAtoms">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,204,179"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#ada8eeb3e24ce0188ad4a4b476a1333ca" title=" " alt="" coords="252,39,448,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,151,178,113,251,74,271,67,273,72,253,79,181,118,125,155"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a8ea01752f72bff2103e0270985e7531b" title=" " alt="" coords="277,88,423,129"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,150,261,127,262,132,163,155"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a555d4644dae184bb4a77314cb9add0a2" title=" " alt="" coords="507,153,641,179"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="204,164,492,164,492,169,204,169"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#acf4d7512d8530bf8e8850f7f28243407" title=" " alt="" coords="264,204,436,230"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="171,177,270,198,269,203,170,182"/>
+<area shape="rect" id="Node000009" href="$classgeo__struct.html#ab8be4bb1798dc4c9091fd01141307604" title=" " alt="" coords="275,253,424,279"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="129,177,184,208,253,240,271,246,269,251,251,245,181,213,126,182"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#ac094521fd1e5a1324816c419714490eb" title=" " alt="" coords="496,5,652,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="422,85,447,75,470,57,495,40,506,35,508,39,497,44,474,62,449,79,424,90"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a7c06f3f97eca1a66a748d1ed3cffe6b5" title=" " alt="" coords="496,55,652,80"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="423,93,485,81,486,86,424,98"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a4edd6762ec0b227af0e9518ee3d4aa71" title=" " alt="" coords="496,104,652,130"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="423,109,481,111,481,116,423,114"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="424,125,507,146,506,152,422,130"/>
+</map>

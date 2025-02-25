@@ -39,36 +39,44 @@ $Header: /repo/nemo3d/src/ham/mb_ham_spds.h,v 1.4 2003/10/08 16:17:22 hook Exp $
 #ifndef MB_HAM_SPDS_H
 #define MB_HAM_SPDS_H 1
 
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-#include <rvector.h>
-#include <complex.h>
-#include <cmatrix.h>
+#include "mb_ham_spds_micro.h"
 #include "realtype.h"
 #include "rmatrix_lib.h"
-#include "mb_ham_spds_micro.h"
-
+#include <cmatrix.h>
+#include <complex.h>
+#include <rvector.h>
 
 #define Make_sp3s_s_new_hamiltonian Make_spds_s_hamiltonian
-
 
 /* These functions provide an interface to the spds* hamiltonian
    generator functions generated for 3D simulation.  These conform
    to the Nemo Hamiltonian generator format. */
-int Make_spd_s_hamiltonian ( real *param, real *mb_strain, real Ev_offset, real kxa, real kya, cmatrix d, cmatrix s );
-int Make_spds_s_hamiltonian( real *param, real *mb_strain, real Ev_offset, real kxa, real kya, cmatrix d, cmatrix s );
-int Make_spdd_s_hamiltonian( real *param, real *mb_strain, real Ev_offset, real kxa, real kya, cmatrix d, cmatrix s );
+int Make_spd_s_hamiltonian(real *param, real *mb_strain, real Ev_offset,
+                           real kxa, real kya, cmatrix d, cmatrix s);
+int Make_spds_s_hamiltonian(real *param, real *mb_strain, real Ev_offset,
+                            real kxa, real kya, cmatrix d, cmatrix s);
+int Make_spdd_s_hamiltonian(real *param, real *mb_strain, real Ev_offset,
+                            real kxa, real kya, cmatrix d, cmatrix s);
 
-void fold_t_k_sp3s_s_new ( real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold, cmatrix s_fold );
+void fold_t_k_sp3s_s_new(real kxa, real kya, cmatrix d, cmatrix s,
+                         cmatrix d_fold, cmatrix s_fold);
 
-void fold_t_k_spd_s ( real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold, cmatrix s_fold );
-void fold_t_k_spds_s ( real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold, cmatrix s_fold );
-void fold_t_k_spdd_s ( real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold, cmatrix s_fold );
-real mb_energy_spds( rvectr p, void *data1, void *data2, void *data3 );
-real mb_mstar_spds( rvectr p, rvectr param, rvectr mb_strain, real unstrnd_cubic_cell_length, int xdir, int ydir, int zdir, rmatrix mtens );
-real mb_mstar_spds_111( rvectr p, rvectr param, rvectr mb_strain, real unstrnd_cubic_cell_length, rmatrix mtens );
-real mb_newton_spds( rvectr p, rvectr param, rvectr mb_strain, real unstrnd_cubic_cell_length );
+void fold_t_k_spd_s(real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold,
+                    cmatrix s_fold);
+void fold_t_k_spds_s(real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold,
+                     cmatrix s_fold);
+void fold_t_k_spdd_s(real kxa, real kya, cmatrix d, cmatrix s, cmatrix d_fold,
+                     cmatrix s_fold);
+real mb_energy_spds(rvectr p, void *data1, void *data2, void *data3);
+real mb_mstar_spds(rvectr p, rvectr param, rvectr mb_strain,
+                   real unstrnd_cubic_cell_length, int xdir, int ydir, int zdir,
+                   rmatrix mtens);
+real mb_mstar_spds_111(rvectr p, rvectr param, rvectr mb_strain,
+                       real unstrnd_cubic_cell_length, rmatrix mtens);
+real mb_newton_spds(rvectr p, rvectr param, rvectr mb_strain,
+                    real unstrnd_cubic_cell_length);
 #endif /* MB_HAM_SPDS_H */
-

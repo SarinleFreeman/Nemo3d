@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/qd_struct_global.h,v 1.2 2003/10/08 16:17:12 hook Exp $ 
+$Header: /repo/nemo3d/src/base/qd_struct_global.h,v 1.2 2003/10/08 16:17:12 hook
+Exp $
 *****************************************************************************/
 
 #ifndef QD_STRUCT_GLOBAL_H
@@ -44,8 +45,4 @@ $Header: /repo/nemo3d/src/base/qd_struct_global.h,v 1.2 2003/10/08 16:17:12 hook
 qd_struct Get_QD_Global(void);
 void Set_QD_Global(qd_struct QD);
 
-
 #endif
-
-
-

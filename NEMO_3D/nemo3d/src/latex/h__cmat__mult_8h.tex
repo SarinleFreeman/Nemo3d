@@ -1,0 +1,143 @@
+\doxysection{base/h\+\_\+cmat\+\_\+mult.h File Reference}
+\hypertarget{h__cmat__mult_8h}{}\label{h__cmat__mult_8h}\index{base/h\_cmat\_mult.h@{base/h\_cmat\_mult.h}}
+
+
+These routines support Matrix-\/\+Matrix Multiplication of Hamiltonian H Y = (H-\/sigma\texorpdfstring{$\ast$}{*}I)\texorpdfstring{$\ast$}{*}X. For external use as an API, use the function Hmatmult\+\_\+spds\+\_\+complete.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{h__cmat__mult_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{h__cmat__mult_8h_a6aa3c51f6059ab0dd2a1445f573337e3}{matmat\+\_\+mult}} (const int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}arg\+List, nml\+\_\+dcmatrix \texorpdfstring{$\ast$}{*}y, const nml\+\_\+dcmatrix \texorpdfstring{$\ast$}{*}x)
+\item 
+void \mbox{\hyperlink{h__cmat__mult_8h_a279cf2dfdf3c4f3c8dcd6c1305452bcf}{Hmatmult\+\_\+spds\+\_\+complete}} (cmatrix Y, qd\+\_\+struct d, real shift, cmatrix X, int num\+\_\+col)
+\item 
+int \mbox{\hyperlink{h__cmat__mult_8h_a908a29a3dc696fe62bd6585f68773ff1}{Hmatmult\+\_\+spds\+\_\+col\+\_\+fullstored\+\_\+par}} (cmatrix Y, cmatrix YC, qd\+\_\+struct d, real s, cmatrix X, int num\+\_\+col, int proc)
+\item 
+int \mbox{\hyperlink{h__cmat__mult_8h_a62ef6038465fb45dbad2c5d02d72dcee}{Hmatmult\+\_\+spds\+\_\+col}} (cmatrix Y, cmatrix YC, qd\+\_\+struct d, real s, cmatrix X, int num\+\_\+col, int proc)
+\item 
+int \mbox{\hyperlink{h__cmat__mult_8h_a536fc135b53438f2ee014c3758e6577d}{Hmatmult\+\_\+spds\+\_\+col\+\_\+prep\+\_\+store}} (cmatrix Y, cmatrix YC, qd\+\_\+struct d, real s, cmatrix X, int num\+\_\+col, int proc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+These routines support Matrix-\/\+Matrix Multiplication of Hamiltonian H Y = (H-\/sigma\texorpdfstring{$\ast$}{*}I)\texorpdfstring{$\ast$}{*}X. For external use as an API, use the function Hmatmult\+\_\+spds\+\_\+complete. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{h__cmat__mult_8h_a62ef6038465fb45dbad2c5d02d72dcee}\index{h\_cmat\_mult.h@{h\_cmat\_mult.h}!Hmatmult\_spds\_col@{Hmatmult\_spds\_col}}
+\index{Hmatmult\_spds\_col@{Hmatmult\_spds\_col}!h\_cmat\_mult.h@{h\_cmat\_mult.h}}
+\doxysubsubsection{\texorpdfstring{Hmatmult\_spds\_col()}{Hmatmult\_spds\_col()}}
+{\footnotesize\ttfamily \label{h__cmat__mult_8h_a62ef6038465fb45dbad2c5d02d72dcee} 
+int Hmatmult\+\_\+spds\+\_\+col (\begin{DoxyParamCaption}\item[{cmatrix}]{Y}{, }\item[{cmatrix}]{YC}{, }\item[{qd\+\_\+struct}]{d}{, }\item[{real}]{s}{, }\item[{cmatrix}]{X}{, }\item[{int}]{num\+\_\+col}{, }\item[{int}]{proc}{}\end{DoxyParamCaption})}
+
+Matrix-\/\+Matrix multiplication routine for full storage mode. Y = (H-\/shift\texorpdfstring{$\ast$}{*}I)\texorpdfstring{$\ast$}{*}X 
+\begin{DoxyParams}{Parameters}
+{\em Y} & OUT\+: Output complex matrix \\
+\hline
+{\em YC} & OUT\+: Output complex matrix for neighboring processor \\
+\hline
+{\em d} & IN\+: \doxylink{class_q_d__struct}{QD\+\_\+struct}, see \doxylink{qd__struct_8h_source}{qd\+\_\+struct.\+h} \\
+\hline
+{\em s} & IN\+: Shift value in energy \\
+\hline
+{\em X} & IN\+: Input complex matrix \\
+\hline
+{\em num\+\_\+col} & IN\+: Number of columns of input matrix X \\
+\hline
+{\em proc} & IN\+: Processor number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of vector that needs to be passed to neighboring processor 
+\end{DoxyReturn}
+\Hypertarget{h__cmat__mult_8h_a908a29a3dc696fe62bd6585f68773ff1}\index{h\_cmat\_mult.h@{h\_cmat\_mult.h}!Hmatmult\_spds\_col\_fullstored\_par@{Hmatmult\_spds\_col\_fullstored\_par}}
+\index{Hmatmult\_spds\_col\_fullstored\_par@{Hmatmult\_spds\_col\_fullstored\_par}!h\_cmat\_mult.h@{h\_cmat\_mult.h}}
+\doxysubsubsection{\texorpdfstring{Hmatmult\_spds\_col\_fullstored\_par()}{Hmatmult\_spds\_col\_fullstored\_par()}}
+{\footnotesize\ttfamily \label{h__cmat__mult_8h_a908a29a3dc696fe62bd6585f68773ff1} 
+int Hmatmult\+\_\+spds\+\_\+col\+\_\+fullstored\+\_\+par (\begin{DoxyParamCaption}\item[{cmatrix}]{Y}{, }\item[{cmatrix}]{YC}{, }\item[{qd\+\_\+struct}]{d}{, }\item[{real}]{s}{, }\item[{cmatrix}]{X}{, }\item[{int}]{num\+\_\+col}{, }\item[{int}]{proc}{}\end{DoxyParamCaption})}
+
+Matrix-\/\+Matrix multiplication routine for full storage mode. Y = (H-\/shift\texorpdfstring{$\ast$}{*}I)\texorpdfstring{$\ast$}{*}X 
+\begin{DoxyParams}{Parameters}
+{\em Y} & OUT\+: Output complex matrix \\
+\hline
+{\em YC} & OUT\+: Output complex matrix for neighboring processor \\
+\hline
+{\em d} & IN\+: \doxylink{class_q_d__struct}{QD\+\_\+struct}, see \doxylink{qd__struct_8h_source}{qd\+\_\+struct.\+h} \\
+\hline
+{\em s} & IN\+: Shift value in energy \\
+\hline
+{\em X} & IN\+: Input complex matrix \\
+\hline
+{\em num\+\_\+col} & IN\+: Number of columns of input matrix X \\
+\hline
+{\em proc} & IN\+: Processor number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of vector that needs to be passed to neighboring processor 
+\end{DoxyReturn}
+\Hypertarget{h__cmat__mult_8h_a536fc135b53438f2ee014c3758e6577d}\index{h\_cmat\_mult.h@{h\_cmat\_mult.h}!Hmatmult\_spds\_col\_prep\_store@{Hmatmult\_spds\_col\_prep\_store}}
+\index{Hmatmult\_spds\_col\_prep\_store@{Hmatmult\_spds\_col\_prep\_store}!h\_cmat\_mult.h@{h\_cmat\_mult.h}}
+\doxysubsubsection{\texorpdfstring{Hmatmult\_spds\_col\_prep\_store()}{Hmatmult\_spds\_col\_prep\_store()}}
+{\footnotesize\ttfamily \label{h__cmat__mult_8h_a536fc135b53438f2ee014c3758e6577d} 
+int Hmatmult\+\_\+spds\+\_\+col\+\_\+prep\+\_\+store (\begin{DoxyParamCaption}\item[{cmatrix}]{Y}{, }\item[{cmatrix}]{YC}{, }\item[{qd\+\_\+struct}]{d}{, }\item[{real}]{s}{, }\item[{cmatrix}]{X}{, }\item[{int}]{num\+\_\+col}{, }\item[{int}]{proc}{}\end{DoxyParamCaption})}
+
+Construction function for Hamiltonian (Y/\+YC/s/\+X/num\+\_\+col are not used) 
+\begin{DoxyParams}{Parameters}
+{\em d} & IN\+: \doxylink{class_q_d__struct}{QD\+\_\+struct}, see \doxylink{qd__struct_8h_source}{qd\+\_\+struct.\+h} \\
+\hline
+{\em proc} & IN\+: Processor number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 
+\end{DoxyReturn}
+\Hypertarget{h__cmat__mult_8h_a279cf2dfdf3c4f3c8dcd6c1305452bcf}\index{h\_cmat\_mult.h@{h\_cmat\_mult.h}!Hmatmult\_spds\_complete@{Hmatmult\_spds\_complete}}
+\index{Hmatmult\_spds\_complete@{Hmatmult\_spds\_complete}!h\_cmat\_mult.h@{h\_cmat\_mult.h}}
+\doxysubsubsection{\texorpdfstring{Hmatmult\_spds\_complete()}{Hmatmult\_spds\_complete()}}
+{\footnotesize\ttfamily \label{h__cmat__mult_8h_a279cf2dfdf3c4f3c8dcd6c1305452bcf} 
+void Hmatmult\+\_\+spds\+\_\+complete (\begin{DoxyParamCaption}\item[{cmatrix}]{Y}{, }\item[{qd\+\_\+struct}]{d}{, }\item[{real}]{shift}{, }\item[{cmatrix}]{X}{, }\item[{int}]{num\+\_\+col}{}\end{DoxyParamCaption})}
+
+API for Matrix-\/\+Matrix multiplication. Y = (H-\/shift\texorpdfstring{$\ast$}{*}I)\texorpdfstring{$\ast$}{*}X 
+\begin{DoxyParams}{Parameters}
+{\em Y} & OUT\+: Output complex matrix \\
+\hline
+{\em d} & IN\+: \doxylink{class_q_d__struct}{QD\+\_\+struct}, see \doxylink{qd__struct_8h_source}{qd\+\_\+struct.\+h} \\
+\hline
+{\em shift} & IN\+: Shift value in energy \\
+\hline
+{\em X} & IN\+: Input complex matrix \\
+\hline
+{\em num\+\_\+col} & IN\+: Number of columns of input matrix X \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{h__cmat__mult_8h_a6aa3c51f6059ab0dd2a1445f573337e3}\index{h\_cmat\_mult.h@{h\_cmat\_mult.h}!matmat\_mult@{matmat\_mult}}
+\index{matmat\_mult@{matmat\_mult}!h\_cmat\_mult.h@{h\_cmat\_mult.h}}
+\doxysubsubsection{\texorpdfstring{matmat\_mult()}{matmat\_mult()}}
+{\footnotesize\ttfamily \label{h__cmat__mult_8h_a6aa3c51f6059ab0dd2a1445f573337e3} 
+void matmat\+\_\+mult (\begin{DoxyParamCaption}\item[{const int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{arg\+List}{, }\item[{nml\+\_\+dcmatrix \texorpdfstring{$\ast$}{*}}]{y}{, }\item[{const nml\+\_\+dcmatrix \texorpdfstring{$\ast$}{*}}]{x}{}\end{DoxyParamCaption})}
+
+Provides external function pointer for Matrix-\/\+Matrix multiplication routine. 
+\begin{DoxyParams}{Parameters}
+{\em arg\+List} & IN\+: Argument lists needed for matrix-\/matrix multiplication. arg\mbox{[}0\mbox{]}\+: qd\+\_\+struct, arg\mbox{[}1\mbox{]}\+: shift, arg\mbox{[}2\mbox{]}\+: number of columns for matrix multiplication, arg\mbox{[}3\mbox{]}\+: Nproj (Not used) \\
+\hline
+{\em y} & OUT\+: Output complex matrix \\
+\hline
+{\em x} & IN\+: Input complex matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

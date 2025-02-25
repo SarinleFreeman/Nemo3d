@@ -33,24 +33,24 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/util_memory.h,v 1.4 2004/10/27 19:43:10 gekco Exp $
+$Header: /repo/nemo3d/src/util/util_memory.h,v 1.4 2004/10/27 19:43:10 gekco Exp
+$
 *****************************************************************************/
 
 #if 0
 #ifndef UTIL_MEMORY_H
 #define UTIL_MEMORY_H 1
 
-
 #include "realtype.h"
 #include "system.h"
 
+#include <math.h>
+#include <signal.h>
+#include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 #include <string.h>
-#include <math.h>
-#include <signal.h>
 
 
 extern int mpi_n3d_id; /* Thread ID */
@@ -59,13 +59,6 @@ void *n3d_malloc(size_t);
 void *n3d_calloc(int, size_t);
 void  n3d_free(void *);
 
-
 #endif
 
-
-
-
-
-
 #endif
-

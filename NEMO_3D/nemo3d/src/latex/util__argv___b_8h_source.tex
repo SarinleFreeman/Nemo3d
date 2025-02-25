@@ -1,0 +1,298 @@
+\doxysection{util\+\_\+argv\+\_\+\+B.\+h}
+\hypertarget{util__argv___b_8h_source}{}\label{util__argv___b_8h_source}\index{util/util\_argv\_B.h@{util/util\_argv\_B.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/util/util\_argv\_B.h,v\ 1.4\ 2004/10/27\ 19:43:10\ gekco\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ Defines\ for\ a\ generic\ argv\ and\ argc\ processor...}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ Copyright\ 1995\ by\ Gray\ Watson}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ argv\ library.}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ Permission\ to\ use,\ copy,\ modify,\ and\ distribute\ this\ software\ for}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ any\ purpose\ and\ without\ fee\ is\ hereby\ granted,\ provided\ that\ the}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ above\ copyright\ notice\ and\ this\ permission\ notice\ appear\ in\ all}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ copies,\ and\ that\ the\ name\ of\ Gray\ Watson\ not\ be\ used\ in\ advertising}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ or\ publicity\ pertaining\ to\ distribution\ of\ the\ document\ or\ software}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ without\ specific,\ written\ prior\ permission.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ Gray\ Watson\ makes\ no\ representations\ about\ the\ suitability\ of\ the}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ software\ described\ herein\ for\ any\ purpose.\ \ It\ is\ provided\ "{}as\ is"{}}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ without\ express\ or\ implied\ warranty.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ The\ author\ may\ be\ contacted\ at\ gray.watson@letters.com}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ \$Id:\ util\_argv\_B.h,v\ 1.4\ 2004/10/27\ 19:43:10\ gekco\ Exp\ \$}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ \_\_UTIL\_ARGV\_B\_H\_\_}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ \_\_UTIL\_ARGV\_B\_H\_\_}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ Version\ string\ for\ the\ library}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ NOTE\ to\ gray:\ whenever\ this\ is\ changed,\ a\ corresponding\ Changlog}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ entry\ *must*\ be\ entered\ and\ 2\ entries\ in\ argv.texi\ must\ be\ updated.}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ ARGV\ LIBRARY\ VERSION\ -\/-\/\ 2.1.0}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{comment}{/*\ NOTE:\ start\ of\ \$Id:\ util\_argv\_B.h,v\ 1.4\ 2004/10/27\ 19:43:10\ gekco\ Exp\ \$\ */}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ Generic\ and\ standardized\ argument\ processor.\ \ You\ describe\ the\ arguments}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *\ that\ you\ are\ looking\ for\ along\ with\ their\ types\ and\ these\ routines\ do\ the}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ work\ to\ convert\ them\ into\ values.}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *\ These\ routines\ also\ provide\ standardized\ error\ and\ usage\ messages\ as\ well}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ as\ good\ usage\ documentation\ and\ long\ and\ short\ options.}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#include\ <termios.h>}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ have\ to\ for\ FILE\ *\ below\ */}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#include\ <string.h>}\ \textcolor{comment}{/*\ Linux\ warnings\ \#include\ <strings.h>\ */}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{/*\ this\ defines\ what\ type\ the\ standard\ void\ memory-\/pointer\ is\ */}}
+\DoxyCodeLine{00092\ \textcolor{comment}{/*\#ifndef\ AIX\_SPECIFIC}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\#if\ (defined(\_\_STDC\_\_)\ \&\&\ \_\_STDC\_\_\ ==\ 1)}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\#else}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\#if\ (defined(\_\_STDC\_\_)\ \&\&\ \_\_STDC\_\_\ ==\ 1)\ ||\ (defined\ \_\_cplusplus)}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\#endif*/}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#if\ (defined(\_\_STDC\_\_)\ \&\&\ \_\_STDC\_\_\ ==\ 1)\ ||\ (defined\ \_\_cplusplus)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ ARGV\_PNT\ \ \ \ \ \ \ \ void\ *}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ ARGV\_PNT\ \ \ \ \ \ \ \ char\ *}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ *\ argument\ information\ structure.\ \ this\ specifies\ the\ allowable\ options}}
+\DoxyCodeLine{00106\ \textcolor{comment}{\ *\ and\ some\ information\ about\ each\ one.}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *\ \{\ 'O',\ \ "{}optimize"{},\ \ ARGV\_BOOL,\ \ \&optimize,\ \ NULL,\ \ "{}turn\ on\ optimization"{}\ \}}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ \{\ 'c',\ \ "{}config"{},\ \ ARGV\_CHARP,\ \ \&config,\ \ "{}file"{},\ \ "{}configuration\ file"{}\ \}}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ ar\_short\_arg;\ \ \ \ \ \ \ \textcolor{comment}{/*\ the\ char\ of\ the\ arg,\ 'd'\ if\ '-\/d'\ */}}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ *ar\_long\_arg;\ \ \ \ \ \ \ \textcolor{comment}{/*\ long\ version\ of\ arg,\ 'delete'\ */}}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{short}\ \ \ \ \ ar\_type;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ type\ of\ option,\ see\ values\ below\ */}}
+\DoxyCodeLine{00115\ \ \ ARGV\_PNT\ \ ar\_variable;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ address\ of\ variable\ that\ is\ arg\ */}}
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ *ar\_var\_label;\ \ \ \ \ \ \textcolor{comment}{/*\ label\ for\ variable\ descriptions\ */}}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ *ar\_comment;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ comment\ for\ usage\ message\ */}}
+\DoxyCodeLine{00118\ \}\ \mbox{\hyperlink{structargv__t}{argv\_t}};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ *\ argument\ array\ type.\ \ when\ ARGV\_ARRAY\ is\ |'d\ with\ the\ ar\_type\ in\ the\ above}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ *\ structure\ then\ multiple\ instances\ of\ the\ option\ are\ allowed\ and\ each}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ *\ instance\ is\ stored\ into\ the\ following\ structure\ that\ MUST\ be\ in\ ar\_variable}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ *\ in\ the\ above\ arg\_t\ structure.}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ *\ NOTE:\ after\ the\ arguments\ have\ been\ processed,\ if\ aa\_entryn\ is\ >\ 0\ then}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ *\ aa\_entries\ needs\ to\ be\ free'd\ by\ user.\ argv\_cleanup()\ can\ be\ used\ for\ this}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00128\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ aa\_entryn;\ \ \ \ \ \ \textcolor{comment}{/*\ number\ of\ elements\ in\ aa\_entrees\ */}}
+\DoxyCodeLine{00130\ \ \ ARGV\_PNT\ \ aa\_entries;\ \ \ \ \ \textcolor{comment}{/*\ entry\ list\ specified\ */}}
+\DoxyCodeLine{00131\ \}\ \mbox{\hyperlink{structargv__array__t}{argv\_array\_t}};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{/*\ \ extract\ the\ count\ of\ the\ elements\ from\ an\ argv\ ARRAY\ */}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ ARGV\_ARRAY\_COUNT(array)\ \ \ \ \ ((array).aa\_entryn)}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{comment}{/*\ extract\ WHICH\ entry\ of\ TYPE\ from\ an\ argv\ ARRAY\ */}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ ARGV\_ARRAY\_ENTRY(array,\ type,\ which)\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ (((type\ *)(array).aa\_entries)[which])}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{/*\ special\ ar\_short\_arg\ value\ to\ mark\ the\ last\ entry\ in\ the\ argument\ array\ */}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ ARGV\_LAST\ \ \ ((char)255)}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ *\ special\ ar\_short\_arg\ value\ to\ mark\ mandatory\ arguments\ (i.e.\ arguments\ that}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *\ *must*\ be\ specified.\ \ for\ arguments\ that\ are\ not\ optional\ like\ [-\/b].}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *\ to\ have\ a\ variable\ number\ of\ mandatory\ args\ then\ make\ the\ last\ MAND}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ *\ entry\ be\ a\ ARG\_ARRAY\ type.}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ ARGV\_MAND\ \ \ ((char)254)}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ *\ special\ ar\_short\_arg\ value\ to\ mark\ that\ there\ is\ the\ possibility\ of}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ a\ mandatory\ argument\ here\ if\ one\ is\ specified.}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ ARGV\_MAYBE\ \ ((char)253)}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ *\ special\ ar\_short\_arg\ value\ to\ say\ that\ the\ previous\ and\ next\ arguments\ in}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ *\ the\ list\ should\ not\ be\ used\ together.}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ *\ \{'a'...\},\ \{ARG\_OR\},\ \{'b'...\},\ \{ARG\_OR\},\ \{'c'...\}\ means}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *\ the\ user\ should\ only\ specific\ -\/a\ or\ -\/b\ or\ -\/c\ but\ not\ 2\ or\ more.}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ ARGV\_OR\ \ \ \ \ ((char)252)}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ *\ special\ ar\_short\_arg\ value\ that\ is\ the\ same\ as\ ARGV\_OR\ but\ one\ of\ the\ args}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ *\ must\ be\ used.}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ *\ \{'a'...\},\ \{ARG\_OR\},\ \{'b'...\},\ \{ARG\_OR\},\ \{'c'...\}\ means}}
+\DoxyCodeLine{00169\ \textcolor{comment}{\ *\ the\ user\ must\ specify\ one\ of\ -\/a\ or\ -\/b\ or\ -\/c\ but\ not\ 2\ or\ more.}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ ARGV\_XOR\ \ \ \ ((char)251)}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ *\ ar\_type\ values\ of\ arg\_t}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ *\ NOTE:\ if\ this\ list\ is\ changed,\ some\ defines\ in\ argv\_loc\ need\ to\ be\ changed}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ ARGV\_BOOL\ \ \ 1\ \ \ \ \ \ \ }\textcolor{comment}{/*\ boolean\ type,\ sets\ to\ ARGV\_TRUE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ ARGV\_BOOL\_NEG\ \ \ 2\ \ \ \ \ \ \ }\textcolor{comment}{/*\ like\ bool\ but\ sets\ to\ ARGV\_FALSE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ ARGV\_BOOL\_ARG\ \ \ 3\ \ \ \ \ \ \ }\textcolor{comment}{/*\ like\ bool\ but\ takes\ a\ yes/no\ arg\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ ARGV\_CHAR\ \ \ 4\ \ \ \ \ \ \ }\textcolor{comment}{/*\ single\ character\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ ARGV\_CHARP\ \ 5\ \ \ \ \ \ \ }\textcolor{comment}{/*\ same\ as\ STRING\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ ARGV\_STRING\ 5\ \ \ \ \ \ \ }\textcolor{comment}{/*\ character\ string\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ ARGV\_FLOAT\ \ 6\ \ \ \ \ \ \ }\textcolor{comment}{/*\ floating\ pointer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ ARGV\_SHORT\ \ 7\ \ \ \ \ \ \ }\textcolor{comment}{/*\ integer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ ARGV\_INT\ \ \ \ 8\ \ \ \ \ \ \ }\textcolor{comment}{/*\ integer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ ARGV\_U\_INT\ \ 9\ \ \ \ \ \ \ }\textcolor{comment}{/*\ unsigned\ integer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ ARGV\_LONG\ \ \ 10\ \ \ \ \ \ }\textcolor{comment}{/*\ long\ integer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ ARGV\_U\_LONG\ 11\ \ \ \ \ \ }\textcolor{comment}{/*\ unsinged\ long\ integer\ number\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ ARGV\_BIN\ \ \ \ 12\ \ \ \ \ \ }\textcolor{comment}{/*\ binary\ number\ (0s\ and\ 1s)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ ARGV\_OCT\ \ \ \ 13\ \ \ \ \ \ }\textcolor{comment}{/*\ octal\ number,\ (base\ 8)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ ARGV\_HEX\ \ \ \ 14\ \ \ \ \ \ }\textcolor{comment}{/*\ hexadecimal\ number,\ (base\ 16)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ ARGV\_INCR\ \ \ 15\ \ \ \ \ \ }\textcolor{comment}{/*\ int\ arg\ which\ gets\ ++\ each\ time\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ ARGV\_TYPE(t)\ \ \ \ ((t)\ \&\ 0x3F)\ \ \ \ }\textcolor{comment}{/*\ strip\ off\ all\ but\ the\ var\ type\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ ARGV\_ARRAY\ \ (1\ <<\ 14)\ \ \ }\textcolor{comment}{/*\ OR\ with\ type\ to\ indicate\ array\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{/*\ argv\_usage\ which\ argument\ values\ */}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ ARGV\_USAGE\_SHORT\ \ \ \ 1\ \ \ }\textcolor{comment}{/*\ print\ short\ usage\ messages\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ ARGV\_USAGE\_LONG\ \ \ \ \ 2\ \ \ }\textcolor{comment}{/*\ print\ long-\/format\ usage\ messages\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ ARGV\_USAGE\_DEFAULT\ \ 3\ \ \ }\textcolor{comment}{/*\ default\ usage\ messages\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{comment}{/*\ boolean\ type\ settings\ */}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ ARGV\_FALSE\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ ARGV\_TRUE\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{comment}{/*\ global\ variable\ and\ procedure\ scoping\ for\ code\ readability\ */}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#undef\ \ IMPORT}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ IMPORT\ \ \ \ \ \ extern}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{comment}{/*<<<<<<<<<<\ \ The\ below\ prototypes\ are\ auto-\/generated\ by\ fillproto\ */}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{comment}{/*\ this\ is\ a\ processed\ version\ of\ argv[0],\ pre-\/path\ removed:\ /bin/ls\ -\/>\ ls\ */}}
+\DoxyCodeLine{00213\ IMPORT\ \ \textcolor{keywordtype}{char}\ \ \ \ argv\_program[\textcolor{comment}{/*\ PROGRAM\_NAME\ +\ 1\ */}];}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{/*\ a\ global\ value\ of\ argv\ from\ main\ after\ argv\_process\ has\ been\ called\ */}}
+\DoxyCodeLine{00216\ IMPORT\ \ \textcolor{keywordtype}{char}\ \ \ \ **argv\_argv;}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{/*\ a\ global\ value\ of\ argc\ from\ main\ after\ argv\_process\ has\ been\ called\ */}}
+\DoxyCodeLine{00219\ IMPORT\ \ \textcolor{keywordtype}{int}\ argv\_argc;}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{comment}{/*\ this\ should\ be\ set\ externally\ to\ provide\ general\ program\ help\ to\ user\ */}}
+\DoxyCodeLine{00222\ IMPORT\ \ \textcolor{keywordtype}{char}\ \ \ \ *argv\_help\_string;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{comment}{/*\ this\ should\ be\ set\ externally\ to\ provide\ version\ information\ to\ the\ user\ */}}
+\DoxyCodeLine{00225\ IMPORT\ \ \textcolor{keywordtype}{char}\ \ \ \ *argv\_version\_string;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *\ are\ we\ running\ interactively?\ \ this\ will\ exit\ on\ errors.\ \ set\ to}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ *\ false\ to\ return\ error\ codes\ instead.}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00231\ IMPORT\ \ \textcolor{keywordtype}{char}\ \ \ \ argv\_interactive;}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ *\ the\ FILE\ stream\ that\ argv\ outputs\ all\ its\ errors.\ \ set\ to\ NULL\ to}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ *\ not\ dump\ any\ error\ messages.}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00237\ \textcolor{comment}{/*\ IMPORT\ \ \ FILE\ \ \ \ *argv\_error\_stream;\ */}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ *\ processes\ ARGC\ number\ of\ arguments\ from\ ARGV\ depending\ on\ argument}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ *\ info\ array\ ARGS\ (if\ null\ then\ an\ empty\ array\ is\ used).\ \ this}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ *\ routine\ will\ not\ modify\ the\ argv\ array\ in\ any\ way.\ \ NOTE:\ it\ will}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ *\ modify\ the\ args\ array\ by\ setting\ various\ flags\ in\ the\ type\ field.}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ *\ returns\ 0\ if\ no\ error\ else\ -\/1.}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00246\ IMPORT\ \ \textcolor{keywordtype}{int}\ argv\_process(\mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args,\ \ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **\ argv);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ *\ processes\ arguments\ sent\ in\ via\ the\ STRING\ that\ a\ web-\/server\ might}}
+\DoxyCodeLine{00250\ \textcolor{comment}{\ *\ send\ to\ program\ in\ ARG0.\ \ returns\ 0\ on\ noerror\ else\ -\/1.}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00252\ IMPORT\ \ \textcolor{keywordtype}{int}\ argv\_web\_process\_string(\mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args,\ \ \textcolor{keywordtype}{char}\ *\ arg0,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ *\ processes\ arguments\ sent\ in\ via\ the\ QUERY\_STRING\ environmental}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ *\ variable\ that\ a\ web-\/server\ might\ send\ to\ program\ in\ ARG0.\ \ returns}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ *\ 0\ on\ noerror\ else\ -\/1.}}
+\DoxyCodeLine{00259\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00260\ IMPORT\ \ \textcolor{keywordtype}{int}\ argv\_web\_process(\mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args,\ \ \textcolor{keywordtype}{char}\ *\ arg0);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ *\ print\ the\ standard\ usage\ messages\ for\ argument\ array\ ARGS\ (if\ null}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ *\ then\ an\ empty\ array\ is\ used).\ \ WHICH\ chooses\ between\ long\ or\ short}}
+\DoxyCodeLine{00265\ \textcolor{comment}{\ *\ messages\ (see\ argv.h).}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ *\ NOTE:\ if\ this\ is\ called\ before\ argv\_process\ then\ the\ program\ name}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ *\ may\ be\ messed\ up.}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00269\ IMPORT\ \ \textcolor{keywordtype}{void}\ \ \ \ argv\_usage(\ \mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args,\ \ \textcolor{keywordtype}{int}\ which);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ *\ see\ if\ ARG\ argument\ was\ used\ in\ a\ previous\ call\ to\ argv\_process\ on}}
+\DoxyCodeLine{00273\ \textcolor{comment}{\ *\ ARGS,\ returns\ 1\ if\ yes\ else\ 0}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00275\ IMPORT\ \ \textcolor{keywordtype}{int}\ argv\_was\_used(\ \mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args,\ \ \textcolor{keywordtype}{char}\ arg);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ *\ frees\ up\ any\ allocations\ in\ ARGS\ that\ may\ have\ been\ done\ by}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ *\ argv\_process.\ \ This\ should\ be\ done\ at\ the\ end\ of\ the\ program\ or}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ *\ after\ all\ the\ arguments\ have\ been\ referenced.}}
+\DoxyCodeLine{00281\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00282\ IMPORT\ \ \textcolor{keywordtype}{void}\ \ \ \ argv\_cleanup(\ \mbox{\hyperlink{structargv__t}{argv\_t}}\ *\ args);}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00285\ \textcolor{comment}{\ *\ copy\ all\ the\ args\ (after\ the\ 0th),\ one\ after\ the\ other,\ into\ BUF\ of}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *\ MAX\_SIZE.\ \ NOTE:\ you\ can\ get\ the\ 0th\ argument\ from\ argv\_argv[0].}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00288\ IMPORT\ \ \textcolor{keywordtype}{void}\ \ \ \ argv\_copy\_args(\textcolor{keywordtype}{char}\ *\ buf,\ \ \textcolor{keywordtype}{int}\ max\_size);}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{comment}{/*<<<<<<<<<<\ \ \ This\ is\ end\ of\ the\ auto-\/generated\ output\ from\ fillproto.\ */}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !\ \_\_UTIL\_ARGV\_B\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

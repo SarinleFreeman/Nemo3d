@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/RandRandom.h,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/RandRandom.h,v 1.1 2004/08/26 21:28:07
+swlee Exp $
 *****************************************************************************/
 
 #ifndef RANDRANDOM_H
@@ -49,36 +50,35 @@ class RandRandom {
 public:
   typedef double Return_t;
 
-  RandRandom(bool gen_seed = false):thisStreamID(0), nStreams(1)
-  {
+  RandRandom(bool gen_seed = false) : thisStreamID(0), nStreams(1) {
     init(gen_seed);
   }
 
-  RandRandom(int i, int nstr, bool gen_seed=false):thisStreamID(i), nStreams(nstr)
-  {
+  RandRandom(int i, int nstr, bool gen_seed = false)
+      : thisStreamID(i), nStreams(nstr) {
     init(gen_seed);
   }
- 
-  ~RandRandom() { }
 
-  void init(bool gen_seed=false);
+  ~RandRandom() {}
 
-  inline Return_t getRandom() { return Return_t(rand())*rand_max_inv;}
+  void init(bool gen_seed = false);
+
+  inline Return_t getRandom() { return Return_t(rand()) * rand_max_inv; }
 
   inline Return_t operator()() { return getRandom(); }
 
-  inline int irand() { return rand();}
+  inline int irand() { return rand(); }
 
-  inline void bivariate(Return_t& g1, Return_t& g2) {
+  inline void bivariate(Return_t &g1, Return_t &g2) {
     Return_t v1, v2, r;
     do {
-    v1 = 2.0e0*getRandom() - 1.0e0;
-    v2 = 2.0e0*getRandom() - 1.0e0;
-    r = v1*v1+v2*v2;
-    } while(r > 1.0e0);
-    Return_t fac = sqrt(-2.0e0*log(r)/r);
-    g1 = v1*fac;
-    g2 = v2*fac;
+      v1 = 2.0e0 * getRandom() - 1.0e0;
+      v2 = 2.0e0 * getRandom() - 1.0e0;
+      r = v1 * v1 + v2 * v2;
+    } while (r > 1.0e0);
+    Return_t fac = sqrt(-2.0e0 * log(r) / r);
+    g1 = v1 * fac;
+    g2 = v2 * fac;
   }
 
 private:

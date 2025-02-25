@@ -1,0 +1,19 @@
+<map id="geo_struct::phaseBloch" name="geo_struct::phaseBloch">
+<area shape="rect" id="Node000001" title="Don&#39;t understand physical meaning quite well." alt="" coords="5,179,164,204"/>
+<area shape="rect" id="Node000002" href="$classgeo__struct.html#a4c58f9fc13b4662753e35be7d04ebdfa" title=" " alt="" coords="213,5,366,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,177,136,112,170,73,210,40,217,36,220,40,213,44,174,77,140,115,96,180"/>
+<area shape="rect" id="Node000003" href="$classgeo__struct.html#a68276bc35487baeb29f08e64b627e185" title=" " alt="" coords="215,55,364,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,176,145,134,176,110,210,89,221,84,223,89,213,94,179,115,148,138,101,180"/>
+<area shape="rect" id="Node000004" href="$classgeo__struct.html#a44d992999dcfba81239e3636da8a5e15" title=" " alt="" coords="213,104,366,130"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,176,211,138,228,132,230,137,213,143,118,181"/>
+<area shape="rect" id="Node000005" href="$classgeo__struct.html#a624774376775723b904155044e0d5b10" title=" " alt="" coords="215,153,364,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="164,179,199,175,200,180,164,184"/>
+<area shape="rect" id="Node000006" href="$classgeo__struct.html#a2b90046ac87766625320d59339448207" title=" " alt="" coords="214,203,365,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="164,198,199,202,198,208,164,203"/>
+<area shape="rect" id="Node000007" href="$classgeo__struct.html#a91fbad9996dfbc378b7c11edca83ce8c" title=" " alt="" coords="216,252,363,278"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="119,202,213,238,230,244,228,249,211,243,117,207"/>
+<area shape="rect" id="Node000008" href="$classgeo__struct.html#a4edd6762ec0b227af0e9518ee3d4aa71" title=" " alt="" coords="212,301,367,327"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="101,203,148,244,180,268,213,288,223,293,221,298,210,293,177,272,145,249,98,207"/>
+<area shape="rect" id="Node000009" href="$classgeo__struct.html#a555d4644dae184bb4a77314cb9add0a2" title=" " alt="" coords="222,351,356,376"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="96,203,140,267,174,305,213,337,220,342,218,346,210,342,170,309,136,271,91,206"/>
+</map>

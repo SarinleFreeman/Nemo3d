@@ -1,0 +1,165 @@
+\doxysection{Cell.\+h}
+\hypertarget{_cell_8h_source}{}\label{_cell_8h_source}\index{base/Cell.h@{base/Cell.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/Cell.h,v\ 1.10\ 2007/06/14\ 20:08:20\ nkharche\ Exp\ \$}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ CELL\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ CELL\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <ivector.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <rvector.h>}\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <rmatrix.h>}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}i3tensor.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}r3tensor.h"{}}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}top\_struct.H"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}nml\_global.h"{}}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ need\ to\ declare\ this\ class,\ since\ it\ is\ declared\ to\ be\ a\ friend}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classgeo__struct}{geo\_struct}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}}\ }
+\DoxyCodeLine{00064\ \{}
+\DoxyCodeLine{00065\ \ \ \ \textcolor{keywordtype}{int}\ N\_MaxAtomCell;\ }
+\DoxyCodeLine{00067\ \ \ \ \textcolor{keywordtype}{int}\ N\_MaxNeighbor;}
+\DoxyCodeLine{00069\ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_110;\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00071\ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_110\_small;\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00073\ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_111;\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00075\ \ \ \ \textcolor{keywordtype}{bool}\ IsCellUserDef;\ \textcolor{comment}{/*\ Added\ by\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00077\ \ \ \ \textcolor{keywordtype}{bool}\ IsCellWurtzite;}
+\DoxyCodeLine{00079\ \ \ \ ivectr\ N\_Neighbor;\ }
+\DoxyCodeLine{00081\ \ \ \ rmatrix\ CellAtom\_2\_ijk;}
+\DoxyCodeLine{00084\ \ \ \ i3tensor\ nnmap;}
+\DoxyCodeLine{00088\ \ \ \ r3tensor\ SP3\_hybrid;}
+\DoxyCodeLine{00093\ \ \ \ rmatrix\ T\_rot;\ \textcolor{comment}{/*\ ZB\_111:\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00094\ \ \ \ rvectr\ a\_latt\_rot\_norm;\ \textcolor{comment}{/*\ ZB\_111:\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00095\ \ \ \ \textcolor{keywordtype}{double}\ a\_latt\_unstr;\ \textcolor{comment}{/*\ ZB\_111:\ Lattice\ constant\ of\ the\ underlying\ Zincblende\ crystal.\ */}}
+\DoxyCodeLine{00096\ \ \ \ \textcolor{keywordtype}{void}\ set\_Cell(}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ N\_MaxAtomCell,\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ N\_MaxNeighbor,\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_110,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_110\_small,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCellZB\_111,\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCellUserDef,\ \textcolor{comment}{/*\ Added\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCellWurtzite,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ivectr\ N\_Neighbor,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmatrix\ CellAtom\_2\_ijk,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i3tensor\ nnmap,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ r3tensor\ SP3\_hybrid,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rmatrix\ T\_rot,\ \textcolor{comment}{/*\ ZB\_111:\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rvectr\ a\_latt\_rot\_norm,\ \textcolor{comment}{/*\ ZB\_111:\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ a\_latt\_unstr\ \textcolor{comment}{/*\ ZB\_111:\ Lattice\ constant\ of\ the\ underlying\ Zincblende\ crystal.\ */}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00113\ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }geo\_struct;}
+\DoxyCodeLine{00115\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00116\ \ \ \ \textcolor{comment}{//\ default\ constructor;\ make\ sure\ all\ data\ get\ initialized\ to\ something}}
+\DoxyCodeLine{00117\ \ \ \ \mbox{\hyperlink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}}()\ :\ N\_MaxAtomCell(0),\ N\_MaxNeighbor(0),\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ IsCellZB\_110(false),\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ IsCellZB\_110\_small(false),\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ IsCellZB\_111(false),\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ IsCellUserDef(false),\ \textcolor{comment}{/*\ Added\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ IsCellWurtzite(false),\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ N\_Neighbor(NULL),\ CellAtom\_2\_ijk(NULL),\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ nnmap(NULL),\ SP3\_hybrid(NULL),}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ T\_rot(NULL),\ \textcolor{comment}{/*\ ZB\_111:\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ a\_latt\_rot\_norm(NULL),\ \textcolor{comment}{/*\ ZB\_111:\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ a\_latt\_unstr(0)\ \textcolor{comment}{/*\ ZB\_111:\ Lattice\ constant\ of\ the\ underlying\ Zincblende\ crystal.\ */}}
+\DoxyCodeLine{00128\ \{;\}}
+\DoxyCodeLine{00130\ \ \ \ \mbox{\hyperlink{class_cell_a51f477d8039e209153054228a5792b0c}{Cell}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}}\ \&c)\ \{\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ set\_Cell(c.N\_MaxAtomCell,\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.N\_MaxNeighbor,\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_110,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_110\_small,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_111,\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellUserDef,\ \textcolor{comment}{/*\ Added\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellWurtzite,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.N\_Neighbor,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.CellAtom\_2\_ijk,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.nnmap,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.SP3\_hybrid,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.T\_rot,\ \textcolor{comment}{/*\ ZB\_111:\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.a\_latt\_rot\_norm,\ \textcolor{comment}{/*\ ZB\_111:\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.a\_latt\_unstr\ \textcolor{comment}{/*\ ZB\_111:\ Lattice\ constant\ of\ the\ underlying\ Zincblende\ crystal.\ */}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00146\ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\&\ operator\ =(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell}{Cell}}\ \&c)\ \{\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ set\_Cell(c.N\_MaxAtomCell,\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.N\_MaxNeighbor,\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_110,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\ */}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_110\_small,\ \textcolor{comment}{/*\ Added\ for\ ZB\_110\_small\ */}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellZB\_111,\ \textcolor{comment}{/*\ Added\ for\ ZB\_111\ */}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellUserDef,\ \textcolor{comment}{/*\ Added\ for\ CellUserDef\ */}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.IsCellWurtzite,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.N\_Neighbor,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.CellAtom\_2\_ijk,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.nnmap,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.SP3\_hybrid,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.T\_rot,\ \textcolor{comment}{/*\ ZB\_111:\ Rotation\ matrix\ from\ new\ unit\ cell\ to\ standard\ Zincblende\ basis.\ */}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.a\_latt\_rot\_norm,\ \textcolor{comment}{/*\ ZB\_111:\ Normalized\ lattice\ constant\ for\ rotated\ unit\ cells.\ */}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c.a\_latt\_unstr\ \textcolor{comment}{/*\ ZB\_111:\ Lattice\ constant\ of\ the\ underlying\ Zincblende\ crystal.\ */}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00165\ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_aa348a4ac1eb132d87ef0130f7c4cb022}{Initialize}}(\textcolor{keyword}{const}\ top\_struct\&\ opt);}
+\DoxyCodeLine{00172\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_a26e536b6aa5ca11b4b57c8013f41dae3}{InitializeForHyperChem}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ inputfile);}
+\DoxyCodeLine{00176\ \ \ \ }
+\DoxyCodeLine{00177\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_aa5229fb01d84bae0d8a394e1af32749e}{AtomsPerCellMax}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ N\_MaxAtomCell;\}}
+\DoxyCodeLine{00179\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_ae16b5730d2348d0bf187cfe38e59ce58}{NeighborsMax}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ N\_MaxNeighbor;\}}
+\DoxyCodeLine{00181\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_cell_a86e5e2ac4e8a4eef47738e6a30d66332}{Neighbors}}(\textcolor{keywordtype}{int}\ m)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ N\_Neighbor[m];\}\ }
+\DoxyCodeLine{00184\ \ \ \ real*\ \mbox{\hyperlink{class_cell_a708e8b6773a5670fd148358d0aa51fee}{PositionInCell}}(\textcolor{keywordtype}{int}\ atom)\ \{\ \textcolor{keywordflow}{return}\ CellAtom\_2\_ijk[atom];\ \}}
+\DoxyCodeLine{00187\ \ \ \ real\ \ \mbox{\hyperlink{class_cell_a7f7d3e7c60b5271fd867caf3b8a0f496}{PositionInCell}}(\textcolor{keywordtype}{int}\ atom,\ \textcolor{keywordtype}{int}\ d)\ \{\ \textcolor{keywordflow}{return}\ CellAtom\_2\_ijk[atom][d];\ \}}
+\DoxyCodeLine{00191\ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_cell_aac9a7b28ba26498ebab2f72b59a949fe}{NbrCell}}(\textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n)\ \{\ \textcolor{keywordflow}{return}\ nnmap[m][n];\ \}}
+\DoxyCodeLine{00195\ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_cell_adab67e39be82d2f47d09183751a96d5c}{NbrCell}}(\textcolor{keywordtype}{int}\ m,\ \textcolor{keywordtype}{int}\ n,\ \textcolor{keywordtype}{int}\ d)\ \{\ \textcolor{keywordflow}{return}\ nnmap[m][n][d];\ \}}
+\DoxyCodeLine{00200\ \ \ \ \textcolor{keyword}{friend}\ ostream\&\ operator<<(ostream\&\ o,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_cell}{Cell}}\&\ c);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cell_aa0f4575d436c74c57b326c7c9a4a0081}{Deallocate}}();}
+\DoxyCodeLine{00204\ \ \ \ \mbox{\hyperlink{class_cell_a9fa559f7a28e2b4336c6879ca09304d8}{\string~Cell}}()\ \{\ \mbox{\hyperlink{class_cell_aa0f4575d436c74c57b326c7c9a4a0081}{Deallocate}}();\ \}}
+\DoxyCodeLine{00206\ \};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/util_argv_B.h,v 1.4 2004/10/27 19:43:10 gekco Exp $
+$Header: /repo/nemo3d/src/util/util_argv_B.h,v 1.4 2004/10/27 19:43:10 gekco Exp
+$
 *****************************************************************************/
 
 /*
@@ -83,10 +84,10 @@ $Header: /repo/nemo3d/src/util/util_argv_B.h,v 1.4 2004/10/27 19:43:10 gekco Exp
  */
 
 #include <fcntl.h>
-#include <termios.h>
-#include <stdio.h>			/* have to for FILE * below */
+#include <stdio.h> /* have to for FILE * below */
+#include <stdlib.h>
 #include <string.h> /* Linux warnings #include <strings.h> */
-#include <stdlib.h>			
+#include <termios.h>
 
 /* this defines what type the standard void memory-pointer is */
 /*#ifndef AIX_SPECIFIC
@@ -96,9 +97,9 @@ $Header: /repo/nemo3d/src/util/util_argv_B.h,v 1.4 2004/10/27 19:43:10 gekco Exp
 #endif*/
 
 #if (defined(__STDC__) && __STDC__ == 1) || (defined __cplusplus)
-#define ARGV_PNT        void *
+#define ARGV_PNT void *
 #else
-#define ARGV_PNT        char *
+#define ARGV_PNT char *
 #endif
 
 /*
@@ -109,12 +110,12 @@ $Header: /repo/nemo3d/src/util/util_argv_B.h,v 1.4 2004/10/27 19:43:10 gekco Exp
  * { 'c',  "config",  ARGV_CHARP,  &config,  "file",  "configuration file" }
  */
 typedef struct {
-  char		ar_short_arg;		/* the char of the arg, 'd' if '-d' */
-  char		*ar_long_arg;		/* long version of arg, 'delete' */
-  short		ar_type;		/* type of option, see values below */
-  ARGV_PNT	ar_variable;		/* address of variable that is arg */
-  char		*ar_var_label;		/* label for variable descriptions */
-  char		*ar_comment;		/* comment for usage message */
+  char ar_short_arg;    /* the char of the arg, 'd' if '-d' */
+  char *ar_long_arg;    /* long version of arg, 'delete' */
+  short ar_type;        /* type of option, see values below */
+  ARGV_PNT ar_variable; /* address of variable that is arg */
+  char *ar_var_label;   /* label for variable descriptions */
+  char *ar_comment;     /* comment for usage message */
 } argv_t;
 
 /*
@@ -126,19 +127,19 @@ typedef struct {
  * aa_entries needs to be free'd by user. argv_cleanup() can be used for this
  */
 typedef struct {
-  int		aa_entryn;		/* number of elements in aa_entrees */
-  ARGV_PNT	aa_entries;		/* entry list specified */
+  int aa_entryn;       /* number of elements in aa_entrees */
+  ARGV_PNT aa_entries; /* entry list specified */
 } argv_array_t;
 
 /*  extract the count of the elements from an argv ARRAY */
-#define ARGV_ARRAY_COUNT(array)		((array).aa_entryn)
+#define ARGV_ARRAY_COUNT(array) ((array).aa_entryn)
 
 /* extract WHICH entry of TYPE from an argv ARRAY */
-#define ARGV_ARRAY_ENTRY(array, type, which)	\
-	(((type *)(array).aa_entries)[which])
+#define ARGV_ARRAY_ENTRY(array, type, which)                                   \
+  (((type *)(array).aa_entries)[which])
 
 /* special ar_short_arg value to mark the last entry in the argument array */
-#define ARGV_LAST	((char)255)
+#define ARGV_LAST ((char)255)
 
 /*
  * special ar_short_arg value to mark mandatory arguments (i.e. arguments that
@@ -146,13 +147,13 @@ typedef struct {
  * to have a variable number of mandatory args then make the last MAND
  * entry be a ARG_ARRAY type.
  */
-#define ARGV_MAND	((char)254)
+#define ARGV_MAND ((char)254)
 
 /*
  * special ar_short_arg value to mark that there is the possibility of
  * a mandatory argument here if one is specified.
  */
-#define ARGV_MAYBE	((char)253)
+#define ARGV_MAYBE ((char)253)
 
 /*
  * special ar_short_arg value to say that the previous and next arguments in
@@ -160,7 +161,7 @@ typedef struct {
  * {'a'...}, {ARG_OR}, {'b'...}, {ARG_OR}, {'c'...} means
  * the user should only specific -a or -b or -c but not 2 or more.
  */
-#define ARGV_OR		((char)252)
+#define ARGV_OR ((char)252)
 
 /*
  * special ar_short_arg value that is the same as ARGV_OR but one of the args
@@ -168,67 +169,67 @@ typedef struct {
  * {'a'...}, {ARG_OR}, {'b'...}, {ARG_OR}, {'c'...} means
  * the user must specify one of -a or -b or -c but not 2 or more.
  */
-#define ARGV_XOR	((char)251)
+#define ARGV_XOR ((char)251)
 
 /*
  * ar_type values of arg_t
  * NOTE: if this list is changed, some defines in argv_loc need to be changed
  */
-#define ARGV_BOOL	1		/* boolean type, sets to ARGV_TRUE */
-#define ARGV_BOOL_NEG	2		/* like bool but sets to ARGV_FALSE */
-#define ARGV_BOOL_ARG	3		/* like bool but takes a yes/no arg */
-#define ARGV_CHAR	4		/* single character */
-#define ARGV_CHARP	5		/* same as STRING */
-#define ARGV_STRING	5		/* character string */
-#define ARGV_FLOAT	6		/* floating pointer number */
-#define ARGV_SHORT	7		/* integer number */
-#define ARGV_INT	8		/* integer number */
-#define ARGV_U_INT	9		/* unsigned integer number */
-#define ARGV_LONG	10		/* long integer number */
-#define ARGV_U_LONG	11		/* unsinged long integer number */
-#define ARGV_BIN	12		/* binary number (0s and 1s) */
-#define ARGV_OCT	13		/* octal number, (base 8) */
-#define ARGV_HEX	14		/* hexadecimal number, (base 16) */
-#define ARGV_INCR	15		/* int arg which gets ++ each time */
+#define ARGV_BOOL 1     /* boolean type, sets to ARGV_TRUE */
+#define ARGV_BOOL_NEG 2 /* like bool but sets to ARGV_FALSE */
+#define ARGV_BOOL_ARG 3 /* like bool but takes a yes/no arg */
+#define ARGV_CHAR 4     /* single character */
+#define ARGV_CHARP 5    /* same as STRING */
+#define ARGV_STRING 5   /* character string */
+#define ARGV_FLOAT 6    /* floating pointer number */
+#define ARGV_SHORT 7    /* integer number */
+#define ARGV_INT 8      /* integer number */
+#define ARGV_U_INT 9    /* unsigned integer number */
+#define ARGV_LONG 10    /* long integer number */
+#define ARGV_U_LONG 11  /* unsinged long integer number */
+#define ARGV_BIN 12     /* binary number (0s and 1s) */
+#define ARGV_OCT 13     /* octal number, (base 8) */
+#define ARGV_HEX 14     /* hexadecimal number, (base 16) */
+#define ARGV_INCR 15    /* int arg which gets ++ each time */
 
-#define ARGV_TYPE(t)	((t) & 0x3F)	/* strip off all but the var type */
-#define ARGV_ARRAY	(1 << 14)	/* OR with type to indicate array */
+#define ARGV_TYPE(t) ((t) & 0x3F) /* strip off all but the var type */
+#define ARGV_ARRAY (1 << 14)      /* OR with type to indicate array */
 
 /* argv_usage which argument values */
-#define ARGV_USAGE_SHORT	1	/* print short usage messages */
-#define ARGV_USAGE_LONG		2	/* print long-format usage messages */
-#define ARGV_USAGE_DEFAULT	3	/* default usage messages */
+#define ARGV_USAGE_SHORT 1   /* print short usage messages */
+#define ARGV_USAGE_LONG 2    /* print long-format usage messages */
+#define ARGV_USAGE_DEFAULT 3 /* default usage messages */
 
 /* boolean type settings */
-#define ARGV_FALSE		0
-#define ARGV_TRUE		1
+#define ARGV_FALSE 0
+#define ARGV_TRUE 1
 
 /* global variable and procedure scoping for code readability */
-#undef	IMPORT
-#define	IMPORT		extern
+#undef IMPORT
+#define IMPORT extern
 
 /*<<<<<<<<<<  The below prototypes are auto-generated by fillproto */
 
 /* this is a processed version of argv[0], pre-path removed: /bin/ls -> ls */
-IMPORT	char	argv_program[/* PROGRAM_NAME + 1 */];
+IMPORT char argv_program[/* PROGRAM_NAME + 1 */];
 
 /* a global value of argv from main after argv_process has been called */
-IMPORT	char	**argv_argv;
+IMPORT char **argv_argv;
 
 /* a global value of argc from main after argv_process has been called */
-IMPORT	int	argv_argc;
+IMPORT int argv_argc;
 
 /* this should be set externally to provide general program help to user */
-IMPORT	char	*argv_help_string;
+IMPORT char *argv_help_string;
 
 /* this should be set externally to provide version information to the user */
-IMPORT	char	*argv_version_string;
+IMPORT char *argv_version_string;
 
 /*
  * are we running interactively?  this will exit on errors.  set to
  * false to return error codes instead.
  */
-IMPORT	char 	argv_interactive;
+IMPORT char argv_interactive;
 
 /*
  * the FILE stream that argv outputs all its errors.  set to NULL to
@@ -243,21 +244,20 @@ IMPORT	char 	argv_interactive;
  * modify the args array by setting various flags in the type field.
  * returns 0 if no error else -1.
  */
-IMPORT	int	argv_process(argv_t * args,  int argc, char ** argv);
+IMPORT int argv_process(argv_t *args, int argc, char **argv);
 
 /*
  * processes arguments sent in via the STRING that a web-server might
  * send to program in ARG0.  returns 0 on noerror else -1.
  */
-IMPORT	int	argv_web_process_string(argv_t * args,  char * arg0,
-					 char * string);
+IMPORT int argv_web_process_string(argv_t *args, char *arg0, char *string);
 
 /*
  * processes arguments sent in via the QUERY_STRING environmental
  * variable that a web-server might send to program in ARG0.  returns
  * 0 on noerror else -1.
  */
-IMPORT	int	argv_web_process(argv_t * args,  char * arg0);
+IMPORT int argv_web_process(argv_t *args, char *arg0);
 
 /*
  * print the standard usage messages for argument array ARGS (if null
@@ -266,26 +266,26 @@ IMPORT	int	argv_web_process(argv_t * args,  char * arg0);
  * NOTE: if this is called before argv_process then the program name
  * may be messed up.
  */
-IMPORT	void	argv_usage( argv_t * args,  int which);
+IMPORT void argv_usage(argv_t *args, int which);
 
 /*
  * see if ARG argument was used in a previous call to argv_process on
  * ARGS, returns 1 if yes else 0
  */
-IMPORT	int	argv_was_used( argv_t * args,  char arg);
+IMPORT int argv_was_used(argv_t *args, char arg);
 
 /*
  * frees up any allocations in ARGS that may have been done by
  * argv_process.  This should be done at the end of the program or
  * after all the arguments have been referenced.
  */
-IMPORT	void	argv_cleanup( argv_t * args);
+IMPORT void argv_cleanup(argv_t *args);
 
 /*
  * copy all the args (after the 0th), one after the other, into BUF of
  * MAX_SIZE.  NOTE: you can get the 0th argument from argv_argv[0].
  */
-IMPORT	void	argv_copy_args(char * buf,  int max_size);
+IMPORT void argv_copy_args(char *buf, int max_size);
 
 /*<<<<<<<<<<   This is end of the auto-generated output from fillproto. */
 

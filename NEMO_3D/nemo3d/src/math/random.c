@@ -33,51 +33,47 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/random.c,v 1.5 2004/06/18 02:49:57 swlee Exp $ 
+$Header: /repo/nemo3d/src/math/random.c,v 1.5 2004/06/18 02:49:57 swlee Exp $
 *****************************************************************************/
 
 #include "random.h"
 #include "run3d_mpi.h"
 #include <iostream>
 extern "C" {
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/times.h>
 #include <sys/time.h>
+#include <sys/times.h>
+#include <sys/types.h>
+#include <unistd.h>
 }
 
-static int seed_set=0;
-int set_random_seed(int seed)
-{
-    if (seed_set)
-	return 0;
-
-    srand(seed);
-    seed_set = 1;
-
+static int seed_set = 0;
+int set_random_seed(int seed) {
+  if (seed_set)
     return 0;
+
+  srand(seed);
+  seed_set = 1;
+
+  return 0;
 }
 
+int reset_random_seed(int seed) {
+  srand(seed);
+  seed_set = 1;
 
-int reset_random_seed(int seed)
-{
-    srand(seed);
-    seed_set = 1;
-
-    return 0;
+  return 0;
 }
 
-int reset_random_seed_with_time(void)
-{
+int reset_random_seed_with_time(void) {
   int seed;
-  if(mpi_n3d_id==0) {
-    struct timeval tvbuf;  //Values from call to gettimeofday
-    struct timezone tzbuf; //Timezone
+  if (mpi_n3d_id == 0) {
+    struct timeval tvbuf;  // Values from call to gettimeofday
+    struct timezone tzbuf; // Timezone
     gettimeofday(&tvbuf, &tzbuf);
     unsigned long last_secs = tvbuf.tv_sec;
-    seed = last_secs%16081;
+    seed = last_secs % 16081;
   }
-  MPI_Bcast(&seed, 1, MPI_INT, 0, MPI_COMM_WORLD); 
-  srand(seed); 
+  MPI_Bcast(&seed, 1, MPI_INT, 0, MPI_COMM_WORLD);
+  srand(seed);
   return 0;
 }

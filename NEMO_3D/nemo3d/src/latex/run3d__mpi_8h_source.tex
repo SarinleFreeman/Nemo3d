@@ -1,0 +1,109 @@
+\doxysection{run3d\+\_\+mpi.\+h}
+\hypertarget{run3d__mpi_8h_source}{}\label{run3d__mpi_8h_source}\index{base/run3d\_mpi.h@{base/run3d\_mpi.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/run3d\_mpi.h,v\ 1.7\ 2007/09/19\ 20:53:26\ stevenclark\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifndef\ RUN3D\_MPI\_H}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ RUN3D\_MPI\_H}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}is\_def.h"{}}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#if\ (defined\ MPI3d\ \&\&\ !defined\ FAKE\_MPI)}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifdef\ UNSET\_SEEK}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#undef\ SEEK\_SET}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#undef\ SEEK\_CUR}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#undef\ SEEK\_END}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <mpi.h>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ Allreduce\_MPI\_sp(pa,pb,c,d,e,f)\ MPI\_Allreduce(pa,pb,c,d,e,f)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifdef\ UNSET\_SEEK}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ \#include\ <stdio.h>\ */}}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ The\ possibilities\ for\ the\ third\ argument\ to\ \`{}fseek'.}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ These\ values\ should\ not\ be\ changed.\ \ */}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifndef\ SEEK\_SET}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ SEEK\_SET\ \ \ \ 0\ \ \ }\textcolor{comment}{/*\ Seek\ from\ beginning\ of\ file.\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#ifndef\ SEEK\_CUR}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ SEEK\_CUR\ \ \ \ 1\ \ \ }\textcolor{comment}{/*\ Seek\ from\ current\ position.\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifndef\ SEEK\_END}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ SEEK\_END\ \ \ \ 2\ \ \ }\textcolor{comment}{/*\ Seek\ from\ end\ of\ file.\ \ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ "{}mpi\_fake.h"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#ifdef\ NoGnuStatementExpre}}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ Allreduce\_MPI\_sp(\textcolor{keywordtype}{double}\ *pa,\textcolor{keywordtype}{double}\ *pb,\ \textcolor{keywordtype}{int}\ count,\ MPI\_Datatype\ datatype,\ MPI\_Op\ Operation,\ MPI\_Comm\ comm);}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ Allreduce\_MPI\_sp(pa,pb,c,d,e,f)\ \(\backslash\)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ (\{int\ iLOC;\ for(iLOC=0;\ iLOC<(c);\ iLOC++)\ (pb)[iLOC]=(pa)[iLOC];\})}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ (defined\ MPI3d\ \&\&\ !defined\ FAKE\_MPI)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{/*\ \#ifdef\ MPI3d\ */}}
+\DoxyCodeLine{00081\ \_IS\_DEF\ MPI\_Status\ mpi\_n3d\_status;}
+\DoxyCodeLine{00082\ \textcolor{comment}{/*\ \#endif\ */}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \_IS\_DEF\ \textcolor{keywordtype}{int}\ mpi\_n3d\_numprocs;}
+\DoxyCodeLine{00085\ \_IS\_DEF\ \textcolor{keywordtype}{int}\ mpi\_n3d\_id;}
+\DoxyCodeLine{00086\ \_IS\_DEF\ \textcolor{keywordtype}{int}\ mpi\_n3d\_masterid;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#ifdef\ MPI\_TIMING}}
+\DoxyCodeLine{00089\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ start\_time;}
+\DoxyCodeLine{00090\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ start\_time2;}
+\DoxyCodeLine{00091\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ start\_time3;}
+\DoxyCodeLine{00092\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ time\_lanczos\_iter;}
+\DoxyCodeLine{00093\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ time\_lanczos\_iter\_all;}
+\DoxyCodeLine{00094\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ time\_lanczos\_setup\_once;}
+\DoxyCodeLine{00095\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ time\_barrier;}
+\DoxyCodeLine{00096\ \_IS\_DEF\ \textcolor{keywordtype}{double}\ time\_bcast;}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#include\ "{}MPI\_Timing.h"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MPI\_TIMING\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ MPI\_rc\_distr\ \ \ 23001}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RUN3D\_MPI\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

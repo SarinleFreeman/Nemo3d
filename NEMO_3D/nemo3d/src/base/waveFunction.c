@@ -33,19 +33,18 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/waveFunction.c,v 1.4 2003/10/08 16:17:19 hook Exp $ 
+$Header: /repo/nemo3d/src/base/waveFunction.c,v 1.4 2003/10/08 16:17:19 hook Exp
+$
 *****************************************************************************/
 
-#include "i_3dout_files.h"
 #include "waveFunction.h"
+#include "i_3dout_files.h"
 
 void waveFunction::copy_wavefunc(const cvectr p) {
-   valid = 1;
+  valid = 1;
 
-   for (int j=0; j < (signed int) psi.size(); j++) {
-      psi[j].r = p[j].r;
-      psi[j].i = p[j].i;
-   }      
+  for (int j = 0; j < (signed int)psi.size(); j++) {
+    psi[j].r = p[j].r;
+    psi[j].i = p[j].i;
+  }
 }
-
-

@@ -33,33 +33,26 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/qd_struct_global.c,v 1.2 2003/10/08 16:17:11 hook Exp $ 
+$Header: /repo/nemo3d/src/base/qd_struct_global.c,v 1.2 2003/10/08 16:17:11 hook
+Exp $
 *****************************************************************************/
-
-
 
 #include "qd_struct_global.h"
 
 /*T_HEADER_SHORT{I_N3D_global}
   Basic input structure needed in the input deck handling.  T*/
-qd_struct QD_global=NULL;
+qd_struct QD_global = NULL;
 
 /*T_HEADER_SHORT{Get_QD_Global}
   Return the pointer to the overall simulation structure
   of the type \verb|qd_struct|. T*/
-qd_struct Get_QD_Global(void)
-{
-  return QD_global;
-}
-
+qd_struct Get_QD_Global(void) { return QD_global; }
 
 /*T_HEADER_SHORT{Set_QD_Global}
-  Set the pointer to the overall simulation structure 
+  Set the pointer to the overall simulation structure
   of the type \verb|qd_struct| to the given input structure.  T*/
-void Set_QD_Global(qd_struct QD)
-{
+void Set_QD_Global(qd_struct QD) {
   QD_global = QD;
 
   return;
 }
-

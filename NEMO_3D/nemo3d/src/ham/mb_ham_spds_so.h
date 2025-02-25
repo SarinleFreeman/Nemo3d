@@ -33,187 +33,182 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/ham/mb_ham_spds_so.h,v 1.2 2003/10/08 16:17:28 hook Exp $
+$Header: /repo/nemo3d/src/ham/mb_ham_spds_so.h,v 1.2 2003/10/08 16:17:28 hook
+Exp $
 *****************************************************************************/
 
 /*
  * spin_orbit_spds replacement for inlining
  */
 
-/* complex spin_orbit_spds2( Out_e_so, e_so_basis1,  e_so_basis2,  e_so_spin1,  e_so_spin2,  e_so_delta_a,  e_so_delta_c ) */
+/* complex spin_orbit_spds2( Out_e_so, e_so_basis1,  e_so_basis2,  e_so_spin1,
+ * e_so_spin2,  e_so_delta_a,  e_so_delta_c ) */
 {
 
-    Out_e_so.r = Out_e_so.i = 0.0;
+  Out_e_so.r = Out_e_so.i = 0.0;
 
-    if ( e_so_spin1 == 1 && e_so_spin2 == 0 )
-    {
-      switch(e_so_basis1)
-      {
-        case Pxa:
-	  switch(e_so_basis2)
-	  {
-	    case Pza:    Out_e_so.r = e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pya:
-	  switch(e_so_basis2)
-	  {
-	    case Pza:    Out_e_so.i = -e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pza:
-	  switch(e_so_basis2)
-	  {
-	    case Pxa:    Out_e_so.r = -e_so_delta_a;
-	      break;
-	    case Pya:    Out_e_so.i = e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pxc:
-	  switch(e_so_basis2)
-	  {
-	    case Pzc:    Out_e_so.r = e_so_delta_c;
-	      break;
-	  }
-	  break;
-        case Pyc:
-	  switch(e_so_basis2)
-	  {
-	    case Pzc:    Out_e_so.i = -e_so_delta_c;
-	      break;
-	  }
-	  break;
-        case Pzc:
-	  switch(e_so_basis2)
-	  {
-	    case Pxc:    Out_e_so.r = -e_so_delta_c;
-	      break;
-	    case Pyc:    Out_e_so.i = e_so_delta_c;
-	      break;
-	  }
+  if (e_so_spin1 == 1 && e_so_spin2 == 0) {
+    switch (e_so_basis1) {
+    case Pxa:
+      switch (e_so_basis2) {
+      case Pza:
+        Out_e_so.r = e_so_delta_a;
+        break;
+      }
+      break;
+    case Pya:
+      switch (e_so_basis2) {
+      case Pza:
+        Out_e_so.i = -e_so_delta_a;
+        break;
+      }
+      break;
+    case Pza:
+      switch (e_so_basis2) {
+      case Pxa:
+        Out_e_so.r = -e_so_delta_a;
+        break;
+      case Pya:
+        Out_e_so.i = e_so_delta_a;
+        break;
+      }
+      break;
+    case Pxc:
+      switch (e_so_basis2) {
+      case Pzc:
+        Out_e_so.r = e_so_delta_c;
+        break;
+      }
+      break;
+    case Pyc:
+      switch (e_so_basis2) {
+      case Pzc:
+        Out_e_so.i = -e_so_delta_c;
+        break;
+      }
+      break;
+    case Pzc:
+      switch (e_so_basis2) {
+      case Pxc:
+        Out_e_so.r = -e_so_delta_c;
+        break;
+      case Pyc:
+        Out_e_so.i = e_so_delta_c;
+        break;
       }
     }
-    if ( e_so_spin1 == 0 && e_so_spin2 == 1 )
-    {
-      switch(e_so_basis1)
-      {
-        case Pxa:
-	  switch(e_so_basis2)
-	  {
-	    case Pza:    Out_e_so.r = -e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pya:
-	  switch(e_so_basis2)
-	  {
-	    case Pza:    Out_e_so.i = -e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pza:
-	  switch(e_so_basis2)
-	  {
-	    case Pxa:    Out_e_so.r = e_so_delta_a;
-	      break;
-	    case Pya:    Out_e_so.i = e_so_delta_a;
-	      break;
-	  }
-	  break;
-        case Pxc:
-	  switch(e_so_basis2)
-	  {
-	    case Pzc:    Out_e_so.r = -e_so_delta_c;
-	      break;
-	  }
-	  break;
-        case Pyc:
-	  switch(e_so_basis2)
-	  {
-	    case Pzc:    Out_e_so.i = -e_so_delta_c;
-	      break;
-	  }
-	  break;
-        case Pzc:
-	  switch(e_so_basis2)
-	  {
-	    case Pxc:    Out_e_so.r = e_so_delta_c;
-	      break;
-	    case Pyc:    Out_e_so.i = e_so_delta_c;
-	      break;
-	  }
+  }
+  if (e_so_spin1 == 0 && e_so_spin2 == 1) {
+    switch (e_so_basis1) {
+    case Pxa:
+      switch (e_so_basis2) {
+      case Pza:
+        Out_e_so.r = -e_so_delta_a;
+        break;
+      }
+      break;
+    case Pya:
+      switch (e_so_basis2) {
+      case Pza:
+        Out_e_so.i = -e_so_delta_a;
+        break;
+      }
+      break;
+    case Pza:
+      switch (e_so_basis2) {
+      case Pxa:
+        Out_e_so.r = e_so_delta_a;
+        break;
+      case Pya:
+        Out_e_so.i = e_so_delta_a;
+        break;
+      }
+      break;
+    case Pxc:
+      switch (e_so_basis2) {
+      case Pzc:
+        Out_e_so.r = -e_so_delta_c;
+        break;
+      }
+      break;
+    case Pyc:
+      switch (e_so_basis2) {
+      case Pzc:
+        Out_e_so.i = -e_so_delta_c;
+        break;
+      }
+      break;
+    case Pzc:
+      switch (e_so_basis2) {
+      case Pxc:
+        Out_e_so.r = e_so_delta_c;
+        break;
+      case Pyc:
+        Out_e_so.i = e_so_delta_c;
+        break;
       }
     }
-    if ( e_so_spin1 == 1 && e_so_spin2 == 1 )
-    {
-        switch(e_so_basis1)
-	{
-	  case Pxa:
-	    switch(e_so_basis2)
-	    {
-	      case Pya:   Out_e_so.i = -e_so_delta_a;
-		break;
-	    }
-	    break;
-	  case Pya:
-	    switch(e_so_basis2)
-	    {
-	      case Pxa:   Out_e_so.i = e_so_delta_a;
-		break;
-	    }
-	    break;
-	  case Pxc:
-	    switch(e_so_basis2)
-	    {
-	      case Pyc:   Out_e_so.i = -e_so_delta_c;
-		break;
-	    }
-	    break;
-	  case Pyc:
-	    switch(e_so_basis2)
-	    {
-	      case Pxc:   Out_e_so.i = e_so_delta_c;
-		break;
-	    }
-	}
+  }
+  if (e_so_spin1 == 1 && e_so_spin2 == 1) {
+    switch (e_so_basis1) {
+    case Pxa:
+      switch (e_so_basis2) {
+      case Pya:
+        Out_e_so.i = -e_so_delta_a;
+        break;
+      }
+      break;
+    case Pya:
+      switch (e_so_basis2) {
+      case Pxa:
+        Out_e_so.i = e_so_delta_a;
+        break;
+      }
+      break;
+    case Pxc:
+      switch (e_so_basis2) {
+      case Pyc:
+        Out_e_so.i = -e_so_delta_c;
+        break;
+      }
+      break;
+    case Pyc:
+      switch (e_so_basis2) {
+      case Pxc:
+        Out_e_so.i = e_so_delta_c;
+        break;
+      }
     }
-    if ( e_so_spin1 == 0 && e_so_spin2 == 0 )
-    {
-        switch(e_so_basis1)
-	{
-	  case Pxa:
-	    switch(e_so_basis2)
-	    {
-	      case Pya:   Out_e_so.i = e_so_delta_a;
-		break;
-	    }
-	    break;
-	  case Pya:
-	    switch(e_so_basis2)
-	    {
-	      case Pxa:   Out_e_so.i = -e_so_delta_a;
-		break;
-	    }
-	    break;
-	  case Pxc:
-	    switch(e_so_basis2)
-	    {
-	      case Pyc:   Out_e_so.i = e_so_delta_c;
-		break;
-	    }
-	    break;
-	  case Pyc:
-	    switch(e_so_basis2)
-	    {
-	      case Pxc:   Out_e_so.i = -e_so_delta_c;
-		break;
-	    }
-	}
+  }
+  if (e_so_spin1 == 0 && e_so_spin2 == 0) {
+    switch (e_so_basis1) {
+    case Pxa:
+      switch (e_so_basis2) {
+      case Pya:
+        Out_e_so.i = e_so_delta_a;
+        break;
+      }
+      break;
+    case Pya:
+      switch (e_so_basis2) {
+      case Pxa:
+        Out_e_so.i = -e_so_delta_a;
+        break;
+      }
+      break;
+    case Pxc:
+      switch (e_so_basis2) {
+      case Pyc:
+        Out_e_so.i = e_so_delta_c;
+        break;
+      }
+      break;
+    case Pyc:
+      switch (e_so_basis2) {
+      case Pxc:
+        Out_e_so.i = -e_so_delta_c;
+        break;
+      }
     }
-
+  }
 }
-
-

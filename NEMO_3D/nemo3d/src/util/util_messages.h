@@ -33,22 +33,16 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/util/util_messages.h,v 1.2 2003/10/08 16:18:59 hook Exp $
+$Header: /repo/nemo3d/src/util/util_messages.h,v 1.2 2003/10/08 16:18:59 hook
+Exp $
 *****************************************************************************/
 
 #ifndef UTIL_MESSAGES_H
 #define UTIL_MESSAGES_H 1
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-extern void n3d_warning (char*, ...);
+extern void n3d_warning(char *, ...);
 
 #endif
-
-
-
-
-
-
-

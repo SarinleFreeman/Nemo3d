@@ -33,30 +33,28 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/math/rvector_lib.h,v 1.3 2004/10/27 19:43:10 gekco Exp $
+$Header: /repo/nemo3d/src/math/rvector_lib.h,v 1.3 2004/10/27 19:43:10 gekco Exp
+$
 *****************************************************************************/
 
 #ifndef RVECTOR_LIB_H
 #define RVECTOR_LIB_H 1
 
-#include <rvector.h>
-#include "realtype.h"
 #include "nml_global.h"
+#include "realtype.h"
 #include "util_messages.h"
+#include <rvector.h>
 
-
-/* Used by NEMO3D/nemo/math/rmatrix_lib.[ch]'s luDecompositionBackSubstitution() function */
+/* Used by NEMO3D/nemo/math/rmatrix_lib.[ch]'s luDecompositionBackSubstitution()
+ * function */
 typedef rvectr *roperator;
-rvectr cp_rvectr (rvectr rvTarget, rvectr rvSource);
-real* cp_rvectr2rarray(real *raTarget, rvectr rvSource);
-
-
+rvectr cp_rvectr(rvectr rvTarget, rvectr rvSource);
+real *cp_rvectr2rarray(real *raTarget, rvectr rvSource);
 
 /* Used by
  *   "NEMO3D/nemo/base/mat3d.c"
  *   "NEMO3D/nemo/io/i_mat."
  */
-void cp_rarray2rarray(real* raSource, real* raTarget, int arraySize);
-
+void cp_rarray2rarray(real *raSource, real *raTarget, int arraySize);
 
 #endif /* RVECTOR_LIB_H */

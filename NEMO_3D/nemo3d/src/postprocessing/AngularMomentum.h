@@ -33,71 +33,72 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/postprocessing/AngularMomentum.h,v 1.1 2004/08/26 21:28:07 swlee Exp $
+$Header: /repo/nemo3d/src/postprocessing/AngularMomentum.h,v 1.1 2004/08/26
+21:28:07 swlee Exp $
 *****************************************************************************/
 
 #ifndef __angularmomentum_h_
 #define __angularmomentum_h_
-#include <fstream>
-#include "qd_struct.h"
 #include "cvector_lib.h"
 #include "h_cvectr_mult.h"
 #include "io_utils.h"
+#include "qd_struct.h"
+#include <fstream>
 
-class AngularMomentum{
+class AngularMomentum {
 
 public:
-  
   AngularMomentum(qd_struct din, int NumElectron, int NumHole, int mpiID)
-  : d(din), e_max(NumElectron), h_max(NumHole), my_id(mpiID)
-  {
-    g_min = d->cell_s[my_id]*8;
-    g_max = d->cell_ln[my_id]*8+g_min;
-    o_max = d->NBasisStates/2;
+      : d(din), e_max(NumElectron), h_max(NumHole), my_id(mpiID) {
+    g_min = d->cell_s[my_id] * 8;
+    g_max = d->cell_ln[my_id] * 8 + g_min;
+    o_max = d->NBasisStates / 2;
     numAtoms = d->n_atom_tot;
     MPI_Comm_size(MPI_COMM_WORLD, &mpi_numprocs);
-    if(mpi_numprocs==1) g_max = numAtoms;
-  }   
- 
-  ~AngularMomentum() {
-    rm_cvectr(&MatrixLx); 
-    rm_cvectr(&MatrixLy); 
-    rm_cvectr(&MatrixLz); 
+    if (mpi_numprocs == 1)
+      g_max = numAtoms;
   }
 
-  void compute_angular_momentum_spin(const char&);
-  complex compute_global_angular_momentum(int, const char&, const char&);
-  complex compute_global_angular_momentum_square(int, const char&, const char&);
-  complex compute_local_angular_momentum(int, int, const char&, const char&);
-  complex compute_spin(int, int, const char&, const char&);
+  ~AngularMomentum() {
+    rm_cvectr(&MatrixLx);
+    rm_cvectr(&MatrixLy);
+    rm_cvectr(&MatrixLz);
+  }
+
+  void compute_angular_momentum_spin(const char &);
+  complex compute_global_angular_momentum(int, const char &, const char &);
+  complex compute_global_angular_momentum_square(int, const char &,
+                                                 const char &);
+  complex compute_local_angular_momentum(int, int, const char &, const char &);
+  complex compute_spin(int, int, const char &, const char &);
   void prepare_MatrixL(void);
   void set_origin(double, double, double);
   double Hamiltonian(int, int, int, int);
-  void get_data(complex*, complex*, int*, int*, int*, double*);
-  inline complex& cf_e(int e, int g, int s, int o) 
-    { return _cf_e[((e*numAtoms+g)*2+s)*o_max+o];}
-  inline complex& cf_h(int h, int g, int s, int o)
-    { return _cf_h[((h*numAtoms+g)*2+s)*o_max+o];}
-  inline double& lattice(int iat, int dim)
-    { return _lattice[iat*3+dim];}	  
-  inline int& nn(int iat, int nn)
-    { return _nn[iat*4+nn];}
+  void get_data(complex *, complex *, int *, int *, int *, double *);
+  inline complex &cf_e(int e, int g, int s, int o) {
+    return _cf_e[((e * numAtoms + g) * 2 + s) * o_max + o];
+  }
+  inline complex &cf_h(int h, int g, int s, int o) {
+    return _cf_h[((h * numAtoms + g) * 2 + s) * o_max + o];
+  }
+  inline double &lattice(int iat, int dim) { return _lattice[iat * 3 + dim]; }
+  inline int &nn(int iat, int nn) { return _nn[iat * 4 + nn]; }
 
 private:
- qd_struct d;
- int e_max, h_max;
- int my_id, g_min, g_max, o_max, numAtoms;
- double X0, Y0, Z0;
- complex* _cf_e;
- complex* _cf_h;
- int* _atom;
- int* _shape;
- int* _nn;
- double* _lattice;
- complex* MatrixLx; 
- complex* MatrixLy; 
- complex* MatrixLz; 
- int mpi_numprocs;
-};  
+  qd_struct d;
+  int e_max, h_max;
+  int my_id, g_min, g_max, o_max, numAtoms;
+  double X0, Y0, Z0;
+  complex *_cf_e;
+  complex *_cf_h;
+  int *_atom;
+  int *_shape;
+  int *_nn;
+  double *_lattice;
+  complex *MatrixLx;
+  complex *MatrixLy;
+  complex *MatrixLz;
+  int mpi_numprocs;
+};
 
 #endif

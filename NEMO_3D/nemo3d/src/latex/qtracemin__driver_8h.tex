@@ -1,0 +1,52 @@
+\doxysection{base/qtracemin\+\_\+driver.h File Reference}
+\hypertarget{qtracemin__driver_8h}{}\label{qtracemin__driver_8h}\index{base/qtracemin\_driver.h@{base/qtracemin\_driver.h}}
+
+
+Driver interface of Quadratic Tracemin eigenvalue solver algorithm. Tracemin algorithms are implemented in /\+NEMO\+\_\+3\+D/\+TRACEMIN folder.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{qtracemin__driver_8h_a641265fea6b94fdb662599c21150d95a}\label{qtracemin__driver_8h_a641265fea6b94fdb662599c21150d95a} 
+void {\bfseries zcopy} (int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{qtracemin__driver_8h_a5e54bf91dee5f634d6a55cc9e4a5a600}\label{qtracemin__driver_8h_a5e54bf91dee5f634d6a55cc9e4a5a600} 
+void {\bfseries zlarnv} (int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{qtracemin__driver_8h_a214315aa39a1422fd99b6143eac6032e}\label{qtracemin__driver_8h_a214315aa39a1422fd99b6143eac6032e} 
+real {\bfseries dznrm2} (int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{qtracemin__driver_8h_aa6f5ed5546a6c971ca8fb0a98bad9d36}\label{qtracemin__driver_8h_aa6f5ed5546a6c971ca8fb0a98bad9d36} 
+void {\bfseries zdotc} (complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{qtracemin__driver_8h_ac93a0ccee8f17972375f64f1613295c8}\label{qtracemin__driver_8h_ac93a0ccee8f17972375f64f1613295c8} 
+void {\bfseries modified\+\_\+conjugate\+\_\+gradient\+\_\+wrapper} (int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{qtracemin__driver_8h_abf1227123924a1904afea66770d05329}\label{qtracemin__driver_8h_abf1227123924a1904afea66770d05329} 
+void {\bfseries ztracemin\+\_\+wrapper} (int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, complex \texorpdfstring{$\ast$}{*}, real \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*}, int \texorpdfstring{$\ast$}{*})
+\item 
+int \mbox{\hyperlink{qtracemin__driver_8h_ae37c93ca107912ec640a2b6e80d9673a}{qtracemin\+\_\+driver}} (qd\+\_\+struct d)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Driver interface of Quadratic Tracemin eigenvalue solver algorithm. Tracemin algorithms are implemented in /\+NEMO\+\_\+3\+D/\+TRACEMIN folder. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{qtracemin__driver_8h_ae37c93ca107912ec640a2b6e80d9673a}\index{qtracemin\_driver.h@{qtracemin\_driver.h}!qtracemin\_driver@{qtracemin\_driver}}
+\index{qtracemin\_driver@{qtracemin\_driver}!qtracemin\_driver.h@{qtracemin\_driver.h}}
+\doxysubsubsection{\texorpdfstring{qtracemin\_driver()}{qtracemin\_driver()}}
+{\footnotesize\ttfamily \label{qtracemin__driver_8h_ae37c93ca107912ec640a2b6e80d9673a} 
+int qtracemin\+\_\+driver (\begin{DoxyParamCaption}\item[{qd\+\_\+struct}]{d}{}\end{DoxyParamCaption})}
+
+Driver function for Quadratic Tracemin eigenvalue solver algorithm 
+\begin{DoxyParams}{Parameters}
+{\em d} & IN\+: \doxylink{class_q_d__struct}{QD\+\_\+struct}, see \doxylink{qd__struct_8h_source}{qd\+\_\+struct.\+h} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of eigenvalues found 
+\end{DoxyReturn}

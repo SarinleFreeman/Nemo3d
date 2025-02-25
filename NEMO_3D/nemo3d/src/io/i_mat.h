@@ -33,24 +33,24 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/io/i_mat.h,v 1.5 2004/02/16 03:36:56 gekco Exp $ 
+$Header: /repo/nemo3d/src/io/i_mat.h,v 1.5 2004/02/16 03:36:56 gekco Exp $
 *****************************************************************************/
 
 #ifndef I_MAT_H
 #define I_MAT_H
 
 #include "mat_def.h"
+#include "mb_ham_spds_micro.h"
 #include "qd_struct.h"
 #include "run3d_mpi.h"
 #include "rvector_lib.h"
-#include "mb_ham_spds_micro.h"
-   /*#include "nemo_mb_models.h" */
+/*#include "nemo_mb_models.h" */
 #include "io_utils.h"
 #include "util_messages.h"
 #include "util_stringops.h"
 
 int str_to_atomID(const char *);
-char * atomID_to_str(int);
+char *atomID_to_str(int);
 void set_sMatList(qd_struct);
- 
+
 #endif /* I_MAT_H */

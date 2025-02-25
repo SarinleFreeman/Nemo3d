@@ -33,7 +33,8 @@ This product includes software developed by the Apache Software Foundation
 (http://www.apache.org/).
 
 *****************************************************************************
-$Header: /repo/nemo3d/src/base/qtracemin_driver.h,v 1.2 2007/07/24 17:20:51 lee509 Exp $
+$Header: /repo/nemo3d/src/base/qtracemin_driver.h,v 1.2 2007/07/24 17:20:51
+lee509 Exp $
 *****************************************************************************/
 
 #ifndef QTRACEMIN_DRIVER_H
@@ -46,53 +47,64 @@ $Header: /repo/nemo3d/src/base/qtracemin_driver.h,v 1.2 2007/07/24 17:20:51 lee5
 
 #ifdef __cplusplus
 extern "C" {
-#endif // __cplusplus 
+#endif // __cplusplus
 
 #ifdef FORTRAN_UNDERSCORE
-#define zcopy                                zcopy_
-#define zdotc                                zdotc_
-#define zlarnv                               zlarnv_
-#define dznrm2                               dznrm2_
-#define ztracemin_wrapper                    ztracemin_wrapper_
-#define modified_conjugate_gradient_wrapper  modified_conjugate_gradient_wrapper_
+#define zcopy zcopy_
+#define zdotc zdotc_
+#define zlarnv zlarnv_
+#define dznrm2 dznrm2_
+#define ztracemin_wrapper ztracemin_wrapper_
+#define modified_conjugate_gradient_wrapper modified_conjugate_gradient_wrapper_
 #endif
 
 #ifdef FORTRAN_UNDERSCORE2
-#define zcopy                                zcopy__
-#define zdotc                                zdotc__
-#define zlarnv                               zlarnv__
-#define dznrm2                               dznrm2__
-#define ztracemin_wrapper                    ztracemin_wrapper__
-#define modified_conjugate_gradient_wrapper  modified_conjugate_gradient_wrapper__
+#define zcopy zcopy__
+#define zdotc zdotc__
+#define zlarnv zlarnv__
+#define dznrm2 dznrm2__
+#define ztracemin_wrapper ztracemin_wrapper__
+#define modified_conjugate_gradient_wrapper                                    \
+  modified_conjugate_gradient_wrapper__
 #endif
 
 #ifdef FORTRAN_ALLCAPS
-#define zcopy                                ZCOPY
-#define zdotc                                ZDOTC
-#define zlarnv                               ZLARNV
-#define dznrm2                               DZNRM2
-#define ztracemin_wrapper                    ZTRACEMIN_WRAPPER             
-#define modified_conjugate_gradient_wrapper  MODIFIED_CONJUGATE_GRADIENT_WRAPPER
+#define zcopy ZCOPY
+#define zdotc ZDOTC
+#define zlarnv ZLARNV
+#define dznrm2 DZNRM2
+#define ztracemin_wrapper ZTRACEMIN_WRAPPER
+#define modified_conjugate_gradient_wrapper MODIFIED_CONJUGATE_GRADIENT_WRAPPER
 #endif
 
-//LAPACK Functions
-void zcopy (int *, complex *, int *, complex *, int *);                  //subroutine used to copy vectors
-void zlarnv(int *, int *, int *, complex *);                             //subroutine used to generate random vector 
-real dznrm2(int *, complex *, int *);                                    //functions used to compute norm of two vectors
-void zdotc (complex *, int *, complex *, int *, complex *, int *);       //function used to compute complex conjugate dot product of two vectors
+// LAPACK Functions
+void zcopy(int *, complex *, int *, complex *,
+           int *); // subroutine used to copy vectors
+void zlarnv(int *, int *, int *,
+            complex *); // subroutine used to generate random vector
+real dznrm2(int *, complex *,
+            int *); // functions used to compute norm of two vectors
+void zdotc(complex *, int *, complex *, int *, complex *,
+           int *); // function used to compute complex conjugate dot product of
+                   // two vectors
 
-void modified_conjugate_gradient_wrapper(int*,int*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,complex*,real*,int*,int*,real*,real*,int*,int*,int*,int*,int*);
-void ztracemin_wrapper(int *,int *,complex *,real *,complex *,complex *,complex *,complex *,real *,int *,complex *,real *,int *,int *,int *,int *,int *,int *,int *);
-                     
+void modified_conjugate_gradient_wrapper(int *, int *, complex *, complex *,
+                                         complex *, complex *, complex *,
+                                         complex *, complex *, complex *,
+                                         real *, int *, int *, real *, real *,
+                                         int *, int *, int *, int *, int *);
+void ztracemin_wrapper(int *, int *, complex *, real *, complex *, complex *,
+                       complex *, complex *, real *, int *, complex *, real *,
+                       int *, int *, int *, int *, int *, int *, int *);
+
 #ifdef __cplusplus
 }
-#endif // __cplusplus 
+#endif // __cplusplus
 
-
-int qtracemin_driver( qd_struct d );
+int qtracemin_driver(qd_struct d);
 /*!< Driver function for Quadratic Tracemin eigenvalue solver algorithm
  * @param d IN: QD_struct, see qd_struct.h
  * @return Number of eigenvalues found
  */
 
-#endif // QTRACEMIN_DRIVER_H 
+#endif // QTRACEMIN_DRIVER_H

@@ -1,0 +1,138 @@
+\doxysection{phon\+\_\+struct.\+h}
+\hypertarget{phon__struct_8h_source}{}\label{phon__struct_8h_source}\index{base/phon\_struct.h@{base/phon\_struct.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{The\ Jet\ Propulsion\ Laboratory\ (JPL)\ NanoElectronicMOdeling-\/3D\ package.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{Copyright\ (C)\ 2002\ California\ Institute\ of\ Technology\ (Caltech)}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{This\ application\ is\ free\ software,\ which\ you\ can\ redistribute\ and/or\ modify}}
+\DoxyCodeLine{00006\ \textcolor{comment}{under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{00007\ \textcolor{comment}{Free\ Software\ Foundation;\ either\ version\ 2.1\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{00008\ \textcolor{comment}{option)\ any\ later\ version.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00012\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public\ License}}
+\DoxyCodeLine{00016\ \textcolor{comment}{along\ with\ this\ library;\ see\ the\ file\ COPYING.\ If\ not,\ write\ to\ the}}
+\DoxyCodeLine{00017\ \textcolor{comment}{Free\ Software\ Foundation,\ Inc.,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{59\ Temple\ Place,\ Suite\ 330,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{For\ additional\ information,\ please\ contact}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ Gerhard\ Klimeck\ (gekco@jpl.nasa.gov)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ Fabiano\ Oyafuso\ (fabiano@jpl.nasa.gov)}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{Written\ by:\ \ Chris\ Bowen}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Gerhard\ Klimeck}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Fabiano\ Oyafuso}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Seungwon\ Lee}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Olga\ Lazarenkova}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ Hook\ Hua}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{This\ product\ includes\ software\ developed\ by\ the\ Apache\ Software\ Foundation}}
+\DoxyCodeLine{00033\ \textcolor{comment}{(http://www.apache.org/).}}
+\DoxyCodeLine{00034\ \textcolor{comment}{}}
+\DoxyCodeLine{00035\ \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\$Header:\ /repo/nemo3d/src/base/phon\_struct.h,v\ 1.6\ 2004/02/16\ 03:36:56\ gekco\ Exp\ \$\ }}
+\DoxyCodeLine{00037\ \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#ifndef\ PHON\_STRUCT\_H}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ PHON\_STRUCT\_H}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ <nml\_dcmatrix.h>}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ <nml\_dmatrix.h>}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ <nml\_imatrix.h>}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <i2tensor.h>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <i3tensor.h>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <r3tensor.h>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <rvector.h>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <cvector.h>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <rmatrix.h>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <cmatrix.h>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ <imatrix.h>}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}realtype.h"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}ivectori3matrix.h"{}}}
+\DoxyCodeLine{00059\ \ \ \ \textcolor{comment}{/*\ \#include\ "{}mat\_struct.h"{}\ */}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}ivectorvector.h"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}cmatrixmatrix.h"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}rmatrixrvector.h"{}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\#include\ <ostream>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{using\ }std::ostringstream;}
+\DoxyCodeLine{00070\ \textcolor{keyword}{using\ }std::setw;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classphon__struct}{phon\_struct}}\ \{}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classphon__struct_ad20fd6d0db121923494127c319790691}{states\_in\_row}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{comment}{//The\ storage\ of\ the\ Dynamical\ Matrix\ is\ almost\ similar\ to\ that\ by\ Harwell-\/Boeing\ }}
+\DoxyCodeLine{00082\ \ \ cmatrix\ \mbox{\hyperlink{classphon__struct_a9eb524735802c69de05aefcec43b252e}{DM}};}
+\DoxyCodeLine{00083\ \ \ imatrix\ \mbox{\hyperlink{classphon__struct_ae87d4d1857ab9aada5c31768322ecb10}{Ind\_DM}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{comment}{//Map}}
+\DoxyCodeLine{00088\ \ \ i3matrix\ \mbox{\hyperlink{classphon__struct_afa5e3dc47fe6c0d7f65096f0c8912198}{DMmap}};}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//Phonon\ spectrum}}
+\DoxyCodeLine{00091\ \ \ rmatrix\ \mbox{\hyperlink{classphon__struct_a06b32793022638f4c8b0a7842d0abf15}{E\_ph}};}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classphon__struct_ab58fcb42b870cea5ea9f79ceb634f7dd}{nbr\_uc}};}
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{//Parallel\ stuff:}}
+\DoxyCodeLine{00099\ \ \ ivectr\ seg\_col\_s,\ \mbox{\hyperlink{classphon__struct_a24085e2deb2ddd47d3cfaa3e2412d757}{seg\_col\_ln}};\ }
+\DoxyCodeLine{00102\ \ \ ivectr\ min\_row,\ \mbox{\hyperlink{classphon__struct_af24936116e0d9f22cca227eb7bf442ab}{max\_row}};}
+\DoxyCodeLine{00104\ \ \ ivectr\ szCommL,\mbox{\hyperlink{classphon__struct_a404774c0c6676763140efac479d193d4}{szCommR}};}
+\DoxyCodeLine{00106\ \ \ ivectr\ N\_cols,\mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\_rows}};}
+\DoxyCodeLine{00107\ \ \ ivectr\ mpi\_left,\mbox{\hyperlink{classphon__struct_ae8f222c490bf59b88450238972960c4e}{mpi\_right}};}
+\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//Parts\ of\ the\ eigenvectors\ for\ communication}}
+\DoxyCodeLine{00109\ \ \ cvectr\ \mbox{\hyperlink{classphon__struct_ae3abff2bf3bf4bf24883ee4f44b6e4a1}{wL}};}
+\DoxyCodeLine{00110\ \ \ cvectr\ \mbox{\hyperlink{classphon__struct_ae666c6402a5d0ccde2a768808869aee6}{wR}};}
+\DoxyCodeLine{00111\ \ \ cvectr\ \mbox{\hyperlink{classphon__struct_ab226a2e91f27ff3258e1c1d2b1f8cfda}{vL}};}
+\DoxyCodeLine{00112\ \ \ cvectr\ \mbox{\hyperlink{classphon__struct_a7614f1c40ef1baac6385dd1c5f1268b2}{vR}};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ ph\_s\_alloc(\textcolor{keywordtype}{int}\ N\_uc,\textcolor{comment}{//number\ of\ unit\ cells}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ N\_a,\textcolor{comment}{//number\ of\ atoms\ per\ unit\ cell}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ N\_branches,\textcolor{comment}{//number\ of\ phonon\ branches}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Nq\_ph,\textcolor{comment}{//number\ of\ points\ in\ the\ reciprocal\ space]}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nproc\textcolor{comment}{//number\ of\ processors}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ );\textcolor{comment}{//Allocates\ memory\ for\ phonon-\/related\ matrixes}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ comm\_vectors\_allocate();\textcolor{comment}{//Allocates\ memory\ for\ parts\ of\ the\ eigenvector\ that}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//participate\ in\ communication}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ comm\_vectors\_deallocate();\textcolor{comment}{//Deallocates\ memory\ for\ parts\ of\ the\ eigenvector\ that}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//participate\ in\ communication}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{void}\ DM\_allocate(}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\_rows}},\textcolor{comment}{//\ total\ number\ of\ rows\ ON\ THE\ PROCESSOR}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ DM\_states\_in\_row\textcolor{comment}{//max\ number\ of\ elements\ per\ row\ on\ mpi\_n3d\_id\ proc}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\textcolor{comment}{/*Allocates\ memory\ for\ the\ Dynamical\ matrix\ and}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffers\ for\ exchange\ with\ neighbor\ processors*/}}
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{void}\ DM\_reallocate(}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classphon__struct_af0bb5fdbe3808c116e6feaee1fa5098c}{N\_rows}},\textcolor{comment}{//\ total\ number\ of\ rows\ ON\ THE\ PROCESSOR}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ DM\_states\_in\_row\textcolor{comment}{//max\ number\ of\ elements\ per\ row\ on\ mpi\_n3d\_id\ proc}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );\textcolor{comment}{/*Reallocates\ memory\ for\ the\ Dynamical\ matrix\ and}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffers\ for\ exchange\ with\ neighbor\ processors*/}}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{void}\ ph\_s\_dealloc();\textcolor{comment}{//Deallocates\ memory\ for\ phonon-\/related\ matrixes}}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{void}\ ph\_s\_clear();\textcolor{comment}{//Clears\ ALL\ elements\ of\ phon\_struct}}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{void}\ Print\_DM();\textcolor{comment}{//Prints\ out\ the\ Dynamical\ matrix\ }}
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ Print\_parameters();\textcolor{comment}{//Prints\ all\ the\ parameters}}
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{void}\ Picture\_DM(\textcolor{keywordtype}{int}\ DM\_total\_size);\textcolor{comment}{/*Picture\ the\ Dynamical\ matrix\ stored\ on\ the\ processor}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}0"{}\ -\/\ zero,\ "{}X"{}\ -\/-\/\ nonzero\ element,}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ every\ element\ is\ followed\ by\ (mpi\_n3d\_id)\ and}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pre...\ by\ <row,col>\ in\ the\ whole\ DM*/}}
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
