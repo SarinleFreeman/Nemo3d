@@ -1007,3 +1007,183 @@ void local_bandstruct_cubic(qd_struct d) {
   rm_cvectr(&E);
   rm_cvectr(&E_vca);
 }
+
+
+/* 
+ * Sarinle Additions (See header file for description)
+*/
+bool verbose_tan_model = true
+Material_struct* getMaterialHandle(qd_struct d, int atype) {
+    for (size_t i = 0; i < d->sMatList.size(); i++) {
+        Material_struct* smh = d->sMatList[i].hndl;
+        if (smh && (smh->materialID == atype)) {
+            if (verbose_tan_model)
+                printf("getMaterialHandle: Found materialID %d at index %zu.\n", atype, i);
+            return smh;
+        }
+    }
+    die("Error: Material with materialID %d not found in sMatList.\n", atype);
+    return NULL; // Should never reach here.
+}
+
+real getUnstrainedBondLength(qd_struct d, int atype_this, int atype_nbr) {
+    Material_struct *smh_this = getMaterialHandle(d, atype_this);
+    Material_struct *smh_nbr  = getMaterialHandle(d, atype_nbr);
+    if (!smh_this || !smh_nbr) {
+         die("Error in getUnstrainedBondLength: Missing material handle for atype %d or %d", 
+             atype_this, atype_nbr);
+    }
+    if (verbose_tan_model)
+        printf("getUnstrainedBondLength: Using unstrained cell lengths: %f (atype %d) and %f (atype %d).\n",
+               smh_this->unstrnd_cubic_cell_length, atype_this,
+               smh_nbr->unstrnd_cubic_cell_length, atype_nbr);
+    real a_this = smh_this->unstrnd_cubic_cell_length;
+    real a_nbr  = smh_nbr->unstrnd_cubic_cell_length;
+    real a_avg  = (a_this + a_nbr) / 2.0;
+    real bond0 = a_avg * sqrt(3.0) / 4.0;
+    if (verbose_tan_model)
+        printf("getUnstrainedBondLength: Computed unstrained bond length = %f.\n", bond0);
+    return bond0;
+}
+
+real getTanParam(qd_struct d, int atype_this, int atype_nbr) {
+    Material_struct *smh = NULL;
+    if (atype_this == 16) {
+         smh = getMaterialHandle(d, atype_this);
+         if (verbose_tan_model)
+             printf("getTanParam: Using current anion's parameters (atype %d).\n", atype_this);
+    } else {
+         smh = getMaterialHandle(d, atype_nbr);
+         if (verbose_tan_model)
+             printf("getTanParam: Using neighbor's parameters (atype %d) for cation (atype %d).\n", atype_nbr, atype_this);
+    }
+    if (!smh) {
+         die("Error in getTanParam: Missing material handle for atom types %d and %d.", atype_this, atype_nbr);
+         return 0.0;
+    }
+    if (verbose_tan_model)
+        printf("getTanParam: Returning tan_params[0] = %f.\n", smh->tan_params[0]);
+    return smh->tan_params[0];
+}
+
+real getTanEta(qd_struct d, int atype_this, int atype_nbr) {
+    Material_struct *smh = NULL;
+    if (atype_this == 16) {
+         smh = getMaterialHandle(d, atype_this);
+         if (verbose_tan_model)
+             printf("getTanEta: Using current anion's parameters (atype %d).\n", atype_this);
+    } else {
+         smh = getMaterialHandle(d, atype_nbr);
+         if (verbose_tan_model)
+             printf("getTanEta: Using neighbor's parameters (atype %d) for cation (atype %d).\n", atype_nbr, atype_this);
+    }
+    if (!smh) {
+         die("Error in getTanEta: Missing material handle for atom types %d and %d.", atype_this, atype_nbr);
+         return 0.0;
+    }
+    if (verbose_tan_model)
+        printf("getTanEta: Returning tan_lambda[0] = %f.\n", smh->tan_lambda[0]);
+    return smh->tan_lambda[0];
+}
+
+
+real* YaohuaModification(qd_struct d, int l, int m) {
+    int NB = d->NBasisStates;
+    real* shift_array = (real*) malloc(NB * sizeof(real));
+    if (!shift_array) {
+        die("YaohuaModification: Memory allocation failed for shift_array.");
+        return NULL;
+    }
+    // Initialize the shift array.
+    for (int i = 0; i < NB; i++) {
+         shift_array[i] = 0.0;
+    }
+    
+    int AtomType_this = (int) d->geo.AtomType[l][m];
+    if (verbose_tan_model)
+         printf("YaohuaModification: Processing atom at cell %d, atom index %d with atom type %d.\n", l, m, AtomType_this);
+    
+    int nNeighbors = d->geo.Neighbors(m);
+    if (verbose_tan_model)
+         printf("YaohuaModification: Found %d neighbors for atom (l=%d, m=%d).\n", nNeighbors, l, m);
+    
+    // Loop over each neighbor.
+    for (int n = 0; n < nNeighbors; n++) {
+         // Get neighbor atom index within its cell.
+         int aindx = d->geo.NbrCell(m, n, 3);
+         
+         // Retrieve the current cell's indices.
+         int i_cell = d->geo.cell__ijk[l][0];
+         int j_cell = d->geo.cell__ijk[l][1];
+         int k_cell = d->geo.cell__ijk[l][2];
+         
+         // Determine neighbor cell indices by adding the neighbor displacement.
+         int i_nbr = i_cell + d->geo.NbrCell(m, n, 0);
+         int j_nbr = j_cell + d->geo.NbrCell(m, n, 1);
+         int k_nbr = k_cell + d->geo.NbrCell(m, n, 2);
+         
+         // Look up neighbor cell index.
+         int l_nbr = d->geo.ijk__cell[i_nbr][j_nbr][k_nbr];
+         
+         // Get the neighbor's atom type.
+         int AtomType_nbr = (int) d->geo.AtomType[l_nbr][aindx];
+         if (verbose_tan_model)
+             printf("YaohuaModification: Neighbor %d at cell %d, atom index %d has atom type %d.\n", n, l_nbr, aindx, AtomType_nbr);
+         if (!AtomType_nbr)
+             continue;
+         
+         // Compute the relative position vectors.
+         real nnv0[3], nnv[3];
+         d->geo.getRelativePosVec(nnv0, nnv, d->geo.lattice_x, l, m, l_nbr, aindx, n);
+         // Compute the unstrained bond length from nnv0.
+         real bondLength = sqrt(nnv0[0]*nnv0[0] + nnv0[1]*nnv0[1] + nnv0[2]*nnv0[2]);
+         if (verbose_tan_model)
+             printf("YaohuaModification: Neighbor %d bond length = %f.\n", n, bondLength);
+         
+         // Get the reference bond length using Tan's model.
+         real d0 = getUnstrainedBondLength(d, AtomType_this, AtomType_nbr);
+         if (verbose_tan_model)
+             printf("YaohuaModification: Reference bond length (d0) = %f.\n", d0);
+         
+         // Choose which material's Tan parameters to use.
+         Material_struct *smh_current = NULL;
+         if (AtomType_this < 10) {
+              smh_current = getMaterialHandle(d, AtomType_this);
+              if (verbose_tan_model)
+                  printf("YaohuaModification: Using current anion's Tan parameters (atype %d).\n", AtomType_this);
+         } else {
+              smh_current = getMaterialHandle(d, AtomType_nbr);
+              if (verbose_tan_model)
+                  printf("YaohuaModification: Using neighbor's Tan parameters (atype %d) for cation (atype %d).\n", AtomType_nbr, AtomType_this);
+         }
+         if (!smh_current) {
+             if (verbose_tan_model)
+                 printf("YaohuaModification: Skipping neighbor %d due to missing material handle.\n", n);
+             continue;
+         }
+         
+         // For each orbital in the lower half (assumed unique),
+         // compute the orbital-specific onsite shift contribution from this neighbor.
+         for (int orb = 0; orb < NB/2; orb++) {
+              real I_val = smh_current->tan_params[orb];     // Orbital-specific prefactor.
+              real lambda_val = smh_current->tan_lambda[orb];  // Orbital-specific decay parameter.
+              real tan_O = smh_current->tan_O;                 // Constant offset.
+              real shiftForThisBond = I_val * exp(-lambda_val * (bondLength - d0)) + tan_O;
+              if (verbose_tan_model)
+                  printf("YaohuaModification: Orbital %d: I_val = %f, lambda = %f, tan_O = %f, bondLength = %f, contribution = %f.\n",
+                         orb, I_val, lambda_val, tan_O, bondLength, shiftForThisBond);
+              shift_array[orb] += shiftForThisBond;
+         }
+         // For spin degeneracy, copy the lower-half shifts into the upper half.
+         for (int orb = 0; orb < NB/2; orb++) {
+              shift_array[orb + NB/2] = shift_array[orb];
+         }
+    }
+    if (verbose_tan_model) {
+         printf("YaohuaModification: Final onsite shift array (per orbital):\n");
+         for (int i = 0; i < NB; i++) {
+              printf("   Orbital %d: shift = %f\n", i, shift_array[i]);
+         }
+    }
+    return shift_array;
+}
