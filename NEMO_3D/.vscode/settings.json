@@ -5,6 +5,25 @@
         "string": "cpp",
         "Material_struct.C": "cpp",
         "Output_struct.C": "cpp",
-        "Abs_Ramp_struct.C": "cpp"
+        "Abs_Ramp_struct.C": "cpp",
+        "mb_ham_spds_micro2.h": "c",
+        "stat.h": "c",
+        "types.h": "c",
+        "nemo3d_entry.h": "c",
+        "util_command_bx.h": "c",
+        "extension.C": "cpp",
+        "ham3d_final.h": "c",
+        "nemo3d_mpi.h": "c",
+        "__bit_reference": "c",
+        "__hash_table": "c",
+        "__split_buffer": "c",
+        "array": "c",
+        "bitset": "c",
+        "initializer_list": "c",
+        "list": "c",
+        "string_view": "c",
+        "unordered_map": "c",
+        "complex": "c",
+        "ElAlg_struct.C": "cpp"
     }
 }
