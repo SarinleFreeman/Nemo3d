@@ -65,4 +65,47 @@ void local_Hoff_zincBlende(qd_struct d, cmatrix h, int l, int m,
 void local_bandstruct_zincBlende_cubic(qd_struct d);
 
 void local_bandstruct_cubic(qd_struct d);
+
+/*
+ * getMaterialHandle:
+ *   Given a qd_struct pointer and an atom type (an integer),
+ *   return a pointer to the Material_struct for that atom.
+ */
+Material_struct* getMaterialHandle(qd_struct d, int atype);
+
+/*
+ * getUnstrainedBondLength:
+ *   For zincblende, the bond length is related to the unstrained cubic cell
+ *   lattice constant by: d0 = a0 * sqrt(3)/4.
+ *   Here we take the average of the two materials (if different) involved in the bond.
+ */
+real getUnstrainedBondLength(qd_struct d, int atype_this, int atype_nbr);
+
+/*
+ * getTanParam:
+ *   Returns the prefactor for the onsite correction for a given bond.
+ *   In a full implementation, this would select one of the parameters
+ *   I_{α,j} based on the orbital type and the bond direction.
+ */
+real getTanParam(qd_struct d, int atype_this, int atype_nbr);
+
+/*
+ * getTanEta:
+ *   Returns the decay constant (lambda) for the onsite correction.
+ *   This selects a parameter for the given bond.
+ */
+real getTanEta(qd_struct d, int atype_this, int atype_nbr);
+
+/*
+ * YaohuaModification:
+ *   Computes the orbital-specific onsite energy correction (shift) for the atom
+ *   at cell index l and atom index m using the new Tan model.
+ *   Under Tan's model, each orbital's diagonal energy is shifted by bond-length-dependent
+ *   corrections (without averaging over neighbors).
+ *   The function returns a dynamically allocated array (of length d->NBasisStates)
+ *   containing the onsite corrections for each orbital.
+ *   (It is the caller's responsibility to free the returned array.)
+ */
+real* YaohuaModification(qd_struct d, int l, int m);
+
 #endif
